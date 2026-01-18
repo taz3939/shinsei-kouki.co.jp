@@ -1,0 +1,689 @@
+@charset "utf-8";
+
+/* color import setting
+------------------------------------*/
+@import 'common/colors';
+
+/* top page setting
+------------------------------------*/
+
+/* mainVisual setting
+------------------------------------*/
+#mainVisual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 516px;
+  background-image: url("../../img/top/bg_main-top_pc.webp");
+  background-position: bottom center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    display: block;
+    background: rgba(255, 255, 255, 0.2);
+    width: 100%;
+    height: 100%;
+  }
+  
+  .inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 60px 40px;
+    width: 90%;
+    max-width: 1200px;
+    
+    .mainVisualLeft {
+      flex: 1;
+      max-width: 600px;
+      
+      .mainVisualLogo {
+        display: flex;
+        align-items: center;
+        margin: 0 0 20px;
+        
+        img {
+          width: auto;
+          height: 40px;
+          margin: 0 10px 0 0;
+        }
+      }
+      
+      h1 {
+        margin: 0 0 30px;
+        font-weight: 600;
+        font-size: 48px;
+        color: $cBk2;
+        line-height: 1.4;
+      }
+      
+      .mainVisualTxt {
+        margin: 0;
+        font-weight: 400;
+        font-size: 18px;
+        color: $cBk2;
+        line-height: 1.8;
+      }
+    }
+    
+    .mainVisualRight {
+      flex: 1;
+      text-align: right;
+      
+      img {
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        max-height: 400px;
+      }
+    }
+  }
+}
+
+/* aboutBusiness setting
+------------------------------------*/
+#aboutBusiness {
+  padding: 80px 0;
+  background: $cWht;
+  
+  .inner {
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1200px;
+    
+    h2 {
+      margin: 0 0 50px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 36px;
+      color: $cBk2;
+    }
+    
+    .aboutBusinessContent {
+      p {
+        margin: 0 0 50px;
+        line-height: 2;
+        font-size: 16px;
+        color: $cBk1;
+        text-align: center;
+      }
+      
+      .businessList {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 0 0 50px;
+        gap: 30px;
+        
+        .businessItem {
+          position: relative;
+          box-sizing: border-box;
+          padding: 40px 30px;
+          width: calc(50% - 15px);
+          background: $cWht;
+          border: 1px solid $cGr1;
+          border-radius: 8px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+          transition: box-shadow 0.3s ease, transform 0.3s ease;
+          
+          &:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+          }
+          
+          .businessIcon {
+            margin: 0 0 20px;
+            
+            img {
+              width: auto;
+              height: 50px;
+            }
+          }
+          
+          h3 {
+            margin: 0 0 15px;
+            font-weight: 600;
+            font-size: 20px;
+            color: $cBk2;
+          }
+          
+          p {
+            margin: 0;
+            line-height: 1.8;
+            font-size: 14px;
+            color: $cBk1;
+            text-align: left;
+          }
+        }
+      }
+      
+      .btnArea {
+        text-align: center;
+        
+        .btnPrimary {
+          display: inline-flex;
+          align-items: center;
+          box-sizing: border-box;
+          padding: 15px 40px;
+          background: $cBlu;
+          border-radius: 6px;
+          box-shadow: 0 4px 2px 0 rgba(34, 85, 164, 0.2);
+          font-weight: 600;
+          font-size: 18px;
+          color: $cWht;
+          text-decoration: none;
+          transition: opacity 0.6s ease;
+          
+          &::after {
+            content: "→";
+            margin: 0 0 0 10px;
+            font-size: 20px;
+          }
+          
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* latestNews and businessCalendar (2 column layout)
+------------------------------------*/
+#latestNewsCalendar {
+  padding: 80px 0;
+  background: $cGr0;
+  
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1200px;
+    gap: 40px;
+    
+    #latestNews {
+      flex: 1;
+      
+      h2 {
+        margin: 0 0 30px;
+        font-weight: 600;
+        font-size: 24px;
+        color: $cBk2;
+      }
+      
+      .newsList {
+        margin: 0 0 30px;
+        padding: 0;
+        list-style: none;
+        
+        li {
+          display: flex;
+          align-items: flex-start;
+          padding: 15px 0;
+          border-bottom: 1px solid $cGr1;
+          
+          &:first-child {
+            border-top: 1px solid $cGr1;
+          }
+          
+          time {
+            margin: 0 20px 0 0;
+            min-width: 90px;
+            font-size: 14px;
+            color: $cGr2;
+          }
+          
+          a {
+            flex: 1;
+            font-size: 14px;
+            color: $cBk1;
+            text-decoration: none;
+            line-height: 1.6;
+            transition: color 0.3s ease;
+            
+            &:hover {
+              color: $cBk2;
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+      
+      .btnArea {
+        .btnSecondary {
+          display: inline-flex;
+          align-items: center;
+          box-sizing: border-box;
+          padding: 12px 30px;
+          background: $cBlu;
+          border-radius: 6px;
+          font-weight: 600;
+          font-size: 16px;
+          color: $cWht;
+          text-decoration: none;
+          transition: opacity 0.6s ease;
+          
+          &::after {
+            content: "→";
+            margin: 0 0 0 8px;
+            font-size: 18px;
+          }
+          
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+    
+    #businessCalendar {
+      flex: 1;
+      
+      h2 {
+        margin: 0 0 20px;
+        font-weight: 600;
+        font-size: 24px;
+        color: $cBk2;
+      }
+      
+      .calendarInfo {
+        margin: 20px 0 0;
+        padding: 15px;
+        background: $cWht;
+        border-radius: 6px;
+        font-size: 14px;
+        color: $cBk1;
+        line-height: 1.8;
+      }
+    }
+  }
+}
+
+/* contactSection setting
+------------------------------------*/
+#contactSection {
+  padding: 80px 0;
+  background: $cWht;
+  
+  .inner {
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+    
+    h2 {
+      margin: 0 0 30px;
+      font-weight: 600;
+      font-size: 36px;
+      color: $cBk2;
+    }
+    
+    p {
+      margin: 0 0 40px;
+      line-height: 1.8;
+      font-size: 16px;
+      color: $cBk1;
+    }
+    
+    .btnArea {
+      margin: 0 0 30px;
+      
+        .btnContact {
+          display: inline-flex;
+          align-items: center;
+          box-sizing: border-box;
+          padding: 15px 40px;
+          background: $cGreen;
+          border-radius: 6px;
+          box-shadow: 0 4px 2px 0 rgba(76, 175, 80, 0.2);
+        font-weight: 600;
+        font-size: 18px;
+        color: $cWht;
+        text-decoration: none;
+        transition: opacity 0.6s ease;
+        
+        &::after {
+          content: "→";
+          margin: 0 0 0 10px;
+          font-size: 20px;
+        }
+        
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+    
+    .contactPhone {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 18px;
+      color: $cBk2;
+      font-weight: 500;
+      
+      &::before {
+        content: "📞";
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+/* handledBrands setting
+------------------------------------*/
+#handledBrands {
+  padding: 80px 0;
+  background: $cGr0;
+  
+  .inner {
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1200px;
+    
+    h2 {
+      margin: 0 0 30px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 36px;
+      color: $cBk2;
+    }
+    
+    p {
+      margin: 0 0 50px;
+      line-height: 1.8;
+      font-size: 16px;
+      color: $cBk1;
+      text-align: center;
+    }
+    
+    .brandLogos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      
+      .brandLogo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        background: $cWht;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        transition: box-shadow 0.3s ease;
+        
+        &:hover {
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        img {
+          width: auto;
+          max-width: 150px;
+          max-height: 60px;
+          height: auto;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------
+	Ajustment For Small PC Window 
+------------------------------------------------------------------------ */
+@media screen and (max-width: 1024px) {
+  #mainVisual {
+    .inner {
+      flex-direction: column;
+      text-align: center;
+      
+      .mainVisualLeft {
+        max-width: 100%;
+        margin: 0 0 40px;
+      }
+      
+      .mainVisualRight {
+        text-align: center;
+      }
+    }
+  }
+  
+  #aboutBusiness {
+    .inner {
+      .aboutBusinessContent {
+        .businessList {
+          .businessItem {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  
+  #latestNewsCalendar {
+    .inner {
+      flex-direction: column;
+      
+      #latestNews,
+      #businessCalendar {
+        width: 100%;
+      }
+    }
+  }
+  
+  #handledBrands {
+    .inner {
+      .brandLogos {
+        gap: 20px;
+        
+        .brandLogo {
+          padding: 15px;
+          
+          img {
+            max-width: 120px;
+            max-height: 50px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------
+	Ajustment For Smart Phone 
+------------------------------------------------------------------------ */
+@media screen and (max-width: 768px) {
+  #mainVisual {
+    min-height: 50vh;
+    
+    .inner {
+      padding: 40px 20px;
+      
+      .mainVisualLeft {
+        .mainVisualLogo {
+          img {
+            height: 30px;
+          }
+        }
+        
+        h1 {
+          font-size: 28px;
+        }
+        
+        .mainVisualTxt {
+          font-size: 14px;
+        }
+      }
+      
+      .mainVisualRight {
+        img {
+          max-height: 200px;
+        }
+      }
+    }
+  }
+  
+  #aboutBusiness {
+    padding: 60px 0;
+    
+    .inner {
+      h2 {
+        font-size: 28px;
+      }
+      
+      .aboutBusinessContent {
+        p {
+          font-size: 14px;
+          text-align: left;
+        }
+        
+        .businessList {
+          gap: 20px;
+          
+          .businessItem {
+            width: 100%;
+            padding: 30px 20px;
+            
+            .businessIcon {
+              img {
+                height: 40px;
+              }
+            }
+            
+            h3 {
+              font-size: 18px;
+            }
+            
+            p {
+              font-size: 13px;
+            }
+          }
+        }
+        
+        .btnArea {
+          .btnPrimary {
+            padding: 12px 30px;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+  
+  #latestNewsCalendar {
+    padding: 60px 0;
+    
+    .inner {
+      gap: 30px;
+      
+      #latestNews {
+        h2 {
+          font-size: 20px;
+        }
+        
+        .newsList {
+          li {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 12px 0;
+            
+            time {
+              margin: 0 0 8px 0;
+              font-size: 12px;
+            }
+            
+            a {
+              font-size: 13px;
+            }
+          }
+        }
+        
+        .btnArea {
+          .btnSecondary {
+            padding: 10px 25px;
+            font-size: 14px;
+          }
+        }
+      }
+      
+      #businessCalendar {
+        h2 {
+          font-size: 20px;
+        }
+        
+        .calendarInfo {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  
+  #contactSection {
+    padding: 60px 0;
+    
+    .inner {
+      h2 {
+        font-size: 28px;
+      }
+      
+      p {
+        font-size: 14px;
+      }
+      
+      .btnArea {
+        .btnContact {
+          padding: 12px 30px;
+          font-size: 16px;
+        }
+      }
+      
+      .contactPhone {
+        font-size: 16px;
+      }
+    }
+  }
+  
+  #handledBrands {
+    padding: 60px 0;
+    
+    .inner {
+      h2 {
+        font-size: 28px;
+      }
+      
+      p {
+        font-size: 14px;
+      }
+      
+      .brandLogos {
+        gap: 15px;
+        
+        .brandLogo {
+          padding: 10px;
+          
+          img {
+            max-width: 100px;
+            max-height: 40px;
+          }
+        }
+      }
+    }
+  }
+}
