@@ -4,6 +4,29 @@
  * CSS, JSの読み込み管理
  */
 
+// フォントとLCP画像のpreload（パフォーマンス最適化）
+function shinsei_kouki_preload_fonts() {
+    $font_dir = get_template_directory_uri() . '/assets/font';
+    
+    // フォントドメインへのpreconnect（DNS解決と接続を早期に確立）
+    $site_url = parse_url(get_site_url(), PHP_URL_SCHEME) . '://' . parse_url(get_site_url(), PHP_URL_HOST);
+    echo '<link rel="preconnect" href="' . esc_url($site_url) . '" crossorigin>';
+    
+    // よく使われるフォントウェイトをpreload
+    // Regular (400) - 本文で使用（最も重要）
+    echo '<link rel="preload" href="' . esc_url($font_dir . '/400_ZenOldMincho-Regular.woff') . '" as="font" type="font/woff" crossorigin>';
+    
+    // Bold (700) - 見出しで使用
+    echo '<link rel="preload" href="' . esc_url($font_dir . '/700_ZenOldMincho-Bold.woff') . '" as="font" type="font/woff" crossorigin>';
+    
+    // LCP画像のpreload（メインビジュアル画像）
+    if (is_front_page()) {
+        $lcp_image = get_template_directory_uri() . '/assets/img/top/img_products.webp';
+        echo '<link rel="preload" href="' . esc_url($lcp_image) . '" as="image" fetchpriority="high">';
+    }
+}
+add_action('wp_head', 'shinsei_kouki_preload_fonts', 1);
+
 function shinsei_kouki_enqueue_scripts() {
     // CSS
     wp_enqueue_style('normalize-style', get_template_directory_uri() . '/assets/css/common/normalize.min.css', array(), '1.0.0');

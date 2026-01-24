@@ -4,16 +4,14 @@
 ------------------------------------*/
 @import 'common/colors';
 
-/* top page setting
-------------------------------------*/
+
+
+
 
 /* mainVisual setting
 ------------------------------------*/
 #mainVisual {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   height: 516px;
   background-image: url("../../img/top/bg_main-top_pc.webp");
@@ -21,81 +19,104 @@
   background-size: cover;
   background-repeat: no-repeat;
   
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    display: block;
-    background: rgba(255, 255, 255, 0.2);
-    width: 100%;
-    height: 100%;
-  }
-  
   .inner {
-    position: relative;
-    z-index: 1;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
     margin: 0 auto;
-    padding: 60px 40px;
-    width: 90%;
-    max-width: 1200px;
+    width: 845px;
+    height: 100%;
     
-    .mainVisualLeft {
-      flex: 1;
-      max-width: 600px;
+    h1 {
+      display: flex;
+      align-items: center;
+      margin: 0 0 30px;
+      font-weight: 700;
+      font-size: 36px;
+      color: $cBk3;
+      opacity: 0;
+      filter: blur(10px);
+      will-change: opacity, filter;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      transition: opacity 1.5s ease-out, filter 1.5s ease-out;
       
-      .mainVisualLogo {
-        display: flex;
-        align-items: center;
-        margin: 0 0 20px;
-        
-        img {
-          width: auto;
-          height: 40px;
-          margin: 0 10px 0 0;
-        }
+      &.fadeIn {
+        opacity: 1;
+        filter: blur(0);
+        will-change: auto;
       }
-      
-      h1 {
-        margin: 0 0 30px;
-        font-weight: 600;
-        font-size: 48px;
-        color: $cBk2;
-        line-height: 1.4;
-      }
-      
-      .mainVisualTxt {
-        margin: 0;
-        font-weight: 400;
-        font-size: 18px;
-        color: $cBk2;
-        line-height: 1.8;
-      }
-    }
-    
-    .mainVisualRight {
-      flex: 1;
-      text-align: right;
-      
-      img {
-        width: auto;
-        max-width: 100%;
+
+      svg {
+        display: block;
+        margin: 0 12px 0 0;
+        width: 71.5px;
         height: auto;
-        max-height: 400px;
+        max-width: 100%;
       }
     }
+    
+    p {
+      width: 540px;
+      text-align: center;
+      line-height: 2.0;
+      font-weight: 600;
+      font-size: 15px;
+      color: $cBk4;
+      opacity: 0;
+      filter: blur(10px);
+      will-change: opacity, filter;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      transition: opacity 1.5s ease-out, filter 1.5s ease-out;
+      
+      &.fadeIn {
+        opacity: 1;
+        filter: blur(0);
+        will-change: auto;
+      }
+    }
+
+    figure {
+      position: absolute;
+      top: 126px;
+      right: 0;
+      display: block;
+      opacity: 0;
+      filter: blur(10px);
+      will-change: opacity, filter;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      transition: opacity 1.5s ease-out, filter 1.5s ease-out;
+      
+      &.fadeIn {
+        opacity: 1;
+        filter: blur(0);
+        will-change: auto;
+      }
+
+      img {
+        width: 205px;
+        height: auto;
+      }
+    }
+  
   }
 }
 
-/* aboutBusiness setting
+
+
+
+
+
+/* topIntro setting
 ------------------------------------*/
-#aboutBusiness {
-  padding: 80px 0;
-  background: $cWht;
+#topIntro {
+  padding: 20px 0 80px;
   
   .inner {
     margin: 0 auto;
@@ -103,221 +124,47 @@
     max-width: 1200px;
     
     h2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
       margin: 0 0 50px;
       text-align: center;
-      font-weight: 600;
-      font-size: 36px;
-      color: $cBk2;
+      font-size: 20px;
+
+      span {
+        font-size: 11px;
+      }
+
+      small {
+        display: block;
+        margin: 5px 0 0;
+        width: 100%;
+        font-size: 12px;
+        color: $cBlu;
+      }
     }
-    
-    .aboutBusinessContent {
-      p {
-        margin: 0 0 50px;
-        line-height: 2;
-        font-size: 16px;
-        color: $cBk1;
-        text-align: center;
-      }
-      
-      .businessList {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        margin: 0 0 50px;
-        gap: 30px;
-        
-        .businessItem {
-          position: relative;
-          box-sizing: border-box;
-          padding: 40px 30px;
-          width: calc(50% - 15px);
-          background: $cWht;
-          border: 1px solid $cGr1;
-          border-radius: 8px;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-          transition: box-shadow 0.3s ease, transform 0.3s ease;
-          
-          &:hover {
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-            transform: translateY(-2px);
-          }
-          
-          .businessIcon {
-            margin: 0 0 20px;
-            
-            img {
-              width: auto;
-              height: 50px;
-            }
-          }
-          
-          h3 {
-            margin: 0 0 15px;
-            font-weight: 600;
-            font-size: 20px;
-            color: $cBk2;
-          }
-          
-          p {
-            margin: 0;
-            line-height: 1.8;
-            font-size: 14px;
-            color: $cBk1;
-            text-align: left;
-          }
-        }
-      }
-      
-      .btnArea {
-        text-align: center;
-        
-        .btnPrimary {
-          display: inline-flex;
-          align-items: center;
-          box-sizing: border-box;
-          padding: 15px 40px;
-          background: $cBlu;
-          border-radius: 6px;
-          box-shadow: 0 4px 2px 0 rgba(34, 85, 164, 0.2);
-          font-weight: 600;
-          font-size: 18px;
-          color: $cWht;
-          text-decoration: none;
-          transition: opacity 0.6s ease;
-          
-          &::after {
-            content: "→";
-            margin: 0 0 0 10px;
-            font-size: 20px;
-          }
-          
-          &:hover {
-            opacity: 0.8;
-          }
-        }
+
+    p {
+      text-align: center;
+      line-height: 1.85;
+      font-size: 14px;
+
+      small {
+        font-size: 11px;
       }
     }
   }
 }
 
-/* latestNews and businessCalendar (2 column layout)
-------------------------------------*/
-#latestNewsCalendar {
-  padding: 80px 0;
-  background: $cGr0;
-  
-  .inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin: 0 auto;
-    width: 90%;
-    max-width: 1200px;
-    gap: 40px;
-    
-    #latestNews {
-      flex: 1;
-      
-      h2 {
-        margin: 0 0 30px;
-        font-weight: 600;
-        font-size: 24px;
-        color: $cBk2;
-      }
-      
-      .newsList {
-        margin: 0 0 30px;
-        padding: 0;
-        list-style: none;
-        
-        li {
-          display: flex;
-          align-items: flex-start;
-          padding: 15px 0;
-          border-bottom: 1px solid $cGr1;
-          
-          &:first-child {
-            border-top: 1px solid $cGr1;
-          }
-          
-          time {
-            margin: 0 20px 0 0;
-            min-width: 90px;
-            font-size: 14px;
-            color: $cGr2;
-          }
-          
-          a {
-            flex: 1;
-            font-size: 14px;
-            color: $cBk1;
-            text-decoration: none;
-            line-height: 1.6;
-            transition: color 0.3s ease;
-            
-            &:hover {
-              color: $cBk2;
-              text-decoration: underline;
-            }
-          }
-        }
-      }
-      
-      .btnArea {
-        .btnSecondary {
-          display: inline-flex;
-          align-items: center;
-          box-sizing: border-box;
-          padding: 12px 30px;
-          background: $cBlu;
-          border-radius: 6px;
-          font-weight: 600;
-          font-size: 16px;
-          color: $cWht;
-          text-decoration: none;
-          transition: opacity 0.6s ease;
-          
-          &::after {
-            content: "→";
-            margin: 0 0 0 8px;
-            font-size: 18px;
-          }
-          
-          &:hover {
-            opacity: 0.8;
-          }
-        }
-      }
-    }
-    
-    #businessCalendar {
-      flex: 1;
-      
-      h2 {
-        margin: 0 0 20px;
-        font-weight: 600;
-        font-size: 24px;
-        color: $cBk2;
-      }
-      
-      .calendarInfo {
-        margin: 20px 0 0;
-        padding: 15px;
-        background: $cWht;
-        border-radius: 6px;
-        font-size: 14px;
-        color: $cBk1;
-        line-height: 1.8;
-      }
-    }
-  }
-}
 
-/* contactSection setting
+
+
+/* aboutBusiness setting
 ------------------------------------*/
-#contactSection {
+#aboutBusiness {
   padding: 80px 0;
-  background: $cWht;
+  background: url("../../img/top/bg_business_pc.webp") center / cover no-repeat;
   
   .inner {
     margin: 0 auto;
@@ -326,40 +173,967 @@
     text-align: center;
     
     h2 {
-      margin: 0 0 30px;
+      margin: 0 0 50px;
       font-weight: 600;
-      font-size: 36px;
-      color: $cBk2;
+      font-size: 20px;
+      small {
+        display: block;
+        margin: 5px 0 0;
+        width: 100%;
+        font-size: 12px;
+        color: $cBlu;
+      }
     }
     
-    p {
-      margin: 0 0 40px;
-      line-height: 1.8;
-      font-size: 16px;
-      color: $cBk1;
+    > p {
+      margin: 0 0 50px;
+      line-height: 1.85;
+      font-size: 14px;
     }
     
-    .btnArea {
-      margin: 0 0 30px;
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 0 auto 50px;
+      width: 97.5%;
+      max-width: 1045px;
       
-        .btnContact {
-          display: inline-flex;
+      li {
+        position: relative;
+        box-sizing: border-box;
+        padding: 0 15px 20px;
+        width: 23.925%;
+        background: $cWht;
+        border-radius: 20px 0 20px 0;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        opacity: 0;
+        filter: blur(10px);
+        will-change: opacity, filter;
+        transform: translateZ(0);
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        transition: opacity 1.5s ease-out, filter 1.5s ease-out, box-shadow 0.3s ease, transform 0.3s ease;
+        
+        &.fadeIn {
+          opacity: 1;
+          filter: blur(0);
+          will-change: auto;
+        }
+        
+        &:hover {
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+          transform: translateY(-2px);
+        }
+
+        svg {
+          position: relative;
+          margin: -12px 0 25px;
+          width: 40px;
+          height: auto;
+        }
+        
+        h3 {
+          font-weight: 600;
+          font-size: 16px;
+
+          small {
+            font-size: 12px;
+          }
+        }
+        
+        figure {
+          display: flex;
           align-items: center;
-          box-sizing: border-box;
-          padding: 15px 40px;
-          background: $cGreen;
-          border-radius: 6px;
-          box-shadow: 0 4px 2px 0 rgba(76, 175, 80, 0.2);
-        font-weight: 600;
-        font-size: 18px;
+          justify-content: center;
+          height: 80px;
+          
+          img {
+            width: auto;
+            height: 34px;
+          }
+        }
+        
+        p {
+          line-height: 2.0;
+          text-align: left;
+          font-size: 12px;
+          color: $cBk1;
+        }
+      }
+    }
+    
+    > a.btnPrimary {
+      position: relative;
+      display: block;
+      box-sizing: border-box;
+      background: $cBlu;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      width: 415px;
+      height: 80px;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 80px;
+      font-weight: 600;
+      font-size: 18px;
+      color: $cWht;
+      transition: opacity 0.6s ease;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        border-top: 2px solid #fff;
+        border-right: 2px solid #fff;
+        -ms-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        margin: -5px 0 0;
+        width: 8px;
+        height: 8px;
+        transition: all 0.3s;
+      }
+      
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+
+
+
+
+/* contactSection setting
+------------------------------------*/
+#contactSection {
+  padding: 80px 0;
+  
+  .inner {
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+    
+    h2 {
+      margin: 0 0 50px;
+      font-weight: 600;
+      font-size: 20px;
+      small {
+        display: block;
+        margin: 5px 0 0;
+        width: 100%;
+        font-size: 12px;
+        color: $cBlu;
+      }
+    }
+    
+    > p {
+      margin: 0 0 30px;
+      line-height: 1.85;
+      font-size: 14px;
+    }
+    
+    > a.btnContact {
+      display: block;
+      margin: 0 auto 25px;
+      width: 625px;
+      text-align: center;
+      span {
+        position: relative;
+        z-index: 1;
+        display: block;
+        box-sizing: border-box;
+        border: 3px solid $cGreen;
+        border-radius: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        background: $cWht;
+        margin: 0 auto -20px;
+        width: 475px;
+        height: 40px;
+        line-height: 34px;
+        font-weight: 700;
+        font-size: 14px;
+      }
+      em {
+        position: relative;
+        z-index: 0;
+        display: flex;
+        justify-content: center;
+        box-sizing: border-box;
+        background: $cGreen;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        margin: 0 auto;
+        width: 625px;
+        height: 90px;
+        line-height: 100px;
+        text-align: center;
+        font-size: 22px;
         color: $cWht;
-        text-decoration: none;
         transition: opacity 0.6s ease;
         
         &::after {
-          content: "→";
-          margin: 0 0 0 10px;
-          font-size: 20px;
+          content: '';
+          position: absolute;
+          top: 50%;
+          right: 20px;
+          border-top: 2px solid #fff;
+          border-right: 2px solid #fff;
+          -ms-transform: rotate(45deg);
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+          margin: -5px 0 0;
+          width: 8px;
+          height: 8px;
+          transition: all 0.3s;
+        }
+      }
+      
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+    
+    dl {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      dt {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        span {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 5px;
+          border: 2px solid $cGreen;
+          width: 120px;
+          height: 45px;
+          line-height: 1.5;
+          font-weight: 700;
+          font-size: 12px;
+        }
+        em {
+          font-weight: 600;
+          font-size: 33px;
+        }
+      }
+      dd {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+        gap: 5px;
+        p {
+          font-size: 11px;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+/* handledBrands setting
+------------------------------------*/
+#handledBrands {
+  position: relative;
+  padding: 80px 0;
+  background: url("../../img/top/bg_brands_pc.webp") center / cover no-repeat;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: -33.5px;
+    left: 0;
+    display: block;
+    width: 50%;
+    height: 33.5px;
+    background: url("../../img/common/line_pc.webp") center / 100% 100% no-repeat;
+  }
+  
+  &::after {
+    top: auto;
+    bottom: -33.5px;
+    left: auto;
+    right: 0;
+    transform: rotate(180deg);
+  }
+
+  .inner {
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+    
+    h2 {
+      margin: 0 0 50px;
+      font-weight: 600;
+      font-size: 20px;
+      small {
+        display: block;
+        margin: 5px 0 0;
+        width: 100%;
+        font-size: 12px;
+        color: $cBlu;
+      }
+    }
+    
+    p {
+      margin: 0 0 50px;
+      line-height: 1.85;
+      font-size: 14px;
+    }
+    
+    ul {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 35px;
+
+      &::after {
+        content: '※五十音順';
+        position: absolute;
+        bottom: -40px;
+        right: 30px;
+        font-size: 10px;
+      }
+      
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        opacity: 0;
+        filter: blur(10px);
+        will-change: opacity, filter;
+        transform: translateZ(0);
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        transition: opacity 1.5s ease-out, filter 1.5s ease-out, box-shadow 0.3s ease;
+        
+        &.fadeIn {
+          opacity: 1;
+          filter: blur(0);
+          will-change: auto;
+        }
+        
+        img {
+          width: auto;
+          height: 25px;
+          max-width: 175px;
+          object-fit: contain;
+          mix-blend-mode: multiply;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+/* latestNews and businessCalendar (2 column layout)
+------------------------------------*/
+#latestNewsCalendar {
+  padding: 100px 0;
+  
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 980px;
+    
+    #latestNews {
+      margin: 17.5px 0 0;
+      width: 45%;
+      
+      h2 {
+        margin: 0 0 30px;
+        font-size: 20px;
+        span {
+          display: block;
+          margin: 0 0 10px;
+          font-size: 15px;
+        }
+        small {
+          display: block;
+          margin: 10px 0 0;
+          width: 100%;
+          font-size: 12px;
+          color: $cBlu;
+        }
+      }
+      
+      .newsList {
+        margin: 0 0 30px;
+        
+        li {
+          border-bottom: 1px solid $cGr1;
+          
+          > a {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            gap: 5%;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+            text-align: left;
+            
+            &:hover {
+              opacity: 0.8;
+              
+              .newsThumbnail img {
+                transform: scale(1.1);
+              }
+              
+              .newsContent span {
+                color: $cBk2;
+                text-decoration: underline;
+              }
+            }
+          }
+          
+          .newsThumbnail {
+            border-radius: 5px;
+            flex-shrink: 0;
+            margin: 0;
+            width: 110px;
+            height: 83px;
+            overflow: hidden;
+            
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              object-position: center;
+              transition: transform 0.3s ease;
+            }
+          }
+          
+          .newsContent {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            font-size: 12px;
+            
+            time {
+              position: relative;
+              min-width: auto;
+              &::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                transform: translateY(-2.5px);
+                left: -10px;
+                box-sizing: border-box;
+                border-radius: 50%;
+                border: 2px solid $cGreen;
+                display: block;
+                width: 6px;
+                height: 6px;
+              }
+            }
+            
+            span {
+              line-height: 1.75;
+              text-decoration: underline;
+              color: $cBlu;
+              transition: color 0.3s ease;
+            }
+          }
+        }
+      }
+      
+      > a {
+        position: relative;
+        display: block;
+        background: $cBlu;
+        margin: 15px auto 0;
+        width: 72.72%;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        font-size: 18px;
+        color: $cWht;
+        transition: opacity 0.6s ease;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          right: 20px;
+          border-top: 2px solid #fff;
+          border-right: 2px solid #fff;
+          -ms-transform: rotate(45deg);
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+          margin: -5px 0 0;
+          width: 8px;
+          height: 8px;
+          transition: all 0.3s;
+        }
+        
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+      
+      // ボタンを中央揃え
+      text-align: center;
+    }
+    
+    #businessCalendar {
+      position: relative;
+      border-radius: 20px 0 20px 0;
+      background: $cGr4;
+      padding: 50px 20px 0;
+      width: 45%;
+      text-align: center;
+
+      svg {
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: auto;
+      }
+      
+      h2 {
+        margin: 0 0 20px;
+        font-size: 20px;
+        small {
+          display: block;
+          margin: 10px 0 0;
+          width: 100%;
+          font-size: 12px;
+          color: $cBlu;
+        }
+      }
+      
+      .businessCalendar {
+        position: relative;
+        background: $cWht;
+        padding: 25px 0 5px;
+        
+        h3 {
+          margin: 0 0 15px;
+          text-align: center;
+          font-size: 22px;
+
+          small {
+            font-weight: 600;
+            font-size: 12px;
+          }
+        }
+        
+        button {
+          position: absolute;
+          top: 150px;
+          left: 0;
+          transform: translateX(-70%);
+          display: block;
+          border: none;
+          border-radius: 50%;
+          background: $cBlu;
+          width: 55px;
+          height: 55px;
+          line-height: 55px;
+          text-decoration: none;
+          cursor: pointer;
+          transition: background 0.3s;
+
+          &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            border-top: 2px solid #fff;
+            border-right: 2px solid #fff;
+            -ms-transform: rotate(-135deg);
+            -webkit-transform: rotate(-135deg);
+            transform: rotate(-135deg);
+            margin: -5px 0 0;
+            width: 8px;
+            height: 8px;
+            transition: all 0.3s;
+          }
+  
+          &.btnNext {
+            left: auto;
+            right: 0;
+            transform: translateX(70%);
+
+            &::after {
+              right: auto;
+              left: 20px;
+              -ms-transform: rotate(45deg);
+              -webkit-transform: rotate(45deg);
+              transform: rotate(45deg);
+            }
+          }
+          
+          &:hover {
+            background: darken($cBlu, 10%);
+          }
+          
+          &:disabled {
+            background: $cGr2;
+            cursor: not-allowed;
+          }
+
+        }
+        
+        .calendarLegend {
+          
+          .legendItem {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+          }
+          
+          .legendColor {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            font-size: 14px;
+            
+            &.holiday {
+              background: $cRed;
+            }
+          }
+        }
+        
+        .calendarTable {
+          margin: 0 auto 20px;
+          width: 75%;
+          border-collapse: separate;
+          border-spacing: 6px;
+          text-align: center;
+          font-weight: 700;
+          font-size: 18px;
+          
+          th {
+            box-sizing: border-box;
+            width: 14%;
+            padding: 10px 0;
+            height: 35px;
+            
+            &.sunday {
+              color: $cRed;
+            }
+
+            &.saturday {
+              color: $cBlu;
+            }
+          }
+          
+          td {
+            box-sizing: border-box;
+            width: 14.285714285714286%;
+            vertical-align: middle;
+            height: 35px;
+            
+            &.empty {
+              background: $cWht;
+            }
+            
+            &.sunday,
+            &.saturday {
+              color: $cBlu;
+              background: #f0f8ff;
+            }
+            
+            &.holiday {
+              background: $cRed;
+              color: $cWht;
+              font-weight: bold;
+            }
+            
+            &.today {
+              border: 4px solid $cYellow;
+            }
+          }
+        }
+        
+      }
+      .calendarInfo {
+        display: flex;
+        justify-content: center;
+        gap: 2%;
+        
+        .infoBox {
+          width: 45.5%;
+          padding: 20px 0;
+          font-size: 13px;
+          
+          h4 {
+            border-radius: 5px;
+            background: $cGr5;
+            margin: 0 0 5px;
+            padding: 3px;
+            color: $cWht;
+          }
+          
+        }
+      }
+      
+      .calendarNote {
+        border-radius: 20px;
+        background: $cWht;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        margin: 0 auto -20px;
+        width: 340px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+
+
+
+
+/* ------------------------------------------------------------------------
+	Ajustment For Small PC Window 
+------------------------------------------------------------------------ */
+@media screen and (max-width: 1024px) {
+
+}
+
+
+
+
+
+/* ------------------------------------------------------------------------
+	Ajustment For Smart Phone 
+------------------------------------------------------------------------ */
+@media screen and (max-width: 768px) {
+  /* mainVisual setting
+  ------------------------------------*/
+  #mainVisual {
+    width: 100%;
+    height: 139.467vw;
+    background-image: url("../../img/top/bg_main-top_sp.webp");
+    .inner {
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      
+      h1 {
+        margin: 24vw 0 5.7333vw;
+        font-size: 5.3333333vw;
+        filter: blur(2.666667vw);
+        
+        svg {
+          margin: 0 3.2vw 0 0;
+          width: 14.2666667vw;
+        }
+      }
+      
+      p {
+        width: 100%;
+        line-height: 1.8;
+        font-size: 3.466667vw;
+        filter: blur(2.666667vw);
+      }
+
+      figure {
+        top: 58.4vw;
+        right: 50%;
+        transform: translateX(50%);
+        filter: blur(2.666667vw);
+        
+        img {
+          width: 38.933333vw;
+        }
+      }
+    
+    }
+  }
+
+
+
+
+
+
+  /* topIntro setting
+  ------------------------------------*/
+  #topIntro {
+    padding: 6.6666667vw 0 12vw;
+    
+    .inner {
+      
+      h2 {
+        margin: 0 0 4.8vw;
+        font-size: 5.3333333vw;
+
+        span {
+          font-size: 3.733333vw;
+        }
+
+        small {
+          margin: 2.666667vw 0 0;
+          font-size: 3.2vw;
+        }
+      }
+
+      p {
+        text-align: left;
+        font-size: 3.733333vw;
+
+        small {
+          font-size: 3.2vw;
+        }
+      }
+    }
+  }
+
+
+
+
+  /* aboutBusiness setting
+  ------------------------------------*/
+  #aboutBusiness {
+    padding: 12vw 0;
+    background: url("../../img/top/bg_business_sp.webp") center / cover no-repeat;
+    
+    .inner {
+      
+      h2 {
+        margin: 0 0 4.8vw;
+        font-size: 5.3333333vw;
+
+        small {
+          margin: 2.666667vw 0 0;
+          font-size: 3.2vw;
+        }
+      }
+      
+      > p {
+        text-align: left;
+        font-size: 3.733333vw;
+      }
+      
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 0 auto 50px;
+        width: 97.5%;
+        max-width: 1045px;
+        
+        li {
+          position: relative;
+          box-sizing: border-box;
+          padding: 0 15px 20px;
+          width: 23.925%;
+          background: $cWht;
+          border-radius: 20px 0 20px 0;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+          opacity: 0;
+          filter: blur(10px);
+          will-change: opacity, filter;
+          transform: translateZ(0);
+          backface-visibility: hidden;
+          -webkit-backface-visibility: hidden;
+          transition: opacity 1.5s ease-out, filter 1.5s ease-out, box-shadow 0.3s ease, transform 0.3s ease;
+          
+          &.fadeIn {
+            opacity: 1;
+            filter: blur(0);
+            will-change: auto;
+          }
+          
+          &:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+          }
+
+          svg {
+            position: relative;
+            margin: -12px 0 25px;
+            width: 40px;
+            height: auto;
+          }
+          
+          h3 {
+            font-weight: 600;
+            font-size: 16px;
+
+            small {
+              font-size: 12px;
+            }
+          }
+          
+          figure {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80px;
+            
+            img {
+              width: auto;
+              height: 34px;
+            }
+          }
+          
+          p {
+            line-height: 2.0;
+            text-align: left;
+            font-size: 12px;
+            color: $cBk1;
+          }
+        }
+      }
+      
+      > a.btnPrimary {
+        position: relative;
+        display: block;
+        box-sizing: border-box;
+        background: $cBlu;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        width: 415px;
+        height: 80px;
+        margin: 0 auto;
+        text-align: center;
+        line-height: 80px;
+        font-weight: 600;
+        font-size: 18px;
+        color: $cWht;
+        transition: opacity 0.6s ease;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          right: 20px;
+          border-top: 2px solid #fff;
+          border-right: 2px solid #fff;
+          -ms-transform: rotate(45deg);
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+          margin: -5px 0 0;
+          width: 8px;
+          height: 8px;
+          transition: all 0.3s;
         }
         
         &:hover {
@@ -367,321 +1141,603 @@
         }
       }
     }
-    
-    .contactPhone {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      font-size: 18px;
-      color: $cBk2;
-      font-weight: 500;
-      
-      &::before {
-        content: "📞";
-        font-size: 20px;
-      }
-    }
   }
-}
 
-/* handledBrands setting
-------------------------------------*/
-#handledBrands {
-  padding: 80px 0;
-  background: $cGr0;
-  
-  .inner {
-    margin: 0 auto;
-    width: 90%;
-    max-width: 1200px;
+
+
+
+
+  /* contactSection setting
+  ------------------------------------*/
+  #contactSection {
+    display: none;
+    padding: 80px 0;
     
-    h2 {
-      margin: 0 0 30px;
+    .inner {
+      margin: 0 auto;
+      width: 90%;
+      max-width: 1200px;
       text-align: center;
-      font-weight: 600;
-      font-size: 36px;
-      color: $cBk2;
-    }
-    
-    p {
-      margin: 0 0 50px;
-      line-height: 1.8;
-      font-size: 16px;
-      color: $cBk1;
-      text-align: center;
-    }
-    
-    .brandLogos {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 30px;
       
-      .brandLogo {
+      h2 {
+        margin: 0 0 4.8vw;
+        font-size: 5.3333333vw;
+
+        small {
+          margin: 2.666667vw 0 0;
+          font-size: 3.2vw;
+        }
+      }
+      
+      > p {
+        margin: 0 0 30px;
+        line-height: 1.85;
+        font-size: 14px;
+      }
+      
+      > a.btnContact {
+        display: block;
+        margin: 0 auto 25px;
+        width: 625px;
+        text-align: center;
+        span {
+          position: relative;
+          z-index: 1;
+          display: block;
+          box-sizing: border-box;
+          border: 3px solid $cGreen;
+          border-radius: 20px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+          background: $cWht;
+          margin: 0 auto -20px;
+          width: 475px;
+          height: 40px;
+          line-height: 34px;
+          font-weight: 700;
+          font-size: 14px;
+        }
+        em {
+          position: relative;
+          z-index: 0;
+          display: flex;
+          justify-content: center;
+          box-sizing: border-box;
+          background: $cGreen;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+          margin: 0 auto;
+          width: 625px;
+          height: 90px;
+          line-height: 100px;
+          text-align: center;
+          font-size: 22px;
+          color: $cWht;
+          transition: opacity 0.6s ease;
+          
+          &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            border-top: 2px solid #fff;
+            border-right: 2px solid #fff;
+            -ms-transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+            margin: -5px 0 0;
+            width: 8px;
+            height: 8px;
+            transition: all 0.3s;
+          }
+        }
+        
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+      
+      dl {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 20px;
-        background: $cWht;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        transition: box-shadow 0.3s ease;
-        
-        &:hover {
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        gap: 10px;
+        dt {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            border: 2px solid $cGreen;
+            width: 120px;
+            height: 45px;
+            line-height: 1.5;
+            font-weight: 700;
+            font-size: 12px;
+          }
+          em {
+            font-weight: 600;
+            font-size: 33px;
+          }
         }
-        
-        img {
-          width: auto;
-          max-width: 150px;
-          max-height: 60px;
-          height: auto;
-          object-fit: contain;
+        dd {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          text-align: left;
+          gap: 5px;
+          p {
+            font-size: 11px;
+          }
         }
       }
     }
   }
-}
 
-/* ------------------------------------------------------------------------
-	Ajustment For Small PC Window 
------------------------------------------------------------------------- */
-@media screen and (max-width: 1024px) {
-  #mainVisual {
+
+
+
+
+  /* handledBrands setting
+  ------------------------------------*/
+  #handledBrands {
+    display: none;
+    position: relative;
+    padding: 80px 0;
+    background: url("../../img/top/bg_brands_pc.webp") center / cover no-repeat;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: -33.5px;
+      left: 0;
+      display: block;
+      width: 50%;
+      height: 33.5px;
+      background: url("../../img/common/line_pc.webp") center / 100% 100% no-repeat;
+    }
+    
+    &::after {
+      top: auto;
+      bottom: -33.5px;
+      left: auto;
+      right: 0;
+      transform: rotate(180deg);
+    }
+
     .inner {
-      flex-direction: column;
+      margin: 0 auto;
+      width: 90%;
+      max-width: 1200px;
       text-align: center;
       
-      .mainVisualLeft {
-        max-width: 100%;
-        margin: 0 0 40px;
-      }
-      
-      .mainVisualRight {
-        text-align: center;
-      }
-    }
-  }
-  
-  #aboutBusiness {
-    .inner {
-      .aboutBusinessContent {
-        .businessList {
-          .businessItem {
-            width: 100%;
-          }
-        }
-      }
-    }
-  }
-  
-  #latestNewsCalendar {
-    .inner {
-      flex-direction: column;
-      
-      #latestNews,
-      #businessCalendar {
-        width: 100%;
-      }
-    }
-  }
-  
-  #handledBrands {
-    .inner {
-      .brandLogos {
-        gap: 20px;
-        
-        .brandLogo {
-          padding: 15px;
-          
-          img {
-            max-width: 120px;
-            max-height: 50px;
-          }
-        }
-      }
-    }
-  }
-}
-
-/* ------------------------------------------------------------------------
-	Ajustment For Smart Phone 
------------------------------------------------------------------------- */
-@media screen and (max-width: 768px) {
-  #mainVisual {
-    min-height: 50vh;
-    
-    .inner {
-      padding: 40px 20px;
-      
-      .mainVisualLeft {
-        .mainVisualLogo {
-          img {
-            height: 30px;
-          }
-        }
-        
-        h1 {
-          font-size: 28px;
-        }
-        
-        .mainVisualTxt {
-          font-size: 14px;
-        }
-      }
-      
-      .mainVisualRight {
-        img {
-          max-height: 200px;
-        }
-      }
-    }
-  }
-  
-  #aboutBusiness {
-    padding: 60px 0;
-    
-    .inner {
       h2 {
-        font-size: 28px;
+        margin: 0 0 4.8vw;
+        font-size: 5.3333333vw;
+
+        small {
+          margin: 2.666667vw 0 0;
+          font-size: 3.2vw;
+        }
       }
       
-      .aboutBusinessContent {
-        p {
-          font-size: 14px;
-          text-align: left;
+      p {
+        margin: 0 0 50px;
+        line-height: 1.85;
+        font-size: 14px;
+      }
+      
+      ul {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 35px;
+
+        &::after {
+          content: '※五十音順';
+          position: absolute;
+          bottom: -40px;
+          right: 30px;
+          font-size: 10px;
         }
         
-        .businessList {
-          gap: 20px;
+        li {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: transparent;
+          opacity: 0;
+          filter: blur(10px);
+          will-change: opacity, filter;
+          transform: translateZ(0);
+          backface-visibility: hidden;
+          -webkit-backface-visibility: hidden;
+          transition: opacity 1.5s ease-out, filter 1.5s ease-out, box-shadow 0.3s ease;
           
-          .businessItem {
-            width: 100%;
-            padding: 30px 20px;
-            
-            .businessIcon {
-              img {
-                height: 40px;
-              }
-            }
-            
-            h3 {
-              font-size: 18px;
-            }
-            
-            p {
-              font-size: 13px;
-            }
+          &.fadeIn {
+            opacity: 1;
+            filter: blur(0);
+            will-change: auto;
           }
-        }
-        
-        .btnArea {
-          .btnPrimary {
-            padding: 12px 30px;
-            font-size: 16px;
+          
+          img {
+            width: auto;
+            height: 25px;
+            max-width: 175px;
+            object-fit: contain;
+            mix-blend-mode: multiply;
           }
         }
       }
     }
   }
-  
+
+
+
+
+
+  /* latestNews and businessCalendar (2 column layout)
+  ------------------------------------*/
   #latestNewsCalendar {
-    padding: 60px 0;
+    display: none;
+    padding: 100px 0;
     
     .inner {
-      gap: 30px;
+      display: flex;
+      justify-content: space-between;
+      margin: 0 auto;
+      width: 90%;
+      max-width: 980px;
       
       #latestNews {
+        margin: 17.5px 0 0;
+        width: 45%;
+        
         h2 {
-          font-size: 20px;
+          margin: 0 0 4.8vw;
+          font-size: 5.3333333vw;
+
+          span {
+            display: block;
+            margin: 0 0 10px;
+            font-size: 15px;
+          }
+          small {
+            margin: 2.666667vw 0 0;
+            font-size: 3.2vw;
+          }
         }
         
         .newsList {
+          margin: 0 0 30px;
+          
           li {
-            flex-direction: column;
-            align-items: flex-start;
-            padding: 12px 0;
+            border-bottom: 1px solid $cGr1;
             
-            time {
-              margin: 0 0 8px 0;
-              font-size: 12px;
+            > a {
+              display: flex;
+              align-items: center;
+              padding: 15px 0;
+              gap: 5%;
+              text-decoration: none;
+              transition: opacity 0.3s ease;
+              text-align: left;
+              
+              &:hover {
+                opacity: 0.8;
+                
+                .newsThumbnail img {
+                  transform: scale(1.1);
+                }
+                
+                .newsContent span {
+                  color: $cBk2;
+                  text-decoration: underline;
+                }
+              }
             }
             
-            a {
-              font-size: 13px;
+            .newsThumbnail {
+              border-radius: 5px;
+              flex-shrink: 0;
+              margin: 0;
+              width: 110px;
+              height: 83px;
+              overflow: hidden;
+              
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                transition: transform 0.3s ease;
+              }
+            }
+            
+            .newsContent {
+              flex: 1;
+              display: flex;
+              flex-direction: column;
+              gap: 5px;
+              font-size: 12px;
+              
+              time {
+                position: relative;
+                min-width: auto;
+                &::before {
+                  content: '';
+                  position: absolute;
+                  top: 50%;
+                  transform: translateY(-2.5px);
+                  left: -10px;
+                  box-sizing: border-box;
+                  border-radius: 50%;
+                  border: 2px solid $cGreen;
+                  display: block;
+                  width: 6px;
+                  height: 6px;
+                }
+              }
+              
+              span {
+                line-height: 1.75;
+                text-decoration: underline;
+                color: $cBlu;
+                transition: color 0.3s ease;
+              }
             }
           }
         }
         
-        .btnArea {
-          .btnSecondary {
-            padding: 10px 25px;
-            font-size: 14px;
+        > a {
+          position: relative;
+          display: block;
+          background: $cBlu;
+          margin: 15px auto 0;
+          width: 72.72%;
+          height: 60px;
+          line-height: 60px;
+          text-align: center;
+          font-size: 18px;
+          color: $cWht;
+          transition: opacity 0.6s ease;
+          
+          &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            border-top: 2px solid #fff;
+            border-right: 2px solid #fff;
+            -ms-transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+            margin: -5px 0 0;
+            width: 8px;
+            height: 8px;
+            transition: all 0.3s;
+          }
+          
+          &:hover {
+            opacity: 0.8;
           }
         }
+        
+        // ボタンを中央揃え
+        text-align: center;
       }
       
       #businessCalendar {
+        position: relative;
+        border-radius: 20px 0 20px 0;
+        background: $cGr4;
+        padding: 50px 20px 0;
+        width: 45%;
+        text-align: center;
+
+        svg {
+          position: absolute;
+          top: -20px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 40px;
+          height: auto;
+        }
+        
         h2 {
+          margin: 0 0 20px;
           font-size: 20px;
-        }
-        
-        .calendarInfo {
-          font-size: 12px;
-        }
-      }
-    }
-  }
-  
-  #contactSection {
-    padding: 60px 0;
-    
-    .inner {
-      h2 {
-        font-size: 28px;
-      }
-      
-      p {
-        font-size: 14px;
-      }
-      
-      .btnArea {
-        .btnContact {
-          padding: 12px 30px;
-          font-size: 16px;
-        }
-      }
-      
-      .contactPhone {
-        font-size: 16px;
-      }
-    }
-  }
-  
-  #handledBrands {
-    padding: 60px 0;
-    
-    .inner {
-      h2 {
-        font-size: 28px;
-      }
-      
-      p {
-        font-size: 14px;
-      }
-      
-      .brandLogos {
-        gap: 15px;
-        
-        .brandLogo {
-          padding: 10px;
-          
-          img {
-            max-width: 100px;
-            max-height: 40px;
+          small {
+            display: block;
+            margin: 10px 0 0;
+            width: 100%;
+            font-size: 12px;
+            color: $cBlu;
           }
+        }
+        
+        .businessCalendar {
+          position: relative;
+          background: $cWht;
+          padding: 25px 0 5px;
+          
+          h3 {
+            margin: 0 0 15px;
+            text-align: center;
+            font-size: 22px;
+
+            small {
+              font-weight: 600;
+              font-size: 12px;
+            }
+          }
+          
+          button {
+            position: absolute;
+            top: 150px;
+            left: 0;
+            transform: translateX(-70%);
+            display: block;
+            border: none;
+            border-radius: 50%;
+            background: $cBlu;
+            width: 55px;
+            height: 55px;
+            line-height: 55px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.3s;
+
+            &::after {
+              content: '';
+              position: absolute;
+              top: 50%;
+              right: 20px;
+              border-top: 2px solid #fff;
+              border-right: 2px solid #fff;
+              -ms-transform: rotate(-135deg);
+              -webkit-transform: rotate(-135deg);
+              transform: rotate(-135deg);
+              margin: -5px 0 0;
+              width: 8px;
+              height: 8px;
+              transition: all 0.3s;
+            }
+    
+            &.btnNext {
+              left: auto;
+              right: 0;
+              transform: translateX(70%);
+
+              &::after {
+                right: auto;
+                left: 20px;
+                -ms-transform: rotate(45deg);
+                -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+              }
+            }
+            
+            &:hover {
+              background: darken($cBlu, 10%);
+            }
+            
+            &:disabled {
+              background: $cGr2;
+              cursor: not-allowed;
+            }
+
+          }
+          
+          .calendarLegend {
+            
+            .legendItem {
+              display: inline-flex;
+              align-items: center;
+              gap: 8px;
+            }
+            
+            .legendColor {
+              display: inline-block;
+              width: 14px;
+              height: 14px;
+              font-size: 14px;
+              
+              &.holiday {
+                background: $cRed;
+              }
+            }
+          }
+          
+          .calendarTable {
+            margin: 0 auto 20px;
+            width: 75%;
+            border-collapse: separate;
+            border-spacing: 6px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 18px;
+            
+            th {
+              box-sizing: border-box;
+              width: 14%;
+              padding: 10px 0;
+              height: 35px;
+              
+              &.sunday {
+                color: $cRed;
+              }
+
+              &.saturday {
+                color: $cBlu;
+              }
+            }
+            
+            td {
+              box-sizing: border-box;
+              width: 14.285714285714286%;
+              vertical-align: middle;
+              height: 35px;
+              
+              &.empty {
+                background: $cWht;
+              }
+              
+              &.sunday,
+              &.saturday {
+                color: $cBlu;
+                background: #f0f8ff;
+              }
+              
+              &.holiday {
+                background: $cRed;
+                color: $cWht;
+                font-weight: bold;
+              }
+              
+              &.today {
+                border: 4px solid $cYellow;
+              }
+            }
+          }
+          
+        }
+        .calendarInfo {
+          display: flex;
+          justify-content: center;
+          gap: 2%;
+          
+          .infoBox {
+            width: 45.5%;
+            padding: 20px 0;
+            font-size: 13px;
+            
+            h4 {
+              border-radius: 5px;
+              background: $cGr5;
+              margin: 0 0 5px;
+              padding: 3px;
+              color: $cWht;
+            }
+            
+          }
+        }
+        
+        .calendarNote {
+          border-radius: 20px;
+          background: $cWht;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+          margin: 0 auto -20px;
+          width: 340px;
+          height: 40px;
+          line-height: 40px;
+          text-align: center;
+          font-size: 14px;
         }
       }
     }

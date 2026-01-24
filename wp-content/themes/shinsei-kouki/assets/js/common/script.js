@@ -118,4 +118,26 @@ jQuery(function($) {
     }, 50);
   });
 
+  // スクロール時にヘッダーにぼかし効果を追加
+  $(window).on('scroll', function() {
+    var scrollTop = $(window).scrollTop();
+    var header = $('#siteHeader');
+    var logo = $('.header-logo');
+    
+    if (scrollTop > 100) {
+      header.addClass('scrolled');
+      logo.addClass('visible');
+    } else {
+      header.removeClass('scrolled');
+      logo.removeClass('visible');
+    }
+  });
+
+  // 初期表示時にもチェック
+  var initialScrollTop = $(window).scrollTop();
+  if (initialScrollTop > 100) {
+    $('#siteHeader').addClass('scrolled');
+    $('.header-logo').addClass('visible');
+  }
+
 });

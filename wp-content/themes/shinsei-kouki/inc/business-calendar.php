@@ -471,151 +471,15 @@ function shinsei_kouki_display_calendar($year = null, $month = null) {
     }
     
     ?>
-    <style>
-    .business-calendar {
-        margin: 40px 0;
-    }
-    .business-calendar .calendar-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 20px;
-    }
-    .business-calendar .calendar-header h2 {
-        margin: 0;
-        font-size: 24px;
-    }
-    .business-calendar .calendar-nav {
-        display: flex;
-        gap: 10px;
-    }
-    .business-calendar .calendar-nav button {
-        display: inline-block;
-        padding: 8px 16px;
-        background: #0073aa;
-        color: #fff;
-        text-decoration: none;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background 0.3s;
-        font-size: 14px;
-    }
-    .business-calendar .calendar-nav button:hover {
-        background: #005a87;
-    }
-    .business-calendar .calendar-nav button:disabled {
-        background: #ccc;
-        cursor: not-allowed;
-    }
-    .business-calendar .calendar-legend {
-        margin-bottom: 15px;
-    }
-    .business-calendar .legend-item {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-    }
-    .business-calendar .legend-color {
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        border: 1px solid #ddd;
-    }
-    .business-calendar .legend-color.holiday {
-        background: #ffebee;
-    }
-    .business-calendar .calendar-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-bottom: 20px;
-    }
-    .business-calendar .calendar-table th {
-        background: #f5f5f5;
-        padding: 10px;
-        text-align: center;
-        font-weight: bold;
-        border: 1px solid #ddd;
-    }
-    .business-calendar .calendar-table th.sunday {
-        color: #0066cc;
-    }
-    .business-calendar .calendar-table th.saturday {
-        color: #0066cc;
-    }
-    .business-calendar .calendar-table td {
-        padding: 15px;
-        text-align: center;
-        border: 1px solid #ddd;
-        vertical-align: middle;
-        min-height: 60px;
-    }
-    .business-calendar .calendar-table td.empty {
-        background: #f9f9f9;
-    }
-    .business-calendar .calendar-table td.sunday {
-        color: #0066cc;
-        background: #f0f8ff;
-    }
-    .business-calendar .calendar-table td.saturday {
-        color: #0066cc;
-        background: #f0f8ff;
-    }
-    .business-calendar .calendar-table td.holiday {
-        background: #ffebee;
-        color: #d32f2f;
-        font-weight: bold;
-    }
-    .business-calendar .calendar-table td.today em {
-        background: #ffd700;
-        padding: 2px 6px;
-        border-radius: 3px;
-        font-style: normal;
-        font-weight: bold;
-    }
-    .business-calendar .calendar-info {
-        display: flex;
-        gap: 20px;
-        margin-bottom: 15px;
-    }
-    .business-calendar .info-box {
-        flex: 1;
-        background: #f5f5f5;
-        padding: 15px;
-        border-radius: 4px;
-    }
-    .business-calendar .info-box h3 {
-        margin: 0 0 8px 0;
-        font-size: 16px;
-    }
-    .business-calendar .info-box p {
-        margin: 0;
-        font-size: 14px;
-    }
-    .business-calendar .calendar-note {
-        text-align: center;
-        margin: 15px 0 0 0;
-        padding: 10px;
-        background: #fff;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-    }
-    </style>
     
-    <div class="business-calendar">
-        <div class="calendar-header">
-            <h2><?php echo esc_html($year); ?>年 <?php echo esc_html($month); ?>月</h2>
-            <div class="calendar-nav">
-                <button type="button" class="btn-prev" data-year="<?php echo esc_attr($prev_year); ?>" data-month="<?php echo esc_attr($prev_month); ?>">前の月</button>
-                <button type="button" class="btn-next" data-year="<?php echo esc_attr($next_year); ?>" data-month="<?php echo esc_attr($next_month); ?>">次の月</button>
-            </div>
-        </div>
-        
-        <div class="calendar-legend">
-            <span class="legend-item"><span class="legend-color holiday"></span>休業日</span>
-        </div>
-        
-        <table class="calendar-table">
+    <div class="businessCalendar">
+        <h3><?php echo esc_html($year); ?><small>年</small> <?php echo esc_html($month); ?><small>月</small></h3>
+        <button type="button" class="btnPrev" data-year="<?php echo esc_attr($prev_year); ?>" data-month="<?php echo esc_attr($prev_month); ?>"></button>
+        <button type="button" class="btnNext" data-year="<?php echo esc_attr($next_year); ?>" data-month="<?php echo esc_attr($next_month); ?>"></button>
+        <p class="calendarLegend">
+            <span class="legendItem"><span class="legendColor holiday"></span>休業日</span>
+        </p>
+        <table class="calendarTable">
             <thead>
                 <tr>
                     <th class="sunday">日</th>
@@ -680,17 +544,17 @@ function shinsei_kouki_display_calendar($year = null, $month = null) {
             </tbody>
         </table>
         
-        <div class="calendar-info">
-            <div class="info-box">
-                <h3>休業日</h3>
-                <p>土(第2・3・4)・日・祝・他</p>
-            </div>
-            <div class="info-box">
-                <h3>営業時間</h3>
-                <p>8:00~17:00</p>
-            </div>
-        </div>
-        <p class="calendar-note">休日・時間外作業もお気軽にご相談ください</p>
     </div>
+    <div class="calendarInfo">
+        <div class="infoBox">
+            <h4>休業日</h4>
+            <p>土（第2･3･4）・日・祝・他</p>
+        </div>
+        <div class="infoBox">
+            <h4>営業時間</h4>
+            <p>8:00〜17:00</p>
+        </div>
+    </div>
+    <p class="calendarNote">休日・時間外作業もお気軽にご相談ください</p>
     <?php
 }
