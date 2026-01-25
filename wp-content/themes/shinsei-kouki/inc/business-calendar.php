@@ -67,28 +67,28 @@ function shinsei_kouki_calendar_metabox_callback($post) {
     $first_day = date('w', strtotime($calendar_year . '-' . $calendar_month . '-01'));
     
     ?>
-    <div class="calendar-admin">
+    <div class="calendarAdmin">
         <p>
             <label>年：<input type="number" id="calendar_year_input" name="calendar_year" value="<?php echo esc_attr($calendar_year); ?>" min="2020" max="2100" required></label>
             <label>月：<input type="number" id="calendar_month_input" name="calendar_month" value="<?php echo esc_attr($calendar_month); ?>" min="1" max="12" required></label>
         </p>
         <p class="description">タイトルに「<span id="calendar_title_hint"><?php echo esc_html($calendar_year); ?>年<?php echo esc_html(intval($calendar_month)); ?>月</span>」と入力してください。</p>
         
-        <div class="calendar-grid">
-            <div class="calendar-header">
-                <div class="calendar-day-header">日</div>
-                <div class="calendar-day-header">月</div>
-                <div class="calendar-day-header">火</div>
-                <div class="calendar-day-header">水</div>
-                <div class="calendar-day-header">木</div>
-                <div class="calendar-day-header">金</div>
-                <div class="calendar-day-header">土</div>
+        <div class="calendarGrid">
+            <div class="calendarHeader">
+                <div class="calendarDayHeader">日</div>
+                <div class="calendarDayHeader">月</div>
+                <div class="calendarDayHeader">火</div>
+                <div class="calendarDayHeader">水</div>
+                <div class="calendarDayHeader">木</div>
+                <div class="calendarDayHeader">金</div>
+                <div class="calendarDayHeader">土</div>
             </div>
-            <div class="calendar-body" id="calendar_body">
+            <div class="calendarBody" id="calendar_body">
                 <?php
                 // 最初の週の空白セル
                 for ($i = 0; $i < $first_day; $i++) {
-                    echo '<div class="calendar-day empty"></div>';
+                    echo '<div class="calendarDay empty"></div>';
                 }
                 
                 // 日付セル
@@ -98,7 +98,7 @@ function shinsei_kouki_calendar_metabox_callback($post) {
                     $is_sunday = ($day_of_week == 0);
                     $is_saturday = ($day_of_week == 6);
                     
-                    $class = 'calendar-day';
+                    $class = 'calendarDay';
                     if ($is_sunday || $is_saturday) {
                         $class .= ' weekend';
                     }
@@ -203,7 +203,7 @@ function shinsei_kouki_calendar_metabox_callback($post) {
                 
                 // 最初の週の空白セル
                 for (var i = 0; i < firstDay; i++) {
-                    $calendarBody.append('<div class="calendar-day empty"></div>');
+                    $calendarBody.append('<div class="calendarDay empty"></div>');
                 }
                 
                 // 日付セルを生成
@@ -215,7 +215,7 @@ function shinsei_kouki_calendar_metabox_callback($post) {
                     // 保存済みの休業日のみをチェック（デフォルトルールは適用しない）
                     var isHoliday = savedHolidays.indexOf(day) !== -1;
                     
-                    var classNames = 'calendar-day';
+                    var classNames = 'calendarDay';
                     if (isSunday || isSaturday) {
                         classNames += ' weekend';
                     }
@@ -250,28 +250,28 @@ function shinsei_kouki_calendar_metabox_callback($post) {
         </script>
         
         <style>
-        .calendar-admin .calendar-grid {
+        .calendarAdmin .calendarGrid {
             max-width: 700px;
             margin: 20px 0;
         }
-        .calendar-admin .calendar-header {
+        .calendarAdmin .calendarHeader {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             gap: 2px;
             margin-bottom: 2px;
         }
-        .calendar-admin .calendar-day-header {
+        .calendarAdmin .calendarDayHeader {
             background: #f0f0f0;
             padding: 8px;
             text-align: center;
             font-weight: bold;
         }
-        .calendar-admin .calendar-body {
+        .calendarAdmin .calendarBody {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             gap: 2px;
         }
-        .calendar-admin .calendar-day {
+        .calendarAdmin .calendarDay {
             background: #fff;
             border: 1px solid #ddd;
             padding: 8px;
@@ -281,24 +281,24 @@ function shinsei_kouki_calendar_metabox_callback($post) {
             align-items: center;
             justify-content: center;
         }
-        .calendar-admin .calendar-day.empty {
+        .calendarAdmin .calendarDay.empty {
             background: #f9f9f9;
             border: none;
         }
-        .calendar-admin .calendar-day.weekend {
+        .calendarAdmin .calendarDay.weekend {
             background: #e8f4f8;
         }
-        .calendar-admin .calendar-day.holiday {
+        .calendarAdmin .calendarDay.holiday {
             background: #ffebee;
         }
-        .calendar-admin .calendar-day label {
+        .calendarAdmin .calendarDay label {
             display: flex;
             flex-direction: column;
             align-items: center;
             cursor: pointer;
             width: 100%;
         }
-        .calendar-admin .calendar-day input[type="checkbox"] {
+        .calendarAdmin .calendarDay input[type="checkbox"] {
             margin-bottom: 4px;
         }
         </style>

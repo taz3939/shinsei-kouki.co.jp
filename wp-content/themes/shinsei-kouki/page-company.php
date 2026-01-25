@@ -8,7 +8,10 @@ get_header();
 
 <section id="companyPage">
     <div class="inner">
-        <h1>会社概要</h1>
+        <h1 class="pageTitle">
+            会社概要
+            <small>about us</small>
+        </h1>
         
         <div class="companyContent">
             <table class="companyTable">

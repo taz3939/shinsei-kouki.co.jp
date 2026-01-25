@@ -7,6 +7,18 @@
 
     </main>
 
+    <?php if (!is_front_page() && !is_page('contact')) : ?>
+        <?php get_template_part('template-parts/contact-section'); ?>
+    <?php endif; ?>
+    
+    <?php if (!is_front_page()) : ?>
+        <div class="breadcrumbsWrapper">
+            <div class="inner">
+                <?php shinsei_kouki_breadcrumbs(); ?>
+            </div>
+        </div>
+    <?php endif; ?>
+
     <footer id="siteFooter">
         <div class="inner">
             <div id="footerContent">
@@ -14,7 +26,7 @@
                     <ul>
                         <li><a href="<?php echo esc_url(home_url('/business')); ?>">事業内容</a></li>
                         <li><a href="<?php echo esc_url(home_url('/company')); ?>">会社概要</a></li>
-                        <li><a href="<?php echo esc_url(home_url('/news')); ?>">お知らせ</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/topics')); ?>">お知らせ</a></li>
                         <li><a href="<?php echo esc_url(home_url('/contact')); ?>">お問い合わせ</a></li>
                     </ul>
                 </nav>

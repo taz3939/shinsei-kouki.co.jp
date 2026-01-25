@@ -8,6 +8,20 @@
 
 
 
+/* common setting
+------------------------------------*/
+body {
+  background: none;
+}
+
+main {
+  padding: 0;
+}
+
+
+
+
+
 /* mainVisual setting
 ------------------------------------*/
 #mainVisual {
@@ -32,6 +46,8 @@
       display: flex;
       align-items: center;
       margin: 0 0 30px;
+      padding: 0;
+      width: auto;
       font-weight: 700;
       font-size: 36px;
       color: $cBk3;
@@ -42,7 +58,7 @@
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
       transition: opacity 1.5s ease-out, filter 1.5s ease-out;
-      
+
       &.fadeIn {
         opacity: 1;
         filter: blur(0);
@@ -55,6 +71,47 @@
         width: 71.5px;
         height: auto;
         max-width: 100%;
+
+        // SVG内部のスタイル（logo-color.svg用）
+        .st0 {
+          fill: #63757a;
+          fill-rule: evenodd;
+        }
+
+        .st1 {
+          fill: #0087ac;
+          fill-rule: evenodd;
+        }
+
+        .st2 {
+          fill: #7fa329;
+          fill-rule: evenodd;
+        }
+
+        .st3 {
+          fill: #627479;
+          isolation: isolate;
+          font-family: ZenOldMincho-Regular, 'Zen Old Mincho';
+          font-size: 36.8px;
+        }
+
+        .st4 {
+          isolation: isolate;
+        }
+
+        .st5 {
+          fill: #0980a2;
+          isolation: isolate;
+          font-family: ZenOldMincho-Regular, 'Zen Old Mincho';
+          font-size: 36.8px;
+        }
+
+        .st6 {
+          fill: #7b9c2c;
+          isolation: isolate;
+          font-family: ZenOldMincho-Regular, 'Zen Old Mincho';
+          font-size: 36.8px;
+        }
       }
     }
     
@@ -297,141 +354,6 @@
       
       &:hover {
         opacity: 0.8;
-      }
-    }
-  }
-}
-
-
-
-
-
-/* contactSection setting
-------------------------------------*/
-#contactSection {
-  padding: 80px 0;
-  
-  .inner {
-    margin: 0 auto;
-    width: 90%;
-    max-width: 1200px;
-    text-align: center;
-    
-    h2 {
-      margin: 0 0 50px;
-      font-weight: 600;
-      font-size: 20px;
-      small {
-        display: block;
-        margin: 5px 0 0;
-        width: 100%;
-        font-size: 12px;
-        color: $cBlu;
-      }
-    }
-    
-    > p {
-      margin: 0 0 30px;
-      line-height: 1.85;
-      font-size: 14px;
-    }
-    
-    > a.btnContact {
-      display: block;
-      margin: 0 auto 25px;
-      width: 625px;
-      text-align: center;
-      span {
-        position: relative;
-        z-index: 1;
-        display: block;
-        box-sizing: border-box;
-        border: 3px solid $cGreen;
-        border-radius: 20px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-        background: $cWht;
-        margin: 0 auto -20px;
-        width: 475px;
-        height: 40px;
-        line-height: 34px;
-        font-weight: 700;
-        font-size: 14px;
-      }
-      em {
-        position: relative;
-        z-index: 0;
-        display: flex;
-        justify-content: center;
-        box-sizing: border-box;
-        background: $cGreen;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-        margin: 0 auto;
-        width: 625px;
-        height: 90px;
-        line-height: 100px;
-        text-align: center;
-        font-size: 22px;
-        color: $cWht;
-        transition: opacity 0.6s ease;
-        
-        &::after {
-          content: '';
-          position: absolute;
-          top: 50%;
-          right: 20px;
-          border-top: 2px solid #fff;
-          border-right: 2px solid #fff;
-          -ms-transform: rotate(45deg);
-          -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-          margin: -5px 0 0;
-          width: 8px;
-          height: 8px;
-          transition: all 0.3s;
-        }
-      }
-      
-      &:hover {
-        opacity: 0.8;
-      }
-    }
-    
-    dl {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      dt {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        span {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          border-radius: 5px;
-          border: 2px solid $cGreen;
-          width: 120px;
-          height: 45px;
-          line-height: 1.5;
-          font-weight: 700;
-          font-size: 12px;
-        }
-        em {
-          font-weight: 600;
-          font-size: 33px;
-        }
-      }
-      dd {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: left;
-        gap: 5px;
-        p {
-          font-size: 11px;
-        }
       }
     }
   }
@@ -945,6 +867,47 @@
         svg {
           margin: 0 3.2vw 0 0;
           width: 14.2666667vw;
+
+          // SVG内部のスタイル（logo-color.svg用）
+          .st0 {
+            fill: #63757a;
+            fill-rule: evenodd;
+          }
+
+          .st1 {
+            fill: #0087ac;
+            fill-rule: evenodd;
+          }
+
+          .st2 {
+            fill: #7fa329;
+            fill-rule: evenodd;
+          }
+
+          .st3 {
+            fill: #627479;
+            isolation: isolate;
+            font-family: ZenOldMincho-Regular, 'Zen Old Mincho';
+            font-size: 36.8px;
+          }
+
+          .st4 {
+            isolation: isolate;
+          }
+
+          .st5 {
+            fill: #0980a2;
+            isolation: isolate;
+            font-family: ZenOldMincho-Regular, 'Zen Old Mincho';
+            font-size: 36.8px;
+          }
+
+          .st6 {
+            fill: #7b9c2c;
+            isolation: isolate;
+            font-family: ZenOldMincho-Regular, 'Zen Old Mincho';
+            font-size: 36.8px;
+          }
         }
       }
       
@@ -1012,6 +975,7 @@
   /* aboutBusiness setting
   ------------------------------------*/
   #aboutBusiness {
+    display: none;
     padding: 12vw 0;
     background: url("../../img/top/bg_business_sp.webp") center / cover no-repeat;
     
@@ -1138,139 +1102,6 @@
         
         &:hover {
           opacity: 0.8;
-        }
-      }
-    }
-  }
-
-
-
-
-
-  /* contactSection setting
-  ------------------------------------*/
-  #contactSection {
-    display: none;
-    padding: 80px 0;
-    
-    .inner {
-      margin: 0 auto;
-      width: 90%;
-      max-width: 1200px;
-      text-align: center;
-      
-      h2 {
-        margin: 0 0 4.8vw;
-        font-size: 5.3333333vw;
-
-        small {
-          margin: 2.666667vw 0 0;
-          font-size: 3.2vw;
-        }
-      }
-      
-      > p {
-        margin: 0 0 30px;
-        line-height: 1.85;
-        font-size: 14px;
-      }
-      
-      > a.btnContact {
-        display: block;
-        margin: 0 auto 25px;
-        width: 625px;
-        text-align: center;
-        span {
-          position: relative;
-          z-index: 1;
-          display: block;
-          box-sizing: border-box;
-          border: 3px solid $cGreen;
-          border-radius: 20px;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-          background: $cWht;
-          margin: 0 auto -20px;
-          width: 475px;
-          height: 40px;
-          line-height: 34px;
-          font-weight: 700;
-          font-size: 14px;
-        }
-        em {
-          position: relative;
-          z-index: 0;
-          display: flex;
-          justify-content: center;
-          box-sizing: border-box;
-          background: $cGreen;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-          margin: 0 auto;
-          width: 625px;
-          height: 90px;
-          line-height: 100px;
-          text-align: center;
-          font-size: 22px;
-          color: $cWht;
-          transition: opacity 0.6s ease;
-          
-          &::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            right: 20px;
-            border-top: 2px solid #fff;
-            border-right: 2px solid #fff;
-            -ms-transform: rotate(45deg);
-            -webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
-            margin: -5px 0 0;
-            width: 8px;
-            height: 8px;
-            transition: all 0.3s;
-          }
-        }
-        
-        &:hover {
-          opacity: 0.8;
-        }
-      }
-      
-      dl {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        dt {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 10px;
-          span {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 5px;
-            border: 2px solid $cGreen;
-            width: 120px;
-            height: 45px;
-            line-height: 1.5;
-            font-weight: 700;
-            font-size: 12px;
-          }
-          em {
-            font-weight: 600;
-            font-size: 33px;
-          }
-        }
-        dd {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          text-align: left;
-          gap: 5px;
-          p {
-            font-size: 11px;
-          }
         }
       }
     }

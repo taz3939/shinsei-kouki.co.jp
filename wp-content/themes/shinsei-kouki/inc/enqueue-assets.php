@@ -49,8 +49,8 @@ function shinsei_kouki_enqueue_scripts() {
     }
     
     // お知らせ一覧・詳細ページ用のCSS（トップページは除外）
-    if (!is_front_page() && (is_home() || is_category() || is_tag() || is_single())) {
-        wp_enqueue_style('news-style', get_template_directory_uri() . '/assets/css/news/news.css', array('shinsei-kouki-style'), '1.0.0');
+    if (!is_front_page() && (is_post_type_archive('topics') || (is_single() && get_post_type() === 'topics'))) {
+        wp_enqueue_style('topics-style', get_template_directory_uri() . '/assets/css/topics/topics.css', array('shinsei-kouki-style'), '1.0.0');
     }
     
     // JS（cleanup.phpでjQueryが無効化されているので、外部jQueryを読み込む）

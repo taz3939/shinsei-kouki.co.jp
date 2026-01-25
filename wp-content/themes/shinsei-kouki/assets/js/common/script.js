@@ -122,7 +122,7 @@ jQuery(function($) {
   $(window).on('scroll', function() {
     var scrollTop = $(window).scrollTop();
     var header = $('#siteHeader');
-    var logo = $('.header-logo');
+    var logo = $('.headerLogo');
     
     if (scrollTop > 100) {
       header.addClass('scrolled');
@@ -137,7 +137,7 @@ jQuery(function($) {
   var initialScrollTop = $(window).scrollTop();
   if (initialScrollTop > 100) {
     $('#siteHeader').addClass('scrolled');
-    $('.header-logo').addClass('visible');
+    $('.headerLogo').addClass('visible');
   }
 
 });

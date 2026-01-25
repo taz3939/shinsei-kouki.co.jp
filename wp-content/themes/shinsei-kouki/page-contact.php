@@ -8,7 +8,10 @@ get_header();
 
 <section id="contactPage">
     <div class="inner">
-        <h1>お問い合わせ</h1>
+        <h1 class="pageTitle">
+            お問い合わせ
+            <small>contact</small>
+        </h1>
         
         <div class="contactContent">
             <p class="contactIntro">

@@ -1,6 +1,6 @@
 <?php
 /**
- * single-news.php
+ * single-topics.php
  * お知らせ詳細ページテンプレート
  */
 get_header();
@@ -8,6 +8,10 @@ get_header();
 
 <section id="newsDetail">
     <div class="inner">
+        <p class="pageTitle">
+            お知らせ
+            <small>topics</small>
+        </p>
         <?php if (have_posts()) : ?>
             <?php while (have_posts()) : the_post(); ?>
             <article id="post-<?php the_ID(); ?>" <?php post_class('newsArticle'); ?>>
@@ -25,7 +29,7 @@ get_header();
         
         <div class="newsNav">
             <div class="btnArea">
-                <a href="<?php echo esc_url(home_url('/news')); ?>" class="btnSecondary">お知らせ一覧に戻る</a>
+                <a href="<?php echo esc_url(home_url('/topics')); ?>" class="btnSecondary">お知らせ一覧に戻る</a>
             </div>
         </div>
     </div>

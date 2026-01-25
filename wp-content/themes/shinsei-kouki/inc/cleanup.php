@@ -4,6 +4,9 @@
  * 不要なWP機能の削除やオートフォーマット関連の設定
  */
 
+// 管理バーを非表示（フロントエンドでの表示を無効化）
+add_filter('show_admin_bar', '__return_false');
+
 // ヘッダーから不要な要素を削除
 remove_action('wp_head', 'feed_links_extra', 3);
 remove_action('wp_head', 'feed_links', 2);

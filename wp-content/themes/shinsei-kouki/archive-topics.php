@@ -1,6 +1,6 @@
 <?php
 /**
- * archive-news.php
+ * archive-topics.php
  * お知らせ一覧ページテンプレート
  */
 get_header();
@@ -8,7 +8,10 @@ get_header();
 
 <section id="newsArchive">
     <div class="inner">
-        <h1>お知らせ</h1>
+        <h1 class="pageTitle">
+            お知らせ
+            <small>topics</small>
+        </h1>
         
         <?php if (have_posts()) : ?>
             <ul class="newsList">
