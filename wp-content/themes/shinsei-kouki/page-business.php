@@ -6,7 +6,7 @@
 get_header();
 ?>
 
-<section id="businessPage">
+<section id="businessIntro">
     <div class="inner">
         <h1 class="pageTitle">
             事業内容

@@ -48,6 +48,16 @@ function shinsei_kouki_enqueue_scripts() {
         wp_enqueue_style('business-style', get_template_directory_uri() . '/assets/css/business/business.css', array('shinsei-kouki-style'), '1.0.0');
     }
     
+    // 会社概要ページ用のCSS
+    if (is_page('company') || is_page_template('page-company.php')) {
+        wp_enqueue_style('company-style', get_template_directory_uri() . '/assets/css/company/company.css', array('shinsei-kouki-style'), '1.0.0');
+    }
+    
+    // お問い合わせページ用のCSS
+    if (is_page('contact') || is_page_template('page-contact.php')) {
+        wp_enqueue_style('contact-style', get_template_directory_uri() . '/assets/css/contact/contact.css', array('shinsei-kouki-style'), '1.0.0');
+    }
+    
     // お知らせ一覧・詳細ページ用のCSS（トップページは除外）
     if (!is_front_page() && (is_post_type_archive('topics') || (is_single() && get_post_type() === 'topics'))) {
         wp_enqueue_style('topics-style', get_template_directory_uri() . '/assets/css/topics/topics.css', array('shinsei-kouki-style'), '1.0.0');

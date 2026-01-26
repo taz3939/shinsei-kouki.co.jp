@@ -8,8 +8,124 @@
 
 
 
-/* mainVisual setting
+/* newsIntro setting
 ------------------------------------*/
+#newsIntro {
+	margin: 0 auto;
+	width: 90%;
+	max-width: 960px;
+	.inner {
+		> p {
+			margin: 0 0 60px;
+			line-height: 1.8;
+			font-size: 15px;
+		}
+	}
+}
+
+
+
+
+
+/* newsArchive setting
+------------------------------------*/
+#newsArchive {
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+	background: $cBk1 url(../../img/common/bg_common-pattern_pc.webp) center 0 / 100% auto no-repeat;
+	width: 100%;
+	padding: 70px 0;
+
+	.inner {
+		box-sizing: border-box;
+		border-radius: 15px 0 15px 0;
+		background: $cWht;
+		margin: 0 auto;
+		padding: 55px;
+		width: 90%;
+		max-width: 1010px;
+	}
+	
+	.newsList {
+		margin: 0 0 30px;
+		
+		li {
+			border-bottom: 1px solid $cGr1;
+			
+			> a {
+				display: flex;
+				align-items: center;
+				padding: 15px 0;
+				gap: 5%;
+				text-decoration: none;
+				transition: opacity 0.3s ease;
+				text-align: left;
+				
+				&:hover {
+					opacity: 0.8;
+					
+					.newsThumbnail img {
+						transform: scale(1.1);
+					}
+					
+					.newsContent span {
+						color: $cBk2;
+						text-decoration: underline;
+					}
+				}
+			}
+			
+			.newsThumbnail {
+				border-radius: 5px;
+				flex-shrink: 0;
+				margin: 0;
+				width: 110px;
+				height: 83px;
+				overflow: hidden;
+				
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					object-position: center;
+					transition: transform 0.3s ease;
+				}
+			}
+			
+			.newsContent {
+				flex: 1;
+				display: flex;
+				flex-direction: column;
+				gap: 5px;
+				font-size: 12px;
+				
+				time {
+					position: relative;
+					min-width: auto;
+					&::before {
+						content: '';
+						position: absolute;
+						top: 50%;
+						transform: translateY(-2.5px);
+						left: -10px;
+						box-sizing: border-box;
+						border-radius: 50%;
+						border: 2px solid $cGreen;
+						display: block;
+						width: 6px;
+						height: 6px;
+					}
+				}
+				
+				span {
+					line-height: 1.75;
+					text-decoration: underline;
+					color: $cBlu;
+					transition: color 0.3s ease;
+				}
+			}
+		}
+	}
+}
 
 
 
@@ -19,6 +135,12 @@
 	Ajustment For Small PC Window 
 ------------------------------------------------------------------------ */
 @media screen and (max-width: 1024px) {
+	/* newsArchive setting
+	------------------------------------*/
+	#newsIntro {
+		width: 92vw;
+	}
+
 
 }
 
@@ -30,5 +152,47 @@
 	Ajustment For Smart Phone 
 ------------------------------------------------------------------------ */
 @media screen and (max-width: 768px) {
-
+	#newsIntro {
+		width: 92vw;
+		
+		.inner {
+			> p {
+				margin: 0 0 8vw;
+				font-size: 3.733333vw;
+			}
+		}
+	}
+	
+	#newsArchive {
+		padding: 8vw 0;
+		
+		.inner {
+			padding: 6.666667vw;
+			width: 92vw;
+		}
+		
+		.newsList {
+			margin: 0 0 8vw;
+			
+			li {
+				> a {
+					padding: 4vw 0;
+					gap: 4vw;
+				}
+				
+				.newsThumbnail {
+					width: 22vw;
+					height: 16.6vw;
+				}
+				
+				.newsContent {
+					font-size: 3.2vw;
+					
+					span {
+						font-size: 3.733333vw;
+					}
+				}
+			}
+		}
+	}
 }

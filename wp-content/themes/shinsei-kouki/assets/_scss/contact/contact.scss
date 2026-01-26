@@ -8,14 +8,13 @@
 
 
 
-/* businessIntro setting
+/* contactIntro setting
 ------------------------------------*/
-#businessIntro {
+#contactIntro {
 	margin: 0 auto;
 	width: 90%;
 	max-width: 960px;
 }
-
 
 
 
@@ -35,9 +34,9 @@
 	Ajustment For Smart Phone 
 ------------------------------------------------------------------------ */
 @media screen and (max-width: 768px) {
-	/* businessIntro setting
+	/* contactIntro setting
 	------------------------------------*/
-	#businessIntro {
+	#contactIntro {
 		width: 92vw;
 	}
 

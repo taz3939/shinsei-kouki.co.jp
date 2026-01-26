@@ -6,7 +6,7 @@
 get_header();
 ?>
 
-<section id="companyPage">
+<section id="companyIntro">
     <div class="inner">
         <h1 class="pageTitle">
             会社概要
