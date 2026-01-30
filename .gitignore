@@ -13,9 +13,6 @@ wp-content/blogs.dir/
 wp-content/upgrade/
 wp-content/updraft/
 
-# コンパイル済みファイル（SCSSから生成されるCSS）
-wp-content/themes/shinsei-kouki/assets/css/
-
 # OS関連
 .DS_Store
 .DS_Store?

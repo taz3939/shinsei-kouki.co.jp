@@ -1,0 +1,1565 @@
+@charset "UTF-8";
+/* color import setting
+------------------------------------*/
+/* ========================================
+   color setting
+   ======================================== */
+/* ----------------------------------------
+   1. 基本色（黒・白・グレー）
+   ---------------------------------------- */
+/* ----------------------------------------
+   2. カラー（赤・青・緑・黄）
+   ---------------------------------------- */
+/* ----------------------------------------
+   3. SVGロゴ色
+   ---------------------------------------- */
+/* ----------------------------------------
+   4. 背景色
+   ---------------------------------------- */
+/* ----------------------------------------
+   5. 透明度付き色
+   ---------------------------------------- */
+/* common setting
+------------------------------------*/
+/* line 13, ../../_scss/top/top.scss */
+body {
+  background: none;
+}
+
+/* line 17, ../../_scss/top/top.scss */
+main {
+  padding: 0;
+}
+
+/* mainVisual setting
+------------------------------------*/
+/* line 27, ../../_scss/top/top.scss */
+#mainVisual {
+  position: relative;
+  width: 100%;
+  height: 516px;
+  background-image: url("../../img/top/bg_main-top_pc.webp");
+  background-position: bottom center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+/* line 36, ../../_scss/top/top.scss */
+#mainVisual .inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  margin: 0 auto;
+  width: 845px;
+  height: 100%;
+}
+/* line 45, ../../_scss/top/top.scss */
+#mainVisual .inner h1 {
+  display: flex;
+  align-items: center;
+  margin: 0 0 30px;
+  padding: 0;
+  width: auto;
+  font-weight: 700;
+  font-size: 36px;
+  color: #333d42;
+  opacity: 0;
+  filter: blur(10px);
+  will-change: opacity, filter;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: opacity 1.5s ease-out, filter 1.5s ease-out;
+}
+/* line 62, ../../_scss/top/top.scss */
+#mainVisual .inner h1.fadeIn {
+  opacity: 1;
+  filter: blur(0);
+  will-change: auto;
+}
+/* line 68, ../../_scss/top/top.scss */
+#mainVisual .inner h1 svg {
+  display: block;
+  margin: 0 12px 0 0;
+  width: 71.5px;
+  height: auto;
+  max-width: 100%;
+}
+/* line 76, ../../_scss/top/top.scss */
+#mainVisual .inner h1 svg .st0 {
+  fill: #63757a;
+  fill-rule: evenodd;
+}
+/* line 81, ../../_scss/top/top.scss */
+#mainVisual .inner h1 svg .st1 {
+  fill: #0087ac;
+  fill-rule: evenodd;
+}
+/* line 86, ../../_scss/top/top.scss */
+#mainVisual .inner h1 svg .st2 {
+  fill: #7fa329;
+  fill-rule: evenodd;
+}
+/* line 91, ../../_scss/top/top.scss */
+#mainVisual .inner h1 svg .st3 {
+  fill: #627479;
+  isolation: isolate;
+  font-family: ZenOldMincho-Regular, 'Zen Old Mincho';
+  font-size: 36.8px;
+}
+/* line 98, ../../_scss/top/top.scss */
+#mainVisual .inner h1 svg .st4 {
+  isolation: isolate;
+}
+/* line 102, ../../_scss/top/top.scss */
+#mainVisual .inner h1 svg .st5 {
+  fill: #0980a2;
+  isolation: isolate;
+  font-family: ZenOldMincho-Regular, 'Zen Old Mincho';
+  font-size: 36.8px;
+}
+/* line 109, ../../_scss/top/top.scss */
+#mainVisual .inner h1 svg .st6 {
+  fill: #7b9c2c;
+  isolation: isolate;
+  font-family: ZenOldMincho-Regular, 'Zen Old Mincho';
+  font-size: 36.8px;
+}
+/* line 118, ../../_scss/top/top.scss */
+#mainVisual .inner p {
+  width: 540px;
+  text-align: center;
+  line-height: 2.0;
+  font-weight: 600;
+  font-size: 15px;
+  color: #182227;
+  opacity: 0;
+  filter: blur(10px);
+  will-change: opacity, filter;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: opacity 1.5s ease-out, filter 1.5s ease-out;
+}
+/* line 133, ../../_scss/top/top.scss */
+#mainVisual .inner p.fadeIn {
+  opacity: 1;
+  filter: blur(0);
+  will-change: auto;
+}
+/* line 140, ../../_scss/top/top.scss */
+#mainVisual .inner figure {
+  position: absolute;
+  top: 126px;
+  right: 0;
+  display: block;
+  opacity: 0;
+  filter: blur(10px);
+  will-change: opacity, filter;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: opacity 1.5s ease-out, filter 1.5s ease-out;
+}
+/* line 153, ../../_scss/top/top.scss */
+#mainVisual .inner figure.fadeIn {
+  opacity: 1;
+  filter: blur(0);
+  will-change: auto;
+}
+/* line 159, ../../_scss/top/top.scss */
+#mainVisual .inner figure img {
+  width: 205px;
+  height: auto;
+}
+
+/* topIntro setting
+------------------------------------*/
+/* line 175, ../../_scss/top/top.scss */
+#topIntro {
+  padding: 20px 0 80px;
+}
+/* line 178, ../../_scss/top/top.scss */
+#topIntro .inner {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 1200px;
+}
+/* line 183, ../../_scss/top/top.scss */
+#topIntro .inner h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 0 50px;
+  text-align: center;
+  font-size: 20px;
+}
+/* line 192, ../../_scss/top/top.scss */
+#topIntro .inner h2 span {
+  font-size: 11px;
+}
+/* line 196, ../../_scss/top/top.scss */
+#topIntro .inner h2 small {
+  display: block;
+  margin: 5px 0 0;
+  width: 100%;
+  font-size: 12px;
+  color: #0087ac;
+}
+/* line 205, ../../_scss/top/top.scss */
+#topIntro .inner p {
+  text-align: center;
+  line-height: 1.85;
+  font-size: 14px;
+}
+/* line 210, ../../_scss/top/top.scss */
+#topIntro .inner p small {
+  font-size: 11px;
+}
+
+/* aboutBusiness setting
+------------------------------------*/
+/* line 222, ../../_scss/top/top.scss */
+#aboutBusiness {
+  padding: 80px 0;
+  background: url("../../img/top/bg_business_pc.webp") center/cover no-repeat;
+}
+/* line 226, ../../_scss/top/top.scss */
+#aboutBusiness .inner {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 1200px;
+  text-align: center;
+}
+/* line 232, ../../_scss/top/top.scss */
+#aboutBusiness .inner h2 {
+  margin: 0 0 50px;
+  font-weight: 600;
+  font-size: 20px;
+}
+/* line 236, ../../_scss/top/top.scss */
+#aboutBusiness .inner h2 small {
+  display: block;
+  margin: 5px 0 0;
+  width: 100%;
+  font-size: 12px;
+  color: #0087ac;
+}
+/* line 245, ../../_scss/top/top.scss */
+#aboutBusiness .inner > p {
+  margin: 0 0 50px;
+  line-height: 1.85;
+  font-size: 14px;
+}
+/* line 251, ../../_scss/top/top.scss */
+#aboutBusiness .inner ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto 50px;
+  width: 97.5%;
+  max-width: 1045px;
+}
+/* line 259, ../../_scss/top/top.scss */
+#aboutBusiness .inner ul li {
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 15px 20px;
+  width: 23.925%;
+  background: #fff;
+  border-radius: 20px 0 20px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  opacity: 0;
+  filter: blur(10px);
+  will-change: opacity, filter;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: opacity 1.5s ease-out, filter 1.5s ease-out, box-shadow 0.3s ease, transform 0.3s ease;
+}
+/* line 275, ../../_scss/top/top.scss */
+#aboutBusiness .inner ul li.fadeIn {
+  opacity: 1;
+  filter: blur(0);
+  will-change: auto;
+}
+/* line 281, ../../_scss/top/top.scss */
+#aboutBusiness .inner ul li:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+/* line 286, ../../_scss/top/top.scss */
+#aboutBusiness .inner ul li svg {
+  position: relative;
+  margin: -12px 0 25px;
+  width: 40px;
+  height: auto;
+}
+/* line 294, ../../_scss/top/top.scss */
+#aboutBusiness .inner ul li svg path:nth-of-type(1) {
+  fill: #63757a;
+}
+/* line 297, ../../_scss/top/top.scss */
+#aboutBusiness .inner ul li svg path:nth-of-type(2) {
+  fill: #7fa329;
+}
+/* line 300, ../../_scss/top/top.scss */
+#aboutBusiness .inner ul li svg path:nth-of-type(3) {
+  fill: #0087ac;
+}
+/* line 305, ../../_scss/top/top.scss */
+#aboutBusiness .inner ul li svg text {
+  fill: #000;
+}
+/* line 308, ../../_scss/top/top.scss */
+#aboutBusiness .inner ul li svg text tspan {
+  fill: #0087ac;
+}
+/* line 314, ../../_scss/top/top.scss */
+#aboutBusiness .inner ul li h3 {
+  font-weight: 600;
+  font-size: 16px;
+}
+/* line 318, ../../_scss/top/top.scss */
+#aboutBusiness .inner ul li h3 small {
+  font-size: 12px;
+}
+/* line 323, ../../_scss/top/top.scss */
+#aboutBusiness .inner ul li figure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+}
+/* line 329, ../../_scss/top/top.scss */
+#aboutBusiness .inner ul li figure img {
+  width: auto;
+  height: 34px;
+}
+/* line 335, ../../_scss/top/top.scss */
+#aboutBusiness .inner ul li p {
+  line-height: 2.0;
+  text-align: left;
+  font-size: 12px;
+  color: #333344;
+}
+/* line 344, ../../_scss/top/top.scss */
+#aboutBusiness .inner > a.btnPrimary {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  background: #0087ac;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  width: 415px;
+  height: 80px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 80px;
+  font-weight: 600;
+  font-size: 18px;
+  color: #fff;
+  transition: opacity 0.6s ease;
+}
+/* line 360, ../../_scss/top/top.scss */
+#aboutBusiness .inner > a.btnPrimary::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  margin: -5px 0 0;
+  width: 8px;
+  height: 8px;
+  transition: all 0.3s;
+}
+/* line 376, ../../_scss/top/top.scss */
+#aboutBusiness .inner > a.btnPrimary:hover {
+  opacity: 0.8;
+}
+
+/* handledBrands setting
+------------------------------------*/
+/* line 389, ../../_scss/top/top.scss */
+#handledBrands {
+  position: relative;
+  padding: 80px 0;
+  background: url("../../img/top/bg_brands_pc.webp") center/cover no-repeat;
+}
+/* line 394, ../../_scss/top/top.scss */
+#handledBrands::before, #handledBrands::after {
+  content: '';
+  position: absolute;
+  top: -33.5px;
+  left: 0;
+  display: block;
+  width: 50%;
+  height: 33.5px;
+  background: url("../../img/common/line_pc.webp") center/100% 100% no-repeat;
+}
+/* line 406, ../../_scss/top/top.scss */
+#handledBrands::after {
+  top: auto;
+  bottom: -33.5px;
+  left: auto;
+  right: 0;
+  transform: rotate(180deg);
+}
+/* line 414, ../../_scss/top/top.scss */
+#handledBrands .inner {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 1200px;
+  text-align: center;
+}
+/* line 420, ../../_scss/top/top.scss */
+#handledBrands .inner h2 {
+  margin: 0 0 50px;
+  font-weight: 600;
+  font-size: 20px;
+}
+/* line 424, ../../_scss/top/top.scss */
+#handledBrands .inner h2 small {
+  display: block;
+  margin: 5px 0 0;
+  width: 100%;
+  font-size: 12px;
+  color: #0087ac;
+}
+/* line 433, ../../_scss/top/top.scss */
+#handledBrands .inner p {
+  margin: 0 0 50px;
+  line-height: 1.85;
+  font-size: 14px;
+}
+/* line 439, ../../_scss/top/top.scss */
+#handledBrands .inner ul {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+}
+/* line 447, ../../_scss/top/top.scss */
+#handledBrands .inner ul::after {
+  content: '※五十音順';
+  position: absolute;
+  bottom: -40px;
+  right: 30px;
+  font-size: 10px;
+}
+/* line 455, ../../_scss/top/top.scss */
+#handledBrands .inner ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  opacity: 0;
+  filter: blur(10px);
+  will-change: opacity, filter;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: opacity 1.5s ease-out, filter 1.5s ease-out, box-shadow 0.3s ease;
+}
+/* line 468, ../../_scss/top/top.scss */
+#handledBrands .inner ul li.fadeIn {
+  opacity: 1;
+  filter: blur(0);
+  will-change: auto;
+}
+/* line 474, ../../_scss/top/top.scss */
+#handledBrands .inner ul li img {
+  width: auto;
+  height: 25px;
+  max-width: 175px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+/* latestNews and businessCalendar (2 column layout)
+------------------------------------*/
+/* line 492, ../../_scss/top/top.scss */
+#latestNewsCalendar {
+  padding: 100px 0;
+}
+/* line 495, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 980px;
+}
+/* line 502, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #latestNews {
+  margin: 17.5px 0 0;
+  width: 45%;
+  text-align: center;
+}
+/* line 506, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #latestNews h2 {
+  margin: 0 0 30px;
+  font-size: 20px;
+}
+/* line 509, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #latestNews h2 span {
+  display: block;
+  margin: 0 0 10px;
+  font-size: 15px;
+}
+/* line 514, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #latestNews h2 small {
+  display: block;
+  margin: 10px 0 0;
+  width: 100%;
+  font-size: 12px;
+  color: #0087ac;
+}
+/* line 523, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #latestNews .newsList {
+  margin: 0 0 30px;
+}
+/* line 526, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #latestNews .newsList li {
+  border-bottom: 1px solid #e3e3e3;
+}
+/* line 529, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #latestNews .newsList li > a {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  gap: 5%;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+  text-align: left;
+}
+/* line 538, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #latestNews .newsList li > a:hover {
+  opacity: 0.8;
+}
+/* line 541, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #latestNews .newsList li > a:hover .newsThumbnail img {
+  transform: scale(1.1);
+}
+/* line 545, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #latestNews .newsList li > a:hover .newsContent span {
+  color: #222;
+  text-decoration: underline;
+}
+/* line 552, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #latestNews .newsList li .newsThumbnail {
+  border-radius: 5px;
+  flex-shrink: 0;
+  margin: 0;
+  width: 110px;
+  height: 83px;
+  overflow: hidden;
+}
+/* line 560, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #latestNews .newsList li .newsThumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+/* line 569, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #latestNews .newsList li .newsContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 12px;
+}
+/* line 576, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #latestNews .newsList li .newsContent time {
+  position: relative;
+  min-width: auto;
+}
+/* line 579, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #latestNews .newsList li .newsContent time::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-2.5px);
+  left: -10px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 2px solid #7fa329;
+  display: block;
+  width: 6px;
+  height: 6px;
+}
+/* line 594, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #latestNews .newsList li .newsContent span {
+  line-height: 1.75;
+  text-decoration: underline;
+  color: #0087ac;
+  transition: color 0.3s ease;
+}
+/* line 604, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #latestNews > a {
+  position: relative;
+  display: block;
+  background: #0087ac;
+  margin: 15px auto 0;
+  width: 72.72%;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+  transition: opacity 0.6s ease;
+}
+/* line 617, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #latestNews > a::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  margin: -5px 0 0;
+  width: 8px;
+  height: 8px;
+  transition: all 0.3s;
+}
+/* line 633, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #latestNews > a:hover {
+  opacity: 0.8;
+}
+/* line 642, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #businessCalendar {
+  position: relative;
+  border-radius: 20px 0 20px 0;
+  background: #f9f9f9;
+  padding: 50px 20px 0;
+  width: 45%;
+  text-align: center;
+}
+/* line 650, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #businessCalendar svg {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: auto;
+}
+/* line 660, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #businessCalendar svg path:nth-of-type(1) {
+  fill: #63757a;
+}
+/* line 663, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #businessCalendar svg path:nth-of-type(2) {
+  fill: #7fa329;
+}
+/* line 666, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #businessCalendar svg path:nth-of-type(3) {
+  fill: #0087ac;
+}
+/* line 672, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #businessCalendar h2 {
+  margin: 0 0 20px;
+  font-size: 20px;
+}
+/* line 675, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #businessCalendar h2 small {
+  display: block;
+  margin: 10px 0 0;
+  width: 100%;
+  font-size: 12px;
+  color: #0087ac;
+}
+/* line 684, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #businessCalendar .businessCalendar {
+  position: relative;
+  background: #fff;
+  padding: 25px 0 5px;
+}
+/* line 689, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #businessCalendar .businessCalendar h3 {
+  margin: 0 0 15px;
+  text-align: center;
+  font-size: 22px;
+}
+/* line 694, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #businessCalendar .businessCalendar h3 small {
+  font-weight: 600;
+  font-size: 12px;
+}
+/* line 700, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #businessCalendar .businessCalendar button {
+  position: absolute;
+  top: 150px;
+  left: 0;
+  transform: translateX(-70%);
+  display: block;
+  border: none;
+  border-radius: 50%;
+  background: #0087ac;
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+/* line 716, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #businessCalendar .businessCalendar button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
+  -ms-transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+  margin: -5px 0 0;
+  width: 8px;
+  height: 8px;
+  transition: all 0.3s;
+}
+/* line 732, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #businessCalendar .businessCalendar button.btnNext {
+  left: auto;
+  right: 0;
+  transform: translateX(70%);
+}
+/* line 737, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #businessCalendar .businessCalendar button.btnNext::after {
+  right: auto;
+  left: 20px;
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+/* line 746, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #businessCalendar .businessCalendar button:hover {
+  background: #005f79;
+}
+/* line 750, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #businessCalendar .businessCalendar button:disabled {
+  background: #bbb;
+  cursor: not-allowed;
+}
+/* line 759, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarLegend .legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+/* line 765, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarLegend .legendColor {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  font-size: 14px;
+}
+/* line 771, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarLegend .legendColor.holiday {
+  background: #eb0c0c;
+}
+/* line 777, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable {
+  margin: 0 auto 20px;
+  width: 75%;
+  border-collapse: separate;
+  border-spacing: 6px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 18px;
+}
+/* line 786, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable th {
+  box-sizing: border-box;
+  width: 14%;
+  padding: 10px 0;
+  height: 35px;
+}
+/* line 792, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable th.sunday {
+  color: #eb0c0c;
+}
+/* line 796, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable th.saturday {
+  color: #0087ac;
+}
+/* line 801, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable td {
+  box-sizing: border-box;
+  width: 14.285714285714286%;
+  vertical-align: middle;
+  height: 35px;
+}
+/* line 807, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable td.empty {
+  background: #fff;
+}
+/* line 811, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable td.sunday, #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable td.saturday {
+  color: #0087ac;
+  background: #f0f8ff;
+}
+/* line 817, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable td.holiday {
+  background: #eb0c0c;
+  color: #fff;
+  font-weight: bold;
+}
+/* line 823, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable td.today {
+  border: 4px solid #ffd700;
+}
+/* line 830, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #businessCalendar .calendarInfo {
+  display: flex;
+  justify-content: center;
+  gap: 2%;
+}
+/* line 835, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #businessCalendar .calendarInfo .infoBox {
+  width: 45.5%;
+  padding: 20px 0;
+  font-size: 13px;
+}
+/* line 840, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #businessCalendar .calendarInfo .infoBox h4 {
+  border-radius: 5px;
+  background: #666;
+  margin: 0 0 5px;
+  padding: 3px;
+  color: #fff;
+}
+/* line 851, ../../_scss/top/top.scss */
+#latestNewsCalendar .inner #businessCalendar .calendarNote {
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  margin: 0 auto -20px;
+  width: 340px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* ------------------------------------------------------------------------
+	Ajustment For Small PC Window 
+------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------
+	Ajustment For Smart Phone 
+------------------------------------------------------------------------ */
+@media screen and (max-width: 768px) {
+  /* mainVisual setting
+  ------------------------------------*/
+  /* line 887, ../../_scss/top/top.scss */
+  #mainVisual {
+    width: 100%;
+    height: 139.467vw;
+    background-image: url("../../img/top/bg_main-top_sp.webp");
+  }
+  /* line 891, ../../_scss/top/top.scss */
+  #mainVisual .inner {
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+  }
+  /* line 896, ../../_scss/top/top.scss */
+  #mainVisual .inner h1 {
+    margin: 24vw 0 5.7333vw;
+    font-size: 5.3333333vw;
+    filter: blur(2.66667vw);
+  }
+  /* line 901, ../../_scss/top/top.scss */
+  #mainVisual .inner h1 svg {
+    margin: 0 3.2vw 0 0;
+    width: 14.2666667vw;
+  }
+  /* line 906, ../../_scss/top/top.scss */
+  #mainVisual .inner h1 svg .st0 {
+    fill: #63757a;
+    fill-rule: evenodd;
+  }
+  /* line 911, ../../_scss/top/top.scss */
+  #mainVisual .inner h1 svg .st1 {
+    fill: #0087ac;
+    fill-rule: evenodd;
+  }
+  /* line 916, ../../_scss/top/top.scss */
+  #mainVisual .inner h1 svg .st2 {
+    fill: #7fa329;
+    fill-rule: evenodd;
+  }
+  /* line 921, ../../_scss/top/top.scss */
+  #mainVisual .inner h1 svg .st3 {
+    fill: #627479;
+    isolation: isolate;
+    font-family: ZenOldMincho-Regular, 'Zen Old Mincho';
+    font-size: 36.8px;
+  }
+  /* line 928, ../../_scss/top/top.scss */
+  #mainVisual .inner h1 svg .st4 {
+    isolation: isolate;
+  }
+  /* line 932, ../../_scss/top/top.scss */
+  #mainVisual .inner h1 svg .st5 {
+    fill: #0980a2;
+    isolation: isolate;
+    font-family: ZenOldMincho-Regular, 'Zen Old Mincho';
+    font-size: 36.8px;
+  }
+  /* line 939, ../../_scss/top/top.scss */
+  #mainVisual .inner h1 svg .st6 {
+    fill: #7b9c2c;
+    isolation: isolate;
+    font-family: ZenOldMincho-Regular, 'Zen Old Mincho';
+    font-size: 36.8px;
+  }
+  /* line 948, ../../_scss/top/top.scss */
+  #mainVisual .inner p {
+    width: 100%;
+    line-height: 1.8;
+    font-size: 3.466667vw;
+    filter: blur(2.66667vw);
+  }
+  /* line 955, ../../_scss/top/top.scss */
+  #mainVisual .inner figure {
+    top: 58.4vw;
+    right: 50%;
+    transform: translateX(50%);
+    filter: blur(2.66667vw);
+  }
+  /* line 961, ../../_scss/top/top.scss */
+  #mainVisual .inner figure img {
+    width: 38.933333vw;
+  }
+
+  /* topIntro setting
+  ------------------------------------*/
+  /* line 976, ../../_scss/top/top.scss */
+  #topIntro {
+    padding: 6.6666667vw 0 12vw;
+  }
+  /* line 981, ../../_scss/top/top.scss */
+  #topIntro .inner h2 {
+    margin: 0 0 4.8vw;
+    font-size: 5.3333333vw;
+  }
+  /* line 985, ../../_scss/top/top.scss */
+  #topIntro .inner h2 span {
+    font-size: 3.733333vw;
+  }
+  /* line 989, ../../_scss/top/top.scss */
+  #topIntro .inner h2 small {
+    margin: 2.666667vw 0 0;
+    font-size: 3.2vw;
+  }
+  /* line 995, ../../_scss/top/top.scss */
+  #topIntro .inner p {
+    text-align: left;
+    font-size: 3.733333vw;
+  }
+  /* line 999, ../../_scss/top/top.scss */
+  #topIntro .inner p small {
+    font-size: 3.2vw;
+  }
+
+  /* aboutBusiness setting
+  ------------------------------------*/
+  /* line 1011, ../../_scss/top/top.scss */
+  #aboutBusiness {
+    display: none;
+    padding: 12vw 0;
+    background: url("../../img/top/bg_business_sp.webp") center/cover no-repeat;
+  }
+  /* line 1018, ../../_scss/top/top.scss */
+  #aboutBusiness .inner h2 {
+    margin: 0 0 4.8vw;
+    font-size: 5.3333333vw;
+  }
+  /* line 1022, ../../_scss/top/top.scss */
+  #aboutBusiness .inner h2 small {
+    margin: 2.666667vw 0 0;
+    font-size: 3.2vw;
+  }
+  /* line 1028, ../../_scss/top/top.scss */
+  #aboutBusiness .inner > p {
+    text-align: left;
+    font-size: 3.733333vw;
+  }
+  /* line 1033, ../../_scss/top/top.scss */
+  #aboutBusiness .inner ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto 50px;
+    width: 97.5%;
+    max-width: 1045px;
+  }
+  /* line 1041, ../../_scss/top/top.scss */
+  #aboutBusiness .inner ul li {
+    position: relative;
+    box-sizing: border-box;
+    padding: 0 15px 20px;
+    width: 23.925%;
+    background: #fff;
+    border-radius: 20px 0 20px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    filter: blur(10px);
+    will-change: opacity, filter;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transition: opacity 1.5s ease-out, filter 1.5s ease-out, box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  /* line 1057, ../../_scss/top/top.scss */
+  #aboutBusiness .inner ul li.fadeIn {
+    opacity: 1;
+    filter: blur(0);
+    will-change: auto;
+  }
+  /* line 1063, ../../_scss/top/top.scss */
+  #aboutBusiness .inner ul li:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+  /* line 1068, ../../_scss/top/top.scss */
+  #aboutBusiness .inner ul li svg {
+    position: relative;
+    margin: -12px 0 25px;
+    width: 40px;
+    height: auto;
+  }
+  /* line 1075, ../../_scss/top/top.scss */
+  #aboutBusiness .inner ul li h3 {
+    font-weight: 600;
+    font-size: 16px;
+  }
+  /* line 1079, ../../_scss/top/top.scss */
+  #aboutBusiness .inner ul li h3 small {
+    font-size: 12px;
+  }
+  /* line 1084, ../../_scss/top/top.scss */
+  #aboutBusiness .inner ul li figure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+  }
+  /* line 1090, ../../_scss/top/top.scss */
+  #aboutBusiness .inner ul li figure img {
+    width: auto;
+    height: 34px;
+  }
+  /* line 1096, ../../_scss/top/top.scss */
+  #aboutBusiness .inner ul li p {
+    line-height: 2.0;
+    text-align: left;
+    font-size: 12px;
+    color: #333344;
+  }
+  /* line 1105, ../../_scss/top/top.scss */
+  #aboutBusiness .inner > a.btnPrimary {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    background: #0087ac;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    width: 415px;
+    height: 80px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 80px;
+    font-weight: 600;
+    font-size: 18px;
+    color: #fff;
+    transition: opacity 0.6s ease;
+  }
+  /* line 1121, ../../_scss/top/top.scss */
+  #aboutBusiness .inner > a.btnPrimary::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    margin: -5px 0 0;
+    width: 8px;
+    height: 8px;
+    transition: all 0.3s;
+  }
+  /* line 1137, ../../_scss/top/top.scss */
+  #aboutBusiness .inner > a.btnPrimary:hover {
+    opacity: 0.8;
+  }
+
+  /* handledBrands setting
+  ------------------------------------*/
+  /* line 1150, ../../_scss/top/top.scss */
+  #handledBrands {
+    display: none;
+    position: relative;
+    padding: 80px 0;
+    background: url("../../img/top/bg_brands_pc.webp") center/cover no-repeat;
+  }
+  /* line 1156, ../../_scss/top/top.scss */
+  #handledBrands::before, #handledBrands::after {
+    content: '';
+    position: absolute;
+    top: -33.5px;
+    left: 0;
+    display: block;
+    width: 50%;
+    height: 33.5px;
+    background: url("../../img/common/line_pc.webp") center/100% 100% no-repeat;
+  }
+  /* line 1168, ../../_scss/top/top.scss */
+  #handledBrands::after {
+    top: auto;
+    bottom: -33.5px;
+    left: auto;
+    right: 0;
+    transform: rotate(180deg);
+  }
+  /* line 1176, ../../_scss/top/top.scss */
+  #handledBrands .inner {
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+  }
+  /* line 1182, ../../_scss/top/top.scss */
+  #handledBrands .inner h2 {
+    margin: 0 0 4.8vw;
+    font-size: 5.3333333vw;
+  }
+  /* line 1186, ../../_scss/top/top.scss */
+  #handledBrands .inner h2 small {
+    margin: 2.666667vw 0 0;
+    font-size: 3.2vw;
+  }
+  /* line 1192, ../../_scss/top/top.scss */
+  #handledBrands .inner p {
+    margin: 0 0 50px;
+    line-height: 1.85;
+    font-size: 14px;
+  }
+  /* line 1198, ../../_scss/top/top.scss */
+  #handledBrands .inner ul {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+  }
+  /* line 1206, ../../_scss/top/top.scss */
+  #handledBrands .inner ul::after {
+    content: '※五十音順';
+    position: absolute;
+    bottom: -40px;
+    right: 30px;
+    font-size: 10px;
+  }
+  /* line 1214, ../../_scss/top/top.scss */
+  #handledBrands .inner ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    opacity: 0;
+    filter: blur(10px);
+    will-change: opacity, filter;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transition: opacity 1.5s ease-out, filter 1.5s ease-out, box-shadow 0.3s ease;
+  }
+  /* line 1227, ../../_scss/top/top.scss */
+  #handledBrands .inner ul li.fadeIn {
+    opacity: 1;
+    filter: blur(0);
+    will-change: auto;
+  }
+  /* line 1233, ../../_scss/top/top.scss */
+  #handledBrands .inner ul li img {
+    width: auto;
+    height: 25px;
+    max-width: 175px;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+  }
+
+  /* latestNews and businessCalendar (2 column layout)
+  ------------------------------------*/
+  /* line 1251, ../../_scss/top/top.scss */
+  #latestNewsCalendar {
+    display: none;
+    padding: 100px 0;
+  }
+  /* line 1255, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 980px;
+  }
+  /* line 1262, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #latestNews {
+    margin: 17.5px 0 0;
+    width: 45%;
+    text-align: center;
+  }
+  /* line 1266, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #latestNews h2 {
+    margin: 0 0 4.8vw;
+    font-size: 5.3333333vw;
+  }
+  /* line 1270, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #latestNews h2 span {
+    display: block;
+    margin: 0 0 10px;
+    font-size: 15px;
+  }
+  /* line 1275, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #latestNews h2 small {
+    margin: 2.666667vw 0 0;
+    font-size: 3.2vw;
+  }
+  /* line 1281, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #latestNews .newsList {
+    margin: 0 0 30px;
+  }
+  /* line 1284, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #latestNews .newsList li {
+    border-bottom: 1px solid #e3e3e3;
+  }
+  /* line 1287, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #latestNews .newsList li > a {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    gap: 5%;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+    text-align: left;
+  }
+  /* line 1296, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #latestNews .newsList li > a:hover {
+    opacity: 0.8;
+  }
+  /* line 1299, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #latestNews .newsList li > a:hover .newsThumbnail img {
+    transform: scale(1.1);
+  }
+  /* line 1303, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #latestNews .newsList li > a:hover .newsContent span {
+    color: #222;
+    text-decoration: underline;
+  }
+  /* line 1310, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #latestNews .newsList li .newsThumbnail {
+    border-radius: 5px;
+    flex-shrink: 0;
+    margin: 0;
+    width: 110px;
+    height: 83px;
+    overflow: hidden;
+  }
+  /* line 1318, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #latestNews .newsList li .newsThumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+  }
+  /* line 1327, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #latestNews .newsList li .newsContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 12px;
+  }
+  /* line 1334, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #latestNews .newsList li .newsContent time {
+    position: relative;
+    min-width: auto;
+  }
+  /* line 1337, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #latestNews .newsList li .newsContent time::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-2.5px);
+    left: -10px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: 2px solid #7fa329;
+    display: block;
+    width: 6px;
+    height: 6px;
+  }
+  /* line 1352, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #latestNews .newsList li .newsContent span {
+    line-height: 1.75;
+    text-decoration: underline;
+    color: #0087ac;
+    transition: color 0.3s ease;
+  }
+  /* line 1362, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #latestNews > a {
+    position: relative;
+    display: block;
+    background: #0087ac;
+    margin: 15px auto 0;
+    width: 72.72%;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    transition: opacity 0.6s ease;
+  }
+  /* line 1375, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #latestNews > a::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    margin: -5px 0 0;
+    width: 8px;
+    height: 8px;
+    transition: all 0.3s;
+  }
+  /* line 1391, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #latestNews > a:hover {
+    opacity: 0.8;
+  }
+  /* line 1400, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #businessCalendar {
+    position: relative;
+    border-radius: 20px 0 20px 0;
+    background: #f9f9f9;
+    padding: 50px 20px 0;
+    width: 45%;
+    text-align: center;
+  }
+  /* line 1408, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #businessCalendar svg {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: auto;
+  }
+  /* line 1417, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #businessCalendar h2 {
+    margin: 0 0 20px;
+    font-size: 20px;
+  }
+  /* line 1420, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #businessCalendar h2 small {
+    display: block;
+    margin: 10px 0 0;
+    width: 100%;
+    font-size: 12px;
+    color: #0087ac;
+  }
+  /* line 1429, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #businessCalendar .businessCalendar {
+    position: relative;
+    background: #fff;
+    padding: 25px 0 5px;
+  }
+  /* line 1434, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #businessCalendar .businessCalendar h3 {
+    margin: 0 0 15px;
+    text-align: center;
+    font-size: 22px;
+  }
+  /* line 1439, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #businessCalendar .businessCalendar h3 small {
+    font-weight: 600;
+    font-size: 12px;
+  }
+  /* line 1445, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #businessCalendar .businessCalendar button {
+    position: absolute;
+    top: 150px;
+    left: 0;
+    transform: translateX(-70%);
+    display: block;
+    border: none;
+    border-radius: 50%;
+    background: #0087ac;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  /* line 1461, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #businessCalendar .businessCalendar button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    -ms-transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+    margin: -5px 0 0;
+    width: 8px;
+    height: 8px;
+    transition: all 0.3s;
+  }
+  /* line 1477, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #businessCalendar .businessCalendar button.btnNext {
+    left: auto;
+    right: 0;
+    transform: translateX(70%);
+  }
+  /* line 1482, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #businessCalendar .businessCalendar button.btnNext::after {
+    right: auto;
+    left: 20px;
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  /* line 1491, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #businessCalendar .businessCalendar button:hover {
+    background: #005f79;
+  }
+  /* line 1495, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #businessCalendar .businessCalendar button:disabled {
+    background: #bbb;
+    cursor: not-allowed;
+  }
+  /* line 1504, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarLegend .legendItem {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  /* line 1510, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarLegend .legendColor {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    font-size: 14px;
+  }
+  /* line 1516, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarLegend .legendColor.holiday {
+    background: #eb0c0c;
+  }
+  /* line 1522, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable {
+    margin: 0 auto 20px;
+    width: 75%;
+    border-collapse: separate;
+    border-spacing: 6px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 18px;
+  }
+  /* line 1531, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable th {
+    box-sizing: border-box;
+    width: 14%;
+    padding: 10px 0;
+    height: 35px;
+  }
+  /* line 1537, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable th.sunday {
+    color: #eb0c0c;
+  }
+  /* line 1541, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable th.saturday {
+    color: #0087ac;
+  }
+  /* line 1546, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable td {
+    box-sizing: border-box;
+    width: 14.285714285714286%;
+    vertical-align: middle;
+    height: 35px;
+  }
+  /* line 1552, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable td.empty {
+    background: #fff;
+  }
+  /* line 1556, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable td.sunday, #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable td.saturday {
+    color: #0087ac;
+    background: #f0f8ff;
+  }
+  /* line 1562, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable td.holiday {
+    background: #eb0c0c;
+    color: #fff;
+    font-weight: bold;
+  }
+  /* line 1568, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable td.today {
+    border: 4px solid #ffd700;
+  }
+  /* line 1575, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #businessCalendar .calendarInfo {
+    display: flex;
+    justify-content: center;
+    gap: 2%;
+  }
+  /* line 1580, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #businessCalendar .calendarInfo .infoBox {
+    width: 45.5%;
+    padding: 20px 0;
+    font-size: 13px;
+  }
+  /* line 1585, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #businessCalendar .calendarInfo .infoBox h4 {
+    border-radius: 5px;
+    background: #666;
+    margin: 0 0 5px;
+    padding: 3px;
+    color: #fff;
+  }
+  /* line 1596, ../../_scss/top/top.scss */
+  #latestNewsCalendar .inner #businessCalendar .calendarNote {
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    margin: 0 auto -20px;
+    width: 340px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 14px;
+  }
+}
