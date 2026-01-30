@@ -22,23 +22,23 @@ get_header();
                     </tr>
                     <tr>
                         <th>代表者</th>
-                        <td><?php echo get_option('company_representative', '代表者名'); ?></td>
+                        <td><?php echo esc_html(get_option('company_representative', '')); ?></td>
                     </tr>
                     <tr>
                         <th>所在地</th>
-                        <td><?php echo get_option('company_address', '所在地'); ?></td>
+                        <td>〒<?php echo esc_html(get_option('company_postal', '250-0863')); ?> <?php echo esc_html(get_option('company_address', '神奈川県小田原市飯泉90-9')); ?></td>
                     </tr>
                     <tr>
                         <th>電話番号</th>
-                        <td><?php echo get_option('company_tel', '電話番号'); ?></td>
+                        <td><?php echo esc_html(get_option('company_tel_hq', '0465-55-8644')); ?></td>
                     </tr>
                     <tr>
                         <th>FAX</th>
-                        <td><?php echo get_option('company_fax', 'FAX番号'); ?></td>
+                        <td><?php echo esc_html(get_option('company_fax_hq', '0465-55-8522')); ?></td>
                     </tr>
                     <tr>
                         <th>メールアドレス</th>
-                        <td><?php echo get_option('company_email', 'メールアドレス'); ?></td>
+                        <td><?php echo esc_html(get_option('company_email', '')); ?></td>
                     </tr>
                     <tr>
                         <th>事業内容</th>

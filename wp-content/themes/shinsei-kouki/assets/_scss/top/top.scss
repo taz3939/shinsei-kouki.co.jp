@@ -74,22 +74,22 @@ main {
 
         // SVG内部のスタイル（logo-color.svg用）
         .st0 {
-          fill: #63757a;
+          fill: $cLogoGray;
           fill-rule: evenodd;
         }
 
         .st1 {
-          fill: #0087ac;
+          fill: $cLogoBlue;
           fill-rule: evenodd;
         }
 
         .st2 {
-          fill: #7fa329;
+          fill: $cLogoGreen;
           fill-rule: evenodd;
         }
 
         .st3 {
-          fill: #627479;
+          fill: $cLogoGrayText;
           isolation: isolate;
           font-family: ZenOldMincho-Regular, 'Zen Old Mincho';
           font-size: 36.8px;
@@ -100,14 +100,14 @@ main {
         }
 
         .st5 {
-          fill: #0980a2;
+          fill: $cLogoBlueDark;
           isolation: isolate;
           font-family: ZenOldMincho-Regular, 'Zen Old Mincho';
           font-size: 36.8px;
         }
 
         .st6 {
-          fill: #7b9c2c;
+          fill: $cLogoGreenDark;
           isolation: isolate;
           font-family: ZenOldMincho-Regular, 'Zen Old Mincho';
           font-size: 36.8px;
@@ -263,7 +263,7 @@ main {
         width: 23.925%;
         background: $cWht;
         border-radius: 20px 0 20px 0;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 2px 8px $cBkAlpha05;
         opacity: 0;
         filter: blur(10px);
         will-change: opacity, filter;
@@ -279,7 +279,7 @@ main {
         }
         
         &:hover {
-          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 16px $cBkAlpha10;
           transform: translateY(-2px);
         }
 
@@ -288,6 +288,27 @@ main {
           margin: -12px 0 25px;
           width: 40px;
           height: auto;
+          
+          // SVG内部の色管理
+          path {
+            &:nth-of-type(1) {
+              fill: $cLogoGray;
+            }
+            &:nth-of-type(2) {
+              fill: $cLogoGreen;
+            }
+            &:nth-of-type(3) {
+              fill: $cLogoBlue;
+            }
+          }
+          
+          text {
+            fill: $cBk;
+            
+            tspan {
+              fill: $cLogoBlue;
+            }
+          }
         }
         
         h3 {
@@ -325,7 +346,7 @@ main {
       display: block;
       box-sizing: border-box;
       background: $cBlu;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 2px 8px $cBkAlpha15;
       width: 415px;
       height: 80px;
       margin: 0 auto;
@@ -341,8 +362,8 @@ main {
         position: absolute;
         top: 50%;
         right: 20px;
-        border-top: 2px solid #fff;
-        border-right: 2px solid #fff;
+        border-top: 2px solid $cWht;
+        border-right: 2px solid $cWht;
         -ms-transform: rotate(45deg);
         -webkit-transform: rotate(45deg);
         transform: rotate(45deg);
@@ -598,8 +619,8 @@ main {
           position: absolute;
           top: 50%;
           right: 20px;
-          border-top: 2px solid #fff;
-          border-right: 2px solid #fff;
+          border-top: 2px solid $cWht;
+          border-right: 2px solid $cWht;
           -ms-transform: rotate(45deg);
           -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
@@ -633,6 +654,19 @@ main {
         transform: translateX(-50%);
         width: 40px;
         height: auto;
+        
+        // SVG内部の色管理
+        path {
+          &:nth-of-type(1) {
+            fill: $cLogoGray;
+          }
+          &:nth-of-type(2) {
+            fill: $cLogoGreen;
+          }
+          &:nth-of-type(3) {
+            fill: $cLogoBlue;
+          }
+        }
       }
       
       h2 {
@@ -684,8 +718,8 @@ main {
             position: absolute;
             top: 50%;
             right: 20px;
-            border-top: 2px solid #fff;
-            border-right: 2px solid #fff;
+            border-top: 2px solid $cWht;
+            border-right: 2px solid $cWht;
             -ms-transform: rotate(-135deg);
             -webkit-transform: rotate(-135deg);
             transform: rotate(-135deg);
@@ -777,7 +811,7 @@ main {
             &.sunday,
             &.saturday {
               color: $cBlu;
-              background: #f0f8ff;
+              background: $cBgLightBlue;
             }
             
             &.holiday {
@@ -817,7 +851,7 @@ main {
       .calendarNote {
         border-radius: 20px;
         background: $cWht;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 2px 8px $cBkAlpha15;
         margin: 0 auto -20px;
         width: 340px;
         height: 40px;
@@ -870,22 +904,22 @@ main {
 
           // SVG内部のスタイル（logo-color.svg用）
           .st0 {
-            fill: #63757a;
+            fill: $cLogoGray;
             fill-rule: evenodd;
           }
 
           .st1 {
-            fill: #0087ac;
+            fill: $cLogoBlue;
             fill-rule: evenodd;
           }
 
           .st2 {
-            fill: #7fa329;
+            fill: $cLogoGreen;
             fill-rule: evenodd;
           }
 
           .st3 {
-            fill: #627479;
+            fill: $cLogoGrayText;
             isolation: isolate;
             font-family: ZenOldMincho-Regular, 'Zen Old Mincho';
             font-size: 36.8px;
@@ -896,14 +930,14 @@ main {
           }
 
           .st5 {
-            fill: #0980a2;
+            fill: $cLogoBlueDark;
             isolation: isolate;
             font-family: ZenOldMincho-Regular, 'Zen Old Mincho';
             font-size: 36.8px;
           }
 
           .st6 {
-            fill: #7b9c2c;
+            fill: $cLogoGreenDark;
             isolation: isolate;
             font-family: ZenOldMincho-Regular, 'Zen Old Mincho';
             font-size: 36.8px;
@@ -1011,7 +1045,7 @@ main {
           width: 23.925%;
           background: $cWht;
           border-radius: 20px 0 20px 0;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 2px 8px $cBkAlpha05;
           opacity: 0;
           filter: blur(10px);
           will-change: opacity, filter;
@@ -1027,7 +1061,7 @@ main {
           }
           
           &:hover {
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 16px $cBkAlpha10;
             transform: translateY(-2px);
           }
 
@@ -1073,7 +1107,7 @@ main {
         display: block;
         box-sizing: border-box;
         background: $cBlu;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 2px 8px $cBkAlpha15;
         width: 415px;
         height: 80px;
         margin: 0 auto;
@@ -1089,8 +1123,8 @@ main {
           position: absolute;
           top: 50%;
           right: 20px;
-          border-top: 2px solid #fff;
-          border-right: 2px solid #fff;
+          border-top: 2px solid $cWht;
+          border-right: 2px solid $cWht;
           -ms-transform: rotate(45deg);
           -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
@@ -1343,8 +1377,8 @@ main {
             position: absolute;
             top: 50%;
             right: 20px;
-            border-top: 2px solid #fff;
-            border-right: 2px solid #fff;
+            border-top: 2px solid $cWht;
+            border-right: 2px solid $cWht;
             -ms-transform: rotate(45deg);
             -webkit-transform: rotate(45deg);
             transform: rotate(45deg);
@@ -1429,8 +1463,8 @@ main {
               position: absolute;
               top: 50%;
               right: 20px;
-              border-top: 2px solid #fff;
-              border-right: 2px solid #fff;
+              border-top: 2px solid $cWht;
+              border-right: 2px solid $cWht;
               -ms-transform: rotate(-135deg);
               -webkit-transform: rotate(-135deg);
               transform: rotate(-135deg);
@@ -1522,7 +1556,7 @@ main {
               &.sunday,
               &.saturday {
                 color: $cBlu;
-                background: #f0f8ff;
+                background: $cBgLightBlue;
               }
               
               &.holiday {
@@ -1562,7 +1596,7 @@ main {
         .calendarNote {
           border-radius: 20px;
           background: $cWht;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 2px 8px $cBkAlpha15;
           margin: 0 auto -20px;
           width: 340px;
           height: 40px;

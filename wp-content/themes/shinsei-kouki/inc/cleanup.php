@@ -113,6 +113,13 @@ add_action('template_redirect', function() {
             $buffer = preg_replace('/<style[^>]*id\s*=\s*[\'"]classic-theme-styles-inline-css[\'"][^>]*>[\s\S]*?<\/style>/is', '', $buffer);
             $buffer = preg_replace('/<style[^>]*id\s*=\s*[\'"]wp-emoji-styles-inline-css[\'"][^>]*>[\s\S]*?<\/style>/is', '', $buffer);
             
+            // ブロックエディタのブロック別インラインスタイルを削除
+            $buffer = preg_replace('/<style[^>]*id\s*=\s*[\'"]wp-block-button-inline-css[\'"][^>]*>[\s\S]*?<\/style>/is', '', $buffer);
+            $buffer = preg_replace('/<style[^>]*id\s*=\s*[\'"]wp-block-heading-inline-css[\'"][^>]*>[\s\S]*?<\/style>/is', '', $buffer);
+            $buffer = preg_replace('/<style[^>]*id\s*=\s*[\'"]wp-block-buttons-inline-css[\'"][^>]*>[\s\S]*?<\/style>/is', '', $buffer);
+            $buffer = preg_replace('/<style[^>]*id\s*=\s*[\'"]wp-block-paragraph-inline-css[\'"][^>]*>[\s\S]*?<\/style>/is', '', $buffer);
+            $buffer = preg_replace('/<style[^>]*id\s*=\s*[\'"]core-block-supports-inline-css[\'"][^>]*>[\s\S]*?<\/style>/is', '', $buffer);
+            
             // dns-prefetchを削除
             $buffer = preg_replace('/<link[^>]*rel\s*=\s*[\'"]dns-prefetch[\'"][^>]*>/i', '', $buffer);
             

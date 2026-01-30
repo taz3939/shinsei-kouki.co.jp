@@ -27,7 +27,7 @@ function shinsei_kouki_register_post_types() {
             'slug' => 'topics',
             'with_front' => false,
             'feeds' => false,
-            'pages' => false,
+            'pages' => true, // パス形式を有効化（404エラーを防ぐため）
         ),
         'menu_position' => 5,
         'menu_icon' => 'dashicons-megaphone',
@@ -70,13 +70,10 @@ function shinsei_kouki_register_post_types() {
 }
 add_action('init', 'shinsei_kouki_register_post_types');
 
-// お知らせのURLをカスタム形式に変更（post_260117-01.html形式）
+// お知らせのURLをカスタム形式に変更（/topics/post_260117-01/ 形式・WordPress標準の末尾スラッシュ）
 function shinsei_kouki_topics_post_link($post_link, $post) {
     if ($post->post_type === 'topics' && $post->post_status === 'publish') {
-        // 投稿日を取得
         $post_date = get_post_time('ymd', false, $post);
-        
-        // 同じ日付の投稿数を取得して連番を決定
         $same_date_posts = get_posts(array(
             'post_type' => 'topics',
             'post_status' => 'publish',
@@ -91,8 +88,6 @@ function shinsei_kouki_topics_post_link($post_link, $post) {
             'orderby' => 'ID',
             'order' => 'ASC',
         ));
-        
-        // 現在の投稿が同じ日付の投稿の中で何番目かを取得
         $sequence = 1;
         foreach ($same_date_posts as $index => $same_date_post) {
             if ($same_date_post->ID === $post->ID) {
@@ -100,22 +95,43 @@ function shinsei_kouki_topics_post_link($post_link, $post) {
                 break;
             }
         }
-        
-        // 連番を2桁のゼロパディング形式に
         $sequence_str = sprintf('%02d', $sequence);
-        
-        // URLを生成: /topics/post_260117-01.html
-        $post_link = home_url('/topics/post_' . $post_date . '-' . $sequence_str . '.html');
+        $post_link = home_url('/topics/post_' . $post_date . '-' . $sequence_str . '/');
     }
     return $post_link;
 }
 add_filter('post_type_link', 'shinsei_kouki_topics_post_link', 10, 2);
 
-// リライトルールを追加（.html形式のURLを認識）
+// 旧 .html 形式でアクセスされた場合は新形式へ 301 リダイレクト
+function shinsei_kouki_topics_redirect_old_html_url() {
+    $request_uri = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
+    if (preg_match('#^/topics/post_([0-9]{6})-([0-9]{2})\.html/?#', $request_uri, $m)) {
+        wp_redirect(home_url('/topics/post_' . $m[1] . '-' . $m[2] . '/'), 301);
+        exit;
+    }
+}
+add_action('template_redirect', 'shinsei_kouki_topics_redirect_old_html_url', 1);
+
+// リライトルールを追加（/topics/post_260117-01/ 形式）
 function shinsei_kouki_topics_rewrite_rules() {
+    // 個別投稿（末尾スラッシュはWordPress標準）
     add_rewrite_rule(
-        '^topics/post_([0-9]{6})-([0-9]{2})\.html$',
+        '^topics/post_([0-9]{6})-([0-9]{2})/?$',
         'index.php?post_type=topics&topics_date=$matches[1]&topics_sequence=$matches[2]',
+        'top'
+    );
+    
+    // 月別アーカイブURL（/topics/2026/01/）
+    add_rewrite_rule(
+        '^topics/([0-9]{4})/([0-9]{2})/?$',
+        'index.php?post_type=topics&year=$matches[1]&monthnum=$matches[2]',
+        'top'
+    );
+    
+    // 年別アーカイブURL（/topics/2026/）
+    add_rewrite_rule(
+        '^topics/([0-9]{4})/?$',
+        'index.php?post_type=topics&year=$matches[1]',
         'top'
     );
 }
@@ -165,6 +181,80 @@ function shinsei_kouki_topics_parse_request($wp) {
     }
 }
 add_action('parse_request', 'shinsei_kouki_topics_parse_request');
+
+// 月別アーカイブのクエリを処理
+function shinsei_kouki_topics_date_archive_query($query) {
+    if (!is_admin() && $query->is_main_query()) {
+        // 月別アーカイブの場合
+        if (isset($query->query_vars['post_type']) && $query->query_vars['post_type'] === 'topics' 
+            && isset($query->query_vars['year']) && isset($query->query_vars['monthnum'])) {
+            $query->set('post_type', 'topics');
+            $query->set('year', $query->query_vars['year']);
+            $query->set('monthnum', $query->query_vars['monthnum']);
+            $query->is_archive = true;
+            $query->is_date = true;
+            $query->is_month = true;
+        }
+        // 年別アーカイブの場合
+        elseif (isset($query->query_vars['post_type']) && $query->query_vars['post_type'] === 'topics' 
+            && isset($query->query_vars['year']) && !isset($query->query_vars['monthnum'])) {
+            $query->set('post_type', 'topics');
+            $query->set('year', $query->query_vars['year']);
+            $query->is_archive = true;
+            $query->is_date = true;
+            $query->is_year = true;
+        }
+    }
+}
+add_action('pre_get_posts', 'shinsei_kouki_topics_date_archive_query');
+
+// 検索対象をtopics投稿タイプに限定
+function shinsei_kouki_limit_search_to_topics($query) {
+    if (!is_admin() && $query->is_main_query()) {
+        // 検索クエリが存在する場合
+        if (isset($query->query_vars['s']) && !empty($query->query_vars['s'])) {
+            $query->set('post_type', 'topics');
+            $query->is_search = true;
+            $query->is_archive = false;
+            $query->is_post_type_archive = false;
+            $query->is_date = false;
+            $query->is_month = false;
+            $query->is_year = false;
+        }
+        // 既にis_search()がtrueの場合
+        elseif ($query->is_search()) {
+            $query->set('post_type', 'topics');
+        }
+    }
+}
+add_action('pre_get_posts', 'shinsei_kouki_limit_search_to_topics', 10);
+
+// 検索クエリがある場合にsearch-topics.phpを強制的に使用
+function shinsei_kouki_force_search_topics_template($template) {
+    global $wp_query;
+    
+    // 検索クエリが存在し、topics投稿タイプの場合
+    if (isset($_GET['s']) && !empty($_GET['s'])) {
+        // クエリ変数からpost_typeを確認
+        $post_type = get_query_var('post_type');
+        if (empty($post_type) || $post_type === 'topics') {
+            $search_template = locate_template('search-topics.php');
+            if ($search_template) {
+                return $search_template;
+            }
+        }
+    }
+    // is_search()がtrueで、topics投稿タイプの場合
+    elseif (is_search() && (get_query_var('post_type') === 'topics' || (is_array($wp_query->query_vars['post_type']) && in_array('topics', $wp_query->query_vars['post_type'])))) {
+        $search_template = locate_template('search-topics.php');
+        if ($search_template) {
+            return $search_template;
+        }
+    }
+    
+    return $template;
+}
+add_filter('template_include', 'shinsei_kouki_force_search_topics_template', 99);
 
 // 既存のnews投稿タイプをtopicsに移行（一度だけ実行）
 function shinsei_kouki_migrate_news_to_topics() {

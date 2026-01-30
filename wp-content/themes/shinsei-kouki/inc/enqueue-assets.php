@@ -58,9 +58,14 @@ function shinsei_kouki_enqueue_scripts() {
         wp_enqueue_style('contact-style', get_template_directory_uri() . '/assets/css/contact/contact.css', array('shinsei-kouki-style'), '1.0.0');
     }
     
-    // お知らせ一覧・詳細ページ用のCSS（トップページは除外）
-    if (!is_front_page() && (is_post_type_archive('topics') || (is_single() && get_post_type() === 'topics'))) {
+    // お知らせ一覧・詳細・検索結果ページ用のCSS（トップページは除外）
+    if (!is_front_page() && (is_post_type_archive('topics') || (is_single() && get_post_type() === 'topics') || (is_search() && get_query_var('post_type') === 'topics'))) {
         wp_enqueue_style('topics-style', get_template_directory_uri() . '/assets/css/topics/topics.css', array('shinsei-kouki-style'), '1.0.0');
+    }
+
+    // お知らせ詳細ページ用のJS（INDEX生成）
+    if (is_single() && get_post_type() === 'topics') {
+        wp_enqueue_script('topics-script', get_template_directory_uri() . '/assets/js/topics/topics.js', array(), '1.0.0', true);
     }
     
     // JS（cleanup.phpでjQueryが無効化されているので、外部jQueryを読み込む）
