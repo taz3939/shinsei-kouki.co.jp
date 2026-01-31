@@ -154,7 +154,7 @@ jQuery(function($) {
     }, 50);
   });
 
-  // スクロール時にヘッダーにぼかし効果を追加
+  // スクロール時にヘッダーにぼかし効果を追加（デフォルトは英文のみ、スクロールでCI＋日本語会社名がフェードイン）
   $(window).on('scroll', function() {
     var scrollTop = $(window).scrollTop();
     var header = $('#siteHeader');
@@ -237,10 +237,10 @@ jQuery(function($) {
     
     if (isOpen) {
       $this.removeClass('isOpen').attr('aria-expanded', 'false');
-      $monthList.removeClass('isOpen').slideUp(300);
+      $monthList.removeClass('isOpen');
     } else {
       $this.addClass('isOpen').attr('aria-expanded', 'true');
-      $monthList.addClass('isOpen').slideDown(300);
+      $monthList.addClass('isOpen');
     }
   });
 

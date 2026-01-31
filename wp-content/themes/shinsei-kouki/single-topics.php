@@ -21,8 +21,11 @@ get_header();
         <div class="newsDetailContainer">
             <div class="newsMain">
                 <?php if (have_posts()) : ?>
-                    <?php while (have_posts()) : the_post(); ?>
-                    <article id="post-<?php the_ID(); ?>" <?php post_class('newsArticle'); ?>>
+                    <?php while (have_posts()) : the_post();
+                        $show_index = get_post_meta(get_the_ID(), '_show_news_index', true);
+                        if ($show_index === '') { $show_index = '1'; }
+                    ?>
+                    <article id="post-<?php the_ID(); ?>" <?php post_class('newsArticle'); ?> data-show-index="<?php echo esc_attr($show_index); ?>">
                         <?php shinsei_kouki_topics_thumbnail(get_the_ID(), 'large', 'newsDetailEyecatch'); ?>
                         <div class="newsContent">
                             <?php the_content(); ?>
@@ -31,11 +34,6 @@ get_header();
                     <?php endwhile; ?>
                 <?php endif; ?>
                 
-                <div class="newsNav">
-                    <div class="btnArea">
-                        <a href="<?php echo esc_url(home_url('/topics')); ?>" class="btnSecondary">お知らせ一覧に戻る</a>
-                    </div>
-                </div>
             </div>
             
             <div class="newsSidebar">
@@ -44,6 +42,9 @@ get_header();
                 <?php get_template_part('template-parts/search-sidebar'); ?>
             </div>
         </div>
+    </div>
+    <div class="btnArea">
+        <a href="<?php echo esc_url(home_url('/topics')); ?>" class="btnSecondary">お知らせ一覧に戻る</a>
     </div>
 </section>
 

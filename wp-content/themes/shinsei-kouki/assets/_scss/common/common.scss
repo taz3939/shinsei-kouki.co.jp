@@ -210,7 +210,7 @@ main {
       gap: 5px;
       margin: 0 0 0 1.667%;
       
-      svg {
+      img {
         position: absolute;
         top: 0;
         left: 0;
@@ -226,49 +226,8 @@ main {
         backface-visibility: hidden;
         -webkit-backface-visibility: hidden;
         transition: opacity 0.6s ease-out, filter 0.6s ease-out, visibility 0.6s ease-out;
-
-        // SVG内部のスタイル（logo-color.svg用）
-        .st0 {
-          fill: $cLogoGray;
-          fill-rule: evenodd;
-        }
-
-        .st1 {
-          fill: $cLogoBlue;
-          fill-rule: evenodd;
-        }
-
-        .st2 {
-          fill: $cLogoGreen;
-          fill-rule: evenodd;
-        }
-
-        .st3 {
-          fill: $cLogoGrayText;
-          isolation: isolate;
-          font-family: ZenOldMincho-Regular, 'Zen Old Mincho';
-          font-size: 36.8px;
-        }
-
-        .st4 {
-          isolation: isolate;
-        }
-
-        .st5 {
-          fill: $cLogoBlueDark;
-          isolation: isolate;
-          font-family: ZenOldMincho-Regular, 'Zen Old Mincho';
-          font-size: 36.8px;
-        }
-
-        .st6 {
-          fill: $cLogoGreenDark;
-          isolation: isolate;
-          font-family: ZenOldMincho-Regular, 'Zen Old Mincho';
-          font-size: 36.8px;
-        }
       }
-      
+
       em {
         display: none;
         font-style: normal;
@@ -297,7 +256,7 @@ main {
       
       &.visible {
         padding: 0 0 0 50px;
-        svg,
+        img,
         em {
           display: block;
           opacity: 1;
@@ -379,12 +338,16 @@ main {
                 color: $cWht;
               }
               
+              picture {
+                flex-shrink: 0;
+                display: block;
+              }
               .iconMail {
                 flex-shrink: 0;
                 width: 20px;
                 height: auto;
                 margin: 0 auto 4px;
-                color: $cWht;
+                display: block;
               }
               
             }
@@ -421,7 +384,7 @@ main {
             margin: 0 0 7px;
             font-size: 23.75px;
             
-            svg {
+            img {
               display: inline-block;
               vertical-align: middle;
               width: 23.5px;
@@ -519,11 +482,10 @@ main {
         color: $cWht;
         transition: opacity 0.6s ease;
         
-        svg {
+        img {
           flex-shrink: 0;
           width: 24px;
           height: auto;
-          color: $cWht;
         }
         
         &::after {
@@ -568,20 +530,18 @@ main {
           font-size: 12px;
         }
         em {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
           font-weight: 600;
           font-size: 33px;
-        }
-        
-        // 電話アイコンの色管理
-        .iconPhone {
-          path {
-            fill: $cLogoGreen;
-          }
           
-          &.iconPhoneWhite {
-            path {
-              fill: $cWht;
-            }
+          img {
+            flex-shrink: 0;
+            width: 23px;
+            height: 23px;
+            vertical-align: middle;
           }
         }
         
@@ -657,18 +617,11 @@ main {
           text-decoration: none;
           transition: opacity 0.3s ease;
           
-          svg {
+          img.iconHome {
             flex-shrink: 0;
             width: 16px;
             height: 16px;
             vertical-align: middle;
-            
-            // ホームアイコンの色管理
-            &.iconHome {
-              path {
-                fill: $cBk1;
-              }
-            }
           }
           
           span {
@@ -765,28 +718,12 @@ footer {
           gap: 10px;
           margin: 0 0 10px;
   
-          svg {
+          img {
             width: 57px;
             height: auto;
-
-            // SVG内部のスタイル（logo-white.svg用）
-            .white-st0 {
-              fill: $cWht;
-              fill-rule: evenodd;
-            }
-
-            .white-st1 {
-              fill: $cWht;
-              isolation: isolate;
-              font-family: ZenOldMincho-Regular, 'Zen Old Mincho';
-              font-size: 36.8px;
-            }
-
-            .white-st2 {
-              isolation: isolate;
-            }
+            flex-shrink: 0;
           }
-  
+
           em {
             font-weight: 700;
             font-size: 29px;
@@ -845,29 +782,6 @@ footer {
 
 
 
-
-
-/* SVG icon color setting
-------------------------------------*/
-// 電話アイコンの色管理（グローバル）
-.iconPhone {
-  path {
-    fill: $cLogoGreen;
-  }
-  
-  &.iconPhoneWhite {
-    path {
-      fill: $cWht;
-    }
-  }
-}
-
-// ホームアイコンの色管理（グローバル）
-.iconHome {
-  path {
-    fill: $cBk1;
-  }
-}
 
 
 /* common parts setting
@@ -933,7 +847,7 @@ footer {
             em {
               margin: 0 0 5px;
               font-size: 16px;
-              svg {
+              img {
                 width: 16.5px;
                 height: 16.5px;
                 margin: -5px 0 0;
@@ -1076,7 +990,7 @@ footer {
         margin: 0 0 0 3.2vw;
         height: 14.666667vw;
         
-        svg {
+        img {
           top: 4vw;
           width: 8vw;
           filter: blur(2.666667vw);
@@ -1095,7 +1009,7 @@ footer {
         
         &.visible {
           padding: 0 0 0 9.2vw;
-          svg,
+          img,
           em {
             opacity: 1;
             filter: blur(0);
@@ -1158,6 +1072,10 @@ footer {
                   color: $cBlu;
                 }
                 
+                picture {
+                  flex-shrink: 0;
+                  display: block;
+                }
                 .iconMail {
                   flex-shrink: 0;
                   width: 4.2vw;
@@ -1185,7 +1103,7 @@ footer {
                 padding: 4.8vw 0;
                 width: 80vw;
 
-                svg {
+                img {
                   width: 4.2666667vw;
                   height: auto;
                   margin: 0 1.3333333vw 0 0;
@@ -1318,7 +1236,7 @@ footer {
           height: 17.333333vw;
           font-size: 3.733333vw;
           
-          svg {
+          img {
             width: 4.2vw;
           }
           
@@ -1365,7 +1283,8 @@ footer {
               transition: all 0.3s;
             }
   
-            svg {
+            img {
+              flex-shrink: 0;
               width: 4.2666667vw;
               height: auto;
               margin: 0 1.3333333vw 0 0;
@@ -1424,7 +1343,7 @@ footer {
           a {
             gap: 1.6vw;
             
-            svg {
+            img.iconHome {
               width: 4.266667vw;
               height: 4.266667vw;
             }
@@ -1503,7 +1422,7 @@ footer {
             gap: 1.8vw;
             margin: 0 0 9.3333333vw;
     
-            svg {
+            img {
               width: 10.6777vw;
             }
     

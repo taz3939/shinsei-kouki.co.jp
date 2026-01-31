@@ -15,7 +15,8 @@
 	width: 90%;
 	max-width: 960px;
 	.inner {
-		> p {
+		> p,
+		> h1:not(.pageTitle) {
 			margin: 0 0 60px;
 			line-height: 1.8;
 			font-size: 15px;
@@ -31,7 +32,7 @@
 ------------------------------------*/
 #newsArchive {
 	box-shadow: 0 2px 8px $cBkAlpha15;
-	background: $cBk1 url(../../img/common/bg_common-pattern_pc.webp) center 0 / 100% auto no-repeat;
+	background: $cBk1 url(../../img/common/bg_common-pattern_pc.png) center 0 / 100% auto no-repeat;
 	width: 100%;
 	padding: 70px 0 60px;
 
@@ -49,6 +50,37 @@
 		display: flex;
 		gap: 40px;
 		align-items: flex-start;
+
+		.noResults {
+			margin: 0 auto;
+			width: 90%;
+			max-width: 1010px;
+			text-align: center;
+			font-size: 15px;
+			line-height: 1.8;
+			a {
+				padding: 0 5px 0 0;
+				text-decoration: underline;
+				color: $cBlu;
+				transition: opacity 0.3s ease;
+
+				&::before {
+					content: '';
+					position: relative;
+					display: inline-block;
+					margin: 0 8px 0 0;
+					width: 6px;
+					height: 6px;
+					border-top: 1px solid $cBlu;
+					border-right: 1px solid $cBlu;
+					transform: rotate(45deg);
+				}
+
+				&:hover {
+					opacity: 0.8;
+				}
+			}
+		}
 	}
 	
 	.newsMain {
@@ -483,7 +515,7 @@
 								}
 
 								.iconExternal {
-									svg {
+									img {
 										margin: 0 0 0 5px;
 										width: 14px;
 										height: auto;
@@ -604,21 +636,62 @@
 			}
 		}
 	}
-}	
+	.btnArea {
+		margin: 60px auto 0;
+		width: 90%;
+		a {
+			position: relative;
+			display: block;
+			box-sizing: border-box;
+			background: $cBlu;
+			box-shadow: 0 2px 8px $cBkAlpha15;
+			width: 415px;
+			height: 80px;
+			margin: 0 auto;
+			text-align: center;
+			line-height: 80px;
+			font-weight: 600;
+			font-size: 18px;
+			color: $cWht;
+			transition: opacity 0.6s ease;
+			
+			&::before {
+			  content: '';
+			  position: absolute;
+			  top: 50%;
+			  left: 20px;
+			  border-top: 2px solid $cWht;
+			  border-right: 2px solid $cWht;
+			  -ms-transform: rotate(-135deg);
+			  -webkit-transform: rotate(-135deg);
+			  transform: rotate(-135deg);
+			  margin: -5px 0 0;
+			  width: 8px;
+			  height: 8px;
+			  transition: all 0.3s;
+			}
+			
+			&:hover {
+			  opacity: 0.8;
+			}
+		}
+	}
+  }	
 
 
 
 
-/* Sidebar setting
+
+/* newsSidebar setting
 ------------------------------------*/
 .newsSidebar {
 	flex-shrink: 0;
 	width: 280px;
 	
-	// スクロール追従（PCのみ）
+	// スクロール追従（PCのみ）※top はヘッダー高さ＋余白で pickup タイトルがヘッダに隠れないようにする
 	@media screen and (min-width: 768px) {
 		position: sticky;
-		top: 20px;
+		top: calc(90px + 20px); // #siteHeader 90px + 余白 20px
 		align-self: flex-start;
 	}
 
@@ -627,21 +700,12 @@
 			margin: 0 0 45px;
 		}
 		
-		> svg {
+		// サイドバー見出しアイコン（logo-ci.svg を img で表示）
+		> img.sidebarLogo {
 			display: block;
 			margin: 0 auto 10px;
 			width: 26px;
-			path {
-				&:nth-of-type(1) {
-					fill: $cLogoGray;
-				}
-				&:nth-of-type(2) {
-					fill: $cLogoGreen;
-				}
-				&:nth-of-type(3) {
-					fill: $cLogoBlue;
-				}
-			}
+			height: auto;
 		}
 
 		h2 {
@@ -765,52 +829,89 @@
 		&.monthlyArchive {
 			.monthlyArchiveList {
 				.yearGroup {
+					border-radius: 15px;
+					border: 1px solid $cGr1;
+					padding: 15px;
+					line-height: 1;
+					font-size: 13px;
+
 					&:not(:last-child) {
-						margin-bottom: 25px;
+						margin: 0 0 15px;
 					}
 					
 					.yearTitle {
-						margin: 0 0 12px;
-						font-size: 16px;
-						font-weight: 600;
-						color: $cBk2;
-						padding-bottom: 8px;
-						border-bottom: 2px solid $cGr1;
+						position: relative;
+						display: block;
+						box-sizing: border-box;
+						padding: 0 0 0 10px;
+						width: 100%;
+
+						&::before {
+							content: '';
+							position: absolute;
+							top: 50%;
+							left: 0;
+							display: block;
+							border-radius: 50%;
+							background: $cGreen;
+							width: 4px;
+							height: 4px;
+							transform: translateY(-50%);
+						}
+
+						&::after  {
+							content: '';
+							position: absolute;
+							top: 40%;
+							right: -5%;
+							border-top: 1px solid $cBlu;
+							border-right: 1px solid $cBlu;
+							transform: translateY(-50%) rotate(135deg);
+							display: block;
+							margin: 0 12px;
+							width: 6px;
+							height: 6px;
+							transition: transform 0.4s ease;
+						}
+
+						&.isOpen {
+							&::after {
+								transform: translateY(-50%) rotate(-45deg);
+							}
+						}
 					}
 					
 					.monthList {
+						max-height: 0;
+						overflow: hidden;
+						padding: 0;
+						transform: translateZ(0);
+						transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+						&.isOpen {
+							max-height: 500px;
+							padding: 10px 0 0 0;
+						}
+
 						li {
+							margin: 0 0 0 10px;
 							&:not(:last-child) {
-								margin-bottom: 8px;
+								margin: 0 0 8px 10px;
 							}
 							
 							a {
 								display: flex;
 								align-items: center;
-								justify-content: space-between;
-								padding: 8px 12px;
 								text-decoration: none;
 								border-radius: 4px;
 								transition: all 0.3s ease;
-								background: $cBgLightBlue;
-								
-								&:hover {
-									background: $cBgLightBlue;
-									
-									.monthName {
-										color: $cBk2;
-										text-decoration: underline;
-									}
-								}
 								
 								.monthName {
-									font-size: 14px;
 									color: $cBlu;
 									transition: color 0.3s ease;
 								}
 								
 								.postsCount {
-									font-size: 12px;
+									margin: 0 0 0 5px;
 									color: $cBk4;
 								}
 							}
@@ -824,13 +925,13 @@
 			
 			.searchForm {
 				.searchFormInner {
+					position: relative;
 					display: flex;
-					align-items: center;
-					gap: 8px;
+					align-items: stretch;
 					
 					.searchInput {
 						flex: 1;
-						padding: 10px 15px;
+						padding: 10px 44px 10px 15px;
 						border: 1px solid $cGr1;
 						border-radius: 4px;
 						font-size: 14px;
@@ -842,8 +943,11 @@
 					}
 					
 					.searchSubmit {
-						flex-shrink: 0;
-						padding: 0;
+						position: absolute;
+						top: 50%;
+						right: 4px;
+						transform: translateY(-50%);
+						padding: 4px;
 						border: none;
 						background: transparent;
 						cursor: pointer;
@@ -855,10 +959,11 @@
 						
 						.searchSubmitIcon {
 							display: block;
-							
-							path {
-								fill: $cLogoBlue;
-							}
+							width: 16px;
+							height: 16px;
+						}
+						.searchSubmit img.searchSubmitIcon {
+							height: auto;
 						}
 					}
 				}
@@ -866,6 +971,9 @@
 		}
 	}
 }
+
+
+
 
 
 
@@ -1034,17 +1142,21 @@
 		
 		.searchForm {
 			.searchFormInner {
-				gap: 2vw;
-				
 				.searchInput {
-					padding: 2.666667vw 4vw;
+					padding: 2.666667vw 14vw 2.666667vw 4vw;
 					font-size: 3.733333vw;
 				}
 				
 				.searchSubmit {
+					right: 2vw;
+					padding: 2vw;
+					
 					.searchSubmitIcon {
 						width: 8.533333vw;
 						height: 8.8vw;
+					}
+					img.searchSubmitIcon {
+						height: auto;
 					}
 				}
 			}

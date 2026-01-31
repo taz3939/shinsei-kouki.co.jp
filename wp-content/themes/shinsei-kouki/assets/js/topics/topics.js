@@ -1,7 +1,13 @@
 /**
  * お知らせ詳細ページ - .newsContent 内の h2 を抜粋し INDEX を先頭に挿入
+ * data-show-index="0" の場合は目次を出力しない
  */
 (function() {
+  var article = document.querySelector('.newsArticle');
+  if (article && article.getAttribute('data-show-index') === '0') {
+    return;
+  }
+
   var newsContent = document.querySelector('.newsArticle .newsContent');
   if (!newsContent) {
     return;

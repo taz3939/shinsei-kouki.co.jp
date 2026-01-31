@@ -73,8 +73,11 @@ add_action('wp_enqueue_scripts', function() {
     }
 }, 1);
 
-// インラインスタイルを削除
+// インラインスタイルを削除（管理画面ではブロックエディタ用CSSを除去しない）
 add_filter('style_loader_tag', function($html, $handle) {
+    if (is_admin()) {
+        return $html;
+    }
     $remove_handles = array(
         'wp-emoji-styles',
         'wp-block-library',
@@ -86,7 +89,10 @@ add_filter('style_loader_tag', function($html, $handle) {
     if (in_array($handle, $remove_handles)) {
         return '';
     }
-    
+
+    // スタイルの link タグから id 属性を削除（HTML をシンプルに）
+    $html = preg_replace('/\s+id=[\'"][^\'"]*[\'"]/', '', $html);
+
     return $html;
 }, 10, 2);
 

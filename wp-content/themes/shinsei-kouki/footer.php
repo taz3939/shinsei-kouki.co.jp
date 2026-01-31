@@ -32,7 +32,7 @@
                 </nav>
                 <p>
                     <a href="<?php echo esc_url(home_url('/')); ?>" aria-label="トップページへ">
-                        <?php include get_template_directory() . '/assets/img/common/logo-white.svg'; ?>
+                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/common/logo-white.svg" alt="神西衡機工業株式会社" width="57" height="57" class="footerLogoImg" decoding="async">
                         <em>神西衡機工業株式会社</em>
                     </a>
                 </p>

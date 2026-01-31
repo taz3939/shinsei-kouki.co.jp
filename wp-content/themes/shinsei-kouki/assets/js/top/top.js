@@ -90,7 +90,7 @@ jQuery(document).ready(function($) {
     var $aboutBusiness = $('#aboutBusiness');
     if ($aboutBusiness.length === 0) return;
     
-    var $listItems = $aboutBusiness.find('ul > li');
+    var $listItems = $aboutBusiness.find('ol > li');
     if ($listItems.length === 0) return;
     
     var hasAnimated = false;

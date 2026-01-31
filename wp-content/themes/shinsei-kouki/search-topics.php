@@ -40,8 +40,11 @@ get_header();
                     </ul>
                     
                 <?php else : ?>
-                    <p>検索キーワードに一致するお知らせが見つかりませんでした。</p>
-                    <p>別のキーワードで検索してみてください。</p>
+                    <p class="noResults">
+                        検索キーワードに一致するお知らせが見つかりませんでした。<br>
+                        別のキーワードでお探しになるか、<br>
+                        <a href="<?php echo esc_url(home_url('/topics')); ?>">お知らせ一覧</a>からお探しください。<br>
+                    </p>
                 <?php endif; ?>
                 
                 <?php if (have_posts()) : ?>

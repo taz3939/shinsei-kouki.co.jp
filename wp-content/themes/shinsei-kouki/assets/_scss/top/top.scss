@@ -65,53 +65,12 @@ main {
         will-change: auto;
       }
 
-      svg {
+      img {
         display: block;
         margin: 0 12px 0 0;
         width: 71.5px;
         height: auto;
         max-width: 100%;
-
-        // SVG内部のスタイル（logo-color.svg用）
-        .st0 {
-          fill: $cLogoGray;
-          fill-rule: evenodd;
-        }
-
-        .st1 {
-          fill: $cLogoBlue;
-          fill-rule: evenodd;
-        }
-
-        .st2 {
-          fill: $cLogoGreen;
-          fill-rule: evenodd;
-        }
-
-        .st3 {
-          fill: $cLogoGrayText;
-          isolation: isolate;
-          font-family: ZenOldMincho-Regular, 'Zen Old Mincho';
-          font-size: 36.8px;
-        }
-
-        .st4 {
-          isolation: isolate;
-        }
-
-        .st5 {
-          fill: $cLogoBlueDark;
-          isolation: isolate;
-          font-family: ZenOldMincho-Regular, 'Zen Old Mincho';
-          font-size: 36.8px;
-        }
-
-        .st6 {
-          fill: $cLogoGreenDark;
-          isolation: isolate;
-          font-family: ZenOldMincho-Regular, 'Zen Old Mincho';
-          font-size: 36.8px;
-        }
       }
     }
     
@@ -248,11 +207,13 @@ main {
       font-size: 14px;
     }
     
-    ul {
+    ol {
+      list-style: none;
+      margin: 0 auto 50px;
+      padding: 0;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      margin: 0 auto 50px;
       width: 97.5%;
       max-width: 1045px;
       
@@ -260,6 +221,7 @@ main {
         position: relative;
         box-sizing: border-box;
         padding: 0 15px 20px;
+        padding-top: 53px; // アイコン上-12px + 高さ40px + 下余白25px
         width: 23.925%;
         background: $cWht;
         border-radius: 20px 0 20px 0;
@@ -283,32 +245,34 @@ main {
           transform: translateY(-2px);
         }
 
-        svg {
-          position: relative;
-          margin: -12px 0 25px;
+        // アイコン（logo-ci.svg）を上部に absolute で配置・大きさは従来どおり 40px
+        &::after {
+          content: "";
+          position: absolute;
+          top: -15px;
+          left: 50%;
+          transform: translateX(-50%);
           width: 40px;
-          height: auto;
-          
-          // SVG内部の色管理
-          path {
-            &:nth-of-type(1) {
-              fill: $cLogoGray;
-            }
-            &:nth-of-type(2) {
-              fill: $cLogoGreen;
-            }
-            &:nth-of-type(3) {
-              fill: $cLogoBlue;
-            }
-          }
-          
-          text {
-            fill: $cBk;
-            
-            tspan {
-              fill: $cLogoBlue;
-            }
-          }
+          height: 40px;
+          background: url("../../img/common/logo-ci.svg") no-repeat center / contain;
+        }
+
+        // 番号をアイコン中央に 10px 青文字で表示
+        &::before {
+          content: counter(list-item);
+          position: absolute;
+          left: 50%;
+          top: -15px;
+          display: block;
+          transform: translateX(-50%);
+          width: 40px;
+          height: 40px;
+          line-height: 44px;
+          text-align: center;
+          font-weight: 600;
+          font-size: 10px;
+          color: $cLogoBlue;
+          z-index: 1;
         }
         
         h3 {
@@ -647,26 +611,16 @@ main {
       width: 45%;
       text-align: center;
 
-      svg {
+      // logo-ci.svg を ::before で上部中央に配置（従来の SVG と同じサイズ・位置）
+      &::before {
+        content: "";
         position: absolute;
         top: -20px;
         left: 50%;
         transform: translateX(-50%);
         width: 40px;
-        height: auto;
-        
-        // SVG内部の色管理
-        path {
-          &:nth-of-type(1) {
-            fill: $cLogoGray;
-          }
-          &:nth-of-type(2) {
-            fill: $cLogoGreen;
-          }
-          &:nth-of-type(3) {
-            fill: $cLogoBlue;
-          }
-        }
+        height: 40px;
+        background: url("../../img/common/logo-ci.svg") no-repeat center / contain;
       }
       
       h2 {
@@ -898,50 +852,9 @@ main {
         font-size: 5.3333333vw;
         filter: blur(2.666667vw);
         
-        svg {
+        img {
           margin: 0 3.2vw 0 0;
           width: 14.2666667vw;
-
-          // SVG内部のスタイル（logo-color.svg用）
-          .st0 {
-            fill: $cLogoGray;
-            fill-rule: evenodd;
-          }
-
-          .st1 {
-            fill: $cLogoBlue;
-            fill-rule: evenodd;
-          }
-
-          .st2 {
-            fill: $cLogoGreen;
-            fill-rule: evenodd;
-          }
-
-          .st3 {
-            fill: $cLogoGrayText;
-            isolation: isolate;
-            font-family: ZenOldMincho-Regular, 'Zen Old Mincho';
-            font-size: 36.8px;
-          }
-
-          .st4 {
-            isolation: isolate;
-          }
-
-          .st5 {
-            fill: $cLogoBlueDark;
-            isolation: isolate;
-            font-family: ZenOldMincho-Regular, 'Zen Old Mincho';
-            font-size: 36.8px;
-          }
-
-          .st6 {
-            fill: $cLogoGreenDark;
-            isolation: isolate;
-            font-family: ZenOldMincho-Regular, 'Zen Old Mincho';
-            font-size: 36.8px;
-          }
         }
       }
       
@@ -1030,11 +943,13 @@ main {
         font-size: 3.733333vw;
       }
       
-      ul {
+      ol {
+        list-style: none;
+        margin: 0 auto 50px;
+        padding: 0;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        margin: 0 auto 50px;
         width: 97.5%;
         max-width: 1045px;
         
@@ -1042,6 +957,7 @@ main {
           position: relative;
           box-sizing: border-box;
           padding: 0 15px 20px;
+          padding-top: 53px;
           width: 23.925%;
           background: $cWht;
           border-radius: 20px 0 20px 0;
@@ -1065,11 +981,26 @@ main {
             transform: translateY(-2px);
           }
 
-          svg {
-            position: relative;
-            margin: -12px 0 25px;
+          &::after {
+            content: "";
+            position: absolute;
+            top: -12px;
+            left: 0;
             width: 40px;
-            height: auto;
+            height: 40px;
+            background: url("../../img/common/logo-ci.svg") no-repeat center / contain;
+          }
+
+          &::before {
+            content: counter(list-item);
+            position: absolute;
+            left: 20px;
+            top: 8px;
+            transform: translate(-50%, -50%);
+            font-size: 10px;
+            font-weight: 600;
+            color: $cLogoBlue;
+            z-index: 1;
           }
           
           h3 {
@@ -1405,13 +1336,15 @@ main {
         width: 45%;
         text-align: center;
 
-        svg {
+        &::before {
+          content: "";
           position: absolute;
           top: -20px;
           left: 50%;
           transform: translateX(-50%);
           width: 40px;
-          height: auto;
+          height: 40px;
+          background: url("../../img/common/logo-ci.svg") no-repeat center / contain;
         }
         
         h2 {

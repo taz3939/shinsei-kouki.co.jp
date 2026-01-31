@@ -6,6 +6,9 @@
 
 // フォントとLCP画像のpreload（パフォーマンス最適化）
 function shinsei_kouki_preload_fonts() {
+    if (is_admin()) {
+        return;
+    }
     $font_dir = get_template_directory_uri() . '/assets/font';
     
     // フォントドメインへのpreconnect（DNS解決と接続を早期に確立）
@@ -28,6 +31,9 @@ function shinsei_kouki_preload_fonts() {
 add_action('wp_head', 'shinsei_kouki_preload_fonts', 1);
 
 function shinsei_kouki_enqueue_scripts() {
+    if (is_admin()) {
+        return;
+    }
     // CSS
     wp_enqueue_style('normalize-style', get_template_directory_uri() . '/assets/css/common/normalize.min.css', array(), '1.0.0');
     wp_enqueue_style('shinsei-kouki-style', get_template_directory_uri() . '/assets/css/common/common.css', array('normalize-style'), '1.0.0');
