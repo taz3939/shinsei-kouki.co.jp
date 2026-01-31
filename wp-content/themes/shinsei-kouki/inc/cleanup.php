@@ -4,6 +4,11 @@
  * 不要なWP機能の削除やオートフォーマット関連の設定
  */
 
+// 管理画面でブロックエディタ用スクリプトを load-scripts.php 経由で結合読み込みする（React 等 404 対策）
+if ( is_admin() && ! defined( 'CONCATENATE_SCRIPTS' ) ) {
+	define( 'CONCATENATE_SCRIPTS', true );
+}
+
 // 管理バーを非表示（フロントエンドでの表示を無効化）
 add_filter('show_admin_bar', '__return_false');
 

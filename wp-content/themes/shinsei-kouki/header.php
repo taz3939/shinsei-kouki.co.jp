@@ -11,6 +11,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="format-detection" content="telephone=no, address=no, email=no">
 	<link rel="icon" href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/common/favicon.ico" sizes="32x32" type="image/x-icon">
+	<link rel="apple-touch-icon" href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/common/webclip.webp">
 	<?php wp_head(); ?>
 </head>
 

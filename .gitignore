@@ -50,7 +50,8 @@ desktop.ini
 
 # その他
 node_modules/
-vendor/
+# Composer の vendor のみ除外（WordPress コアの wp-includes/js/dist/vendor/ は含める）
+/vendor/
 composer.lock
 package-lock.json
 yarn.lock

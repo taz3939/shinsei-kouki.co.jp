@@ -159,8 +159,8 @@ function shinsei_kouki_output_meta_tags() {
         echo '<link rel="canonical" href="' . esc_url($url) . '">' . "\n";
     }
 
-    // OGP（画像は assets/img/common/ogp.png を想定）
-    $og_image = get_template_directory_uri() . '/assets/img/common/ogp.png';
+    // OGP（画像は assets/img/common/ogp.webp）
+    $og_image = get_template_directory_uri() . '/assets/img/common/ogp.webp';
     $og_type  = is_singular() ? 'article' : 'website';
 
     echo '<meta property="og:type" content="' . esc_attr($og_type) . '">' . "\n";
