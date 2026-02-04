@@ -11,13 +11,11 @@
    2. カラー（赤・青・緑・黄）
    ---------------------------------------- */
 /* ----------------------------------------
-   3. SVGロゴ色
+   3. 背景色
    ---------------------------------------- */
+/* フォームエラー時の入力欄背景（薄いピンク） */
 /* ----------------------------------------
-   4. 背景色
-   ---------------------------------------- */
-/* ----------------------------------------
-   5. 透明度付き色
+   4. 透明度付き色
    ---------------------------------------- */
 /* newsIntro setting
 ------------------------------------*/
@@ -130,7 +128,7 @@
   flex-shrink: 0;
   margin: 0;
   width: 110px;
-  height: 83px;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
 }
 /* line 128, ../../_scss/topics/topics.scss */
@@ -347,7 +345,7 @@
 }
 /* line 366, ../../_scss/topics/topics.scss */
 #newsDetailContent .inner .newsDetailContainer .newsMain .newsArticle figure {
-  border-radius: 15px;
+  border-radius: 10px;
   overflow: hidden;
   aspect-ratio: 4 / 3;
   margin: 0 0 40px;
@@ -477,7 +475,7 @@
 #newsDetailContent .inner .newsDetailContainer .newsMain .newsArticle .newsContent p a::before {
   content: '';
   position: absolute;
-  top: 50%;
+  top: 12px;
   left: 0;
   display: block;
   border-top: 1px solid #333344;
@@ -720,7 +718,7 @@
   flex-shrink: 0;
   margin: 0;
   width: 100px;
-  height: 75px;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
 }
 /* line 775, ../../_scss/topics/topics.scss */
@@ -923,175 +921,419 @@
 	Ajustment For Smart Phone 
 ------------------------------------------------------------------------ */
 @media screen and (max-width: 768px) {
-  /* line 1006, ../../_scss/topics/topics.scss */
+  /* newsIntro setting
+  ------------------------------------*/
+  /* line 1008, ../../_scss/topics/topics.scss */
   #newsIntro {
     width: 92vw;
   }
-  /* line 1010, ../../_scss/topics/topics.scss */
+  /* line 1012, ../../_scss/topics/topics.scss */
   #newsIntro .inner > p {
     margin: 0 0 8vw;
     font-size: 3.733333vw;
   }
 
-  /* line 1017, ../../_scss/topics/topics.scss */
+  /* newsArchive setting
+  ------------------------------------*/
+  /* line 1025, ../../_scss/topics/topics.scss */
   #newsArchive {
     padding: 8vw 0;
   }
-  /* line 1020, ../../_scss/topics/topics.scss */
+  /* line 1028, ../../_scss/topics/topics.scss */
   #newsArchive .inner {
-    padding: 6.666667vw;
+    padding: 0 4vw 4vw;
     width: 92vw;
   }
-  /* line 1025, ../../_scss/topics/topics.scss */
+  /* line 1033, ../../_scss/topics/topics.scss */
   #newsArchive .newsArchiveContainer {
     flex-direction: column;
     gap: 8vw;
   }
-  /* line 1030, ../../_scss/topics/topics.scss */
-  #newsArchive .newsList {
-    margin: 0 0 8vw;
-  }
-  /* line 1034, ../../_scss/topics/topics.scss */
+  /* line 1041, ../../_scss/topics/topics.scss */
   #newsArchive .newsList li > a {
     padding: 4vw 0;
-    gap: 4vw;
+    gap: 5.2vw;
   }
-  /* line 1039, ../../_scss/topics/topics.scss */
+  /* line 1046, ../../_scss/topics/topics.scss */
   #newsArchive .newsList li .newsThumbnail {
     width: 22vw;
-    height: 16.6vw;
+    aspect-ratio: 4 / 3;
+    height: auto;
+    border-radius: 1.3333333vw;
   }
-  /* line 1044, ../../_scss/topics/topics.scss */
+  /* line 1053, ../../_scss/topics/topics.scss */
   #newsArchive .newsList li .newsContent {
     font-size: 3.2vw;
   }
-  /* line 1047, ../../_scss/topics/topics.scss */
+  /* line 1056, ../../_scss/topics/topics.scss */
   #newsArchive .newsList li .newsContent span {
-    font-size: 3.733333vw;
+    font-size: 3.2vw;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
-  /* line 1054, ../../_scss/topics/topics.scss */
+  /* line 1068, ../../_scss/topics/topics.scss */
   #newsArchive .paginationArea {
     gap: 4vw;
+    padding: 4vw 0 0;
   }
-  /* line 1058, ../../_scss/topics/topics.scss */
+  /* line 1073, ../../_scss/topics/topics.scss */
   #newsArchive .paginationArea .pagination ul {
     gap: 2vw;
     flex-wrap: wrap;
   }
-  /* line 1064, ../../_scss/topics/topics.scss */
+  /* line 1079, ../../_scss/topics/topics.scss */
   #newsArchive .paginationArea .pagination li a, #newsArchive .paginationArea .pagination li span {
     font-size: 3.2vw;
   }
-  /* line 1070, ../../_scss/topics/topics.scss */
+  /* line 1085, ../../_scss/topics/topics.scss */
   #newsArchive .paginationArea .pagination li.paginationPrev a, #newsArchive .paginationArea .pagination li.paginationPrev span, #newsArchive .paginationArea .pagination li.paginationNext a, #newsArchive .paginationArea .pagination li.paginationNext span {
     padding: 0 2vw;
   }
-  /* line 1076, ../../_scss/topics/topics.scss */
+  /* line 1091, ../../_scss/topics/topics.scss */
   #newsArchive .paginationArea .pagination li:not(.paginationPrev):not(.paginationNext):not(.paginationDots) a, #newsArchive .paginationArea .pagination li:not(.paginationPrev):not(.paginationNext):not(.paginationDots) span {
     width: 8vw;
     height: 8vw;
     min-width: 8vw;
     min-height: 8vw;
   }
-  /* line 1085, ../../_scss/topics/topics.scss */
+  /* line 1100, ../../_scss/topics/topics.scss */
   #newsArchive .paginationArea .pagination li.paginationDots span {
     width: 8vw;
     height: 8vw;
     min-width: 8vw;
     min-height: 8vw;
   }
-  /* line 1095, ../../_scss/topics/topics.scss */
+  /* line 1110, ../../_scss/topics/topics.scss */
   #newsArchive .paginationArea .paginationInfo {
     font-size: 3.2vw;
   }
 
-  /* line 1102, ../../_scss/topics/topics.scss */
-  #newsDetailContent .inner {
-    padding: 6.666667vw;
+  /* newsDetailIntro setting
+  ------------------------------------*/
+  /* line 1122, ../../_scss/topics/topics.scss */
+  #newsDetailIntro {
+    margin: 0 auto 8vw;
     width: 92vw;
   }
-  /* line 1107, ../../_scss/topics/topics.scss */
-  #newsDetailContent .newsDetailContainer {
+  /* line 1127, ../../_scss/topics/topics.scss */
+  #newsDetailIntro .inner time {
+    margin: 0 auto 4vw;
+    width: 100%;
+    text-align: center;
+    font-size: 3.2vw;
+  }
+  /* line 1133, ../../_scss/topics/topics.scss */
+  #newsDetailIntro .inner time::before {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: translateY(-0.4vw);
+    border-radius: 50%;
+    border: 0.4vw solid #7fa329;
+    display: inline-block;
+    margin: 0 1.2vw 0 0;
+    width: 1.333333vw;
+    height: 1.333333vw;
+  }
+  /* line 1147, ../../_scss/topics/topics.scss */
+  #newsDetailIntro .inner h1 {
+    width: 100%;
+    font-size: 5.4vw;
+  }
+
+  /* newsDetailContent setting
+  ------------------------------------*/
+  /* line 1161, ../../_scss/topics/topics.scss */
+  #newsDetailContent {
+    padding: 8vw 0;
+  }
+  /* line 1164, ../../_scss/topics/topics.scss */
+  #newsDetailContent .inner {
+    padding: 4vw;
+    width: 92vw;
+    border-radius: 4vw 0 4vw 0;
+  }
+  /* line 1169, ../../_scss/topics/topics.scss */
+  #newsDetailContent .inner .newsDetailContainer {
     flex-direction: column;
     gap: 8vw;
   }
-
-  /* line 1117, ../../_scss/topics/topics.scss */
-  .pickupSidebar .pickupList li .pickupThumbnail {
-    width: 22vw;
-    height: 16.6vw;
+  /* line 1177, ../../_scss/topics/topics.scss */
+  #newsDetailContent .inner .newsDetailContainer .newsMain .newsArticle figure {
+    border-radius: 1.3333333vw;
+    margin: 0 0 6vw;
   }
-  /* line 1123, ../../_scss/topics/topics.scss */
-  .pickupSidebar .pickupList li .pickupContent time {
+  /* line 1182, ../../_scss/topics/topics.scss */
+  #newsDetailContent .inner .newsDetailContainer .newsMain .newsArticle .newsIndex {
+    width: 90%;
+    margin: 0 auto 6vw;
+    padding: 4vw;
+    border-radius: 4vw;
     font-size: 3.2vw;
   }
-  /* line 1127, ../../_scss/topics/topics.scss */
-  .pickupSidebar .pickupList li .pickupContent span {
-    font-size: 3.733333vw;
+  /* line 1189, ../../_scss/topics/topics.scss */
+  #newsDetailContent .inner .newsDetailContainer .newsMain .newsArticle .newsIndex .newsIndexTitle {
+    margin: 0 0 2.666667vw;
   }
-
-  /* line 1135, ../../_scss/topics/topics.scss */
-  .searchSidebar {
-    margin-top: 8vw;
+  /* line 1193, ../../_scss/topics/topics.scss */
+  #newsDetailContent .inner .newsDetailContainer .newsMain .newsArticle .newsIndex .newsIndexList li {
+    padding: 0 0 0 2.666667vw;
   }
-  /* line 1138, ../../_scss/topics/topics.scss */
-  .searchSidebar h2 {
-    margin: 0 0 4vw;
+  /* line 1196, ../../_scss/topics/topics.scss */
+  #newsDetailContent .inner .newsDetailContainer .newsMain .newsArticle .newsIndex .newsIndexList li::before {
+    left: 0.533333vw;
+    width: 1.066667vw;
+    height: 1.066667vw;
+  }
+  /* line 1202, ../../_scss/topics/topics.scss */
+  #newsDetailContent .inner .newsDetailContainer .newsMain .newsArticle .newsIndex .newsIndexList li:not(:last-child) {
+    margin: 0 0 1.6vw;
+  }
+  /* line 1209, ../../_scss/topics/topics.scss */
+  #newsDetailContent .inner .newsDetailContainer .newsMain .newsArticle .newsContent h2 {
+    border-radius: 1.333333vw;
+    padding: 2.666667vw 3%;
+    font-size: 4.8vw;
+  }
+  /* line 1215, ../../_scss/topics/topics.scss */
+  #newsDetailContent .inner .newsDetailContainer .newsMain .newsArticle .newsContent h3 {
+    padding: 4vw 0 0 3%;
+    font-size: 4.533333vw;
+  }
+  /* line 1219, ../../_scss/topics/topics.scss */
+  #newsDetailContent .inner .newsDetailContainer .newsMain .newsArticle .newsContent h3::before {
+    width: 24vw;
+    height: 1.333333vw;
+    border-radius: 0.666667vw;
+  }
+  /* line 1226, ../../_scss/topics/topics.scss */
+  #newsDetailContent .inner .newsDetailContainer .newsMain .newsArticle .newsContent h4 {
+    padding: 1.333333vw 0 1.333333vw 4vw;
     font-size: 4.266667vw;
   }
-  /* line 1145, ../../_scss/topics/topics.scss */
-  .searchSidebar .searchForm .searchFormInner .searchInput {
-    padding: 2.666667vw 14vw 2.666667vw 4vw;
+  /* line 1230, ../../_scss/topics/topics.scss */
+  #newsDetailContent .inner .newsDetailContainer .newsMain .newsArticle .newsContent h4::before {
+    width: 1.333333vw;
+    border-radius: 0.666667vw;
+  }
+  /* line 1236, ../../_scss/topics/topics.scss */
+  #newsDetailContent .inner .newsDetailContainer .newsMain .newsArticle .newsContent p {
+    font-size: 4vw;
+  }
+  /* line 1239, ../../_scss/topics/topics.scss */
+  #newsDetailContent .inner .newsDetailContainer .newsMain .newsArticle .newsContent p a {
+    padding: 0 0 0 3.2vw;
+  }
+  /* line 1242, ../../_scss/topics/topics.scss */
+  #newsDetailContent .inner .newsDetailContainer .newsMain .newsArticle .newsContent p a::before {
+    top: 3.2vw;
+    width: 1.066667vw;
+    height: 1.066667vw;
+  }
+  /* line 1248, ../../_scss/topics/topics.scss */
+  #newsDetailContent .inner .newsDetailContainer .newsMain .newsArticle .newsContent p a .iconExternal img {
+    width: 3.733333vw;
+    margin: 0 0 0 1.333333vw;
+  }
+  /* line 1255, ../../_scss/topics/topics.scss */
+  #newsDetailContent .inner .newsDetailContainer .newsMain .newsArticle .newsContent .wp-block-buttons {
+    gap: 4vw;
+    margin: 0 0 8vw;
+  }
+  /* line 1259, ../../_scss/topics/topics.scss */
+  #newsDetailContent .inner .newsDetailContainer .newsMain .newsArticle .newsContent .wp-block-buttons .wp-block-button a {
+    height: 16vw;
+    line-height: 16vw;
+    font-size: 4.266667vw;
+  }
+  /* line 1264, ../../_scss/topics/topics.scss */
+  #newsDetailContent .inner .newsDetailContainer .newsMain .newsArticle .newsContent .wp-block-buttons .wp-block-button a::after {
+    right: 4vw;
+    width: 2.133333vw;
+    height: 2.133333vw;
+    margin: -1.333333vw 0 0 0;
+  }
+  /* line 1273, ../../_scss/topics/topics.scss */
+  #newsDetailContent .inner .newsDetailContainer .newsMain .newsArticle .newsContent ul {
+    border-radius: 4vw;
+    padding: 4vw;
+  }
+  /* line 1277, ../../_scss/topics/topics.scss */
+  #newsDetailContent .inner .newsDetailContainer .newsMain .newsArticle .newsContent ul li {
+    font-size: 4vw;
+    padding: 0 0 0 2.666667vw;
+  }
+  /* line 1281, ../../_scss/topics/topics.scss */
+  #newsDetailContent .inner .newsDetailContainer .newsMain .newsArticle .newsContent ul li::before {
+    top: 2.666667vw;
+    width: 1.066667vw;
+    height: 1.066667vw;
+  }
+  /* line 1287, ../../_scss/topics/topics.scss */
+  #newsDetailContent .inner .newsDetailContainer .newsMain .newsArticle .newsContent ul li:not(:last-child) {
+    margin: 0 0 2.666667vw;
+  }
+  /* line 1293, ../../_scss/topics/topics.scss */
+  #newsDetailContent .inner .newsDetailContainer .newsMain .newsArticle .newsContent ol {
+    border-radius: 4vw;
+    padding: 4vw;
+  }
+  /* line 1297, ../../_scss/topics/topics.scss */
+  #newsDetailContent .inner .newsDetailContainer .newsMain .newsArticle .newsContent ol li {
+    font-size: 4vw;
+    padding: 0 0 0 4.8vw;
+  }
+  /* line 1301, ../../_scss/topics/topics.scss */
+  #newsDetailContent .inner .newsDetailContainer .newsMain .newsArticle .newsContent ol li::before {
+    font-size: 4vw;
+  }
+  /* line 1305, ../../_scss/topics/topics.scss */
+  #newsDetailContent .inner .newsDetailContainer .newsMain .newsArticle .newsContent ol li:not(:last-child) {
+    margin: 0 0 2.666667vw;
+  }
+  /* line 1316, ../../_scss/topics/topics.scss */
+  #newsDetailContent .btnArea {
+    margin: 8vw auto 0;
+    width: 70vw;
+  }
+  /* line 1320, ../../_scss/topics/topics.scss */
+  #newsDetailContent .btnArea a {
+    width: 100%;
+    max-width: none;
+    height: 16vw;
+    line-height: 16vw;
+    font-size: 4.266667vw;
+  }
+  /* line 1327, ../../_scss/topics/topics.scss */
+  #newsDetailContent .btnArea a::before {
+    left: 4vw;
+    width: 2.133333vw;
+    height: 2.133333vw;
+    margin: -1.333333vw 0 0 0;
+  }
+
+  /* newsSidebar setting（SPのみ上書き） */
+  /* line 1342, ../../_scss/topics/topics.scss */
+  .newsSidebar {
+    width: 100%;
+  }
+  /* line 1346, ../../_scss/topics/topics.scss */
+  .newsSidebar aside:not(:last-child) {
+    margin: 0 0 8vw;
+  }
+  /* line 1350, ../../_scss/topics/topics.scss */
+  .newsSidebar aside > img.sidebarLogo {
+    margin: 0 auto 2.666667vw;
+  }
+  /* line 1354, ../../_scss/topics/topics.scss */
+  .newsSidebar aside h2 {
+    margin: 0 0 4vw;
+    padding: 0 0 3.733333vw;
+    font-size: 3.2vw;
+  }
+  /* line 1361, ../../_scss/topics/topics.scss */
+  .newsSidebar aside.pickupTopics .pickupList li:not(:last-child) {
+    margin: 0 0 4vw;
+  }
+  /* line 1365, ../../_scss/topics/topics.scss */
+  .newsSidebar aside.pickupTopics .pickupList li > a {
+    gap: 4vw;
+  }
+  /* line 1369, ../../_scss/topics/topics.scss */
+  .newsSidebar aside.pickupTopics .pickupList li .pickupThumbnail {
+    width: 22vw;
+    aspect-ratio: 4 / 3;
+    height: auto;
+    border-radius: 1.3333333vw;
+  }
+  /* line 1376, ../../_scss/topics/topics.scss */
+  .newsSidebar aside.pickupTopics .pickupList li .pickupContent {
+    gap: 1.333333vw;
+    font-size: 3.2vw;
+  }
+  /* line 1380, ../../_scss/topics/topics.scss */
+  .newsSidebar aside.pickupTopics .pickupList li .pickupContent time {
+    font-size: 3.2vw;
+  }
+  /* line 1383, ../../_scss/topics/topics.scss */
+  .newsSidebar aside.pickupTopics .pickupList li .pickupContent time::before {
+    left: -2.266667vw;
+    width: 1.333333vw;
+    height: 1.333333vw;
+  }
+  /* line 1390, ../../_scss/topics/topics.scss */
+  .newsSidebar aside.pickupTopics .pickupList li .pickupContent span {
+    font-size: 3.2vw;
+    line-height: 1.75;
+    -webkit-line-clamp: 2;
+  }
+  /* line 1398, ../../_scss/topics/topics.scss */
+  .newsSidebar aside.monthlyArchive .monthlyArchiveList .yearGroup {
+    border-radius: 4vw;
+    padding: 4vw;
+    font-size: 3.466667vw;
+  }
+  /* line 1403, ../../_scss/topics/topics.scss */
+  .newsSidebar aside.monthlyArchive .monthlyArchiveList .yearGroup:not(:last-child) {
+    margin: 0 0 4vw;
+  }
+  /* line 1407, ../../_scss/topics/topics.scss */
+  .newsSidebar aside.monthlyArchive .monthlyArchiveList .yearGroup .yearTitle {
+    padding: 0 0 0 2.666667vw;
+  }
+  /* line 1410, ../../_scss/topics/topics.scss */
+  .newsSidebar aside.monthlyArchive .monthlyArchiveList .yearGroup .yearTitle::before {
+    width: 1.066667vw;
+    height: 1.066667vw;
+  }
+  /* line 1415, ../../_scss/topics/topics.scss */
+  .newsSidebar aside.monthlyArchive .monthlyArchiveList .yearGroup .yearTitle::after {
+    margin: 0 3.2vw;
+    width: 1.6vw;
+    height: 1.6vw;
+  }
+  /* line 1422, ../../_scss/topics/topics.scss */
+  .newsSidebar aside.monthlyArchive .monthlyArchiveList .yearGroup .monthList.isOpen {
+    padding: 2.666667vw 0 0 0;
+  }
+  /* line 1426, ../../_scss/topics/topics.scss */
+  .newsSidebar aside.monthlyArchive .monthlyArchiveList .yearGroup .monthList li {
+    margin: 0 0 0 2.666667vw;
+  }
+  /* line 1429, ../../_scss/topics/topics.scss */
+  .newsSidebar aside.monthlyArchive .monthlyArchiveList .yearGroup .monthList li:not(:last-child) {
+    margin: 0 0 2vw 2.666667vw;
+  }
+  /* line 1433, ../../_scss/topics/topics.scss */
+  .newsSidebar aside.monthlyArchive .monthlyArchiveList .yearGroup .monthList li a {
+    border-radius: 1.066667vw;
+  }
+  /* line 1436, ../../_scss/topics/topics.scss */
+  .newsSidebar aside.monthlyArchive .monthlyArchiveList .yearGroup .monthList li a .monthName {
+    font-size: 3.466667vw;
+  }
+  /* line 1440, ../../_scss/topics/topics.scss */
+  .newsSidebar aside.monthlyArchive .monthlyArchiveList .yearGroup .monthList li a .postsCount {
+    margin: 0 0 0 1.333333vw;
+    font-size: 3.2vw;
+  }
+  /* line 1449, ../../_scss/topics/topics.scss */
+  .newsSidebar aside.searchTopics .searchForm .searchFormInner .searchInput {
+    padding: 2.666667vw 12vw 2.666667vw 4vw;
+    border-radius: 1.066667vw;
     font-size: 3.733333vw;
   }
-  /* line 1150, ../../_scss/topics/topics.scss */
-  .searchSidebar .searchForm .searchFormInner .searchSubmit {
+  /* line 1455, ../../_scss/topics/topics.scss */
+  .newsSidebar aside.searchTopics .searchForm .searchFormInner .searchSubmit {
     right: 2vw;
     padding: 2vw;
   }
-  /* line 1154, ../../_scss/topics/topics.scss */
-  .searchSidebar .searchForm .searchFormInner .searchSubmit .searchSubmitIcon {
-    width: 8.533333vw;
-    height: 8.8vw;
-  }
-  /* line 1158, ../../_scss/topics/topics.scss */
-  .searchSidebar .searchForm .searchFormInner .searchSubmit img.searchSubmitIcon {
-    height: auto;
-  }
-
-  /* line 1166, ../../_scss/topics/topics.scss */
-  .monthlyArchiveSidebar {
-    margin-top: 8vw;
-  }
-  /* line 1169, ../../_scss/topics/topics.scss */
-  .monthlyArchiveSidebar .monthlyArchiveSidebarTitle {
-    margin: 0 0 4vw;
-    font-size: 4.266667vw;
-  }
-  /* line 1176, ../../_scss/topics/topics.scss */
-  .monthlyArchiveSidebar .monthlyArchiveList .yearGroup:not(:last-child) {
-    margin-bottom: 6vw;
-  }
-  /* line 1180, ../../_scss/topics/topics.scss */
-  .monthlyArchiveSidebar .monthlyArchiveList .yearGroup .yearTitle {
-    margin: 0 0 3vw;
-    font-size: 3.733333vw;
-    padding-bottom: 2vw;
-  }
-  /* line 1188, ../../_scss/topics/topics.scss */
-  .monthlyArchiveSidebar .monthlyArchiveList .yearGroup .monthList li:not(:last-child) {
-    margin-bottom: 2vw;
-  }
-  /* line 1192, ../../_scss/topics/topics.scss */
-  .monthlyArchiveSidebar .monthlyArchiveList .yearGroup .monthList li a {
-    padding: 2vw 3vw;
-  }
-  /* line 1195, ../../_scss/topics/topics.scss */
-  .monthlyArchiveSidebar .monthlyArchiveList .yearGroup .monthList li a .monthName {
-    font-size: 3.466667vw;
-  }
-  /* line 1199, ../../_scss/topics/topics.scss */
-  .monthlyArchiveSidebar .monthlyArchiveList .yearGroup .monthList li a .postsCount {
-    font-size: 3.2vw;
+  /* line 1459, ../../_scss/topics/topics.scss */
+  .newsSidebar aside.searchTopics .searchForm .searchFormInner .searchSubmit .searchSubmitIcon {
+    width: 4.533333vw;
+    height: 4.533333vw;
   }
 }

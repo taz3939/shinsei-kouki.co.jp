@@ -1,6 +1,6 @@
 <?php
 /**
- * template-parts/pickup-sidebar.php
+ * template-parts/parts_pickup-sidebar.php
  * ピックアップ記事サイドバー
  */
 

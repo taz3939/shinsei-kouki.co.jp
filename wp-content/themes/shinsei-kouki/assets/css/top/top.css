@@ -11,13 +11,11 @@
    2. カラー（赤・青・緑・黄）
    ---------------------------------------- */
 /* ----------------------------------------
-   3. SVGロゴ色
+   3. 背景色
    ---------------------------------------- */
+/* フォームエラー時の入力欄背景（薄いピンク） */
 /* ----------------------------------------
-   4. 背景色
-   ---------------------------------------- */
-/* ----------------------------------------
-   5. 透明度付き色
+   4. 透明度付き色
    ---------------------------------------- */
 /* common setting
 ------------------------------------*/
@@ -333,28 +331,26 @@ main {
   right: 20px;
   border-top: 2px solid #fff;
   border-right: 2px solid #fff;
-  -ms-transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
   margin: -5px 0 0;
   width: 8px;
   height: 8px;
   transition: all 0.3s;
 }
-/* line 340, ../../_scss/top/top.scss */
+/* line 338, ../../_scss/top/top.scss */
 #aboutBusiness .inner > a.btnPrimary:hover {
   opacity: 0.8;
 }
 
 /* handledBrands setting
 ------------------------------------*/
-/* line 353, ../../_scss/top/top.scss */
+/* line 351, ../../_scss/top/top.scss */
 #handledBrands {
   position: relative;
   padding: 80px 0;
   background: url("../../img/top/bg_brands_pc.webp") center/cover no-repeat;
 }
-/* line 358, ../../_scss/top/top.scss */
+/* line 356, ../../_scss/top/top.scss */
 #handledBrands::before, #handledBrands::after {
   content: '';
   position: absolute;
@@ -365,7 +361,7 @@ main {
   height: 33.5px;
   background: url("../../img/common/line_pc.webp") center/100% 100% no-repeat;
 }
-/* line 370, ../../_scss/top/top.scss */
+/* line 368, ../../_scss/top/top.scss */
 #handledBrands::after {
   top: auto;
   bottom: -33.5px;
@@ -373,20 +369,20 @@ main {
   right: 0;
   transform: rotate(180deg);
 }
-/* line 378, ../../_scss/top/top.scss */
+/* line 376, ../../_scss/top/top.scss */
 #handledBrands .inner {
   margin: 0 auto;
   width: 90%;
   max-width: 1200px;
   text-align: center;
 }
-/* line 384, ../../_scss/top/top.scss */
+/* line 382, ../../_scss/top/top.scss */
 #handledBrands .inner h2 {
   margin: 0 0 50px;
   font-weight: 600;
   font-size: 20px;
 }
-/* line 388, ../../_scss/top/top.scss */
+/* line 386, ../../_scss/top/top.scss */
 #handledBrands .inner h2 small {
   display: block;
   margin: 5px 0 0;
@@ -394,13 +390,13 @@ main {
   font-size: 12px;
   color: #0087ac;
 }
-/* line 397, ../../_scss/top/top.scss */
+/* line 395, ../../_scss/top/top.scss */
 #handledBrands .inner p {
   margin: 0 0 50px;
   line-height: 1.85;
   font-size: 14px;
 }
-/* line 403, ../../_scss/top/top.scss */
+/* line 401, ../../_scss/top/top.scss */
 #handledBrands .inner ul {
   position: relative;
   display: flex;
@@ -409,7 +405,7 @@ main {
   align-items: center;
   gap: 35px;
 }
-/* line 411, ../../_scss/top/top.scss */
+/* line 409, ../../_scss/top/top.scss */
 #handledBrands .inner ul::after {
   content: '※五十音順';
   position: absolute;
@@ -417,7 +413,7 @@ main {
   right: 30px;
   font-size: 10px;
 }
-/* line 419, ../../_scss/top/top.scss */
+/* line 417, ../../_scss/top/top.scss */
 #handledBrands .inner ul li {
   display: flex;
   align-items: center;
@@ -431,13 +427,13 @@ main {
   -webkit-backface-visibility: hidden;
   transition: opacity 1.5s ease-out, filter 1.5s ease-out, box-shadow 0.3s ease;
 }
-/* line 432, ../../_scss/top/top.scss */
+/* line 430, ../../_scss/top/top.scss */
 #handledBrands .inner ul li.fadeIn {
   opacity: 1;
   filter: blur(0);
   will-change: auto;
 }
-/* line 438, ../../_scss/top/top.scss */
+/* line 436, ../../_scss/top/top.scss */
 #handledBrands .inner ul li img {
   width: auto;
   height: 25px;
@@ -448,11 +444,11 @@ main {
 
 /* latestNews and businessCalendar (2 column layout)
 ------------------------------------*/
-/* line 456, ../../_scss/top/top.scss */
+/* line 454, ../../_scss/top/top.scss */
 #latestNewsCalendar {
   padding: 100px 0;
 }
-/* line 459, ../../_scss/top/top.scss */
+/* line 457, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner {
   display: flex;
   justify-content: space-between;
@@ -460,24 +456,24 @@ main {
   width: 90%;
   max-width: 980px;
 }
-/* line 466, ../../_scss/top/top.scss */
+/* line 464, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #latestNews {
   margin: 17.5px 0 0;
   width: 45%;
   text-align: center;
 }
-/* line 470, ../../_scss/top/top.scss */
+/* line 468, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #latestNews h2 {
   margin: 0 0 30px;
   font-size: 20px;
 }
-/* line 473, ../../_scss/top/top.scss */
+/* line 471, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #latestNews h2 span {
   display: block;
   margin: 0 0 10px;
   font-size: 15px;
 }
-/* line 478, ../../_scss/top/top.scss */
+/* line 476, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #latestNews h2 small {
   display: block;
   margin: 10px 0 0;
@@ -485,15 +481,15 @@ main {
   font-size: 12px;
   color: #0087ac;
 }
-/* line 487, ../../_scss/top/top.scss */
+/* line 485, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #latestNews .newsList {
   margin: 0 0 30px;
 }
-/* line 490, ../../_scss/top/top.scss */
+/* line 488, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #latestNews .newsList li {
   border-bottom: 1px solid #e3e3e3;
 }
-/* line 493, ../../_scss/top/top.scss */
+/* line 491, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #latestNews .newsList li > a {
   display: flex;
   align-items: center;
@@ -503,29 +499,29 @@ main {
   transition: opacity 0.3s ease;
   text-align: left;
 }
-/* line 502, ../../_scss/top/top.scss */
+/* line 500, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #latestNews .newsList li > a:hover {
   opacity: 0.8;
 }
-/* line 505, ../../_scss/top/top.scss */
+/* line 503, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #latestNews .newsList li > a:hover .newsThumbnail img {
   transform: scale(1.1);
 }
-/* line 509, ../../_scss/top/top.scss */
+/* line 507, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #latestNews .newsList li > a:hover .newsContent span {
   color: #222;
   text-decoration: underline;
 }
-/* line 516, ../../_scss/top/top.scss */
+/* line 514, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #latestNews .newsList li .newsThumbnail {
   border-radius: 5px;
   flex-shrink: 0;
   margin: 0;
   width: 110px;
-  height: 83px;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
 }
-/* line 524, ../../_scss/top/top.scss */
+/* line 522, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #latestNews .newsList li .newsThumbnail img {
   width: 100%;
   height: 100%;
@@ -533,7 +529,7 @@ main {
   object-position: center;
   transition: transform 0.3s ease;
 }
-/* line 533, ../../_scss/top/top.scss */
+/* line 531, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #latestNews .newsList li .newsContent {
   flex: 1;
   display: flex;
@@ -541,12 +537,12 @@ main {
   gap: 5px;
   font-size: 12px;
 }
-/* line 540, ../../_scss/top/top.scss */
+/* line 538, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #latestNews .newsList li .newsContent time {
   position: relative;
   min-width: auto;
 }
-/* line 543, ../../_scss/top/top.scss */
+/* line 541, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #latestNews .newsList li .newsContent time::before {
   content: '';
   position: absolute;
@@ -560,14 +556,14 @@ main {
   width: 6px;
   height: 6px;
 }
-/* line 558, ../../_scss/top/top.scss */
+/* line 556, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #latestNews .newsList li .newsContent span {
   line-height: 1.75;
   text-decoration: underline;
   color: #0087ac;
   transition: color 0.3s ease;
 }
-/* line 568, ../../_scss/top/top.scss */
+/* line 566, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #latestNews > a {
   position: relative;
   display: block;
@@ -581,7 +577,7 @@ main {
   color: #fff;
   transition: opacity 0.6s ease;
 }
-/* line 581, ../../_scss/top/top.scss */
+/* line 579, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #latestNews > a::after {
   content: '';
   position: absolute;
@@ -597,11 +593,11 @@ main {
   height: 8px;
   transition: all 0.3s;
 }
-/* line 597, ../../_scss/top/top.scss */
+/* line 595, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #latestNews > a:hover {
   opacity: 0.8;
 }
-/* line 606, ../../_scss/top/top.scss */
+/* line 604, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #businessCalendar {
   position: relative;
   border-radius: 20px 0 20px 0;
@@ -610,7 +606,7 @@ main {
   width: 45%;
   text-align: center;
 }
-/* line 615, ../../_scss/top/top.scss */
+/* line 613, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #businessCalendar::before {
   content: "";
   position: absolute;
@@ -621,12 +617,12 @@ main {
   height: 40px;
   background: url("../../img/common/logo-ci.svg") no-repeat center/contain;
 }
-/* line 626, ../../_scss/top/top.scss */
+/* line 624, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #businessCalendar h2 {
   margin: 0 0 20px;
   font-size: 20px;
 }
-/* line 629, ../../_scss/top/top.scss */
+/* line 627, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #businessCalendar h2 small {
   display: block;
   margin: 10px 0 0;
@@ -634,24 +630,24 @@ main {
   font-size: 12px;
   color: #0087ac;
 }
-/* line 638, ../../_scss/top/top.scss */
+/* line 636, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #businessCalendar .businessCalendar {
   position: relative;
   background: #fff;
   padding: 25px 0 5px;
 }
-/* line 643, ../../_scss/top/top.scss */
+/* line 641, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #businessCalendar .businessCalendar h3 {
   margin: 0 0 15px;
   text-align: center;
   font-size: 22px;
 }
-/* line 648, ../../_scss/top/top.scss */
+/* line 646, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #businessCalendar .businessCalendar h3 small {
   font-weight: 600;
   font-size: 12px;
 }
-/* line 654, ../../_scss/top/top.scss */
+/* line 652, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #businessCalendar .businessCalendar button {
   position: absolute;
   top: 150px;
@@ -668,7 +664,7 @@ main {
   cursor: pointer;
   transition: background 0.3s;
 }
-/* line 670, ../../_scss/top/top.scss */
+/* line 668, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #businessCalendar .businessCalendar button::after {
   content: '';
   position: absolute;
@@ -684,13 +680,13 @@ main {
   height: 8px;
   transition: all 0.3s;
 }
-/* line 686, ../../_scss/top/top.scss */
+/* line 684, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #businessCalendar .businessCalendar button.btnNext {
   left: auto;
   right: 0;
   transform: translateX(70%);
 }
-/* line 691, ../../_scss/top/top.scss */
+/* line 689, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #businessCalendar .businessCalendar button.btnNext::after {
   right: auto;
   left: 20px;
@@ -698,33 +694,33 @@ main {
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-/* line 700, ../../_scss/top/top.scss */
+/* line 698, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #businessCalendar .businessCalendar button:hover {
   background: #005f79;
 }
-/* line 704, ../../_scss/top/top.scss */
+/* line 702, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #businessCalendar .businessCalendar button:disabled {
   background: #bbb;
   cursor: not-allowed;
 }
-/* line 713, ../../_scss/top/top.scss */
+/* line 711, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarLegend .legendItem {
   display: inline-flex;
   align-items: center;
   gap: 8px;
 }
-/* line 719, ../../_scss/top/top.scss */
+/* line 717, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarLegend .legendColor {
   display: inline-block;
   width: 14px;
   height: 14px;
   font-size: 14px;
 }
-/* line 725, ../../_scss/top/top.scss */
+/* line 723, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarLegend .legendColor.holiday {
   background: #eb0c0c;
 }
-/* line 731, ../../_scss/top/top.scss */
+/* line 729, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable {
   margin: 0 auto 20px;
   width: 75%;
@@ -734,60 +730,60 @@ main {
   font-weight: 700;
   font-size: 18px;
 }
-/* line 740, ../../_scss/top/top.scss */
+/* line 738, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable th {
   box-sizing: border-box;
   width: 14%;
   padding: 10px 0;
   height: 35px;
 }
-/* line 746, ../../_scss/top/top.scss */
+/* line 744, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable th.sunday {
   color: #eb0c0c;
 }
-/* line 750, ../../_scss/top/top.scss */
+/* line 748, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable th.saturday {
   color: #0087ac;
 }
-/* line 755, ../../_scss/top/top.scss */
+/* line 753, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable td {
   box-sizing: border-box;
   width: 14.285714285714286%;
   vertical-align: middle;
   height: 35px;
 }
-/* line 761, ../../_scss/top/top.scss */
+/* line 759, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable td.empty {
   background: #fff;
 }
-/* line 765, ../../_scss/top/top.scss */
+/* line 763, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable td.sunday, #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable td.saturday {
   color: #0087ac;
   background: #f0f8ff;
 }
-/* line 771, ../../_scss/top/top.scss */
+/* line 769, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable td.holiday {
   background: #eb0c0c;
   color: #fff;
   font-weight: bold;
 }
-/* line 777, ../../_scss/top/top.scss */
+/* line 775, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable td.today {
   border: 4px solid #ffd700;
 }
-/* line 784, ../../_scss/top/top.scss */
+/* line 782, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #businessCalendar .calendarInfo {
   display: flex;
   justify-content: center;
   gap: 2%;
 }
-/* line 789, ../../_scss/top/top.scss */
+/* line 787, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #businessCalendar .calendarInfo .infoBox {
   width: 45.5%;
   padding: 20px 0;
   font-size: 13px;
 }
-/* line 794, ../../_scss/top/top.scss */
+/* line 792, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #businessCalendar .calendarInfo .infoBox h4 {
   border-radius: 5px;
   background: #666;
@@ -795,7 +791,7 @@ main {
   padding: 3px;
   color: #fff;
 }
-/* line 805, ../../_scss/top/top.scss */
+/* line 803, ../../_scss/top/top.scss */
 #latestNewsCalendar .inner #businessCalendar .calendarNote {
   border-radius: 20px;
   background: #fff;
@@ -817,102 +813,102 @@ main {
 @media screen and (max-width: 768px) {
   /* mainVisual setting
   ------------------------------------*/
-  /* line 841, ../../_scss/top/top.scss */
+  /* line 839, ../../_scss/top/top.scss */
   #mainVisual {
     width: 100%;
     height: 139.467vw;
     background-image: url("../../img/top/bg_main-top_sp.webp");
   }
-  /* line 845, ../../_scss/top/top.scss */
+  /* line 843, ../../_scss/top/top.scss */
   #mainVisual .inner {
     justify-content: flex-start;
     align-items: center;
     width: 100%;
   }
-  /* line 850, ../../_scss/top/top.scss */
+  /* line 848, ../../_scss/top/top.scss */
   #mainVisual .inner h1 {
     margin: 24vw 0 5.7333vw;
     font-size: 5.3333333vw;
     filter: blur(2.66667vw);
   }
-  /* line 855, ../../_scss/top/top.scss */
+  /* line 853, ../../_scss/top/top.scss */
   #mainVisual .inner h1 img {
     margin: 0 3.2vw 0 0;
     width: 14.2666667vw;
   }
-  /* line 861, ../../_scss/top/top.scss */
+  /* line 859, ../../_scss/top/top.scss */
   #mainVisual .inner p {
     width: 100%;
     line-height: 1.8;
     font-size: 3.466667vw;
     filter: blur(2.66667vw);
   }
-  /* line 868, ../../_scss/top/top.scss */
+  /* line 866, ../../_scss/top/top.scss */
   #mainVisual .inner figure {
     top: 58.4vw;
     right: 50%;
     transform: translateX(50%);
     filter: blur(2.66667vw);
   }
-  /* line 874, ../../_scss/top/top.scss */
+  /* line 872, ../../_scss/top/top.scss */
   #mainVisual .inner figure img {
     width: 38.933333vw;
   }
 
   /* topIntro setting
   ------------------------------------*/
-  /* line 889, ../../_scss/top/top.scss */
+  /* line 887, ../../_scss/top/top.scss */
   #topIntro {
     padding: 6.6666667vw 0 12vw;
   }
-  /* line 894, ../../_scss/top/top.scss */
+  /* line 892, ../../_scss/top/top.scss */
   #topIntro .inner h2 {
     margin: 0 0 4.8vw;
     font-size: 5.3333333vw;
   }
-  /* line 898, ../../_scss/top/top.scss */
+  /* line 896, ../../_scss/top/top.scss */
   #topIntro .inner h2 span {
     font-size: 3.733333vw;
   }
-  /* line 902, ../../_scss/top/top.scss */
+  /* line 900, ../../_scss/top/top.scss */
   #topIntro .inner h2 small {
     margin: 2.666667vw 0 0;
     font-size: 3.2vw;
   }
-  /* line 908, ../../_scss/top/top.scss */
+  /* line 906, ../../_scss/top/top.scss */
   #topIntro .inner p {
     text-align: left;
     font-size: 3.733333vw;
   }
-  /* line 912, ../../_scss/top/top.scss */
+  /* line 910, ../../_scss/top/top.scss */
   #topIntro .inner p small {
     font-size: 3.2vw;
   }
 
   /* aboutBusiness setting
   ------------------------------------*/
-  /* line 924, ../../_scss/top/top.scss */
+  /* line 922, ../../_scss/top/top.scss */
   #aboutBusiness {
     display: none;
     padding: 12vw 0;
     background: url("../../img/top/bg_business_sp.webp") center/cover no-repeat;
   }
-  /* line 931, ../../_scss/top/top.scss */
+  /* line 929, ../../_scss/top/top.scss */
   #aboutBusiness .inner h2 {
     margin: 0 0 4.8vw;
     font-size: 5.3333333vw;
   }
-  /* line 935, ../../_scss/top/top.scss */
+  /* line 933, ../../_scss/top/top.scss */
   #aboutBusiness .inner h2 small {
     margin: 2.666667vw 0 0;
     font-size: 3.2vw;
   }
-  /* line 941, ../../_scss/top/top.scss */
+  /* line 939, ../../_scss/top/top.scss */
   #aboutBusiness .inner > p {
     text-align: left;
     font-size: 3.733333vw;
   }
-  /* line 946, ../../_scss/top/top.scss */
+  /* line 944, ../../_scss/top/top.scss */
   #aboutBusiness .inner ol {
     list-style: none;
     margin: 0 auto 50px;
@@ -923,7 +919,7 @@ main {
     width: 97.5%;
     max-width: 1045px;
   }
-  /* line 956, ../../_scss/top/top.scss */
+  /* line 954, ../../_scss/top/top.scss */
   #aboutBusiness .inner ol li {
     position: relative;
     box-sizing: border-box;
@@ -941,18 +937,18 @@ main {
     -webkit-backface-visibility: hidden;
     transition: opacity 1.5s ease-out, filter 1.5s ease-out, box-shadow 0.3s ease, transform 0.3s ease;
   }
-  /* line 973, ../../_scss/top/top.scss */
+  /* line 971, ../../_scss/top/top.scss */
   #aboutBusiness .inner ol li.fadeIn {
     opacity: 1;
     filter: blur(0);
     will-change: auto;
   }
-  /* line 979, ../../_scss/top/top.scss */
+  /* line 977, ../../_scss/top/top.scss */
   #aboutBusiness .inner ol li:hover {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     transform: translateY(-2px);
   }
-  /* line 984, ../../_scss/top/top.scss */
+  /* line 982, ../../_scss/top/top.scss */
   #aboutBusiness .inner ol li::after {
     content: "";
     position: absolute;
@@ -962,7 +958,7 @@ main {
     height: 40px;
     background: url("../../img/common/logo-ci.svg") no-repeat center/contain;
   }
-  /* line 994, ../../_scss/top/top.scss */
+  /* line 992, ../../_scss/top/top.scss */
   #aboutBusiness .inner ol li::before {
     content: counter(list-item);
     position: absolute;
@@ -974,35 +970,35 @@ main {
     color: #0087ac;
     z-index: 1;
   }
-  /* line 1006, ../../_scss/top/top.scss */
+  /* line 1004, ../../_scss/top/top.scss */
   #aboutBusiness .inner ol li h3 {
     font-weight: 600;
     font-size: 16px;
   }
-  /* line 1010, ../../_scss/top/top.scss */
+  /* line 1008, ../../_scss/top/top.scss */
   #aboutBusiness .inner ol li h3 small {
     font-size: 12px;
   }
-  /* line 1015, ../../_scss/top/top.scss */
+  /* line 1013, ../../_scss/top/top.scss */
   #aboutBusiness .inner ol li figure {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 80px;
   }
-  /* line 1021, ../../_scss/top/top.scss */
+  /* line 1019, ../../_scss/top/top.scss */
   #aboutBusiness .inner ol li figure img {
     width: auto;
     height: 34px;
   }
-  /* line 1027, ../../_scss/top/top.scss */
+  /* line 1025, ../../_scss/top/top.scss */
   #aboutBusiness .inner ol li p {
     line-height: 2.0;
     text-align: left;
     font-size: 12px;
     color: #333344;
   }
-  /* line 1036, ../../_scss/top/top.scss */
+  /* line 1034, ../../_scss/top/top.scss */
   #aboutBusiness .inner > a.btnPrimary {
     position: relative;
     display: block;
@@ -1019,7 +1015,7 @@ main {
     color: #fff;
     transition: opacity 0.6s ease;
   }
-  /* line 1052, ../../_scss/top/top.scss */
+  /* line 1050, ../../_scss/top/top.scss */
   #aboutBusiness .inner > a.btnPrimary::after {
     content: '';
     position: absolute;
@@ -1035,21 +1031,21 @@ main {
     height: 8px;
     transition: all 0.3s;
   }
-  /* line 1068, ../../_scss/top/top.scss */
+  /* line 1066, ../../_scss/top/top.scss */
   #aboutBusiness .inner > a.btnPrimary:hover {
     opacity: 0.8;
   }
 
   /* handledBrands setting
   ------------------------------------*/
-  /* line 1081, ../../_scss/top/top.scss */
+  /* line 1079, ../../_scss/top/top.scss */
   #handledBrands {
     display: none;
     position: relative;
     padding: 80px 0;
     background: url("../../img/top/bg_brands_pc.webp") center/cover no-repeat;
   }
-  /* line 1087, ../../_scss/top/top.scss */
+  /* line 1085, ../../_scss/top/top.scss */
   #handledBrands::before, #handledBrands::after {
     content: '';
     position: absolute;
@@ -1060,7 +1056,7 @@ main {
     height: 33.5px;
     background: url("../../img/common/line_pc.webp") center/100% 100% no-repeat;
   }
-  /* line 1099, ../../_scss/top/top.scss */
+  /* line 1097, ../../_scss/top/top.scss */
   #handledBrands::after {
     top: auto;
     bottom: -33.5px;
@@ -1068,30 +1064,30 @@ main {
     right: 0;
     transform: rotate(180deg);
   }
-  /* line 1107, ../../_scss/top/top.scss */
+  /* line 1105, ../../_scss/top/top.scss */
   #handledBrands .inner {
     margin: 0 auto;
     width: 90%;
     max-width: 1200px;
     text-align: center;
   }
-  /* line 1113, ../../_scss/top/top.scss */
+  /* line 1111, ../../_scss/top/top.scss */
   #handledBrands .inner h2 {
     margin: 0 0 4.8vw;
     font-size: 5.3333333vw;
   }
-  /* line 1117, ../../_scss/top/top.scss */
+  /* line 1115, ../../_scss/top/top.scss */
   #handledBrands .inner h2 small {
     margin: 2.666667vw 0 0;
     font-size: 3.2vw;
   }
-  /* line 1123, ../../_scss/top/top.scss */
+  /* line 1121, ../../_scss/top/top.scss */
   #handledBrands .inner p {
     margin: 0 0 50px;
     line-height: 1.85;
     font-size: 14px;
   }
-  /* line 1129, ../../_scss/top/top.scss */
+  /* line 1127, ../../_scss/top/top.scss */
   #handledBrands .inner ul {
     position: relative;
     display: flex;
@@ -1100,7 +1096,7 @@ main {
     align-items: center;
     gap: 35px;
   }
-  /* line 1137, ../../_scss/top/top.scss */
+  /* line 1135, ../../_scss/top/top.scss */
   #handledBrands .inner ul::after {
     content: '※五十音順';
     position: absolute;
@@ -1108,7 +1104,7 @@ main {
     right: 30px;
     font-size: 10px;
   }
-  /* line 1145, ../../_scss/top/top.scss */
+  /* line 1143, ../../_scss/top/top.scss */
   #handledBrands .inner ul li {
     display: flex;
     align-items: center;
@@ -1122,13 +1118,13 @@ main {
     -webkit-backface-visibility: hidden;
     transition: opacity 1.5s ease-out, filter 1.5s ease-out, box-shadow 0.3s ease;
   }
-  /* line 1158, ../../_scss/top/top.scss */
+  /* line 1156, ../../_scss/top/top.scss */
   #handledBrands .inner ul li.fadeIn {
     opacity: 1;
     filter: blur(0);
     will-change: auto;
   }
-  /* line 1164, ../../_scss/top/top.scss */
+  /* line 1162, ../../_scss/top/top.scss */
   #handledBrands .inner ul li img {
     width: auto;
     height: 25px;
@@ -1139,12 +1135,12 @@ main {
 
   /* latestNews and businessCalendar (2 column layout)
   ------------------------------------*/
-  /* line 1182, ../../_scss/top/top.scss */
+  /* line 1180, ../../_scss/top/top.scss */
   #latestNewsCalendar {
     display: none;
     padding: 100px 0;
   }
-  /* line 1186, ../../_scss/top/top.scss */
+  /* line 1184, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner {
     display: flex;
     justify-content: space-between;
@@ -1152,37 +1148,37 @@ main {
     width: 90%;
     max-width: 980px;
   }
-  /* line 1193, ../../_scss/top/top.scss */
+  /* line 1191, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #latestNews {
     margin: 17.5px 0 0;
     width: 45%;
     text-align: center;
   }
-  /* line 1197, ../../_scss/top/top.scss */
+  /* line 1195, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #latestNews h2 {
     margin: 0 0 4.8vw;
     font-size: 5.3333333vw;
   }
-  /* line 1201, ../../_scss/top/top.scss */
+  /* line 1199, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #latestNews h2 span {
     display: block;
     margin: 0 0 10px;
     font-size: 15px;
   }
-  /* line 1206, ../../_scss/top/top.scss */
+  /* line 1204, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #latestNews h2 small {
     margin: 2.666667vw 0 0;
     font-size: 3.2vw;
   }
-  /* line 1212, ../../_scss/top/top.scss */
+  /* line 1210, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #latestNews .newsList {
     margin: 0 0 30px;
   }
-  /* line 1215, ../../_scss/top/top.scss */
+  /* line 1213, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #latestNews .newsList li {
     border-bottom: 1px solid #e3e3e3;
   }
-  /* line 1218, ../../_scss/top/top.scss */
+  /* line 1216, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #latestNews .newsList li > a {
     display: flex;
     align-items: center;
@@ -1192,29 +1188,30 @@ main {
     transition: opacity 0.3s ease;
     text-align: left;
   }
-  /* line 1227, ../../_scss/top/top.scss */
+  /* line 1225, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #latestNews .newsList li > a:hover {
     opacity: 0.8;
   }
-  /* line 1230, ../../_scss/top/top.scss */
+  /* line 1228, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #latestNews .newsList li > a:hover .newsThumbnail img {
     transform: scale(1.1);
   }
-  /* line 1234, ../../_scss/top/top.scss */
+  /* line 1232, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #latestNews .newsList li > a:hover .newsContent span {
     color: #222;
     text-decoration: underline;
   }
-  /* line 1241, ../../_scss/top/top.scss */
+  /* line 1239, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #latestNews .newsList li .newsThumbnail {
-    border-radius: 5px;
+    border-radius: 1.3333333vw;
     flex-shrink: 0;
     margin: 0;
     width: 110px;
-    height: 83px;
+    aspect-ratio: 4 / 3;
+    height: auto;
     overflow: hidden;
   }
-  /* line 1249, ../../_scss/top/top.scss */
+  /* line 1248, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #latestNews .newsList li .newsThumbnail img {
     width: 100%;
     height: 100%;
@@ -1222,7 +1219,7 @@ main {
     object-position: center;
     transition: transform 0.3s ease;
   }
-  /* line 1258, ../../_scss/top/top.scss */
+  /* line 1257, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #latestNews .newsList li .newsContent {
     flex: 1;
     display: flex;
@@ -1230,12 +1227,12 @@ main {
     gap: 5px;
     font-size: 12px;
   }
-  /* line 1265, ../../_scss/top/top.scss */
+  /* line 1264, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #latestNews .newsList li .newsContent time {
     position: relative;
     min-width: auto;
   }
-  /* line 1268, ../../_scss/top/top.scss */
+  /* line 1267, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #latestNews .newsList li .newsContent time::before {
     content: '';
     position: absolute;
@@ -1249,14 +1246,14 @@ main {
     width: 6px;
     height: 6px;
   }
-  /* line 1283, ../../_scss/top/top.scss */
+  /* line 1282, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #latestNews .newsList li .newsContent span {
     line-height: 1.75;
     text-decoration: underline;
     color: #0087ac;
     transition: color 0.3s ease;
   }
-  /* line 1293, ../../_scss/top/top.scss */
+  /* line 1292, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #latestNews > a {
     position: relative;
     display: block;
@@ -1270,7 +1267,7 @@ main {
     color: #fff;
     transition: opacity 0.6s ease;
   }
-  /* line 1306, ../../_scss/top/top.scss */
+  /* line 1305, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #latestNews > a::after {
     content: '';
     position: absolute;
@@ -1286,11 +1283,11 @@ main {
     height: 8px;
     transition: all 0.3s;
   }
-  /* line 1322, ../../_scss/top/top.scss */
+  /* line 1321, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #latestNews > a:hover {
     opacity: 0.8;
   }
-  /* line 1331, ../../_scss/top/top.scss */
+  /* line 1330, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #businessCalendar {
     position: relative;
     border-radius: 20px 0 20px 0;
@@ -1299,7 +1296,7 @@ main {
     width: 45%;
     text-align: center;
   }
-  /* line 1339, ../../_scss/top/top.scss */
+  /* line 1338, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #businessCalendar::before {
     content: "";
     position: absolute;
@@ -1310,12 +1307,12 @@ main {
     height: 40px;
     background: url("../../img/common/logo-ci.svg") no-repeat center/contain;
   }
-  /* line 1350, ../../_scss/top/top.scss */
+  /* line 1349, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #businessCalendar h2 {
     margin: 0 0 20px;
     font-size: 20px;
   }
-  /* line 1353, ../../_scss/top/top.scss */
+  /* line 1352, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #businessCalendar h2 small {
     display: block;
     margin: 10px 0 0;
@@ -1323,24 +1320,24 @@ main {
     font-size: 12px;
     color: #0087ac;
   }
-  /* line 1362, ../../_scss/top/top.scss */
+  /* line 1361, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #businessCalendar .businessCalendar {
     position: relative;
     background: #fff;
     padding: 25px 0 5px;
   }
-  /* line 1367, ../../_scss/top/top.scss */
+  /* line 1366, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #businessCalendar .businessCalendar h3 {
     margin: 0 0 15px;
     text-align: center;
     font-size: 22px;
   }
-  /* line 1372, ../../_scss/top/top.scss */
+  /* line 1371, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #businessCalendar .businessCalendar h3 small {
     font-weight: 600;
     font-size: 12px;
   }
-  /* line 1378, ../../_scss/top/top.scss */
+  /* line 1377, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #businessCalendar .businessCalendar button {
     position: absolute;
     top: 150px;
@@ -1357,7 +1354,7 @@ main {
     cursor: pointer;
     transition: background 0.3s;
   }
-  /* line 1394, ../../_scss/top/top.scss */
+  /* line 1393, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #businessCalendar .businessCalendar button::after {
     content: '';
     position: absolute;
@@ -1373,13 +1370,13 @@ main {
     height: 8px;
     transition: all 0.3s;
   }
-  /* line 1410, ../../_scss/top/top.scss */
+  /* line 1409, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #businessCalendar .businessCalendar button.btnNext {
     left: auto;
     right: 0;
     transform: translateX(70%);
   }
-  /* line 1415, ../../_scss/top/top.scss */
+  /* line 1414, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #businessCalendar .businessCalendar button.btnNext::after {
     right: auto;
     left: 20px;
@@ -1387,33 +1384,33 @@ main {
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
   }
-  /* line 1424, ../../_scss/top/top.scss */
+  /* line 1423, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #businessCalendar .businessCalendar button:hover {
     background: #005f79;
   }
-  /* line 1428, ../../_scss/top/top.scss */
+  /* line 1427, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #businessCalendar .businessCalendar button:disabled {
     background: #bbb;
     cursor: not-allowed;
   }
-  /* line 1437, ../../_scss/top/top.scss */
+  /* line 1436, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarLegend .legendItem {
     display: inline-flex;
     align-items: center;
     gap: 8px;
   }
-  /* line 1443, ../../_scss/top/top.scss */
+  /* line 1442, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarLegend .legendColor {
     display: inline-block;
     width: 14px;
     height: 14px;
     font-size: 14px;
   }
-  /* line 1449, ../../_scss/top/top.scss */
+  /* line 1448, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarLegend .legendColor.holiday {
     background: #eb0c0c;
   }
-  /* line 1455, ../../_scss/top/top.scss */
+  /* line 1454, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable {
     margin: 0 auto 20px;
     width: 75%;
@@ -1423,60 +1420,60 @@ main {
     font-weight: 700;
     font-size: 18px;
   }
-  /* line 1464, ../../_scss/top/top.scss */
+  /* line 1463, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable th {
     box-sizing: border-box;
     width: 14%;
     padding: 10px 0;
     height: 35px;
   }
-  /* line 1470, ../../_scss/top/top.scss */
+  /* line 1469, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable th.sunday {
     color: #eb0c0c;
   }
-  /* line 1474, ../../_scss/top/top.scss */
+  /* line 1473, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable th.saturday {
     color: #0087ac;
   }
-  /* line 1479, ../../_scss/top/top.scss */
+  /* line 1478, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable td {
     box-sizing: border-box;
     width: 14.285714285714286%;
     vertical-align: middle;
     height: 35px;
   }
-  /* line 1485, ../../_scss/top/top.scss */
+  /* line 1484, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable td.empty {
     background: #fff;
   }
-  /* line 1489, ../../_scss/top/top.scss */
+  /* line 1488, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable td.sunday, #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable td.saturday {
     color: #0087ac;
     background: #f0f8ff;
   }
-  /* line 1495, ../../_scss/top/top.scss */
+  /* line 1494, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable td.holiday {
     background: #eb0c0c;
     color: #fff;
     font-weight: bold;
   }
-  /* line 1501, ../../_scss/top/top.scss */
+  /* line 1500, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #businessCalendar .businessCalendar .calendarTable td.today {
     border: 4px solid #ffd700;
   }
-  /* line 1508, ../../_scss/top/top.scss */
+  /* line 1507, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #businessCalendar .calendarInfo {
     display: flex;
     justify-content: center;
     gap: 2%;
   }
-  /* line 1513, ../../_scss/top/top.scss */
+  /* line 1512, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #businessCalendar .calendarInfo .infoBox {
     width: 45.5%;
     padding: 20px 0;
     font-size: 13px;
   }
-  /* line 1518, ../../_scss/top/top.scss */
+  /* line 1517, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #businessCalendar .calendarInfo .infoBox h4 {
     border-radius: 5px;
     background: #666;
@@ -1484,7 +1481,7 @@ main {
     padding: 3px;
     color: #fff;
   }
-  /* line 1529, ../../_scss/top/top.scss */
+  /* line 1528, ../../_scss/top/top.scss */
   #latestNewsCalendar .inner #businessCalendar .calendarNote {
     border-radius: 20px;
     background: #fff;

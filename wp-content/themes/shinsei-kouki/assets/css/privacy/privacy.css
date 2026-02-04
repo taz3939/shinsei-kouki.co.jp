@@ -1,0 +1,130 @@
+@charset "UTF-8";
+/* color import setting
+------------------------------------*/
+/* ========================================
+   color setting
+   ======================================== */
+/* ----------------------------------------
+   1. 基本色（黒・白・グレー）
+   ---------------------------------------- */
+/* ----------------------------------------
+   2. カラー（赤・青・緑・黄）
+   ---------------------------------------- */
+/* ----------------------------------------
+   3. 背景色
+   ---------------------------------------- */
+/* フォームエラー時の入力欄背景（薄いピンク） */
+/* ----------------------------------------
+   4. 透明度付き色
+   ---------------------------------------- */
+/* privacyIntro setting
+------------------------------------*/
+/* line 13, ../../_scss/privacy/privacy.scss */
+#privacyIntro {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 960px;
+}
+/* line 18, ../../_scss/privacy/privacy.scss */
+#privacyIntro .inner .pageTitle {
+  margin: 0 0 25px -50px;
+  width: 250px;
+}
+/* line 22, ../../_scss/privacy/privacy.scss */
+#privacyIntro .inner .pageTitle.pageTitle::after {
+  left: 50px;
+}
+/* line 26, ../../_scss/privacy/privacy.scss */
+#privacyIntro .inner .pageTitle small {
+  left: 240px;
+}
+/* line 30, ../../_scss/privacy/privacy.scss */
+#privacyIntro .inner p {
+  margin: 0 0 60px;
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+/* privacy Content setting
+------------------------------------*/
+/* line 44, ../../_scss/privacy/privacy.scss */
+#privacyContent {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  background: #333344 url(../../img/common/bg_common-pattern_pc.png) center 0/100% auto no-repeat;
+  width: 100%;
+  padding: 70px 0 60px;
+}
+/* line 50, ../../_scss/privacy/privacy.scss */
+#privacyContent .inner {
+  box-sizing: border-box;
+  border-radius: 15px 0 15px 0;
+  background: #fff;
+  margin: 0 auto;
+  padding: 55px;
+  width: 90%;
+  max-width: 1010px;
+}
+/* line 59, ../../_scss/privacy/privacy.scss */
+#privacyContent .inner ol {
+  margin: 0 0 40px;
+  padding: 0;
+  list-style: none;
+  counter-reset: privacy;
+}
+/* line 65, ../../_scss/privacy/privacy.scss */
+#privacyContent .inner ol > li {
+  margin: 0 0 32px;
+  padding: 0 0 24px;
+  border-bottom: 1px solid #f0f0f0;
+  counter-increment: privacy;
+}
+/* line 71, ../../_scss/privacy/privacy.scss */
+#privacyContent .inner ol > li:last-of-type {
+  border-bottom: none;
+}
+/* line 76, ../../_scss/privacy/privacy.scss */
+#privacyContent .inner ol h2 {
+  margin: 0 0 12px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #182227;
+}
+/* line 82, ../../_scss/privacy/privacy.scss */
+#privacyContent .inner ol h2::before {
+  content: counter(privacy) ". ";
+}
+/* line 87, ../../_scss/privacy/privacy.scss */
+#privacyContent .inner ol p {
+  margin: 0 0 12px;
+  line-height: 1.8;
+  font-size: 14px;
+}
+/* line 93, ../../_scss/privacy/privacy.scss */
+#privacyContent .inner ol ul {
+  margin: 0 0 12px;
+  padding: 0 0 0 2.5em;
+  list-style: disc;
+}
+/* line 98, ../../_scss/privacy/privacy.scss */
+#privacyContent .inner ol ul li {
+  margin: 0 0 4px;
+  line-height: 1.8;
+  font-size: 13px;
+}
+/* line 103, ../../_scss/privacy/privacy.scss */
+#privacyContent .inner ol ul li::marker {
+  color: #0087ac;
+}
+/* line 110, ../../_scss/privacy/privacy.scss */
+#privacyContent .inner .privacyDate {
+  line-height: 1.8;
+  text-align: right;
+  font-size: 12px;
+}
+
+/* ------------------------------------------------------------------------
+	Ajustment For Small PC Window 
+------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------
+	Ajustment For Smart Phone 
+------------------------------------------------------------------------ */

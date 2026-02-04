@@ -1,0 +1,135 @@
+@charset "utf-8";
+
+/* color import setting
+------------------------------------*/
+@import '../common/colors';
+
+
+
+
+
+/* privacyIntro setting
+------------------------------------*/
+#privacyIntro {
+	margin: 0 auto;
+	width: 90%;
+	max-width: 960px;
+	.inner {
+		.pageTitle {
+			margin: 0 0 25px -50px;
+			width: 250px;
+
+			&.pageTitle::after {
+				left: 50px;
+			}
+
+			small {
+				left: 240px;
+			}
+		}
+		p {
+			margin: 0 0 60px;
+			line-height: 1.8;
+			font-size: 15px;
+		}
+	}
+}
+
+
+
+
+
+/* privacy Content setting
+------------------------------------*/
+#privacyContent {
+	box-shadow: 0 2px 8px $cBkAlpha15;
+	background: $cBk1 url(../../img/common/bg_common-pattern_pc.png) center 0 / 100% auto no-repeat;
+	width: 100%;
+	padding: 70px 0 60px;
+
+	.inner {
+		box-sizing: border-box;
+		border-radius: 15px 0 15px 0;
+		background: $cWht;
+		margin: 0 auto;
+		padding: 55px;
+		width: 90%;
+		max-width: 1010px;
+
+		ol {
+			margin: 0 0 40px;
+			padding: 0;
+			list-style: none;
+			counter-reset: privacy;
+	
+			> li {
+				margin: 0 0 32px;
+				padding: 0 0 24px;
+				border-bottom: 1px solid $cGr6;
+				counter-increment: privacy;
+	
+				&:last-of-type {
+					border-bottom: none;
+				}
+			}
+	
+			h2 {
+				margin: 0 0 12px;
+				font-size: 16px;
+				font-weight: 700;
+				color: $cBk4;
+	
+				&::before {
+					content: counter(privacy) '. ';
+				}
+			}
+	
+			p {
+				margin: 0 0 12px;
+				line-height: 1.8;
+				font-size: 14px;
+			}
+	
+			ul {
+				margin: 0 0 12px;
+				padding: 0 0 0 2.5em;
+				list-style: disc;
+
+				li {
+					margin: 0 0 4px;
+					line-height: 1.8;
+					font-size: 13px;
+
+					&::marker {
+						color: $cBlu;
+					}
+				}
+			}
+		}
+	
+		.privacyDate {
+			line-height: 1.8;
+			text-align: right;
+			font-size: 12px;
+		}
+	}
+
+}
+
+
+
+/* ------------------------------------------------------------------------
+	Ajustment For Small PC Window 
+------------------------------------------------------------------------ */
+@media screen and (max-width: 1024px) {
+
+}
+
+
+
+/* ------------------------------------------------------------------------
+	Ajustment For Smart Phone 
+------------------------------------------------------------------------ */
+@media screen and (max-width: 768px) {
+
+}

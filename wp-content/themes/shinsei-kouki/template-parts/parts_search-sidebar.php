@@ -1,6 +1,6 @@
 <?php
 /**
- * template-parts/search-sidebar.php
+ * template-parts/parts_search-sidebar.php
  * サイト内検索サイドバー
  */
 ?>

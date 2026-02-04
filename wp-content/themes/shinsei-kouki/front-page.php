@@ -81,7 +81,7 @@ get_header();
     </div>
 </section>
 
-<?php get_template_part('template-parts/contact-section'); ?>
+<?php get_template_part('template-parts/parts_contact-section'); ?>
 
 <section id="handledBrands">
     <div class="inner">

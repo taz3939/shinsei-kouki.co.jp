@@ -784,9 +784,57 @@ footer {
 
 
 
-/* common parts setting
+/* 404 error setting
 ------------------------------------*/
+#error404 {
+	margin: 0 auto;
+	width: 90%;
+	max-width: 960px;
+  .inner {
+    p {
+      margin: 0 0 60px;
+      text-align: center;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      font-size: 14px;
 
+      li {
+
+        a {
+          position: relative;
+          display: block;
+          padding: 8px 0 8px 16px;
+          font-size: 14px;
+          transition: opacity 0.3s ease;
+          position: relative;
+
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            display: block;
+            border-top: 1px solid $cGreen;
+            border-right: 1px solid $cGreen;
+            transform: translateY(-50%) rotate(45deg);
+            width: 6px;
+            height: 6px;
+          }
+
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+  }
+}
 
 
 
@@ -1358,6 +1406,10 @@ footer {
       }
     }
   }
+
+
+
+
 
   /* footer setting
   ------------------------------------*/

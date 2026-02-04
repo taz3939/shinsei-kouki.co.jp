@@ -5,17 +5,11 @@
  */
 
 $includes = [
-    'inc/cleanup.php',              // 不要なWP機能の削除やオートフォーマット関連の設定
-    'inc/enqueue-assets.php',       // CSS, JSの読み込み
-    'inc/theme-support.php',        // テーマサポート機能
-    'inc/post-types.php',           // カスタム投稿タイプの登録
-    'inc/business-calendar.php',   // 営業カレンダー機能
-    'inc/pickup-meta-box.php',     // ピックアップ用カスタムメタボックス
-    'inc/news-index-meta-box.php', // お知らせ詳細の目次（INDEX）表示設定
-    'inc/company-options.php',     // 会社情報（カスタマイザー）
-    'inc/meta-tags.php',           // メタディスクリプション・canonical・OGP
-    'inc/meta-description-meta-box.php', // 固定ページのメタディスクリプション
-    'inc/external-link-icon.php',  // 投稿本文内の外部リンクにアイコンを追加
+    'inc/common_theme.php',                 // テーマ土台・cleanup・enqueue
+    'inc/common_setting.php',               // 共通設定・メタボックス・カスタマイザー・メタ出力
+    'inc/customize_topics.php',             // お知らせ（topics）のカスタマイズ・メタボックス
+    'template-parts/parts_business-calendar.php',  // 営業カレンダー（パーツ・require で読み込み）
+    'inc/plugin-customize_mw-wp-form.php',  // MW WP Form プラグインのカスタマイズ
 ];
 
 foreach ($includes as $file) {
@@ -157,7 +151,7 @@ function shinsei_kouki_breadcrumbs() {
     $ico_company_url = esc_url( get_template_directory_uri() . '/assets/img/common/ico_company.svg' );
     echo '<li><a href="' . esc_url(home_url('/')) . '">';
     echo '<img src="' . $ico_company_url . '" alt="" width="30" height="30" class="iconHome" decoding="async" aria-hidden="true">';
-    echo '<span>トップページ</span></a></li>';
+    echo 'トップページ</a></li>';
     
     if (is_category()) {
         // カテゴリーページ

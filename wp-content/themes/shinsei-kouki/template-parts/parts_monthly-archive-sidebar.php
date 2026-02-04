@@ -1,6 +1,6 @@
 <?php
 /**
- * template-parts/monthly-archive-sidebar.php
+ * template-parts/parts_monthly-archive-sidebar.php
  * 月別アーカイブサイドバー
  */
 

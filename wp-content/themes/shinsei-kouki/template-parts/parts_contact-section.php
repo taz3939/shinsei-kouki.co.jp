@@ -1,6 +1,6 @@
 <?php
 /**
- * template-parts/contact-section.php
+ * template-parts/parts_contact-section.php
  * お問い合わせセクション（共通パーツ）
  */
 ?>

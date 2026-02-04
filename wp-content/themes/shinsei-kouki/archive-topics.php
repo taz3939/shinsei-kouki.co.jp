@@ -55,24 +55,24 @@ get_header();
         <div class="newsArchiveContainer">
             <div class="newsMain">
                 <?php if (have_posts()) : ?>
-                    <ul class="newsList">
-                        <?php while (have_posts()) : the_post(); ?>
-                        <li>
-                            <a href="<?php the_permalink(); ?>">
-                                <?php shinsei_kouki_topics_thumbnail(null, 'medium', 'newsThumbnail'); ?>
-                                <div class="newsContent">
-                                    <time datetime="<?php echo get_the_date('Y-m-d'); ?>"><?php echo get_the_date('Y.m.d'); ?></time>
-                                    <span><?php the_title(); ?></span>
-                                </div>
-                            </a>
-                        </li>
-                        <?php endwhile; ?>
-                    </ul>
-                    
+                <ul class="newsList">
+                    <?php while (have_posts()) : the_post(); ?>
+                    <li>
+                        <a href="<?php the_permalink(); ?>">
+                            <?php shinsei_kouki_topics_thumbnail(null, 'medium', 'newsThumbnail'); ?>
+                            <div class="newsContent">
+                                <time datetime="<?php echo get_the_date('Y-m-d'); ?>"><?php echo get_the_date('Y.m.d'); ?></time>
+                                <span><?php the_title(); ?></span>
+                            </div>
+                        </a>
+                    </li>
+                    <?php endwhile; ?>
+                </ul>
+
                 <?php else : ?>
-                    <p>お知らせはありません。</p>
+                <p>お知らせはありません。</p>
                 <?php endif; ?>
-                
+
                 <div class="paginationArea">
                     <?php
                     // ページネーション表示
@@ -105,9 +105,9 @@ get_header();
             </div>
             
             <div class="newsSidebar">
-                <?php get_template_part('template-parts/pickup-sidebar'); ?>
-                <?php get_template_part('template-parts/monthly-archive-sidebar'); ?>
-                <?php get_template_part('template-parts/search-sidebar'); ?>
+                <?php get_template_part('template-parts/parts_pickup-sidebar'); ?>
+                <?php get_template_part('template-parts/parts_monthly-archive-sidebar'); ?>
+                <?php get_template_part('template-parts/parts_search-sidebar'); ?>
             </div>
         </div>
     </div>

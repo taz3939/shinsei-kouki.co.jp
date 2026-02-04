@@ -7,8 +7,8 @@
 
     </main>
 
-    <?php if (!is_front_page() && !is_page('contact')) : ?>
-        <?php get_template_part('template-parts/contact-section'); ?>
+    <?php if (!is_front_page()) : ?>
+        <?php get_template_part('template-parts/parts_contact-section'); ?>
     <?php endif; ?>
     
     <?php if (!is_front_page()) : ?>

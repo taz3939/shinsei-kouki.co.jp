@@ -271,7 +271,7 @@ main {
           text-align: center;
           font-weight: 600;
           font-size: 10px;
-          color: $cLogoBlue;
+          color: $cBlu;
           z-index: 1;
         }
         
@@ -328,8 +328,6 @@ main {
         right: 20px;
         border-top: 2px solid $cWht;
         border-right: 2px solid $cWht;
-        -ms-transform: rotate(45deg);
-        -webkit-transform: rotate(45deg);
         transform: rotate(45deg);
         margin: -5px 0 0;
         width: 8px;
@@ -518,7 +516,7 @@ main {
             flex-shrink: 0;
             margin: 0;
             width: 110px;
-            height: 83px;
+            aspect-ratio: 4 / 3;
             overflow: hidden;
             
             img {
@@ -999,7 +997,7 @@ main {
             transform: translate(-50%, -50%);
             font-size: 10px;
             font-weight: 600;
-            color: $cLogoBlue;
+            color: $cBlu;
             z-index: 1;
           }
           
@@ -1239,11 +1237,12 @@ main {
             }
             
             .newsThumbnail {
-              border-radius: 5px;
+              border-radius: 1.3333333vw;
               flex-shrink: 0;
               margin: 0;
               width: 110px;
-              height: 83px;
+              aspect-ratio: 4 / 3;
+              height: auto;
               overflow: hidden;
               
               img {

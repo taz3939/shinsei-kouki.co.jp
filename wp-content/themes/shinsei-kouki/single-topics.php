@@ -37,9 +37,9 @@ get_header();
             </div>
             
             <div class="newsSidebar">
-                <?php get_template_part('template-parts/pickup-sidebar'); ?>
-                <?php get_template_part('template-parts/monthly-archive-sidebar'); ?>
-                <?php get_template_part('template-parts/search-sidebar'); ?>
+                <?php get_template_part('template-parts/parts_pickup-sidebar'); ?>
+                <?php get_template_part('template-parts/parts_monthly-archive-sidebar'); ?>
+                <?php get_template_part('template-parts/parts_search-sidebar'); ?>
             </div>
         </div>
     </div>
