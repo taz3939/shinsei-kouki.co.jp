@@ -22,7 +22,24 @@
 		$checkbox.on('change', updateSubmitState);
 	}
 
+	/**
+	 * 個人情報保護方針リンクが label 内にあるため、タップがチェックボックスに取られてしまうのを防ぐ。
+	 * リンクのクリックで stopPropagation し、リンクの遷移だけが行われるようにする。
+	 */
+	function initPrivacyPolicyLink() {
+		var $section = $('#contactFormSection');
+		if (!$section.length) return;
+
+		var $link = $section.find('a[href*="privacy-policy"]');
+		if (!$link.length) return;
+
+		$link.on('click', function(e) {
+			e.stopPropagation();
+		});
+	}
+
 	$(function() {
 		initPrivacySubmitState();
+		initPrivacyPolicyLink();
 	});
 })(jQuery);

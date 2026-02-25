@@ -31,7 +31,17 @@ get_header();
                         <a href="<?php the_permalink(); ?>">
                             <?php shinsei_kouki_topics_thumbnail(null, 'medium', 'newsThumbnail'); ?>
                             <div class="newsContent">
-                                <time datetime="<?php echo get_the_date('Y-m-d'); ?>"><?php echo get_the_date('Y.m.d'); ?></time>
+                                <div class="newsContentMeta">
+                                    <time datetime="<?php echo get_the_date('Y-m-d'); ?>"><?php echo get_the_date('Y.m.d'); ?></time>
+                                    <?php
+                                        $terms = get_the_terms(get_the_ID(), 'topics_category');
+                                        if ($terms && !is_wp_error($terms)) {
+                                            foreach ($terms as $t) {
+                                                echo '<span class="newsCategory">' . esc_html($t->name) . '</span>';
+                                            }
+                                        }
+                                    ?>
+                                </div>
                                 <span><?php the_title(); ?></span>
                             </div>
                         </a>
@@ -82,6 +92,7 @@ get_header();
             
             <div class="newsSidebar">
                 <?php get_template_part('template-parts/parts_pickup-sidebar'); ?>
+                <?php get_template_part('template-parts/parts_topics-category-sidebar'); ?>
                 <?php get_template_part('template-parts/parts_monthly-archive-sidebar'); ?>
                 <?php get_template_part('template-parts/parts_search-sidebar'); ?>
             </div>

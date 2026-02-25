@@ -17,7 +17,7 @@
 	.inner {
 		> p,
 		> h1:not(.pageTitle) {
-			margin: 0 0 60px;
+			margin: 0 2.5% 60px;
 			line-height: 1.8;
 			font-size: 15px;
 		}
@@ -32,7 +32,7 @@
 ------------------------------------*/
 #newsArchive {
 	box-shadow: 0 2px 8px $cBkAlpha15;
-	background: $cBk1 url(../../img/common/bg_common-pattern_pc.png) center 0 / 100% auto no-repeat;
+	background: $cBk1 url(../../img/common/bg_common-pattern_pc.webp) center 0 / 100% auto no-repeat;
 	width: 100%;
 	padding: 70px 0 60px;
 
@@ -140,22 +140,41 @@
 				flex-direction: column;
 				gap: 5px;
 				font-size: 12px;
-				
-				time {
-					position: relative;
-					min-width: auto;
-					&::before {
-						content: '';
-						position: absolute;
-						top: 50%;
-						transform: translateY(-2.5px);
-						left: -10px;
-						box-sizing: border-box;
-						border-radius: 50%;
-						border: 2px solid $cGreen;
-						display: block;
-						width: 6px;
-						height: 6px;
+
+				.newsContentMeta {
+					display: flex;
+					align-items: center;
+					flex-wrap: wrap;
+					gap: 8px;
+
+					time {
+						position: relative;
+						min-width: auto;
+						&::before {
+							content: '';
+							position: absolute;
+							top: 50%;
+							transform: translateY(-2.5px);
+							left: -10px;
+							box-sizing: border-box;
+							border-radius: 50%;
+							border: 2px solid $cGreen;
+							display: block;
+							width: 6px;
+							height: 6px;
+						}
+					}
+					
+					.newsCategory {
+						display: inline-block;
+						padding: 0 5px;
+						height: 20px;
+						line-height: 20px;
+						background: $cBk1;
+						border-radius: 3px;
+						text-decoration: none;
+						font-size: 10px;
+						color: $cWht;
 					}
 				}
 				
@@ -302,7 +321,7 @@
 		time {
 			position: relative;
 			display: block;
-			margin: 0 auto 30px;
+			margin: 0 auto 15px;
 			width: 90%;
 			font-size: 12px;
 
@@ -318,6 +337,24 @@
 				display: block;
 				width: 6px;
 				height: 6px;
+			}
+		}
+
+		.newsCategory {
+			margin: 0 auto 15px;
+			width: 90%;
+
+			a {
+				display: inline-block;
+				padding: 0 10px;
+				height: 25px;
+				line-height: 25px;
+				background: $cBk1;
+				border-radius: 3px;
+				font-size: 12px;
+				color: $cWht;
+				transition: background 0.3s ease;
+				
 			}
 		}
 		
@@ -339,7 +376,7 @@
 ------------------------------------*/
 #newsDetailContent {
 	box-shadow: 0 2px 8px $cBkAlpha15;
-	background: $cBk1 url(../../img/common/bg_common-pattern_pc.png) center 0 / 100% auto no-repeat;
+	background: $cBk1 url(../../img/common/bg_common-pattern_pc.webp) center 0 / 100% auto no-repeat;
 	width: 100%;
 	padding: 70px 0 60px;
 
@@ -493,10 +530,12 @@
 							margin: 0 0 2em;
 							padding: 0 3%;
 							line-height: 1.8;
+							letter-spacing: 0.01em;
 							font-size: 15px;
 
 							a {
 								position: relative;
+								margin: 0 0.75em;
 								padding: 0 0 0 12px;
 								text-decoration: underline;
 								color: $cBlu;
@@ -555,8 +594,6 @@
 										right: 20px;
 										border-top: 2px solid $cWht;
 										border-right: 2px solid $cWht;
-										-ms-transform: rotate(45deg);
-										-webkit-transform: rotate(45deg);
 										transform: rotate(45deg);
 										margin: -5px 0 0;
 										width: 8px;
@@ -572,15 +609,15 @@
 						}
 
 						ul {
-							border-radius: 15px;
+							border-radius: 5px;
 							border: 1px solid $cBgLightBlue;
-							margin: 0 0 2em;
+							margin: 0 1em 2em;
 							padding: 20px;
+							line-height: 1.4;
+							font-size: 14px;
 
 							li {
 								position: relative;
-								font-size: 15px;
-								line-height: 1.5;
 								padding: 0 0 0 10px;
 
 								&::before {
@@ -598,20 +635,26 @@
 								&:not(:last-child) {
 									margin: 0 0 10px;
 								}
+
+								strong {
+									display: inline-block;
+									margin: 0 0 5px;
+									font-weight: 600;
+								}
 							}
 						}
 
 						ol {
 							counter-reset: index;
-							border-radius: 15px;
+							border-radius: 5px;
 							border: 1px solid $cBgLightBlue;
-							margin: 0 0 2em;
+							margin: 0 1em 2em;
 							padding: 20px;
+							line-height: 1.4;
+							font-size: 14px;
 
 							li {
 								position: relative;
-								font-size: 15px;
-								line-height: 1.5;
 								padding: 0 0 0 18px;
 								counter-increment: index;
 
@@ -621,13 +664,19 @@
 									top: 0;
 									left: 0;
 									display: block;
-									font-size: 15px;
+									font-size: 14px;
 									font-weight: 600;
 									color: $cBlu;
 								}
 
 								&:not(:last-child) {
 									margin: 0 0 10px;
+								}
+
+								strong {
+									display: inline-block;
+									margin: 0 0 5px;
+									font-weight: 600;
 								}
 							}
 						}
@@ -662,8 +711,6 @@
 			  left: 20px;
 			  border-top: 2px solid $cWht;
 			  border-right: 2px solid $cWht;
-			  -ms-transform: rotate(-135deg);
-			  -webkit-transform: rotate(-135deg);
 			  transform: rotate(-135deg);
 			  margin: -5px 0 0;
 			  width: 8px;
@@ -826,6 +873,40 @@
 			}
 		}
 		
+		&.topicsCategory {
+			.topicsCategoryList {
+				li {
+					font-size: 12px;
+
+					&:not(:last-child) {
+						margin: 0 0 8px;
+					}
+
+					a {
+						display: flex;
+						align-items: center;
+						text-decoration: none;
+						border-radius: 4px;
+						transition: all 0.3s ease;
+
+						.categoryName {
+							color: $cBlu;
+							transition: color 0.3s ease;
+						}
+
+						.postsCount {
+							margin: 0 0 0 5px;
+							color: $cBk4;
+						}
+
+						&:hover .categoryName {
+							color: $cBk2;
+						}
+					}
+				}
+			}
+		}
+
 		&.monthlyArchive {
 			.monthlyArchiveList {
 				.yearGroup {
@@ -1023,6 +1104,8 @@
 	/* newsArchive setting
 	------------------------------------*/
 	#newsArchive {
+		box-shadow: 0 0.5333333vw 2.1333333vw $cBkAlpha15;
+		background: $cBk1 url(../../img/common/bg_common-pattern_sp.webp) center 0 / 100% auto no-repeat;
 		padding: 8vw 0;
 		
 		.inner {
@@ -1033,6 +1116,10 @@
 		.newsArchiveContainer {
 			flex-direction: column;
 			gap: 8vw;
+
+			.newsMain {
+				width: 100%;
+			}
 		}
 				
 		.newsList {
@@ -1144,6 +1231,19 @@
 				}
 			}
 			
+			.newsCategory {
+				margin: 0 auto 8vw;
+				text-align: center;
+	
+				a {
+					padding: 0 2vw;
+					height: 5.3333333vw;
+					line-height: 5.3333333vw;
+					border-radius: 0.8vw;
+					font-size: 2.666667vw;
+				}
+			}
+			
 			h1 {
 				width: 100%;
 				font-size: 5.4vw;
@@ -1159,6 +1259,8 @@
 	/* newsDetailContent setting
 	------------------------------------*/
 	#newsDetailContent {
+		box-shadow: 0 0.5333333vw 2.1333333vw $cBkAlpha15;
+		background: $cBk1 url(../../img/common/bg_common-pattern_sp.webp) center 0 / 100% auto no-repeat;
 		padding: 8vw 0;
 		
 		.inner {
@@ -1253,19 +1355,29 @@
 							}
 
 							.wp-block-buttons {
+								display: block;
 								gap: 4vw;
 								margin: 0 0 8vw;
 
-								.wp-block-button a {
-									height: 16vw;
-									line-height: 16vw;
-									font-size: 4.266667vw;
+								.wp-block-button {
+									width: 90%;
+									max-width: auto;
 
-									&::after {
-										right: 4vw;
-										width: 2.133333vw;
-										height: 2.133333vw;
-										margin: -1.333333vw 0 0 0;
+									&:not(:last-child) {
+										margin: 0 auto 4vw;
+									}
+
+									a {
+										height: 16vw;
+										line-height: 16vw;
+										font-size: 4.266667vw;
+	
+										&::after {
+											right: 4vw;
+											width: 2.133333vw;
+											height: 2.133333vw;
+											margin: -1.333333vw 0 0 0;
+										}
 									}
 								}
 							}
@@ -1273,9 +1385,9 @@
 							ul {
 								border-radius: 4vw;
 								padding: 4vw;
+								font-size: 4vw;
 
 								li {
-									font-size: 4vw;
 									padding: 0 0 0 2.666667vw;
 
 									&::before {
@@ -1287,15 +1399,19 @@
 									&:not(:last-child) {
 										margin: 0 0 2.666667vw;
 									}
+
+									strong {
+										margin: 0 0 2.666667vw;
+									}
 								}
 							}
 
 							ol {
 								border-radius: 4vw;
 								padding: 4vw;
+								font-size: 4vw;
 
 								li {
-									font-size: 4vw;
 									padding: 0 0 0 4.8vw;
 
 									&::before {
@@ -1303,6 +1419,10 @@
 									}
 
 									&:not(:last-child) {
+										margin: 0 0 2.666667vw;
+									}
+
+									strong {
 										margin: 0 0 2.666667vw;
 									}
 								}
@@ -1315,7 +1435,7 @@
 
 		.btnArea {
 			margin: 8vw auto 0;
-			width: 70vw;
+			width: 90%;
 			
 			a {
 				width: 100%;

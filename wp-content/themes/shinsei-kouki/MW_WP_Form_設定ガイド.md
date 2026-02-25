@@ -15,57 +15,57 @@
 ## 3. フォームHTML（コピー＆ペースト用）
 
 ```html
-<p class="form-note">※必須 は入力必須の項目になります</p>
+<p class="formNote">※必須 は入力必須の項目になります</p>
 
-<div class="mw_wp_form_inner">
-  <dl class="form-item">
-    <dt class="required">お名前<span class="required-mark">必須</span></dt>
+<div class="mwWpFormInner">
+  <dl class="formItem">
+    <dt class="required">お名前<span class="requiredMark">必須</span></dt>
     <dd>[mwform_text name="name" placeholder="お名前をご入力ください" show_error="false"]</dd>
   </dl>
   [mwform_error keys="name"]
 
-  <dl class="form-item">
+  <dl class="formItem">
     <dt>会社名</dt>
     <dd>[mwform_text name="company" placeholder="会社名をご入力ください" show_error="false"]</dd>
   </dl>
   [mwform_error keys="company"]
 
-  <dl class="form-item">
+  <dl class="formItem">
     <dt>ご住所</dt>
     <dd>[mwform_text name="address" placeholder="ご住所をご入力ください" show_error="false"]</dd>
   </dl>
   [mwform_error keys="address"]
 
-  <dl class="form-item">
-    <dt class="required">ご連絡先お電話番号<span class="required-mark">必須</span></dt>
+  <dl class="formItem">
+    <dt class="required">ご連絡先お電話番号<span class="requiredMark">必須</span></dt>
     <dd>[mwform_text name="tel" placeholder="090-1234-5678" show_error="false"]</dd>
   </dl>
   [mwform_error keys="tel"]
 
-  <dl class="form-item">
-    <dt class="required">メールアドレス（半角）<span class="required-mark">必須</span></dt>
+  <dl class="formItem">
+    <dt class="required">メールアドレス（半角）<span class="requiredMark">必須</span></dt>
     <dd>[mwform_email name="email" placeholder="example@email.com" show_error="false"]</dd>
   </dl>
   [mwform_error keys="email"]
 
-  <dl class="form-item">
-    <dt class="required">お問い合わせ種別<span class="required-mark">必須</span></dt>
+  <dl class="formItem">
+    <dt class="required">お問い合わせ種別<span class="requiredMark">必須</span></dt>
     <dd>
       [mwform_select name="inquiry_type" children=":選択してください,はかり・分銅等の販売について,はかりの修理について,はかり・分銅の検査について,特定計量器（はかり）の代検査について,その他" show_error="false"]
     </dd>
   </dl>
   [mwform_error keys="inquiry_type"]
 
-  <dl class="form-item">
-    <dt class="required">お問い合わせ内容<span class="required-mark">必須</span></dt>
+  <dl class="formItem">
+    <dt class="required">お問い合わせ内容<span class="requiredMark">必須</span></dt>
     <dd>
       [mwform_textarea name="message" placeholder="お問い合わせ内容をご入力ください" show_error="false"]
-      <p class="form-hint">※お問い合わせ内容の詳細をこちらに入力をお願いいたします。</p>
+      <p class="formHint">※お問い合わせ内容の詳細をこちらに入力をお願いいたします。</p>
     </dd>
   </dl>
   [mwform_error keys="message"]
 
-  <dl class="form-item">
+  <dl class="formItem">
     <dt></dt>
     <dd>
       <label>[mwform_checkbox name="privacy_agreement" value="同意する" show_error="false"] 個人情報保護方針に同意する</label>
@@ -74,7 +74,7 @@
   [mwform_error keys="privacy_agreement"]
 </div>
 
-<div class="submit-area">
+<div class="submitArea">
   [mwform_submitButton confirm_value="確認画面へ" submit_value="送信する"]
   [mwform_backButton value="入力内容を修正する"]
 </div>
@@ -188,49 +188,100 @@
 
 ## 5. メール設定
 
-フォーム設定画面の「メール」タブで設定：
+フォーム設定画面の「メール」タブで設定します。
+
+**重要：** メールの件名・本文でフォームの値を表示するには **波括弧 `{フィールド名}`** を使います。角括弧 `[name]` は置換されずそのまま届くので注意してください。
 
 ### 管理者宛メール
 
 - **送信先メールアドレス**：管理者のメールアドレス
 - **送信者メールアドレス**：サイトのメールアドレス
-- **件名**：`[神西衡機工業] お問い合わせがありました`
-- **本文**：
+- **件名**：管理画面で設定した件名は使われません。テーマで**【お問い合わせ】No.1**、**【お問い合わせ】No.2**…と連番の件名に差し替えています。
+- **本文**（波括弧でフィールド名を指定）：
 ```
-以下の内容でお問い合わせがありました。
+以下の内容でホームページからお問い合わせがありました。
 
-お名前：[name]
-会社名：[company]
-ご住所：[address]
-ご連絡先お電話番号：[tel]
-メールアドレス：[email]
-お問い合わせ種別：[inquiry_type]
-お問い合わせ内容：
-[message]
+● お名前：{name}
+
+● 会社名：{company}
+
+● ご住所：{address}
+
+● ご連絡先お電話番号：{tel}
+
+● メールアドレス：{email}
+
+● お問い合わせ種別：{inquiry_type}
+
+● お問い合わせ内容：
+{message}
 ```
 
-### 自動返信メール（オプション）
+#### お問い合わせ連番をリセットする（テスト送信後など）
 
-- **送信先メールアドレス**：`[email]`
+本番運用前にテスト送信した場合など、連番を **No.1** から振り直したいときは、次のいずれかでオプション `shinsei_kouki_inquiry_serial_number` を削除または 0 にします。次回送信から **【お問い合わせ】No.1** になります。
+
+**方法1：データベースで削除する（phpMyAdminなど）**
+
+1. `wp_options` テーブルを開く
+2. `option_name` が `shinsei_kouki_inquiry_serial_number` の行を削除する  
+   （または `option_value` を `0` に更新する）
+
+**方法2：WP-CLI を使う場合**
+
+```bash
+wp option delete shinsei_kouki_inquiry_serial_number
+```
+
+**方法3：一時的に PHP を実行する**
+
+テーマの `functions.php` の末尾に以下を追加し、**管理画面やサイトを1回だけ表示**してリセットします。リセット後は**コメントアウトして残しておく**と、次回のリセット時にコメントを外すだけで使えます。
+
+```php
+delete_option( 'shinsei_kouki_inquiry_serial_number' );  // 連番リセット用。実行後はコメントアウトして残すと便利
+```
+
+リセット後、次回用にコメントアウトして残す例：
+
+```php
+// delete_option( 'shinsei_kouki_inquiry_serial_number' );  // 連番リセット用。必要時にコメントを外して1回表示
+```
+
+### 自動返信メール（送信者宛メール）
+
+「自動返信メール」のブロックで、送信先に**メールアドレス用のパラメータ**を指定すると、入力されたアドレスに自動返信が届きます。
+
+- **送信先（メールアドレス）**：`email` または `{email}`（フォームのメール欄の name が `email` の場合。入力されたアドレスに送る）
 - **送信者メールアドレス**：サイトのメールアドレス
-- **件名**：`[神西衡機工業] お問い合わせありがとうございます`
+- **件名**：`【神西衡機工業株式会社】お問い合わせありがとうございます`
 - **本文**：
 ```
-[name] 様
+{name} 様
 
 この度は、神西衡機工業株式会社にお問い合わせいただき、誠にありがとうございます。
 
 以下の内容でお問い合わせを承りました。
-担当者より、3営業日以内にご連絡させていただきます。
+内容を確認のうえ、担当者よりご連絡いたしますので、今しばらくお待ちください。
 
-【お問い合わせ内容】
-お問い合わせ種別：[inquiry_type]
-お問い合わせ内容：
-[message]
+以下、お問い合わせいただいた内容になります。
+-----------------------------------------------
+● お問い合わせ種別：{inquiry_type}
+
+● お問い合わせ内容：
+{message}
+-----------------------------------------------
 
 ────────────────────
 神西衡機工業株式会社
-```
+
+・本社
+　〒250-0863 神奈川県小田原市飯泉90-9
+　TEL: 0465-55-8644　FAX: 0465-55-8522
+
+・成田営業所
+　〒250-0862 神奈川県小田原市成田1048
+　TEL: 0465-38-1194　FAX: 0465-36-1294
+────────────────────
 
 ## 6. フォームIDの確認
 

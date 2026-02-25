@@ -13,6 +13,18 @@ get_header();
             <small>topics</small>
         </p>
         <time datetime="<?php echo get_the_date('Y-m-d'); ?>" class="newsDate"><?php echo get_the_date('Y.m.d'); ?></time>
+        <?php
+        $terms = get_the_terms(get_queried_object_id(), 'topics_category');
+        if ($terms && !is_wp_error($terms)) :
+            echo '<p class="newsCategory">';
+            $links = array();
+            foreach ($terms as $t) {
+                $links[] = '<a href="' . esc_url(get_term_link($t)) . '">' . esc_html($t->name) . '</a>';
+            }
+            echo implode('、', $links);
+            echo '</p>';
+        endif;
+        ?>
         <h1 class="newsTitle"><?php the_title(); ?></h1>
     </div>
 </section>
@@ -38,6 +50,7 @@ get_header();
             
             <div class="newsSidebar">
                 <?php get_template_part('template-parts/parts_pickup-sidebar'); ?>
+                <?php get_template_part('template-parts/parts_topics-category-sidebar'); ?>
                 <?php get_template_part('template-parts/parts_monthly-archive-sidebar'); ?>
                 <?php get_template_part('template-parts/parts_search-sidebar'); ?>
             </div>

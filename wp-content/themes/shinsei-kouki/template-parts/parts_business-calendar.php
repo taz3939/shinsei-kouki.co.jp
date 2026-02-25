@@ -30,7 +30,7 @@ function shinsei_kouki_register_business_calendar_post_type() {
         'show_in_menu' => true,
         'menu_position' => 6,
         'menu_icon' => 'dashicons-calendar-alt',
-        'supports' => array('title', 'custom-fields'),
+        'supports' => array('title'),
         'show_in_rest' => false,
     ));
 }
@@ -40,9 +40,64 @@ add_action('init', 'shinsei_kouki_register_business_calendar_post_type');
 // Ajax・メタボックス・表示
 // =============================================================================
 
+/** 営業カレンダー表示：最古月（この月以降のみ表示。2025年12月などは表示しない） */
+define('SHINSEI_KOUKI_CALENDAR_MIN_YEAR', 2026);
+define('SHINSEI_KOUKI_CALENDAR_MIN_MONTH', 1);
+
+/**
+ * 表示可能な範囲を取得する。
+ * min: 2026年1月固定。max: 登録がある月のうち 2026年1月以降で最も未来の月。
+ *
+ * @return array { 'min' => ['year'=>int,'month'=>int], 'max' => ['year'=>int,'month'=>int] }
+ */
+function shinsei_kouki_get_calendar_display_range() {
+    $min_year  = (int) SHINSEI_KOUKI_CALENDAR_MIN_YEAR;
+    $min_month = (int) SHINSEI_KOUKI_CALENDAR_MIN_MONTH;
+
+    $posts = get_posts(array(
+        'post_type'      => 'business_calendar',
+        'post_status'     => 'publish',
+        'posts_per_page' => -1,
+        'fields'         => 'ids',
+    ));
+    $max_year  = $min_year;
+    $max_month = $min_month;
+    foreach ($posts as $post_id) {
+        $y = (int) get_post_meta($post_id, '_calendar_year', true);
+        $m = (int) get_post_meta($post_id, '_calendar_month', true);
+        if ($m < 1 || $m > 12) {
+            continue;
+        }
+        if ($y < $min_year) {
+            continue;
+        }
+        if ($y === $min_year && $m < $min_month) {
+            continue;
+        }
+        if ($y > $max_year || ($y === $max_year && $m > $max_month)) {
+            $max_year  = $y;
+            $max_month = $m;
+        }
+    }
+    return array(
+        'min' => array('year' => $min_year, 'month' => $min_month),
+        'max' => array('year' => $max_year, 'month' => $max_month),
+    );
+}
+
 function shinsei_kouki_ajax_get_calendar() {
-    $year = isset($_POST['year']) ? intval($_POST['year']) : date('Y');
+    $year  = isset($_POST['year']) ? intval($_POST['year']) : date('Y');
     $month = isset($_POST['month']) ? intval($_POST['month']) : date('m');
+    $range = shinsei_kouki_get_calendar_display_range();
+    $min   = $range['min'];
+    $max   = $range['max'];
+    if ($year < $min['year'] || ($year === $min['year'] && $month < $min['month'])) {
+        $year  = $min['year'];
+        $month = $min['month'];
+    } elseif ($year > $max['year'] || ($year === $max['year'] && $month > $max['month'])) {
+        $year  = $max['year'];
+        $month = $max['month'];
+    }
     ob_start();
     shinsei_kouki_display_calendar($year, $month);
     $calendar_html = ob_get_clean();
@@ -290,8 +345,20 @@ function shinsei_kouki_display_calendar($year = null, $month = null) {
     if (empty($month)) {
         $month = date('m');
     }
-    $year = intval($year);
+    $year  = intval($year);
     $month = intval($month);
+
+    $range = shinsei_kouki_get_calendar_display_range();
+    $min   = $range['min'];
+    $max   = $range['max'];
+    if ($year < $min['year'] || ($year === $min['year'] && $month < $min['month'])) {
+        $year  = $min['year'];
+        $month = $min['month'];
+    } elseif ($year > $max['year'] || ($year === $max['year'] && $month > $max['month'])) {
+        $year  = $max['year'];
+        $month = $max['month'];
+    }
+
     $calendar_posts = get_posts(array(
         'post_type' => 'business_calendar',
         'meta_query' => array(
@@ -325,11 +392,14 @@ function shinsei_kouki_display_calendar($year = null, $month = null) {
         $next_month = 1;
         $next_year++;
     }
+
+    $prev_disabled = ($year === $min['year'] && $month === $min['month']);
+    $next_disabled = ($year === $max['year'] && $month === $max['month']);
     ?>
     <div class="businessCalendar">
         <h3><?php echo esc_html($year); ?><small>年</small> <?php echo esc_html($month); ?><small>月</small></h3>
-        <button type="button" class="btnPrev" data-year="<?php echo esc_attr($prev_year); ?>" data-month="<?php echo esc_attr($prev_month); ?>"></button>
-        <button type="button" class="btnNext" data-year="<?php echo esc_attr($next_year); ?>" data-month="<?php echo esc_attr($next_month); ?>"></button>
+        <button type="button" class="btnPrev" data-year="<?php echo esc_attr($prev_year); ?>" data-month="<?php echo esc_attr($prev_month); ?>"<?php echo $prev_disabled ? ' disabled' : ''; ?>></button>
+        <button type="button" class="btnNext" data-year="<?php echo esc_attr($next_year); ?>" data-month="<?php echo esc_attr($next_month); ?>"<?php echo $next_disabled ? ' disabled' : ''; ?>></button>
         <p class="calendarLegend">
             <span class="legendItem"><span class="legendColor holiday"></span>休業日</span>
         </p>

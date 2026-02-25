@@ -25,6 +25,391 @@
   width: 90%;
   max-width: 960px;
 }
+/* line 18, ../../_scss/business/business.scss */
+#businessIntro::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url(../../img/business/img_business-intro_pc.webp) 77.5% 25.5%/575px auto no-repeat;
+}
+/* line 31, ../../_scss/business/business.scss */
+#businessIntro .inner > p {
+  box-sizing: border-box;
+  margin: 0 0 60px 1.75%;
+  width: 61.2%;
+  line-height: 1.8;
+  letter-spacing: 0;
+  font-size: 15px;
+}
+
+/**businessList setting
+------------------------------------*/
+@keyframes businessIconFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* line 61, ../../_scss/business/business.scss */
+#businessList .inner > p {
+  margin: 0 0 160px;
+  line-height: 1.8;
+  text-align: center;
+  font-size: 21px;
+  color: #0087ac;
+}
+/* line 69, ../../_scss/business/business.scss */
+#businessList .inner .businessTabContainer {
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  background: #333344 url(../../img/common/bg_common-pattern_pc.webp) center 0/100% auto no-repeat;
+  width: 100%;
+  padding: 55px 0 60px;
+}
+/* line 76, ../../_scss/business/business.scss */
+#businessList .inner .businessTabContainer::before {
+  content: '';
+  position: absolute;
+  top: -250px;
+  left: 0;
+  z-index: -1;
+  display: block;
+  width: 100%;
+  height: 250px;
+  background: url(../../img/business/bg_business-list.webp) center bottom/100% 100% no-repeat;
+}
+/* line 88, ../../_scss/business/business.scss */
+#businessList .inner .businessTabContainer .businessTabs {
+  position: absolute;
+  top: -70px;
+  left: 50%;
+  display: flex;
+  justify-content: center;
+  gap: 1.075%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 930px;
+  min-width: 750px;
+  counter-reset: business-tab;
+  /* 直接の子 li のみカウント（SP でパネル内の .businessFlow li を含めない） */
+}
+/* line 102, ../../_scss/business/business.scss */
+#businessList .inner .businessTabContainer .businessTabs > li {
+  position: relative;
+  width: 24.19%;
+  counter-increment: business-tab;
+  /* PC: ロゴアイコン（li::before に配置し SP の矢印と競合しないようにする） */
+}
+/* line 108, ../../_scss/business/business.scss */
+#businessList .inner .businessTabContainer .businessTabs > li::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  background: url(../../img/common/logo-ci.svg) no-repeat center/contain;
+  z-index: 1;
+  transition: top 0.25s ease;
+}
+/* line 121, ../../_scss/business/business.scss */
+#businessList .inner .businessTabContainer .businessTabs > li:has(.businessTab.isActive)::before {
+  top: -45px;
+}
+/* line 125, ../../_scss/business/business.scss */
+#businessList .inner .businessTabContainer .businessTabs > li .businessTab {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  border-bottom: none;
+  border-radius: 20px 0 0 0;
+  background: #fff;
+  width: 100%;
+  height: 70px;
+  line-height: 70px;
+  text-align: center;
+  font-size: 12px;
+  cursor: pointer;
+  transition: opacity 0.2s, height 0.25s ease, line-height 0.25s ease, font-size 0.25s ease, margin 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+/* line 146, ../../_scss/business/business.scss */
+#businessList .inner .businessTabContainer .businessTabs > li .businessTab::before {
+  content: counter(business-tab);
+  position: absolute;
+  left: 50%;
+  top: -30px;
+  display: block;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  line-height: 44px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 10px;
+  color: #0087ac;
+  z-index: 1;
+}
+/* line 163, ../../_scss/business/business.scss */
+#businessList .inner .businessTabContainer .businessTabs > li .businessTab.isActive {
+  background: #333344;
+  margin: -15px 0 0 0;
+  height: 85px;
+  line-height: 85px;
+  font-size: 14px;
+  color: #fff;
+}
+/* line 173, ../../_scss/business/business.scss */
+#businessList .inner .businessTabContainer .businessTabs > li .businessTab:not(.isActive):hover {
+  opacity: 0.7;
+}
+/* line 181, ../../_scss/business/business.scss */
+#businessList .inner .businessTabContainer .businessTabContents .businessTabContent {
+  display: none;
+}
+/* line 184, ../../_scss/business/business.scss */
+#businessList .inner .businessTabContainer .businessTabContents .businessTabContent.isActive {
+  display: block;
+}
+/* line 190, ../../_scss/business/business.scss */
+#businessList .inner .businessTabContainer .businessTabContents .businessTabContent .businessContent > p {
+  margin: 0 auto 50px;
+  width: 80%;
+  max-width: 930px;
+  line-height: 2.0;
+  font-size: 15px;
+  color: #fff;
+}
+/* line 199, ../../_scss/business/business.scss */
+#businessList .inner .businessTabContainer .businessTabContents .businessTabContent .businessContent ol {
+  position: relative;
+  box-sizing: border-box;
+  border-radius: 15px 0 15px 0;
+  background: #fff;
+  margin: 0 auto;
+  padding: 55px;
+  width: 90%;
+  max-width: 1010px;
+  counter-reset: business-flow-step;
+}
+/* line 210, ../../_scss/business/business.scss */
+#businessList .inner .businessTabContainer .businessTabContents .businessTabContent .businessContent ol::before {
+  content: '';
+  position: absolute;
+  display: block;
+  animation: businessIconFadeIn 0.35s ease forwards;
+}
+/* line 217, ../../_scss/business/business.scss */
+#businessList .inner .businessTabContainer .businessTabContents .businessTabContent .businessContent ol li {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr auto auto 1fr;
+  gap: 0 30px;
+  align-items: center;
+  counter-increment: business-flow-step;
+}
+/* line 226, ../../_scss/business/business.scss */
+#businessList .inner .businessTabContainer .businessTabContents .businessTabContent .businessContent ol li:not(:last-child) {
+  margin: 0 0 50px;
+}
+/* line 229, ../../_scss/business/business.scss */
+#businessList .inner .businessTabContainer .businessTabContents .businessTabContent .businessContent ol li:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -35px;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 20px;
+  background: linear-gradient(to bottom, #0087ac 0%, #333344 100%);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  /* 下向き ▼ */
+}
+/* line 242, ../../_scss/business/business.scss */
+#businessList .inner .businessTabContainer .businessTabContents .businessTabContent .businessContent ol li figure {
+  position: relative;
+  grid-column: 1;
+  grid-row: 1 / -1;
+  border-radius: 5px;
+  width: 250px;
+  overflow: hidden;
+}
+/* line 250, ../../_scss/business/business.scss */
+#businessList .inner .businessTabContainer .businessTabContents .businessTabContent .businessContent ol li figure::before {
+  content: counter(business-flow-step);
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #0087ac;
+  padding: 20px 0 0 20px;
+  width: 80px;
+  height: 80px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 18px;
+}
+/* line 269, ../../_scss/business/business.scss */
+#businessList .inner .businessTabContainer .businessTabContents .businessTabContent .businessContent ol li figure img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+/* line 276, ../../_scss/business/business.scss */
+#businessList .inner .businessTabContainer .businessTabContents .businessTabContent .businessContent ol li h3 {
+  grid-column: 2;
+  grid-row: 2;
+  margin: 0 0 20px;
+  font-size: 18px;
+  color: #7fa329;
+}
+/* line 284, ../../_scss/business/business.scss */
+#businessList .inner .businessTabContainer .businessTabContents .businessTabContent .businessContent ol li p {
+  grid-column: 2;
+  grid-row: 3;
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+  font-size: 14px;
+}
+/* line 297, ../../_scss/business/business.scss */
+#businessList .inner .businessTabContainer .businessTabContents .businessTabContent:nth-child(1) .businessContent ol::before {
+  top: -96px;
+  right: 8px;
+  background: url(../../img/business/ico_business01.webp) 0 0/100% 100% no-repeat;
+  width: 129.5px;
+  height: 97.5px;
+}
+/* line 310, ../../_scss/business/business.scss */
+#businessList .inner .businessTabContainer .businessTabContents .businessTabContent:nth-child(2) .businessContent ol::before {
+  top: -103.5px;
+  right: 4px;
+  background: url(../../img/business/ico_business02.webp) 0 0/100% 100% no-repeat;
+  width: 133px;
+  height: 105px;
+}
+/* line 323, ../../_scss/business/business.scss */
+#businessList .inner .businessTabContainer .businessTabContents .businessTabContent:nth-child(3) .businessContent ol::before {
+  top: -102.5px;
+  right: 4px;
+  background: url(../../img/business/ico_business03.webp) 0 0/100% 100% no-repeat;
+  width: 133px;
+  height: 104.5px;
+}
+/* line 336, ../../_scss/business/business.scss */
+#businessList .inner .businessTabContainer .businessTabContents .businessTabContent:nth-child(4) .businessContent ol::before {
+  top: -105px;
+  right: 30px;
+  background: url(../../img/business/ico_business04.webp) 0 0/100% 100% no-repeat;
+  width: 103.5px;
+  height: 106px;
+}
+
+/* weightList setting
+------------------------------------*/
+/* line 358, ../../_scss/business/business.scss */
+#weightList {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 960px;
+  padding: 60px 0 0;
+}
+/* line 364, ../../_scss/business/business.scss */
+#weightList .inner {
+  text-align: center;
+}
+/* line 368, ../../_scss/business/business.scss */
+#weightList h2 {
+  margin: 0 0 30px;
+  font-size: 20px;
+}
+/* line 371, ../../_scss/business/business.scss */
+#weightList h2 span {
+  display: block;
+  margin: 0 0 10px;
+  font-size: 15px;
+}
+/* line 376, ../../_scss/business/business.scss */
+#weightList h2 small {
+  display: block;
+  margin: 10px 0 0;
+  width: 100%;
+  font-size: 12px;
+  color: #0087ac;
+}
+/* line 385, ../../_scss/business/business.scss */
+#weightList .weightsLead {
+  margin: 0 0 30px;
+  line-height: 1.8;
+  font-size: 14px;
+  color: #182227;
+}
+/* line 392, ../../_scss/business/business.scss */
+#weightList .weightsTableWrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+/* line 397, ../../_scss/business/business.scss */
+#weightList .weightsTable {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #f0f0f0;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 14px;
+  /* №・個数列: 中央寄せ・幅を狭く */
+  /* №・個数列: 中央寄せ・幅を狭く */
+}
+/* line 405, ../../_scss/business/business.scss */
+#weightList .weightsTable th,
+#weightList .weightsTable td {
+  padding: 12px 14px;
+  border: 1px solid #f0f0f0;
+  text-align: left;
+  vertical-align: middle;
+}
+/* line 413, ../../_scss/business/business.scss */
+#weightList .weightsTable thead th {
+  background: #f0f8ff;
+  text-align: center;
+  font-weight: 700;
+  color: #182227;
+}
+/* line 420, ../../_scss/business/business.scss */
+#weightList .weightsTable tbody tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.02);
+}
+/* line 425, ../../_scss/business/business.scss */
+#weightList .weightsTable th:nth-child(2),
+#weightList .weightsTable td:nth-child(2),
+#weightList .weightsTable th:nth-child(3),
+#weightList .weightsTable td:nth-child(3),
+#weightList .weightsTable th:nth-child(4),
+#weightList .weightsTable td:nth-child(4),
+#weightList .weightsTable th:nth-child(5),
+#weightList .weightsTable td:nth-child(5) {
+  text-align: center;
+}
+/* line 437, ../../_scss/business/business.scss */
+#weightList .weightsTable th:nth-child(3),
+#weightList .weightsTable td:nth-child(3),
+#weightList .weightsTable th:nth-child(5),
+#weightList .weightsTable td:nth-child(5) {
+  width: 2.75em;
+  min-width: 2.75em;
+  white-space: nowrap;
+}
 
 /* ------------------------------------------------------------------------
 	Ajustment For Small PC Window 
@@ -35,8 +420,377 @@
 @media screen and (max-width: 768px) {
   /* businessIntro setting
   ------------------------------------*/
-  /* line 40, ../../_scss/business/business.scss */
+  /* line 469, ../../_scss/business/business.scss */
   #businessIntro {
+    width: 100vw;
+  }
+  /* line 472, ../../_scss/business/business.scss */
+  #businessIntro::before {
+    display: none;
+  }
+  /* line 477, ../../_scss/business/business.scss */
+  #businessIntro .inner > p {
+    margin: 0 auto;
     width: 92vw;
+    line-height: 1.85;
+    font-size: 3.733333vw;
+  }
+  /* line 484, ../../_scss/business/business.scss */
+  #businessIntro .inner figure {
+    position: relative;
+    z-index: -1;
+    display: block;
+    margin: -24vw auto -10vw;
+    width: 91.73333333vw;
+  }
+  /* line 491, ../../_scss/business/business.scss */
+  #businessIntro .inner figure img {
+    width: 100%;
+    height: auto;
+  }
+
+  /**businessList setting
+  ------------------------------------*/
+  /* line 510, ../../_scss/business/business.scss */
+  #businessList .inner > p {
+    margin: 0 0 10.666667vw;
+    letter-spacing: 0.01em;
+    font-size: 4.2vw;
+  }
+  /* line 516, ../../_scss/business/business.scss */
+  #businessList .inner .businessTabContainer {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    background: #333344 url(../../img/common/bg_common-pattern_sp.webp) center 0/100% auto no-repeat;
+    padding: 0;
+  }
+  /* line 521, ../../_scss/business/business.scss */
+  #businessList .inner .businessTabContainer::before {
+    display: none;
+  }
+  /* line 525, ../../_scss/business/business.scss */
+  #businessList .inner .businessTabContainer .businessTabs {
+    position: relative;
+    top: auto;
+    left: auto;
+    flex-direction: column;
+    margin: 0;
+    border-bottom: none;
+    gap: 0;
+    transform: translateX(0);
+    width: 100vw;
+    max-width: 100vw;
+    min-width: 100vw;
+    /* 直接の子 li のみ（パネル内の .businessFlow li を含めない） */
+    /* SP専用: 各タブの p 上部アイコン（1〜4つ目の li に対応） */
+  }
+  /* line 539, ../../_scss/business/business.scss */
+  #businessList .inner .businessTabContainer .businessTabs > li {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    /* SP: isActive でもロゴの top は変えない */
+    /* SP専用: アコーディオンで展開されるパネルとその内部（スライド開閉） */
+  }
+  /* line 544, ../../_scss/business/business.scss */
+  #businessList .inner .businessTabContainer .businessTabs > li:not(:last-child) {
+    border-bottom: 0.26667vw solid #666;
+  }
+  /* line 548, ../../_scss/business/business.scss */
+  #businessList .inner .businessTabContainer .businessTabs > li::before {
+    left: 4vw;
+    top: 4vw;
+    transform: none;
+    width: 7.4666667vw;
+    height: 7.4666667vw;
+    z-index: 1;
+  }
+  /* line 558, ../../_scss/business/business.scss */
+  #businessList .inner .businessTabContainer .businessTabs > li:has(.businessTab.isActive)::before {
+    top: 4vw;
+  }
+  /* line 562, ../../_scss/business/business.scss */
+  #businessList .inner .businessTabContainer .businessTabs > li .businessTab {
+    background: none;
+    padding: 0 10vw 0 14vw;
+    border: none;
+    border-radius: 0;
+    height: 16vw;
+    line-height: 16vw;
+    text-align: left;
+    font-size: 4vw;
+    color: #fff;
+  }
+  /* line 573, ../../_scss/business/business.scss */
+  #businessList .inner .businessTabContainer .businessTabs > li .businessTab::before {
+    left: 4vw;
+    top: 4vw;
+    transform: none;
+    width: 7.4666667vw;
+    height: 7.4666667vw;
+    line-height: 8.2vw;
+    font-size: 2.4vw;
+  }
+  /* line 583, ../../_scss/business/business.scss */
+  #businessList .inner .businessTabContainer .businessTabs > li .businessTab::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    border-top: 0.4vw solid currentColor;
+    border-right: 0.4vw solid currentColor;
+    width: 2vw;
+    height: 2vw;
+    transform: translateY(-50%) rotate(135deg);
+    transition: transform 0.25s;
+    background: none;
+  }
+  /* line 597, ../../_scss/business/business.scss */
+  #businessList .inner .businessTabContainer .businessTabs > li .businessTab.isActive {
+    background: none;
+    margin: 0;
+    height: 16vw;
+    line-height: 16vw;
+    font-size: 4vw;
+    color: #fff;
+  }
+  /* line 604, ../../_scss/business/business.scss */
+  #businessList .inner .businessTabContainer .businessTabs > li .businessTab.isActive::after {
+    transform: translateY(-30%) rotate(-45deg);
+  }
+  /* line 611, ../../_scss/business/business.scss */
+  #businessList .inner .businessTabContainer .businessTabs > li .businessTabContent {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 4vw;
+    transition: max-height 0.35s ease, padding-top 0.35s ease, padding-bottom 0.35s ease;
+  }
+  /* line 617, ../../_scss/business/business.scss */
+  #businessList .inner .businessTabContainer .businessTabs > li .businessTabContent.isActive {
+    max-height: 3000px;
+    padding: 4vw;
+  }
+  /* line 623, ../../_scss/business/business.scss */
+  #businessList .inner .businessTabContainer .businessTabs > li .businessTabContent .businessContent > p {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    line-height: 1.85;
+    text-align: center;
+    font-size: 3.6vw;
+    color: #fff;
+  }
+  /* line 632, ../../_scss/business/business.scss */
+  #businessList .inner .businessTabContainer .businessTabs > li .businessTabContent .businessContent > p::after {
+    content: '';
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    margin: 6.4vw 0 0;
+    animation: businessIconFadeIn 0.35s ease forwards;
+  }
+  /* line 643, ../../_scss/business/business.scss */
+  #businessList .inner .businessTabContainer .businessTabs > li .businessTabContent .businessContent ol {
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 4vw 0 4vw 0;
+    background: #fff;
+    margin: 0 0 10vw;
+    padding: 4vw;
+    width: 100%;
+    counter-reset: business-flow-step;
+  }
+  /* line 653, ../../_scss/business/business.scss */
+  #businessList .inner .businessTabContainer .businessTabs > li .businessTabContent .businessContent ol li {
+    position: relative;
+    counter-increment: business-flow-step;
+  }
+  /* line 657, ../../_scss/business/business.scss */
+  #businessList .inner .businessTabContainer .businessTabs > li .businessTabContent .businessContent ol li:not(:last-child) {
+    margin: 0 0 13.3333333vw;
+  }
+  /* line 660, ../../_scss/business/business.scss */
+  #businessList .inner .businessTabContainer .businessTabs > li .businessTabContent .businessContent ol li:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -9.3333333vw;
+    transform: translateX(-50%);
+    width: 16vw;
+    height: 5.3333333vw;
+    background: linear-gradient(to bottom, #0087ac 0%, #333344 100%);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    /* 下向き ▼ */
+  }
+  /* line 673, ../../_scss/business/business.scss */
+  #businessList .inner .businessTabContainer .businessTabs > li .businessTabContent .businessContent ol li figure {
+    position: relative;
+    border-radius: 1.3333333vw;
+    margin: 0 0 5.4vw;
+    width: 100%;
+    overflow: hidden;
+  }
+  /* line 680, ../../_scss/business/business.scss */
+  #businessList .inner .businessTabContainer .businessTabs > li .businessTabContent .businessContent ol li figure::before {
+    content: counter(business-flow-step);
+    position: absolute;
+    top: -8vw;
+    left: -8vw;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #0087ac;
+    padding: 5.3333333vw 0 0 5.3333333vw;
+    width: 21.333333vw;
+    height: 21.333333vw;
+    color: #fff;
+    font-size: 4.8vw;
+  }
+  /* line 698, ../../_scss/business/business.scss */
+  #businessList .inner .businessTabContainer .businessTabs > li .businessTabContent .businessContent ol li figure img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  /* line 705, ../../_scss/business/business.scss */
+  #businessList .inner .businessTabContainer .businessTabs > li .businessTabContent .businessContent ol li h3 {
+    margin: 0 0 4.8vw;
+    text-align: center;
+    font-size: 4.2666667vw;
+    color: #7fa329;
+  }
+  /* line 712, ../../_scss/business/business.scss */
+  #businessList .inner .businessTabContainer .businessTabs > li .businessTabContent .businessContent ol li p {
+    line-height: 1.85;
+    letter-spacing: 0.01em;
+    font-size: 3.733333vw;
+  }
+  /* line 724, ../../_scss/business/business.scss */
+  #businessList .inner .businessTabContainer .businessTabs > li:nth-child(1) .businessTabContent .businessContent > p::after {
+    background: url(../../img/business/ico_business01.webp) 0 0/100% 100% no-repeat;
+    width: 17.333333vw;
+    height: 13.0666667vw;
+  }
+  /* line 729, ../../_scss/business/business.scss */
+  #businessList .inner .businessTabContainer .businessTabs > li:nth-child(2) .businessTabContent .businessContent > p::after {
+    background: url(../../img/business/ico_business02.webp) 0 0/100% 100% no-repeat;
+    width: 17.733333vw;
+    height: 14vw;
+  }
+  /* line 734, ../../_scss/business/business.scss */
+  #businessList .inner .businessTabContainer .businessTabs > li:nth-child(3) .businessTabContent .businessContent > p::after {
+    background: url(../../img/business/ico_business03.webp) 0 0/100% 100% no-repeat;
+    width: 17.733333vw;
+    height: 14vw;
+  }
+  /* line 739, ../../_scss/business/business.scss */
+  #businessList .inner .businessTabContainer .businessTabs > li:nth-child(4) .businessTabContent .businessContent > p::after {
+    background: url(../../img/business/ico_business04.webp) 0 0/100% 100% no-repeat;
+    width: 13.8666667vw;
+    height: 14.133333vw;
+  }
+  /* line 746, ../../_scss/business/business.scss */
+  #businessList .inner .businessTabContainer .businessTabContents {
+    /* SP時はパネルが li 内に移動するため、空のラッパーは非表示 */
+  }
+  /* line 748, ../../_scss/business/business.scss */
+  #businessList .inner .businessTabContainer .businessTabContents:empty {
+    display: none;
+  }
+
+  /* weightList setting
+  ------------------------------------*/
+  /* line 758, ../../_scss/business/business.scss */
+  #weightList {
+    width: 92vw;
+    padding: 10vw 0 0;
+    /* 表横スクロール案内（テーブル上にオーバーレイ・完全な円形・一定時間でフェードアウト） */
+  }
+  /* line 762, ../../_scss/business/business.scss */
+  #weightList h2 {
+    font-size: 4.8vw;
+  }
+  /* line 766, ../../_scss/business/business.scss */
+  #weightList .weightsLead {
+    margin: 0 0 5vw;
+    font-size: 3.2vw;
+  }
+  /* line 771, ../../_scss/business/business.scss */
+  #weightList .weightsTableWrap {
+    position: relative;
+  }
+  /* line 776, ../../_scss/business/business.scss */
+  #weightList .weightsTableScrollHint {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6vw;
+    width: 18vw;
+    height: 18vw;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    color: #fff;
+    font-size: 2.666667vw;
+    font-weight: 700;
+    line-height: 1.2;
+    transition: opacity 0.4s ease-out;
+  }
+  /* line 798, ../../_scss/business/business.scss */
+  #weightList .weightsTableScrollHint.is-fading {
+    opacity: 0;
+  }
+  /* line 802, ../../_scss/business/business.scss */
+  #weightList .weightsTableScrollHint-text {
+    display: block;
+    font-size: 2.2vw;
+    font-weight: 700;
+    line-height: 1;
+  }
+  /* line 809, ../../_scss/business/business.scss */
+  #weightList .weightsTableScrollHint-icon {
+    display: block;
+    width: 4vw;
+    height: 4vw;
+    font-size: 3.6vw;
+    line-height: 1;
+    text-align: center;
+    animation: weightsTable-scroll-bounce 1.5s ease-in-out infinite;
+  }
+  @keyframes weightsTable-scroll-bounce {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(0.8vw);
+    }
+  }
+  /* line 825, ../../_scss/business/business.scss */
+  #weightList .weightsTable {
+    width: auto;
+    font-size: 2.933333vw;
+    /* №・個数列: 中央寄せ・幅を狭く（SP） */
+  }
+  /* line 829, ../../_scss/business/business.scss */
+  #weightList .weightsTable th,
+  #weightList .weightsTable td {
+    padding: 2.4vw 2.666667vw;
+    white-space: nowrap;
+  }
+  /* line 836, ../../_scss/business/business.scss */
+  #weightList .weightsTable th:nth-child(3),
+  #weightList .weightsTable td:nth-child(3),
+  #weightList .weightsTable th:nth-child(5),
+  #weightList .weightsTable td:nth-child(5) {
+    width: 7.5vw;
+    min-width: 7.5vw;
   }
 }

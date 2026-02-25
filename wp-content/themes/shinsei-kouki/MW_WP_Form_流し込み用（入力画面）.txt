@@ -1,0 +1,70 @@
+
+
+<section id="contactFormSection">
+	<div class="inner">
+		<p class="formNote">※<strong>必須</strong>は入力必須の項目になります</p>
+
+		<div class="mwWpFormInner">
+			<dl class="formItem">
+				<dt class="required">お名前<span class="requiredMark">必須</span></dt>
+				<dd>
+					[mwform_text name="name" placeholder="お名前をご入力ください" show_error="false"]
+					[mwform_error keys="name"]
+				</dd>
+			</dl>
+			<dl class="formItem">
+				<dt>会社名</dt>
+				<dd>
+					[mwform_text name="company" placeholder="会社名をご入力ください" show_error="false"]
+					[mwform_error keys="company"]
+				</dd>
+			</dl>
+			<dl class="formItem">
+				<dt>ご住所</dt>
+				<dd>
+					[mwform_text name="address" placeholder="ご住所をご入力ください" show_error="false"]
+					[mwform_error keys="address"]
+				</dd>
+			</dl>
+			<dl class="formItem">
+				<dt class="required">ご連絡先お電話番号<span class="requiredMark">必須</span></dt>
+				<dd>
+					[mwform_text name="tel" placeholder="090-1234-5678" show_error="false"]
+					[mwform_error keys="tel"]
+				</dd>
+			</dl>
+			<dl class="formItem">
+				<dt class="required">メールアドレス（半角）<span class="requiredMark">必須</span></dt>
+				<dd>
+					[mwform_email name="email" placeholder="example@email.com" show_error="false"]
+					[mwform_error keys="email"]
+				</dd>
+			</dl>
+			<dl class="formItem">
+				<dt class="required">お問い合わせ種別<span class="requiredMark">必須</span></dt>
+				<dd>
+					[mwform_select name="inquiry_type" children=":選択してください,はかり・分銅等の販売について,はかりの修理について,はかり・分銅の検査について,特定計量器（はかり）の代検査について,その他" show_error="false" post_raw="true"]
+					[mwform_error keys="inquiry_type"]
+				</dd>
+			</dl>
+			<dl class="formItem">
+				<dt class="required">お問い合わせ内容<span class="requiredMark">必須</span></dt>
+				<dd>
+					<p class="formHint">※お問い合わせ内容の詳細をこちらに入力をお願いいたします。</p>
+					[mwform_textarea name="message" placeholder="お問い合わせ内容をご入力ください" show_error="false"]
+					[mwform_error keys="message"]
+				</dd>
+			</dl>
+			<dl class="formItem">
+				<dt></dt>
+				<dd>
+					[mwform_checkbox name="privacy_agreement" children="個人情報保護方針に同意する" show_error="false"]
+					[mwform_error keys="privacy_agreement"]
+				</dd>
+			</dl>
+		</div>
+	</div>
+	<div class="submitArea">
+		<span class="backBtnWrap">[mwform_backButton value="入力内容を修正する"]</span>
+		<span class="submitBtnWrap">[mwform_submitButton confirm_value="確認画面へ" submit_value="送信する"]</span>
+	</div>

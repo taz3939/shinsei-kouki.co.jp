@@ -1,5 +1,10 @@
 # WordPress
 wp-config.php
+# WordPress コア（配布物のため当リポジトリでは追跡しない）
+/wp-admin/
+/wp-includes/
+/wp-content/languages/
+/config.rb
 wp-content/uploads/
 wp-content/cache/
 wp-content/upgrade/

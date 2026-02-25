@@ -13,8 +13,13 @@
 	<link rel="icon" href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/common/favicon.ico" sizes="32x32" type="image/x-icon">
 	<link rel="apple-touch-icon" href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/common/webclip.webp">
 	<?php wp_head(); ?>
+	<?php if (function_exists('shinsei_kouki_render_schema_json_ld')) { shinsei_kouki_render_schema_json_ld(); } ?>
 </head>
 
+<?php
+$ga_host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '';
+$ga_skip = ($ga_host === '' || strpos($ga_host, 'local.') !== false || strpos($ga_host, 'demo.') !== false);
+if (!$ga_skip) : ?>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9TLHRWHMHP"></script>
 <script>
@@ -24,12 +29,13 @@
 
   gtag('config', 'G-9TLHRWHMHP');
 </script>
+<?php endif; ?>
 
-<body <?php body_class(); ?>>
+<body>
     <header id="siteHeader">
         <div class="inner">
             <a href="<?php echo esc_url(home_url('/')); ?>" class="headerLogo" aria-label="トップページへ">
-                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/common/logo-color.svg" alt="神西衡機工業株式会社" width="44" height="44" class="headerLogoImg" decoding="async">
+                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/common/logo-color.svg" alt="神西衡機工業株式会社" width="44" height="44" class="headerLogoImg" decoding="async" loading="eager">
                 <em>神西衡機工業株式会社</em>
                 <span>Shinsei Kouki Kogyo Corporation</span>
             </a>
@@ -48,13 +54,14 @@
                     <li><a href="<?php echo esc_url(home_url('/contact')); ?>" class="btnContact">
                         <picture>
                             <source media="(max-width: 768px)" srcset="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/common/ico_mail-green.svg">
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/common/ico_mail.svg" alt="" width="41" height="28" class="iconMail" decoding="async" aria-hidden="true">
+                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/common/ico_mail.svg" alt="" width="41" height="28" class="iconMail" decoding="async" loading="lazy" aria-hidden="true">
                         </picture>
                         <span>お問い合わせ<small>contact</small></span>
                     </a></li>
+                    <li class="onlySP"><a href="<?php echo esc_url(home_url('/privacy-policy')); ?>">個人情報保護方針<small>privacy policy</small></a></li>
                     <li class="onlySP">
                         <a href="tel:0465381194">
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/common/ico_tel-white.svg" alt="" width="23" height="23" class="iconPhone iconPhoneWhite" decoding="async" aria-hidden="true">
+                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/common/ico_tel-white.svg" alt="" width="23" height="23" class="iconPhone iconPhoneWhite" decoding="async" loading="lazy" aria-hidden="true">
                             <span>お電話でのお問い合わせはこちら</span>
                         </a>
                         <p>営業時間：8:00〜17:00</p>
@@ -65,7 +72,7 @@
                     <dt>
                         <span>お電話でのお問い合わせはこちら</span>
                         <em>
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/common/ico_tel.svg" alt="" width="23" height="23" class="iconPhone" decoding="async" aria-hidden="true">
+                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/common/ico_tel.svg" alt="" width="23" height="23" class="iconPhone" decoding="async" loading="lazy" aria-hidden="true">
                             0465-38-1194
                         </em>
                     </dt>

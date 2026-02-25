@@ -8,6 +8,10 @@ $includes = [
     'inc/common_theme.php',                 // テーマ土台・cleanup・enqueue
     'inc/common_setting.php',               // 共通設定・メタボックス・カスタマイザー・メタ出力
     'inc/customize_topics.php',             // お知らせ（topics）のカスタマイズ・メタボックス
+    'inc/post-type_reference-weight.php',   // 所持している基準器分銅（CPT・管理画面）
+    'inc/customize_sitemap.php',            // サイトマップ（page・topics のみ出力）
+    'inc/customize_robots.php',             // robots.txt（Sitemap URL を追加）
+    'inc/schema/schema.php',                // 構造化データ（JSON-LD）
     'template-parts/parts_business-calendar.php',  // 営業カレンダー（パーツ・require で読み込み）
     'inc/plugin-customize_mw-wp-form.php',  // MW WP Form プラグインのカスタマイズ
 ];
@@ -150,7 +154,7 @@ function shinsei_kouki_breadcrumbs() {
     // ホーム
     $ico_company_url = esc_url( get_template_directory_uri() . '/assets/img/common/ico_company.svg' );
     echo '<li><a href="' . esc_url(home_url('/')) . '">';
-    echo '<img src="' . $ico_company_url . '" alt="" width="30" height="30" class="iconHome" decoding="async" aria-hidden="true">';
+    echo '<img src="' . $ico_company_url . '" alt="" width="30" height="30" class="iconHome" decoding="async" loading="lazy" aria-hidden="true">';
     echo 'トップページ</a></li>';
     
     if (is_category()) {
@@ -179,6 +183,10 @@ function shinsei_kouki_breadcrumbs() {
             }
         }
         echo '<li>' . esc_html(get_the_title()) . '</li>';
+    } elseif (is_tax('topics_category')) {
+        $term = get_queried_object();
+        echo '<li><a href="' . esc_url(home_url('/topics')) . '">お知らせ</a></li>';
+        echo '<li>' . esc_html($term && !is_wp_error($term) ? $term->name : 'お知らせカテゴリ') . '</li>';
     } elseif (is_post_type_archive()) {
         // カスタム投稿タイプのアーカイブ
         $post_type = get_query_var('post_type');
@@ -192,8 +200,13 @@ function shinsei_kouki_breadcrumbs() {
             }
         }
     } elseif (is_archive()) {
-        // その他のアーカイブ
-        echo '<li>' . esc_html(get_the_archive_title()) . '</li>';
+        // その他のアーカイブ（タクソノミーは名前のみ・HTMLなし）
+        if (is_tax() || is_category() || is_tag()) {
+            $obj = get_queried_object();
+            echo '<li>' . esc_html($obj && isset($obj->name) ? $obj->name : wp_strip_all_tags(get_the_archive_title())) . '</li>';
+        } else {
+            echo '<li>' . esc_html(wp_strip_all_tags(get_the_archive_title())) . '</li>';
+        }
     } elseif (is_search()) {
         // 検索結果
         echo '<li>検索結果</li>';
@@ -205,3 +218,9 @@ function shinsei_kouki_breadcrumbs() {
     echo '</ol>';
     echo '</nav>';
 }
+
+/**
+ * お問い合わせメール件名の連番リセット（テスト送信後など）
+ * 必要時にコメントを外して管理画面またはサイトを1回表示したあと、再度コメントアウトしてください。
+ */
+// delete_option( 'shinsei_kouki_inquiry_serial_number' );

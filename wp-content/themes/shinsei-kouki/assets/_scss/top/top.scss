@@ -220,8 +220,7 @@ main {
       li {
         position: relative;
         box-sizing: border-box;
-        padding: 0 15px 20px;
-        padding-top: 53px; // アイコン上-12px + 高さ40px + 下余白25px
+        padding: 55px 0 20px;
         width: 23.925%;
         background: $cWht;
         border-radius: 20px 0 20px 0;
@@ -245,7 +244,6 @@ main {
           transform: translateY(-2px);
         }
 
-        // アイコン（logo-ci.svg）を上部に absolute で配置・大きさは従来どおり 40px
         &::after {
           content: "";
           position: absolute;
@@ -257,7 +255,6 @@ main {
           background: url("../../img/common/logo-ci.svg") no-repeat center / contain;
         }
 
-        // 番号をアイコン中央に 10px 青文字で表示
         &::before {
           content: counter(list-item);
           position: absolute;
@@ -280,7 +277,8 @@ main {
           font-size: 16px;
 
           small {
-            font-size: 12px;
+            letter-spacing: -0.1em;
+            font-size: 11px;
           }
         }
         
@@ -297,6 +295,7 @@ main {
         }
         
         p {
+          padding: 0 6%;
           line-height: 2.0;
           text-align: left;
           font-size: 12px;
@@ -351,7 +350,7 @@ main {
 #handledBrands {
   position: relative;
   padding: 80px 0;
-  background: url("../../img/top/bg_brands_pc.webp") center / cover no-repeat;
+  background: url("../../img/top/bg_brands.webp") center / cover no-repeat;
 
   &::before,
   &::after {
@@ -362,7 +361,7 @@ main {
     display: block;
     width: 50%;
     height: 33.5px;
-    background: url("../../img/common/line_pc.webp") center / 100% 100% no-repeat;
+    background: url("../../img/common/img_line.webp") center / 100% 100% no-repeat;
   }
   
   &::after {
@@ -534,23 +533,43 @@ main {
             flex-direction: column;
             gap: 5px;
             font-size: 12px;
-            
-            time {
-              position: relative;
-              min-width: auto;
-              &::before {
-                content: '';
-                position: absolute;
-                top: 50%;
-                transform: translateY(-2.5px);
-                left: -10px;
-                box-sizing: border-box;
-                border-radius: 50%;
-                border: 2px solid $cGreen;
-                display: block;
-                width: 6px;
-                height: 6px;
+
+            .newsContentMeta {
+              display: flex;
+              align-items: center;
+              flex-wrap: wrap;
+              gap: 8px;
+
+              time {
+                position: relative;
+                min-width: auto;
+                &::before {
+                  content: '';
+                  position: absolute;
+                  top: 50%;
+                  transform: translateY(-2.5px);
+                  left: -10px;
+                  box-sizing: border-box;
+                  border-radius: 50%;
+                  border: 2px solid $cGreen;
+                  display: block;
+                  width: 6px;
+                  height: 6px;
+                }
               }
+  
+              .newsCategory {
+                display: inline-block;
+                padding: 0 5px;
+                height: 20px;
+                line-height: 20px;
+                background: $cBk1;
+                border-radius: 3px;
+                text-decoration: none;
+                font-size: 10px;
+                color: $cWht;
+              }
+              
             }
             
             span {
@@ -583,8 +602,6 @@ main {
           right: 20px;
           border-top: 2px solid $cWht;
           border-right: 2px solid $cWht;
-          -ms-transform: rotate(45deg);
-          -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
           margin: -5px 0 0;
           width: 8px;
@@ -609,7 +626,6 @@ main {
       width: 45%;
       text-align: center;
 
-      // logo-ci.svg を ::before で上部中央に配置（従来の SVG と同じサイズ・位置）
       &::before {
         content: "";
         position: absolute;
@@ -672,8 +688,6 @@ main {
             right: 20px;
             border-top: 2px solid $cWht;
             border-right: 2px solid $cWht;
-            -ms-transform: rotate(-135deg);
-            -webkit-transform: rotate(-135deg);
             transform: rotate(-135deg);
             margin: -5px 0 0;
             width: 8px;
@@ -689,8 +703,6 @@ main {
             &::after {
               right: auto;
               left: 20px;
-              -ms-transform: rotate(45deg);
-              -webkit-transform: rotate(45deg);
               transform: rotate(45deg);
             }
           }
@@ -823,7 +835,27 @@ main {
 	Ajustment For Small PC Window 
 ------------------------------------------------------------------------ */
 @media screen and (max-width: 1024px) {
+  /* aboutBusiness setting
+  ------------------------------------*/
+  #aboutBusiness {
+    
+    .inner {
+      
+      ol {
+        
+        li {
+          
+          h3 {
+            font-size: 14px;
 
+            small {
+              font-size: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 
@@ -920,12 +952,12 @@ main {
   /* aboutBusiness setting
   ------------------------------------*/
   #aboutBusiness {
-    display: none;
     padding: 12vw 0;
     background: url("../../img/top/bg_business_sp.webp") center / cover no-repeat;
     
     .inner {
-      
+      width: 92vw;
+       
       h2 {
         margin: 0 0 4.8vw;
         font-size: 5.3333333vw;
@@ -942,32 +974,17 @@ main {
       }
       
       ol {
-        list-style: none;
-        margin: 0 auto 50px;
-        padding: 0;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        width: 97.5%;
-        max-width: 1045px;
+        margin: 0 auto 8vw;
+        width: 100%;
         
         li {
-          position: relative;
-          box-sizing: border-box;
-          padding: 0 15px 20px;
-          padding-top: 53px;
-          width: 23.925%;
-          background: $cWht;
-          border-radius: 20px 0 20px 0;
-          box-shadow: 0 2px 8px $cBkAlpha05;
+          border-radius: 5.3333333vw 0 5.3333333vw 0;
+          box-shadow: 0 0.5333333vw 2.1333333vw $cBkAlpha15;
+          margin: 0 0 4.73333vw;
+          padding: 10vw 0 4vw;
+          width: 48.5%;
           opacity: 0;
-          filter: blur(10px);
-          will-change: opacity, filter;
-          transform: translateZ(0);
-          backface-visibility: hidden;
-          -webkit-backface-visibility: hidden;
-          transition: opacity 1.5s ease-out, filter 1.5s ease-out, box-shadow 0.3s ease, transform 0.3s ease;
-          
+          filter: blur(2.666667vw);    
           &.fadeIn {
             opacity: 1;
             filter: blur(0);
@@ -980,91 +997,55 @@ main {
           }
 
           &::after {
-            content: "";
-            position: absolute;
-            top: -12px;
-            left: 0;
-            width: 40px;
-            height: 40px;
-            background: url("../../img/common/logo-ci.svg") no-repeat center / contain;
+            width: 10.666667vw;
+            height: 10.666667vw;
           }
 
           &::before {
-            content: counter(list-item);
-            position: absolute;
-            left: 20px;
-            top: 8px;
-            transform: translate(-50%, -50%);
-            font-size: 10px;
-            font-weight: 600;
-            color: $cBlu;
-            z-index: 1;
+            font-size: 2.666667vw;
           }
           
           h3 {
-            font-weight: 600;
-            font-size: 16px;
+            line-height: 1.3;
+            font-size: 3.7333333vw;
 
             small {
-              font-size: 12px;
+              letter-spacing: -0.1em;
+              font-size: 3.2vw;
             }
           }
           
           figure {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 80px;
+            height: 14.4vw;
             
             img {
-              width: auto;
-              height: 34px;
+              height: 8vw;
             }
           }
           
           p {
-            line-height: 2.0;
-            text-align: left;
-            font-size: 12px;
-            color: $cBk1;
+            padding: 0 2.4vw;
+            line-height: 1.6;
+            letter-spacing: 0.01em;
+            font-size: 2.933333vw;
           }
         }
       }
       
       > a.btnPrimary {
-        position: relative;
-        display: block;
-        box-sizing: border-box;
-        background: $cBlu;
-        box-shadow: 0 2px 8px $cBkAlpha15;
-        width: 415px;
-        height: 80px;
-        margin: 0 auto;
-        text-align: center;
-        line-height: 80px;
-        font-weight: 600;
-        font-size: 18px;
-        color: $cWht;
-        transition: opacity 0.6s ease;
+        box-shadow: 0 0.5333333vw 2.1333333vw $cBkAlpha15;
+        width: 92vw;
+        height: 17.333333vw;
+        line-height: 17.333333vw;
+        font-size: 3.733333vw;
         
         &::after {
-          content: '';
-          position: absolute;
-          top: 50%;
-          right: 20px;
-          border-top: 2px solid $cWht;
-          border-right: 2px solid $cWht;
-          -ms-transform: rotate(45deg);
-          -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-          margin: -5px 0 0;
-          width: 8px;
-          height: 8px;
-          transition: all 0.3s;
-        }
-        
-        &:hover {
-          opacity: 0.8;
+          right: 4vw;
+          border-top: 0.4vw solid #fff;
+          border-right: 0.4vw solid #fff;
+          margin: -0.8vw 0 0;
+          width: 2.4vw;
+          height: 2.4vw;
         }
       }
     }
@@ -1077,36 +1058,22 @@ main {
   /* handledBrands setting
   ------------------------------------*/
   #handledBrands {
-    display: none;
-    position: relative;
-    padding: 80px 0;
-    background: url("../../img/top/bg_brands_pc.webp") center / cover no-repeat;
+    padding: 12vw 0 20vw;
 
     &::before,
     &::after {
-      content: '';
-      position: absolute;
-      top: -33.5px;
-      left: 0;
-      display: block;
-      width: 50%;
-      height: 33.5px;
-      background: url("../../img/common/line_pc.webp") center / 100% 100% no-repeat;
+      top: -4.8vw;
+      width: 100%;
+      height: 4.8vw;
     }
     
     &::after {
       top: auto;
-      bottom: -33.5px;
-      left: auto;
-      right: 0;
-      transform: rotate(180deg);
+      bottom: -4.8vw;
     }
 
     .inner {
-      margin: 0 auto;
-      width: 90%;
-      max-width: 1200px;
-      text-align: center;
+      width: 92vw;
       
       h2 {
         margin: 0 0 4.8vw;
@@ -1119,52 +1086,26 @@ main {
       }
       
       p {
-        margin: 0 0 50px;
-        line-height: 1.85;
-        font-size: 14px;
+        margin: 0 0 8vw;
+        text-align: left;
+        font-size: 3.7333333vw;
       }
       
       ul {
-        position: relative;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        gap: 35px;
+        gap: 6.4vw;
 
         &::after {
-          content: '※五十音順';
-          position: absolute;
-          bottom: -40px;
-          right: 30px;
-          font-size: 10px;
+          bottom: -10vw;
+          right: 4vw;
+          font-size: 2.666667vw;
         }
         
         li {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: transparent;
-          opacity: 0;
-          filter: blur(10px);
-          will-change: opacity, filter;
-          transform: translateZ(0);
-          backface-visibility: hidden;
-          -webkit-backface-visibility: hidden;
-          transition: opacity 1.5s ease-out, filter 1.5s ease-out, box-shadow 0.3s ease;
-          
-          &.fadeIn {
-            opacity: 1;
-            filter: blur(0);
-            will-change: auto;
-          }
+          filter: blur(2.666667vw);
           
           img {
-            width: auto;
-            height: 25px;
-            max-width: 175px;
-            object-fit: contain;
-            mix-blend-mode: multiply;
+            height: 4.8vw;
+            max-width: 32vw;
           }
         }
       }
@@ -1178,28 +1119,23 @@ main {
   /* latestNews and businessCalendar (2 column layout)
   ------------------------------------*/
   #latestNewsCalendar {
-    display: none;
-    padding: 100px 0;
+    padding: 16vw 0;
     
     .inner {
-      display: flex;
-      justify-content: space-between;
-      margin: 0 auto;
-      width: 90%;
-      max-width: 980px;
+      display: block;
+      width: 100%;
       
       #latestNews {
-        margin: 17.5px 0 0;
-        width: 45%;
+        margin: 0 auto 20vw;
+        width: 92vw;
         
         h2 {
           margin: 0 0 4.8vw;
           font-size: 5.3333333vw;
 
           span {
-            display: block;
-            margin: 0 0 10px;
-            font-size: 15px;
+            margin: 0 0 2.4vw;
+            font-size: 3.733333vw;
           }
           small {
             margin: 2.666667vw 0 0;
@@ -1208,333 +1144,176 @@ main {
         }
         
         .newsList {
-          margin: 0 0 30px;
+          margin: 0 0 8vw;
           
           li {
-            border-bottom: 1px solid $cGr1;
+            border-bottom: 0.2666667vw solid $cGr1;
             
             > a {
-              display: flex;
-              align-items: center;
-              padding: 15px 0;
-              gap: 5%;
-              text-decoration: none;
-              transition: opacity 0.3s ease;
-              text-align: left;
-              
-              &:hover {
-                opacity: 0.8;
-                
-                .newsThumbnail img {
-                  transform: scale(1.1);
-                }
-                
-                .newsContent span {
-                  color: $cBk2;
-                  text-decoration: underline;
-                }
-              }
+              padding: 4vw 0;
             }
             
             .newsThumbnail {
-              border-radius: 1.3333333vw;
-              flex-shrink: 0;
-              margin: 0;
-              width: 110px;
+              width: 22vw;
               aspect-ratio: 4 / 3;
               height: auto;
-              overflow: hidden;
-              
-              img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                object-position: center;
-                transition: transform 0.3s ease;
-              }
+              border-radius: 1.3333333vw;
             }
             
             .newsContent {
-              flex: 1;
-              display: flex;
-              flex-direction: column;
-              gap: 5px;
-              font-size: 12px;
-              
-              time {
-                position: relative;
-                min-width: auto;
-                &::before {
-                  content: '';
-                  position: absolute;
-                  top: 50%;
-                  transform: translateY(-2.5px);
-                  left: -10px;
-                  box-sizing: border-box;
-                  border-radius: 50%;
-                  border: 2px solid $cGreen;
-                  display: block;
-                  width: 6px;
-                  height: 6px;
-                }
-              }
+              font-size: 3.2vw;
               
               span {
-                line-height: 1.75;
-                text-decoration: underline;
-                color: $cBlu;
-                transition: color 0.3s ease;
+                font-size: 3.2vw;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                overflow: hidden;
+                text-overflow: ellipsis;
               }
             }
           }
         }
         
         > a {
-          position: relative;
-          display: block;
-          background: $cBlu;
-          margin: 15px auto 0;
-          width: 72.72%;
-          height: 60px;
-          line-height: 60px;
-          text-align: center;
-          font-size: 18px;
-          color: $cWht;
-          transition: opacity 0.6s ease;
-          
+          margin: 8vw auto 0;
+          width: 100%;
+          height: 17.333333vw;
+          line-height: 17.333333vw;
+          font-size: 3.733333vw;
+            
           &::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            right: 20px;
-            border-top: 2px solid $cWht;
-            border-right: 2px solid $cWht;
-            -ms-transform: rotate(45deg);
-            -webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
-            margin: -5px 0 0;
-            width: 8px;
-            height: 8px;
-            transition: all 0.3s;
-          }
-          
-          &:hover {
-            opacity: 0.8;
+            right: 4vw;
+            border-top: 0.4vw solid #fff;
+            border-right: 0.4vw solid #fff;
+            margin: -1.3vw 0 0;
+            width: 2.4vw;
+            height: 2.4vw;
           }
         }
-        
-        // ボタンを中央揃え
-        text-align: center;
       }
       
       #businessCalendar {
-        position: relative;
-        border-radius: 20px 0 20px 0;
-        background: $cGr4;
-        padding: 50px 20px 0;
-        width: 45%;
-        text-align: center;
+        border-radius: 0;
+        padding: 12vw 0 0;
+        width: 100%;
 
         &::before {
-          content: "";
-          position: absolute;
-          top: -20px;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 40px;
-          height: 40px;
-          background: url("../../img/common/logo-ci.svg") no-repeat center / contain;
+          top: -5.3333333vw;
+          width: 10.666667vw;
+          height: 10.666667vw;
         }
         
         h2 {
-          margin: 0 0 20px;
-          font-size: 20px;
+          margin: 0 0 4.8vw;
+          font-size: 5.3333333vw;
           small {
-            display: block;
-            margin: 10px 0 0;
-            width: 100%;
-            font-size: 12px;
-            color: $cBlu;
+            margin: 2.666667vw 0 0;
+            font-size: 3.2vw;
           }
         }
         
         .businessCalendar {
-          position: relative;
-          background: $cWht;
+          margin: 0 auto;
           padding: 25px 0 5px;
+          width: 92vw;
           
           h3 {
-            margin: 0 0 15px;
-            text-align: center;
-            font-size: 22px;
+            margin: 0 0 4vw;
+            font-size: 5.8666667vw;
 
             small {
-              font-weight: 600;
-              font-size: 12px;
+              font-size: 3.2vw;
             }
           }
           
           button {
-            position: absolute;
-            top: 150px;
-            left: 0;
-            transform: translateX(-70%);
-            display: block;
-            border: none;
-            border-radius: 50%;
-            background: $cBlu;
-            width: 55px;
-            height: 55px;
-            line-height: 55px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: background 0.3s;
+            top: 4vw;
+            left: 15vw;
+            transform: 0;
+            width: 12vw;
+            height: 12vw;
+            line-height: 12vw;
 
             &::after {
-              content: '';
-              position: absolute;
-              top: 50%;
-              right: 20px;
+              right: 4.8vw;
               border-top: 2px solid $cWht;
               border-right: 2px solid $cWht;
-              -ms-transform: rotate(-135deg);
-              -webkit-transform: rotate(-135deg);
               transform: rotate(-135deg);
-              margin: -5px 0 0;
-              width: 8px;
-              height: 8px;
-              transition: all 0.3s;
+              margin: -1.0666667vw 0 0;
+              width: 1.6vw;
+              height: 1.6vw;
             }
     
             &.btnNext {
               left: auto;
-              right: 0;
-              transform: translateX(70%);
+              right: 15vw;
+              transform: 0;
 
               &::after {
                 right: auto;
-                left: 20px;
-                -ms-transform: rotate(45deg);
-                -webkit-transform: rotate(45deg);
-                transform: rotate(45deg);
+                left: 4.8vw;
               }
             }
-            
-            &:hover {
-              background: darken($cBlu, 10%);
-            }
-            
-            &:disabled {
-              background: $cGr2;
-              cursor: not-allowed;
-            }
-
           }
           
           .calendarLegend {
             
             .legendItem {
-              display: inline-flex;
-              align-items: center;
-              gap: 8px;
+              gap: 1.6vw;
             }
             
             .legendColor {
-              display: inline-block;
-              width: 14px;
-              height: 14px;
-              font-size: 14px;
-              
-              &.holiday {
-                background: $cRed;
-              }
+              width: 2.8vw;
+              height: 2.8vw;
+              font-size: 2.8vw;
             }
           }
           
           .calendarTable {
-            margin: 0 auto 20px;
-            width: 75%;
-            border-collapse: separate;
-            border-spacing: 6px;
-            text-align: center;
-            font-weight: 700;
-            font-size: 18px;
+            margin: 0 auto 2.4vw;
+            width: 95%;
+            border-spacing: 1.2vw;
+            font-size: 3.733333vw;
             
             th {
-              box-sizing: border-box;
-              width: 14%;
-              padding: 10px 0;
-              height: 35px;
-              
-              &.sunday {
-                color: $cRed;
-              }
-
-              &.saturday {
-                color: $cBlu;
-              }
+              padding: 2vw 0;
+              height: 7.2vw;
             }
             
             td {
-              box-sizing: border-box;
-              width: 14.285714285714286%;
-              vertical-align: middle;
-              height: 35px;
-              
-              &.empty {
-                background: $cWht;
-              }
-              
-              &.sunday,
-              &.saturday {
-                color: $cBlu;
-                background: $cBgLightBlue;
-              }
-              
-              &.holiday {
-                background: $cRed;
-                color: $cWht;
-                font-weight: bold;
-              }
-              
+              height: 7.2vw;
+
               &.today {
-                border: 4px solid $cYellow;
+                border: 0.8vw solid $cYellow;
               }
             }
           }
           
         }
         .calendarInfo {
-          display: flex;
-          justify-content: center;
-          gap: 2%;
           
           .infoBox {
-            width: 45.5%;
-            padding: 20px 0;
-            font-size: 13px;
+            padding: 4vw 0;
+            font-size: 3.2vw;
             
             h4 {
-              border-radius: 5px;
-              background: $cGr5;
-              margin: 0 0 5px;
-              padding: 3px;
-              color: $cWht;
+              border-radius: 1.3333333vw;
+              margin: 0 0 1.3333333vw;
+              padding: 0.8vw;
             }
             
           }
         }
         
         .calendarNote {
-          border-radius: 20px;
-          background: $cWht;
-          box-shadow: 0 2px 8px $cBkAlpha15;
-          margin: 0 auto -20px;
-          width: 340px;
-          height: 40px;
-          line-height: 40px;
-          text-align: center;
-          font-size: 14px;
+          border-radius: 4vw;
+          box-shadow: 0 0.5333333vw 2.1333333vw $cBkAlpha15;
+          margin: 0 auto;
+          width: 92vw;
+          height: 8vw;
+          line-height: 8vw;
+          font-size: 3.2vw;
         }
       }
     }

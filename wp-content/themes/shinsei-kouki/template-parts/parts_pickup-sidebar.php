@@ -17,7 +17,7 @@ $pickup_posts = get_posts(array(
 if (!empty($pickup_posts)) :
 ?>
 <aside class="pickupTopics">
-    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/common/logo-ci.svg" alt="" width="26" height="24" class="sidebarLogo" decoding="async" aria-hidden="true">
+    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/common/logo-ci.svg" alt="" width="26" height="24" class="sidebarLogo" decoding="async" loading="lazy" aria-hidden="true">
     <h2>pickup topics</h2>
     <ul class="pickupList">
         <?php foreach ($pickup_posts as $post) : setup_postdata($post); ?>

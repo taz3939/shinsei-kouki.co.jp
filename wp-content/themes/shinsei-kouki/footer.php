@@ -32,7 +32,7 @@
                 </nav>
                 <p>
                     <a href="<?php echo esc_url(home_url('/')); ?>" aria-label="トップページへ">
-                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/common/logo-white.svg" alt="神西衡機工業株式会社" width="57" height="57" class="footerLogoImg" decoding="async">
+                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/common/logo-white.svg" alt="神西衡機工業株式会社" width="57" height="57" class="footerLogoImg" decoding="async" loading="lazy">
                         <em>神西衡機工業株式会社</em>
                     </a>
                 </p>
@@ -52,7 +52,7 @@
                 </dl>
             </div>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26053.863684226766!2d139.14197983049357!3d35.28776507271683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6019a59f3c0eadd5%3A0xdae67f51002c3d08!2z56We6KW_6KGh5qmf5bel5qWt!5e0!3m2!1sja!2sjp!4v1769223541389!5m2!1sja!2sjp" width="470" height="325" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            <p class="copyright">&copy; <?php echo date('Y'); ?> 神西衡機工業</p>
+            <p class="copyright">&copy; <?php echo date('Y'); ?> 神西衡機工業株式会社</p>
         </div>
     </footer>
 

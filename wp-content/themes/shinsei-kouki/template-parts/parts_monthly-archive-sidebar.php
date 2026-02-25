@@ -33,7 +33,7 @@ if (!empty($archives)) :
     $latest_year = !empty($grouped_archives) ? max(array_keys($grouped_archives)) : null;
 ?>
 <aside class="monthlyArchive">
-    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/common/logo-ci.svg" alt="" width="26" height="24" class="sidebarLogo" decoding="async" aria-hidden="true">
+    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/common/logo-ci.svg" alt="" width="26" height="24" class="sidebarLogo" decoding="async" loading="lazy" aria-hidden="true">
     <h2>monthly archives</h2>
     <div class="monthlyArchiveList">
         <?php foreach ($grouped_archives as $year => $months) : 

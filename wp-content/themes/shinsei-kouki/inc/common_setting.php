@@ -152,10 +152,75 @@ add_filter('document_title_separator', function() {
     return ' | ';
 });
 
+/**
+ * お問い合わせページで MW WP Form の状態（入力エラー・確認・送信完了）を取得。
+ * 状態に応じたラベルを返す。通常入力時は null。
+ *
+ * @return string|null  '入力エラー' | '確認' | '送信完了' | null
+ */
+function shinsei_kouki_contact_form_title_label() {
+    if (!is_page('contact')) {
+        return null;
+    }
+    if (!class_exists('MW_WP_Form_Session') || !class_exists('MWF_Functions')) {
+        return null;
+    }
+    $post = get_post();
+    if (!$post || !has_shortcode($post->post_content, 'mwform_formkey')) {
+        return null;
+    }
+    if (!preg_match('/\[mwform_formkey\s+key=["\']?(\d+)["\']?\]/i', $post->post_content, $m)) {
+        return null;
+    }
+    $form_id  = (int) $m[1];
+    $form_key = MWF_Functions::get_form_key_from_form_id($form_id);
+    if (!$form_key) {
+        return null;
+    }
+    $session_meta = new MW_WP_Form_Session($form_key . '-meta');
+    $meta         = $session_meta->gets();
+    $view_flg     = isset($meta['view_flg']) ? $meta['view_flg'] : 'input';
+    if ($view_flg === 'confirm') {
+        return '確認';
+    }
+    if ($view_flg === 'complete') {
+        return '送信完了';
+    }
+    if ($view_flg === 'input') {
+        $session_error = new MW_WP_Form_Session($form_key . '-validation-error');
+        $errors        = $session_error->gets();
+        if (!empty($errors)) {
+            return '入力エラー';
+        }
+    }
+    return null;
+}
+
 add_filter('document_title_parts', function($parts) {
     $site_name = get_bloginfo('name');
     if (is_singular('topics')) {
         $parts['title'] = get_the_title();
+        $parts['page']  = 'お知らせ';
+        $parts['site']  = $site_name;
+        unset($parts['tagline']);
+        return $parts;
+    }
+    if (is_page('contact')) {
+        $label = shinsei_kouki_contact_form_title_label();
+        $parts['site'] = $site_name;
+        unset($parts['tagline']);
+        if ($label !== null) {
+            $parts['title'] = $label;
+            $parts['page']  = 'お問い合わせ';
+        } else {
+            $parts['title'] = get_the_title();
+            unset($parts['page']);
+        }
+        return $parts;
+    }
+    if (is_tax('topics_category')) {
+        $term = get_queried_object();
+        $parts['title'] = $term && !is_wp_error($term) ? $term->name : 'お知らせカテゴリ';
         $parts['page']  = 'お知らせ';
         $parts['site']  = $site_name;
         unset($parts['tagline']);
@@ -186,6 +251,11 @@ add_filter('document_title_parts', function($parts) {
 add_filter('document_title', function($title) {
     if (is_singular('topics')) {
         return get_the_title() . ' | ' . 'お知らせ' . ' | ' . get_bloginfo('name');
+    }
+    if (is_tax('topics_category')) {
+        $term = get_queried_object();
+        $name = $term && !is_wp_error($term) ? $term->name : 'お知らせカテゴリ';
+        return $name . ' | ' . 'お知らせ' . ' | ' . get_bloginfo('name');
     }
     return $title;
 }, 10, 1);
@@ -234,6 +304,25 @@ function shinsei_kouki_output_meta_tags() {
                 $desc = get_theme_mod('default_meta_description', get_bloginfo('description'));
             }
         }
+    } elseif (is_tax('topics_category')) {
+        $term = get_queried_object();
+        if ($term && !is_wp_error($term)) {
+            $url = get_term_link($term);
+            if (!is_wp_error($url)) {
+                $paged = get_query_var('paged') ? (int) get_query_var('paged') : 0;
+                if ($paged > 1) {
+                    $url = trailingslashit($url) . 'page/' . $paged . '/';
+                }
+            } else {
+                $url = home_url($_SERVER['REQUEST_URI']);
+            }
+            $title = wp_get_document_title();
+            $desc  = '神西衡機工業のお知らせ。「' . esc_html($term->name) . '」カテゴリの記事一覧。';
+        } else {
+            $url   = home_url($_SERVER['REQUEST_URI']);
+            $title = wp_get_document_title();
+            $desc  = SHINSEI_KOUKI_TOPICS_DESCRIPTION_PREFIX . 'カテゴリ一覧。';
+        }
     } elseif (is_post_type_archive('topics')) {
         $year  = get_query_var('year');
         $month = get_query_var('monthnum');
@@ -262,8 +351,11 @@ function shinsei_kouki_output_meta_tags() {
     if ($desc === '') {
         $desc = get_bloginfo('name');
     }
+    // og:title は <title> と一致させる（最終的な document title を使用）
+    $title = wp_get_document_title();
     echo '<meta name="description" content="' . esc_attr($desc) . '">' . "\n";
-    if ($url !== '') {
+    // singular は WordPress 標準の rel_canonical に任せる。それ以外（トップ・アーカイブ・検索）のみ出力
+    if (!is_singular() && $url !== '') {
         echo '<link rel="canonical" href="' . esc_url($url) . '">' . "\n";
     }
     $og_image = get_template_directory_uri() . '/assets/img/common/ogp.webp';

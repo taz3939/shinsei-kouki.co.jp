@@ -1,0 +1,97 @@
+<?php
+/**
+ * taxonomy-topics_category.php
+ * お知らせカテゴリ別一覧ページテンプレート
+ */
+get_header();
+
+$term = get_queried_object();
+$term_name = $term && isset($term->name) ? $term->name : '';
+?>
+
+<section id="newsIntro">
+    <div class="inner">
+        <span class="pageTitle">
+            お知らせ
+            <small>topics</small>
+        </span>
+        <h1>
+            <?php echo esc_html($term_name); ?>のお知らせ一覧。
+        </h1>
+    </div>
+</section>
+<section id="newsArchive">
+    <div class="inner">
+        <div class="newsArchiveContainer">
+            <div class="newsMain">
+                <?php if (have_posts()) : ?>
+                <ul class="newsList">
+                    <?php while (have_posts()) : the_post(); ?>
+                    <li>
+                        <a href="<?php the_permalink(); ?>">
+                            <?php shinsei_kouki_topics_thumbnail(null, 'medium', 'newsThumbnail'); ?>
+                            <div class="newsContent">
+                                <div class="newsContentMeta">
+                                    <time datetime="<?php echo get_the_date('Y-m-d'); ?>"><?php echo get_the_date('Y.m.d'); ?></time>
+                                    <?php
+                                        $terms = get_the_terms(get_the_ID(), 'topics_category');
+                                        if ($terms && !is_wp_error($terms)) {
+                                            foreach ($terms as $t) {
+                                                echo '<span class="newsCategory">' . esc_html($t->name) . '</span>';
+                                            }
+                                        }
+                                    ?>
+                                </div>
+                                <span><?php the_title(); ?></span>
+                            </div>
+                        </a>
+                    </li>
+                    <?php endwhile; ?>
+                </ul>
+
+                <?php else : ?>
+                <p>お知らせはありません。</p>
+                <?php endif; ?>
+
+                <div class="paginationArea">
+                    <?php
+                    // ページネーション表示
+                    if (function_exists('shinsei_kouki_pagination')) {
+                        shinsei_kouki_pagination();
+                    }
+                    ?>
+                    
+                    <?php
+                    // 記事数表示
+                    global $wp_query;
+                    $paged = get_query_var('paged') ? get_query_var('paged') : 1;
+                    // 実際の表示件数を取得（pre_get_postsで変更されている可能性があるため）
+                    $posts_per_page = isset($wp_query->query_vars['posts_per_page']) && $wp_query->query_vars['posts_per_page'] > 0 
+                        ? $wp_query->query_vars['posts_per_page'] 
+                        : get_option('posts_per_page');
+                    $total = $wp_query->found_posts;
+                    $start = ($paged - 1) * $posts_per_page + 1;
+                    $end = min($paged * $posts_per_page, $total);
+                    
+                    // 1記事1ページの場合は「開始」のみ表示、複数記事の場合は「開始〜終了」を表示
+                    if ($start == $end) {
+                        $pagination_text = $start . '／全' . $total . '記事中';
+                    } else {
+                        $pagination_text = $start . '〜' . $end . '／全' . $total . '記事中';
+                    }
+                    ?>
+                    <p class="paginationInfo"><?php echo $pagination_text; ?></p>
+                </div>
+            </div>
+            
+            <div class="newsSidebar">
+                <?php get_template_part('template-parts/parts_pickup-sidebar'); ?>
+                <?php get_template_part('template-parts/parts_topics-category-sidebar'); ?>
+                <?php get_template_part('template-parts/parts_monthly-archive-sidebar'); ?>
+                <?php get_template_part('template-parts/parts_search-sidebar'); ?>
+            </div>
+        </div>
+    </div>
+</section>
+
+<?php get_footer(); ?>

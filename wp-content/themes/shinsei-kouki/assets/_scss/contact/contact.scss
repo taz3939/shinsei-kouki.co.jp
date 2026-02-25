@@ -32,7 +32,7 @@
 .mw_wp_form {
 	#contactFormSection {
 		box-shadow: 0 2px 8px $cBkAlpha15;
-		background: $cBk1 url(../../img/common/bg_common-pattern_pc.png) center 0 / 100% auto no-repeat;
+		background: $cBk1 url(../../img/common/bg_common-pattern_pc.webp) center 0 / 100% auto no-repeat;
 		width: 100%;
 		padding: 70px 0 60px;
 	
@@ -445,7 +445,7 @@
 	.mw_wp_form {
 		#contactFormSection {
 			box-shadow: 0 0.5333333vw 2.1333333vw $cBkAlpha15;
-			background: $cBk1 url(../../img/common/bg_common-pattern_sp.png) center 0 / 100% auto no-repeat;
+			background: $cBk1 url(../../img/common/bg_common-pattern_sp.webp) center 0 / 100% auto no-repeat;
 			padding: 8vw 0 12vw;
 
 			.inner {
@@ -494,6 +494,13 @@
 						dd {
 							width: 100%;
 							font-size: 3.733333vw;
+
+							/* 16px 未満だと iOS がフォーカス時にズームするため、入力欄だけ 16px に */
+							input,
+							select,
+							textarea {
+								font-size: 4.2666667vw;
+							}
 
 							input {
 								border: 0.2666667vw solid $cBlu;
@@ -622,6 +629,7 @@
 				}
 
 				input[type="submit"] {
+					background: $cGreen;
 					box-shadow: 0 0.5333333vw 1.6vw $cBkAlpha15;
 					width: 92vw;
 					height: 16vw;

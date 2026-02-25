@@ -21,9 +21,54 @@ add_action('after_setup_theme', function() {
 });
 
 function shinsei_kouki_remove_admin_menus() {
-    remove_menu_page('edit.php'); // 投稿
+    remove_menu_page('edit.php');           // 投稿
+    remove_menu_page('edit-comments.php');  // コメント
 }
 add_action('admin_menu', 'shinsei_kouki_remove_admin_menus');
+
+/**
+ * 管理メニューのラベル・アイコンをサイト用に変更。
+ * ※ MW WP Form の「お問い合わせ」表記は、プラグインのメニュースラッグ（post_type=mw-wp-form）に依存しています。
+ *    プラグインアップデートでスラッグが変わった場合は、当該箇所の条件を修正してください。
+ */
+function shinsei_kouki_customize_admin_menu_labels() {
+    global $menu, $submenu;
+    if (!is_array($menu)) {
+        return;
+    }
+    foreach ($menu as $key => $item) {
+        if (!isset($item[2])) {
+            continue;
+        }
+        $slug = $item[2];
+        if ($slug === 'upload.php') {
+            $menu[$key][0] = '画像';                    // メディア → 画像
+            $menu[$key][6] = 'dashicons-camera';       // カメラアイコン
+            if (!empty($submenu['upload.php']) && is_array($submenu['upload.php'])) {
+                foreach ($submenu['upload.php'] as $sub_key => $sub_item) {
+                    if (isset($sub_item[2])) {
+                        if ($sub_item[2] === 'upload.php') {
+                            $submenu['upload.php'][$sub_key][0] = '画像一覧';
+                        } elseif ($sub_item[2] === 'media-new.php') {
+                            $submenu['upload.php'][$sub_key][0] = '画像を追加';
+                        }
+                    }
+                }
+            }
+            continue;
+        }
+        if ($slug === 'edit.php?post_type=page') {
+            $menu[$key][0] = 'ページ'; // 固定ページ → ページ
+            continue;
+        }
+        if ($slug === 'edit.php?post_type=mw-wp-form') {
+            $menu[$key][0] = 'お問い合わせ';           // MW WP Form のラベル変更（スラッグ: mw-wp-form に依存）
+            $menu[$key][6] = 'dashicons-email-alt';   // お問い合わせ系アイコン
+            continue;
+        }
+    }
+}
+add_action('admin_menu', 'shinsei_kouki_customize_admin_menu_labels', 999);
 
 // =============================================================================
 // 不要なWP機能の削除・無効化（cleanup）
@@ -34,13 +79,6 @@ if (is_admin() && !defined('CONCATENATE_SCRIPTS')) {
 }
 
 add_filter('show_admin_bar', '__return_false');
-
-add_filter('body_class', function($classes) {
-    if (is_404()) {
-        $classes = array_values(array_diff($classes, array('error404')));
-    }
-    return $classes;
-}, 10, 1);
 
 remove_action('wp_head', 'feed_links_extra', 3);
 remove_action('wp_head', 'feed_links', 2);
@@ -163,7 +201,9 @@ add_action('template_redirect', function() {
                 }
                 $formatted_content = "\n";
                 foreach ($tags as $tag) {
-                    $tag = preg_replace('/\s+/', ' ', $tag);
+                    if (stripos($tag, 'application/ld+json') === false) {
+                        $tag = preg_replace('/\s+/', ' ', $tag);
+                    }
                     $tag = trim($tag);
                     $formatted_content .= "\t" . $tag . "\n";
                 }
@@ -225,7 +265,7 @@ function shinsei_kouki_enqueue_scripts() {
         wp_enqueue_style('contact-style', get_template_directory_uri() . '/assets/css/contact/contact.css', array('shinsei-kouki-style'), '1.0.0');
         wp_enqueue_script('contact-script', get_template_directory_uri() . '/assets/js/contact/contact.js', array('jquery'), '1.0.0', true);
     }
-    if (!is_front_page() && (is_post_type_archive('topics') || (is_single() && get_post_type() === 'topics') || (is_search() && get_query_var('post_type') === 'topics'))) {
+    if (!is_front_page() && (is_post_type_archive('topics') || is_tax('topics_category') || (is_single() && get_post_type() === 'topics') || (is_search() && get_query_var('post_type') === 'topics'))) {
         wp_enqueue_style('topics-style', get_template_directory_uri() . '/assets/css/topics/topics.css', array('shinsei-kouki-style'), '1.0.0');
     }
     if (is_single() && get_post_type() === 'topics') {

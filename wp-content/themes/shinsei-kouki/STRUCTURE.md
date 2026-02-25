@@ -20,9 +20,13 @@
 
 | ファイル | 役割・内容 |
 |----------|-------------|
-| **common_theme.php** | テーマの土台。add_theme_support・管理メニュー非表示、不要なWP機能の削除（cleanup）、CSS/JS の読み込み（enqueue）・preload。 |
+| **common_theme.php** | テーマの土台。add_theme_support・管理メニュー（投稿・コメント非表示、メディア→「画像」・カメラアイコン・サブメニュー「画像一覧」「画像を追加」、固定ページ→「ページ」、MW WP Form→「お問い合わせ」・メール系アイコン）、不要なWP機能の削除（cleanup）、CSS/JS の読み込み（enqueue）・preload。※「お問い合わせ」表記は MW WP Form のスラッグ（post_type=mw-wp-form）に依存。プラグインアップデートでスラッグが変わった場合は common_theme.php を要修正。 |
 | **common_setting.php** | サイト共通の設定・出力。固定ページのメタディスクリプション用メタボックス、本文中の外部リンクにアイコン付与、カスタマイザー「会社情報」・「メタ情報」、メタタグ（description・canonical・OGP）の出力。 |
 | **customize_topics.php** | お知らせ（topics）のカスタマイズ。CPT登録・URLリライト・旧.htmlリダイレクト・クエリ変数・月別/年別アーカイブ・検索対象のtopics限定・検索テンプレート・news→topics移行、目次（INDEX）メタボックス、ピックアップメタボックス。 |
+| **post-type_reference-weight.php** | 所持している基準器分銅（CPT・管理画面メタボックス・一覧カラム・表示順）。 |
+| **customize_sitemap.php** | WordPress 標準サイトマップ（wp-sitemap.xml）の出力調整。固定ページ（page）とお知らせ（topics）のみ出力し、投稿・ユーザー・タクソノミーは除外。 |
+| **customize_robots.php** | robots.txt の出力カスタマイズ。WordPress 標準の仮想 robots.txt に Sitemap URL を追加。 |
+| **schema/schema.php** | 構造化データ（JSON-LD）のエントリポイント。Organization, WebSite, LocalBusiness, Service, Article, BreadcrumbList をページに応じて出力。 |
 | **plugin-customize_mw-wp-form.php** | MW WP Form プラグインのカスタマイズ。デフォルト style.css の読み込み除外、各フォームの wpautop 無効化（空 p タグを出力しない）。 |
 
 ### 読み込み順（functions.php）
@@ -30,7 +34,12 @@
 1. common_theme.php  
 2. common_setting.php  
 3. customize_topics.php  
-4. plugin-customize_mw-wp-form.php  
+4. post-type_reference-weight.php  
+5. customize_sitemap.php  
+6. customize_robots.php  
+7. schema/schema.php  
+8. template-parts/parts_business-calendar.php（require）  
+9. plugin-customize_mw-wp-form.php  
 
 ※ **parts_*** は template-parts/ に配置し、`parts_business-calendar.php` のみ functions.php から require で読み込む。
 
@@ -55,5 +64,5 @@
 
 ## まとめ
 
-- **inc/** = 設定・ロジック（common_, customize_, plugin-customize_）。4ファイル。
+- **inc/** = 設定・ロジック（common_, customize_, post-type_, plugin-customize_、schema/）。8ファイル。functions.php から require で読み込み。
 - **template-parts/** = 表示パーツ（すべて parts_*）。5ファイル。うち 1 つ（parts_business-calendar.php）は require で読み込み、残り 4 つは get_template_part で読み込み。

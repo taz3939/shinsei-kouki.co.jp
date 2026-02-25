@@ -279,9 +279,12 @@ jQuery(document).ready(function($) {
         });
     }
     
-    // 前の月・次の月ボタンのクリックイベント
+    // 前の月・次の月ボタンのクリックイベント（disabled の場合は何もしない）
     $(document).on('click', '.businessCalendar .btnPrev, .businessCalendar .btnNext', function(e) {
         e.preventDefault();
+        if (this.disabled) {
+            return;
+        }
         var year = $(this).data('year');
         var month = $(this).data('month');
         console.log('Button clicked:', year, month);

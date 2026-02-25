@@ -23,7 +23,141 @@
 #companyIntro {
   margin: 0 auto;
   width: 90%;
-  max-width: 960px;
+  max-width: 940px;
+}
+/* line 18, ../../_scss/company/company.scss */
+#companyIntro .inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+/* line 24, ../../_scss/company/company.scss */
+#companyIntro .inner h1 {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 0 25px 27px;
+  text-align: left;
+}
+/* line 31, ../../_scss/company/company.scss */
+#companyIntro .inner > p {
+  box-sizing: border-box;
+  margin: 0 0 60px 1.75%;
+  width: 53.191%;
+  line-height: 1.8;
+  letter-spacing: 0;
+  font-size: 15px;
+}
+/* line 40, ../../_scss/company/company.scss */
+#companyIntro .inner > article {
+  position: relative;
+  box-sizing: border-box;
+  aspect-ratio: 760 / 535;
+  width: 40.425%;
+  min-width: 0;
+}
+/* line 47, ../../_scss/company/company.scss */
+#companyIntro .inner > article h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: #f0f8ff;
+  aspect-ratio: 1 / 1;
+  margin: 0 0 -90px;
+  width: 30.263%;
+  text-align: center;
+  font-size: 14px;
+}
+/* line 60, ../../_scss/company/company.scss */
+#companyIntro .inner > article figure {
+  display: block;
+  z-index: -1;
+  width: 100%;
+  text-align: center;
+}
+/* line 66, ../../_scss/company/company.scss */
+#companyIntro .inner > article figure picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+/* line 70, ../../_scss/company/company.scss */
+#companyIntro .inner > article figure picture img {
+  width: 100%;
+  height: auto;
+}
+
+/* companyContent setting
+------------------------------------*/
+/* line 86, ../../_scss/company/company.scss */
+#companyContent {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  background: #333344 url(../../img/common/bg_common-pattern_pc.webp) center 0/100% auto no-repeat;
+  width: 100%;
+  padding: 70px 0 60px;
+}
+/* line 92, ../../_scss/company/company.scss */
+#companyContent .inner {
+  box-sizing: border-box;
+  border-radius: 15px 0 15px 0;
+  background: #fff;
+  margin: 0 auto;
+  padding: 25px 55px 55px;
+  width: 90%;
+  max-width: 1010px;
+}
+/* line 102, ../../_scss/company/company.scss */
+#companyContent dl {
+  display: flex;
+  flex-wrap: wrap;
+  line-height: 1.6;
+  font-size: 15px;
+}
+/* line 108, ../../_scss/company/company.scss */
+#companyContent dl dt {
+  position: relative;
+  box-sizing: border-box;
+  padding: 25px 18px 25px 0;
+  flex: 0 0 150px;
+  border-bottom: 1px solid #f0f0f0;
+  text-align: right;
+  font-weight: 600;
+}
+/* line 117, ../../_scss/company/company.scss */
+#companyContent dl dt::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, #0087ac 0, #0087ac 33.3%, #63757a 33.3%, #63757a 66.6%, #7fa329 66.6%, #7fa329 100%);
+}
+/* line 136, ../../_scss/company/company.scss */
+#companyContent dl dd {
+  box-sizing: border-box;
+  padding: 25px 0 25px 35px;
+  flex: 1 1 calc(100% - 150px);
+  min-width: 0;
+  line-height: 1.6;
+  border-bottom: 1px solid #f0f0f0;
+}
+/* line 144, ../../_scss/company/company.scss */
+#companyContent dl dd ul {
+  display: flex;
+  gap: 10px;
+}
+/* line 148, ../../_scss/company/company.scss */
+#companyContent dl dd ul li {
+  display: flex;
+  gap: 10px;
+  width: 47.5%;
+}
+/* line 153, ../../_scss/company/company.scss */
+#companyContent dl dd ul li strong {
+  white-space: nowrap;
 }
 
 /* ------------------------------------------------------------------------
@@ -32,3 +166,103 @@
 /* ------------------------------------------------------------------------
 	Ajustment For Smart Phone 
 ------------------------------------------------------------------------ */
+@media screen and (max-width: 768px) {
+  /* companyIntro setting
+  ------------------------------------*/
+  /* line 181, ../../_scss/company/company.scss */
+  #companyIntro {
+    margin: 0 auto 12vw;
+    width: 92vw;
+  }
+  /* line 185, ../../_scss/company/company.scss */
+  #companyIntro .inner {
+    display: block;
+    align-items: flex-start;
+  }
+  /* line 189, ../../_scss/company/company.scss */
+  #companyIntro .inner h1 {
+    padding: 0 0 6.6666667vw;
+    text-align: center;
+  }
+  /* line 194, ../../_scss/company/company.scss */
+  #companyIntro .inner > p {
+    margin: 0 auto 8vw;
+    width: 100%;
+    line-height: 1.85;
+    font-size: 3.733333vw;
+  }
+  /* line 201, ../../_scss/company/company.scss */
+  #companyIntro .inner > article {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+  }
+  /* line 205, ../../_scss/company/company.scss */
+  #companyIntro .inner > article h2 {
+    margin: 0 0 -20vw;
+    width: 30.666667vw;
+    font-size: 3.733333vw;
+  }
+
+  /* companyContent setting
+  ------------------------------------*/
+  /* line 220, ../../_scss/company/company.scss */
+  #companyContent {
+    box-shadow: 0 0.53333vw 2.13333vw rgba(0, 0, 0, 0.15);
+    background: #333344 url(../../img/common/bg_common-pattern_sp.webp) center 0/100% auto no-repeat;
+    padding: 8vw 0 12vw;
+  }
+  /* line 225, ../../_scss/company/company.scss */
+  #companyContent .inner {
+    border-radius: 4vw 0 4vw 0;
+    margin: 0 auto 7.2vw;
+    padding: 8vw 4vw 0;
+    width: 92vw;
+  }
+  /* line 232, ../../_scss/company/company.scss */
+  #companyContent dl {
+    display: block;
+    line-height: 1.6;
+    font-size: 3.733333vw;
+  }
+  /* line 237, ../../_scss/company/company.scss */
+  #companyContent dl dt {
+    box-sizing: border-box;
+    padding: 0 0 4vw;
+    border-bottom: none;
+    text-align: center;
+  }
+  /* line 243, ../../_scss/company/company.scss */
+  #companyContent dl dt::after {
+    left: 50%;
+    width: 20vw;
+    height: 0.8vw;
+    transform: translateX(-50%);
+  }
+  /* line 251, ../../_scss/company/company.scss */
+  #companyContent dl dd {
+    margin: 0 0 8vw;
+    padding: 4vw 0 8vw;
+    border-bottom: 0.26667vw solid #f0f0f0;
+    text-align: center;
+  }
+  /* line 257, ../../_scss/company/company.scss */
+  #companyContent dl dd ul {
+    display: block;
+  }
+  /* line 260, ../../_scss/company/company.scss */
+  #companyContent dl dd ul li {
+    gap: 10px;
+    width: 100%;
+    text-align: left;
+  }
+  /* line 265, ../../_scss/company/company.scss */
+  #companyContent dl dd ul li:not(:last-child) {
+    margin: 0 0 4vw;
+  }
+  /* line 269, ../../_scss/company/company.scss */
+  #companyContent dl dd ul li strong {
+    display: block;
+    width: 25vw;
+    text-align: right;
+  }
+}
