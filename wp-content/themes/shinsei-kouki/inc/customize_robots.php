@@ -13,7 +13,7 @@ add_filter('robots_txt', function($output, $public) {
 		return $output;
 	}
 	if (strpos($output, 'Sitemap:') === false) {
-		$output .= "\nSitemap: " . esc_url(home_url('/wp-sitemap.xml')) . "\n";
+		$output .= "\nSitemap: " . esc_url(home_url('/sitemap.xml')) . "\n";
 	}
 	return $output;
 }, 10, 2);

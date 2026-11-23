@@ -48,17 +48,17 @@ if (!$ga_skip) : ?>
                 </button>
                 <ul class="headerNav">
                     <li class="onlySP"><a href="<?php echo esc_url(home_url('/')); ?>">トップページ<small>top</small></a></li>
-                    <li><a href="<?php echo esc_url(home_url('/business')); ?>">事業内容<small>business</small></a></li>
-                    <li><a href="<?php echo esc_url(home_url('/company')); ?>">会社概要<small>about us</small></a></li>
-                    <li><a href="<?php echo esc_url(home_url('/topics')); ?>">お知らせ<small>topics</small></a></li>
-                    <li><a href="<?php echo esc_url(home_url('/contact')); ?>" class="btnContact">
+                    <li><a href="<?php echo esc_url(home_url('/business/')); ?>">事業内容<small>business</small></a></li>
+                    <li><a href="<?php echo esc_url(home_url('/company/')); ?>">会社概要<small>about us</small></a></li>
+                    <li><a href="<?php echo esc_url(home_url('/topics/')); ?>">お知らせ<small>topics</small></a></li>
+                    <li><a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btnContact">
                         <picture>
                             <source media="(max-width: 768px)" srcset="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/common/ico_mail-green.svg">
                             <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/common/ico_mail.svg" alt="" width="41" height="28" class="iconMail" decoding="async" loading="lazy" aria-hidden="true">
                         </picture>
                         <span>お問い合わせ<small>contact</small></span>
                     </a></li>
-                    <li class="onlySP"><a href="<?php echo esc_url(home_url('/privacy-policy')); ?>">個人情報保護方針<small>privacy policy</small></a></li>
+                    <li class="onlySP"><a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>">個人情報保護方針<small>privacy policy</small></a></li>
                     <li class="onlySP">
                         <a href="tel:0465381194">
                             <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/common/ico_tel-white.svg" alt="" width="23" height="23" class="iconPhone iconPhoneWhite" decoding="async" loading="lazy" aria-hidden="true">

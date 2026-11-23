@@ -18,10 +18,10 @@ get_header();
         </p>
         <ul>
             <li><a href="<?php echo esc_url(home_url('/')); ?>">トップページ</a></li>
-            <li><a href="<?php echo esc_url(home_url('/business')); ?>">事業内容</a></li>
-            <li><a href="<?php echo esc_url(home_url('/company')); ?>">会社概要</a></li>
-            <li><a href="<?php echo esc_url(home_url('/topics')); ?>">お知らせ</a></li>
-            <li><a href="<?php echo esc_url(home_url('/contact')); ?>">お問い合わせ</a></li>
+            <li><a href="<?php echo esc_url(home_url('/business/')); ?>">事業内容</a></li>
+            <li><a href="<?php echo esc_url(home_url('/company/')); ?>">会社概要</a></li>
+            <li><a href="<?php echo esc_url(home_url('/topics/')); ?>">お知らせ</a></li>
+            <li><a href="<?php echo esc_url(home_url('/contact/')); ?>">お問い合わせ</a></li>
         </ul>
     </div>
 </section>

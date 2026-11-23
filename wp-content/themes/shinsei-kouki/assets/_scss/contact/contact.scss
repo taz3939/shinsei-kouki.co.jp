@@ -20,6 +20,19 @@
 			line-height: 1.8;
 			font-size: 15px;
 		}
+
+		p:has(+ .contactNotice) {
+			margin-bottom: 24px;
+		}
+
+		.contactNotice {
+			margin: 0 0 60px;
+			padding: 0;
+			line-height: 1.8;
+			font-size: 13px;
+			font-weight: 400;
+			color: $cRed2;
+		}
 	}
 }
 
@@ -118,6 +131,58 @@
 	
 					&:last-child {
 						padding: 30px 0 60px;
+					}
+
+					&.inquiryOther {
+						display: none;
+
+						&.is-open {
+							display: flex;
+						}
+
+						.mwform-radio-field {
+							display: block;
+
+							&:not(:last-child) {
+								margin-bottom: 12px;
+							}
+
+							label {
+								position: relative;
+								display: flex;
+								align-items: flex-start;
+								gap: 10px;
+								cursor: pointer;
+								line-height: 1.6;
+
+								&::before {
+									content: '';
+									flex-shrink: 0;
+									width: 20px;
+									height: 20px;
+									margin-top: 1px;
+									border: 2px solid $cGr1;
+									border-radius: 50%;
+									background: $cWht;
+									box-sizing: border-box;
+								}
+
+								&:has(input:checked)::before {
+									border-color: $cBlu;
+									background: $cBlu;
+									box-shadow: inset 0 0 0 4px $cWht;
+								}
+
+								input[type="radio"] {
+									position: absolute;
+									opacity: 0;
+									width: 20px;
+									height: 20px;
+									margin: 0;
+									cursor: pointer;
+								}
+							}
+						}
 					}
 	
 					dt {
@@ -218,7 +283,7 @@
 							color: $cRed2;
 						}
 	
-						label {
+						label:has(input[type="checkbox"]) {
 							position: relative;
 							display: inline-flex;
 							align-items: center;
@@ -421,6 +486,16 @@
 				margin: 0 0 12vw;
 				font-size: 3.733333vw;
 			}
+
+			p:has(+ .contactNotice) {
+				margin-bottom: 4.8vw;
+			}
+
+			.contactNotice {
+				margin: 0 0 12vw;
+				padding: 0;
+				font-size: 3.2vw;
+			}
 		}
 	}
 
@@ -469,6 +544,20 @@
 
 					.formItem {
 						display: block;
+
+						&.inquiryOther {
+							display: none;
+
+							&.is-open {
+								display: block;
+							}
+
+							.mwform-radio-field label::before {
+								width: 4.8vw;
+								height: 4.8vw;
+								border-width: 0.4vw;
+							}
+						}
 
 						&:not(:last-child) {
 							border-bottom: 0.2666667vw solid $cGr6;
@@ -562,7 +651,7 @@
 								font-size: 3.733333vw;
 							}
 
-							label {
+							label:has(input[type="checkbox"]) {
 								display: flex;
 								justify-content: center;
 								gap: 2vw;

@@ -19,29 +19,36 @@
    ---------------------------------------- */
 /* contactIntro setting
 ------------------------------------*/
-/* line 13, ../../_scss/contact/contact.scss */
 #contactIntro {
   margin: 0 auto;
   width: 90%;
   max-width: 960px;
 }
-/* line 18, ../../_scss/contact/contact.scss */
 #contactIntro .inner p {
   margin: 0 0 60px;
   line-height: 1.8;
   font-size: 15px;
 }
+#contactIntro .inner p:has(+ .contactNotice) {
+  margin-bottom: 24px;
+}
+#contactIntro .inner .contactNotice {
+  margin: 0 0 60px;
+  padding: 0;
+  line-height: 1.8;
+  font-size: 13px;
+  font-weight: 400;
+  color: #c80000;
+}
 
 /* contactFormSection setting
 ------------------------------------*/
-/* line 33, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   background: #333344 url(../../img/common/bg_common-pattern_pc.webp) center 0/100% auto no-repeat;
   width: 100%;
   padding: 70px 0 60px;
 }
-/* line 39, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection input,
 .mw_wp_form #contactFormSection select,
 .mw_wp_form #contactFormSection textarea,
@@ -58,7 +65,6 @@
   box-sizing: border-box;
   vertical-align: middle;
 }
-/* line 56, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection input,
 .mw_wp_form #contactFormSection select,
 .mw_wp_form #contactFormSection textarea,
@@ -67,21 +73,17 @@
   -moz-appearance: none;
   appearance: none;
 }
-/* line 65, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection select::-ms-expand {
   display: none;
 }
-/* line 69, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection button {
   cursor: pointer;
 }
-/* line 73, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection button::-moz-focus-inner,
 .mw_wp_form #contactFormSection input::-moz-focus-inner {
   padding: 0;
   border: 0;
 }
-/* line 79, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection .inner {
   box-sizing: border-box;
   border-radius: 15px 0 15px 0;
@@ -91,7 +93,6 @@
   width: 90%;
   max-width: 1010px;
 }
-/* line 88, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection .inner > .formNote {
   display: flex;
   justify-content: center;
@@ -100,7 +101,6 @@
   line-height: 1.8;
   font-size: 14px;
 }
-/* line 96, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection .inner > .formNote strong {
   display: inline-block;
   border-radius: 3px;
@@ -109,23 +109,63 @@
   padding: 0 10px;
   color: #fff;
 }
-/* line 108, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-/* line 113, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem:not(:last-child) {
   border-bottom: 1px solid #f0f0f0;
   margin: 0 0 25px;
   padding: 0 0 25px;
 }
-/* line 119, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem:last-child {
   padding: 30px 0 60px;
 }
-/* line 123, ../../_scss/contact/contact.scss */
+.mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem.inquiryOther {
+  display: none;
+}
+.mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem.inquiryOther.is-open {
+  display: flex;
+}
+.mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem.inquiryOther .mwform-radio-field {
+  display: block;
+}
+.mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem.inquiryOther .mwform-radio-field:not(:last-child) {
+  margin-bottom: 12px;
+}
+.mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem.inquiryOther .mwform-radio-field label {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  line-height: 1.6;
+}
+.mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem.inquiryOther .mwform-radio-field label::before {
+  content: '';
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  border: 2px solid #e3e3e3;
+  border-radius: 50%;
+  background: #fff;
+  box-sizing: border-box;
+}
+.mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem.inquiryOther .mwform-radio-field label:has(input:checked)::before {
+  border-color: #0087ac;
+  background: #0087ac;
+  box-shadow: inset 0 0 0 4px #fff;
+}
+.mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem.inquiryOther .mwform-radio-field label input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  cursor: pointer;
+}
 .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dt {
   box-sizing: border-box;
   display: flex;
@@ -136,7 +176,6 @@
   line-height: 1.8;
   font-size: 14px;
 }
-/* line 133, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dt .requiredMark {
   display: inline-block;
   border-radius: 3px;
@@ -144,17 +183,14 @@
   padding: 0 10px;
   color: #fff;
 }
-/* line 142, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd {
   width: 66.111%;
   font-size: 14px;
 }
-/* line 146, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd a {
   text-decoration: underline;
   color: #0087ac;
 }
-/* line 151, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd input {
   box-sizing: border-box;
   border: 1px solid #0087ac;
@@ -164,15 +200,12 @@
   height: 45px;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-/* line 161, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd:has(.error) input, .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd:has(.error) select, .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd:has(.error) textarea {
   background-color: #fff0f0;
 }
-/* line 167, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd:has(select) {
   position: relative;
 }
-/* line 170, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd:has(select)::after {
   content: '';
   position: absolute;
@@ -185,7 +218,6 @@
   width: 6px;
   height: 6px;
 }
-/* line 184, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd select {
   box-sizing: border-box;
   border: 1px solid #0087ac;
@@ -196,7 +228,6 @@
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
   background: transparent;
 }
-/* line 195, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd textarea {
   box-sizing: border-box;
   border: 1px solid #0087ac;
@@ -206,24 +237,20 @@
   min-height: 125px;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-/* line 205, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd .formHint {
   margin: 0 0 10px;
   font-size: 11px;
 }
-/* line 210, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd:has(input[type="hidden"]) .formHint {
   display: none;
 }
-/* line 214, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd .error {
   display: block;
   margin: 10px 0 0;
   font-size: 14px;
   color: #c80000;
 }
-/* line 221, ../../_scss/contact/contact.scss */
-.mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd label {
+.mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd label:has(input[type="checkbox"]) {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -232,8 +259,7 @@
   font-size: 14px;
   line-height: 1.5;
 }
-/* line 230, ../../_scss/contact/contact.scss */
-.mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd label::before {
+.mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd label:has(input[type="checkbox"])::before {
   content: '';
   flex-shrink: 0;
   width: 20px;
@@ -243,12 +269,10 @@
   background: #fff;
   transition: border-color 0.2s ease, background-color 0.2s ease;
 }
-/* line 241, ../../_scss/contact/contact.scss */
-.mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd label:has(input:checked)::before {
+.mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd label:has(input[type="checkbox"]):has(input:checked)::before {
   border-color: #0087ac;
 }
-/* line 245, ../../_scss/contact/contact.scss */
-.mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd label:has(input:checked)::after {
+.mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd label:has(input[type="checkbox"]):has(input:checked)::after {
   content: '';
   position: absolute;
   left: 3.5%;
@@ -261,8 +285,7 @@
   transform: rotate(-45deg) translateY(-50%);
   pointer-events: none;
 }
-/* line 259, ../../_scss/contact/contact.scss */
-.mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd label input[type="checkbox"] {
+.mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd label:has(input[type="checkbox"]) input[type="checkbox"] {
   position: absolute;
   opacity: 0;
   width: 20px;
@@ -270,12 +293,10 @@
   margin: 0;
   cursor: pointer;
 }
-/* line 267, ../../_scss/contact/contact.scss */
-.mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd label input[type="checkbox"]:focus-visible ~ .mwform-checkbox-field-text {
+.mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd label:has(input[type="checkbox"]) input[type="checkbox"]:focus-visible ~ .mwform-checkbox-field-text {
   outline: 2px solid #0087ac;
   outline-offset: 2px;
 }
-/* line 278, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection .submitArea {
   display: flex;
   flex-wrap: wrap;
@@ -285,13 +306,11 @@
   width: 415px;
   min-height: 80px;
 }
-/* line 288, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection .submitArea .submitBtnWrap {
   position: relative;
   display: block;
   width: 415px;
 }
-/* line 293, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection .submitArea .submitBtnWrap::after {
   content: '';
   position: absolute;
@@ -305,20 +324,16 @@
   height: 8px;
   transition: all 0.3s;
 }
-/* line 307, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection .submitArea .submitBtnWrap:has(input[type="submit"]:disabled)::after {
   opacity: 0;
 }
-/* line 312, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection .submitArea .backBtnWrap {
   display: block;
   width: 415px;
 }
-/* line 317, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection .submitArea:has(input[name="submitBack"]) {
   width: 850px;
 }
-/* line 321, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection .submitArea input[type="submit"] {
   display: block;
   box-sizing: border-box;
@@ -334,40 +349,32 @@
   transition: opacity 0.6s ease;
   cursor: pointer;
 }
-/* line 336, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection .submitArea input[type="submit"]:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
-/* line 341, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection .submitArea input[type="submit"]:hover:not(:disabled) {
   opacity: 0.8;
 }
-/* line 347, ../../_scss/contact/contact.scss */
 .mw_wp_form #contactFormSection .submitArea input[name="submitBack"] {
   background: #666;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
-/* line 357, ../../_scss/contact/contact.scss */
 .mw_wp_form.mw_wp_form_confirm #contactFormSection .inner > .formNote {
   display: none;
 }
-/* line 363, ../../_scss/contact/contact.scss */
 .mw_wp_form.mw_wp_form_confirm #contactFormSection .inner .mwWpFormInner .formItem dt .requiredMark {
   display: none;
 }
 
 /* contactSection setting
 ------------------------------------*/
-/* line 383, ../../_scss/contact/contact.scss */
 #contactSection .inner h2 {
   display: none;
 }
-/* line 386, ../../_scss/contact/contact.scss */
 #contactSection .inner > p {
   display: none;
 }
-/* line 390, ../../_scss/contact/contact.scss */
 #contactSection .inner > a.btnContact {
   display: none;
 }
@@ -381,19 +388,24 @@
 @media screen and (max-width: 768px) {
   /* contactIntro setting
   ------------------------------------*/
-  /* line 417, ../../_scss/contact/contact.scss */
   #contactIntro {
     width: 92vw;
   }
-  /* line 420, ../../_scss/contact/contact.scss */
   #contactIntro .inner p {
     margin: 0 0 12vw;
     font-size: 3.733333vw;
   }
+  #contactIntro .inner p:has(+ .contactNotice) {
+    margin-bottom: 4.8vw;
+  }
+  #contactIntro .inner .contactNotice {
+    margin: 0 0 12vw;
+    padding: 0;
+    font-size: 3.2vw;
+  }
 
   /* contactFormSection setting
   ------------------------------------*/
-  /* line 431, ../../_scss/contact/contact.scss */
   #contactFormSection .inner {
     padding: 4vw;
     width: 92vw;
@@ -402,68 +414,67 @@
 
   /* contactFormSection setting
   ------------------------------------*/
-  /* line 446, ../../_scss/contact/contact.scss */
   .mw_wp_form #contactFormSection {
     box-shadow: 0 0.53333vw 2.13333vw rgba(0, 0, 0, 0.15);
     background: #333344 url(../../img/common/bg_common-pattern_sp.webp) center 0/100% auto no-repeat;
     padding: 8vw 0 12vw;
   }
-  /* line 451, ../../_scss/contact/contact.scss */
   .mw_wp_form #contactFormSection .inner {
     border-radius: 4vw 0 4vw 0;
     margin: 0 auto 7.2vw;
     padding: 8vw 4vw 0;
     width: 92vw;
   }
-  /* line 457, ../../_scss/contact/contact.scss */
   .mw_wp_form #contactFormSection .inner > .formNote {
     margin: 0 0 6.4vw;
     font-size: 3.733333vw;
   }
-  /* line 461, ../../_scss/contact/contact.scss */
   .mw_wp_form #contactFormSection .inner > .formNote strong {
     border-radius: 0.8vw;
     margin: 0 1.3333333vw;
     padding: 0 2.666667vw;
   }
-  /* line 470, ../../_scss/contact/contact.scss */
   .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem {
     display: block;
   }
-  /* line 473, ../../_scss/contact/contact.scss */
+  .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem.inquiryOther {
+    display: none;
+  }
+  .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem.inquiryOther.is-open {
+    display: block;
+  }
+  .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem.inquiryOther .mwform-radio-field label::before {
+    width: 4.8vw;
+    height: 4.8vw;
+    border-width: 0.4vw;
+  }
   .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem:not(:last-child) {
     border-bottom: 0.26667vw solid #f0f0f0;
     margin: 0 0 6.6666667vw;
     padding: 0 0 6.6666667vw;
   }
-  /* line 479, ../../_scss/contact/contact.scss */
   .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem:last-child {
     padding: 2.4vw 0 12vw;
   }
-  /* line 483, ../../_scss/contact/contact.scss */
   .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dt {
     padding: 0 0 2.4vw;
     width: 100%;
     font-size: 3.733333vw;
   }
-  /* line 488, ../../_scss/contact/contact.scss */
   .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dt .requiredMark {
     border-radius: 0.8vw;
     padding: 0 2.666667vw;
   }
-  /* line 494, ../../_scss/contact/contact.scss */
   .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd {
     width: 100%;
     font-size: 3.733333vw;
     /* 16px 未満だと iOS がフォーカス時にズームするため、入力欄だけ 16px に */
   }
-  /* line 499, ../../_scss/contact/contact.scss */
   .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd input,
   .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd select,
   .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd textarea {
     font-size: 4.2666667vw;
   }
-  /* line 505, ../../_scss/contact/contact.scss */
   .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd input {
     border: 0.26667vw solid #0087ac;
     border-radius: 1.3333333vw;
@@ -472,7 +483,6 @@
     height: 12vw;
     box-shadow: inset 0 0.53333vw 1.06667vw rgba(0, 0, 0, 0.1);
   }
-  /* line 516, ../../_scss/contact/contact.scss */
   .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd:has(select)::after {
     top: 5.8666667vw;
     left: auto;
@@ -482,7 +492,6 @@
     width: 1.2vw;
     height: 1.2vw;
   }
-  /* line 527, ../../_scss/contact/contact.scss */
   .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd select {
     border: 0.26667vw solid #0087ac;
     border-radius: 1.3333333vw;
@@ -491,7 +500,6 @@
     height: 12vw;
     box-shadow: inset 0 0.53333vw 1.06667vw rgba(0, 0, 0, 0.1);
   }
-  /* line 536, ../../_scss/contact/contact.scss */
   .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd textarea {
     border: 0.26667vw solid #0087ac;
     border-radius: 1.3333333vw;
@@ -500,42 +508,35 @@
     min-height: 33.333333vw;
     box-shadow: inset 0 0.53333vw 1.06667vw rgba(0, 0, 0, 0.1);
   }
-  /* line 545, ../../_scss/contact/contact.scss */
   .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd .formHint {
     margin: 0 0.8vw 2.666667vw;
     padding: 0 0 0 2.933333vw;
     line-height: 1.5;
     font-size: 2.933333vw;
   }
-  /* line 551, ../../_scss/contact/contact.scss */
   .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd .formHint:first-letter {
     margin: 0 0 0 -2.933333vw;
   }
-  /* line 556, ../../_scss/contact/contact.scss */
   .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd:has(input[type="hidden"]) .formHint {
     display: none;
   }
-  /* line 560, ../../_scss/contact/contact.scss */
   .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd .error {
     margin: 2.666667vw 0 0;
     font-size: 3.733333vw;
   }
-  /* line 565, ../../_scss/contact/contact.scss */
-  .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd label {
+  .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd label:has(input[type="checkbox"]) {
     display: flex;
     justify-content: center;
     gap: 2vw;
     font-size: 3.733333vw;
   }
-  /* line 571, ../../_scss/contact/contact.scss */
-  .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd label::before {
+  .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd label:has(input[type="checkbox"])::before {
     width: 4vw;
     height: 4vw;
     border: 0.4vw solid #e3e3e3;
     border-radius: 0.8vw;
   }
-  /* line 578, ../../_scss/contact/contact.scss */
-  .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd label:has(input:checked)::after {
+  .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd label:has(input[type="checkbox"]):has(input:checked)::after {
     left: 15vw;
     width: 2vw;
     height: 1.0666667vw;
@@ -543,27 +544,22 @@
     border-left: 0.4vw solid #0087ac;
     border-bottom: 0.4vw solid #0087ac;
   }
-  /* line 587, ../../_scss/contact/contact.scss */
-  .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd label input[type="checkbox"] {
+  .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd label:has(input[type="checkbox"]) input[type="checkbox"] {
     width: 4vw;
     height: 4vw;
   }
-  /* line 591, ../../_scss/contact/contact.scss */
-  .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd label input[type="checkbox"]:focus-visible ~ .mwform-checkbox-field-text {
+  .mw_wp_form #contactFormSection .inner .mwWpFormInner .formItem dd label:has(input[type="checkbox"]) input[type="checkbox"]:focus-visible ~ .mwform-checkbox-field-text {
     outline: 0.4vw solid #0087ac;
     outline-offset: 0.4vw;
   }
-  /* line 602, ../../_scss/contact/contact.scss */
   .mw_wp_form #contactFormSection .submitArea {
     gap: 4vw;
     width: 92vw;
     min-height: 16vw;
   }
-  /* line 608, ../../_scss/contact/contact.scss */
   .mw_wp_form #contactFormSection .submitArea .submitBtnWrap {
     width: 92vw;
   }
-  /* line 611, ../../_scss/contact/contact.scss */
   .mw_wp_form #contactFormSection .submitArea .submitBtnWrap::after {
     right: 4vw;
     border-top: 0.4vw solid #fff;
@@ -572,15 +568,12 @@
     width: 1.6vw;
     height: 1.6vw;
   }
-  /* line 622, ../../_scss/contact/contact.scss */
   .mw_wp_form #contactFormSection .submitArea .backBtnWrap {
     width: 92vw;
   }
-  /* line 627, ../../_scss/contact/contact.scss */
   .mw_wp_form #contactFormSection .submitArea:has(input[name="submitBack"]) {
     width: 92vw;
   }
-  /* line 631, ../../_scss/contact/contact.scss */
   .mw_wp_form #contactFormSection .submitArea input[type="submit"] {
     background: #7fa329;
     box-shadow: 0 0.53333vw 1.6vw rgba(0, 0, 0, 0.15);
@@ -589,23 +582,21 @@
     line-height: 16vw;
     font-size: 3.733333vw;
   }
-  /* line 641, ../../_scss/contact/contact.scss */
   .mw_wp_form #contactFormSection .submitArea input[name="submitBack"] {
     box-shadow: 0 0.53333vw 1.6vw rgba(0, 0, 0, 0.15);
   }
 
   /* contactSection setting
   ------------------------------------*/
-  /* line 656, ../../_scss/contact/contact.scss */
   #contactSection .inner h2 {
     display: none;
   }
-  /* line 659, ../../_scss/contact/contact.scss */
   #contactSection .inner > p {
     display: none;
   }
-  /* line 663, ../../_scss/contact/contact.scss */
   #contactSection .inner > a.btnContact {
     display: none;
   }
 }
+
+/*# sourceMappingURL=contact.css.map */

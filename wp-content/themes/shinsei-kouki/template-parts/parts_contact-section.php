@@ -15,7 +15,7 @@
             また、お客様のご都合に合わせて、休日（土日・祝日）の作業対応も可能です。<br>
             お気軽にご相談くださいませ。
         </p>
-        <a href="<?php echo esc_url(home_url('/contact')); ?>" class="btnContact">
+        <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btnContact">
             <span>計量器・分銅のお困りごとやご不明な点は<br class="onlySP">神西衡機にお任せください</span>
             <em>
                 <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/common/ico_mail.svg" alt="" width="41" height="28" class="iconMail" decoding="async" loading="lazy" aria-hidden="true">

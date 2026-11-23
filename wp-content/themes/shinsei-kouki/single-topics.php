@@ -57,7 +57,7 @@ get_header();
         </div>
     </div>
     <div class="btnArea">
-        <a href="<?php echo esc_url(home_url('/topics')); ?>" class="btnSecondary">お知らせ一覧に戻る</a>
+        <a href="<?php echo esc_url(home_url('/topics/')); ?>" class="btnSecondary">お知らせ一覧に戻る</a>
     </div>
 </section>
 

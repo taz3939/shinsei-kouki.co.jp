@@ -7,6 +7,7 @@
 $includes = [
     'inc/common_theme.php',                 // テーマ土台・cleanup・enqueue
     'inc/common_setting.php',               // 共通設定・メタボックス・カスタマイザー・メタ出力
+    'inc/maintenance.php',                  // メンテナンスモード（カスタマイザーでオン/オフ）
     'inc/customize_topics.php',             // お知らせ（topics）のカスタマイズ・メタボックス
     'inc/post-type_reference-weight.php',   // 所持している基準器分銅（CPT・管理画面）
     'inc/customize_sitemap.php',            // サイトマップ（page・topics のみ出力）
@@ -165,7 +166,7 @@ function shinsei_kouki_breadcrumbs() {
         // 投稿ページ
         $post_type = get_post_type();
         if ($post_type === 'topics') {
-            echo '<li><a href="' . esc_url(home_url('/topics')) . '">お知らせ</a></li>';
+            echo '<li><a href="' . esc_url(home_url('/topics/')) . '">お知らせ</a></li>';
         } elseif ($post_type === 'post') {
             $categories = get_the_category();
             if (!empty($categories)) {
@@ -185,7 +186,7 @@ function shinsei_kouki_breadcrumbs() {
         echo '<li>' . esc_html(get_the_title()) . '</li>';
     } elseif (is_tax('topics_category')) {
         $term = get_queried_object();
-        echo '<li><a href="' . esc_url(home_url('/topics')) . '">お知らせ</a></li>';
+        echo '<li><a href="' . esc_url(home_url('/topics/')) . '">お知らせ</a></li>';
         echo '<li>' . esc_html($term && !is_wp_error($term) ? $term->name : 'お知らせカテゴリ') . '</li>';
     } elseif (is_post_type_archive()) {
         // カスタム投稿タイプのアーカイブ

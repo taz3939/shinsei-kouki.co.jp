@@ -24,10 +24,10 @@
             <div id="footerContent">
                 <nav aria-label="footerNav">
                     <ul>
-                        <li><a href="<?php echo esc_url(home_url('/business')); ?>">事業内容</a></li>
-                        <li><a href="<?php echo esc_url(home_url('/company')); ?>">会社概要</a></li>
-                        <li><a href="<?php echo esc_url(home_url('/topics')); ?>">お知らせ</a></li>
-                        <li><a href="<?php echo esc_url(home_url('/contact')); ?>">お問い合わせ</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/business/')); ?>">事業内容</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/company/')); ?>">会社概要</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/topics/')); ?>">お知らせ</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/contact/')); ?>">お問い合わせ</a></li>
                     </ul>
                 </nav>
                 <p>
@@ -47,7 +47,7 @@
                     <dt>成田営業所</dt>
                     <dd>
                         〒<?php echo get_option('company_postal_odawara', '250-0862'); ?> <?php echo get_option('company_address_odawara', '神奈川県小田原市成田1048'); ?><br>
-                        TEL: <?php echo get_option('company_tel', '0465-38-1194'); ?>　FAX: <?php echo get_option('company_fax_odawara', '0465-36-1294'); ?>
+                        TEL: <?php echo get_option('company_tel', '0465-38-1194'); ?>　FAX: <?php echo get_option('company_fax_odawara', '0465-38-1294'); ?>
                     </dd>
                 </dl>
             </div>

@@ -32,7 +32,7 @@ function shinsei_kouki_get_breadcrumb_items() {
         if ($post_type === 'topics') {
             $items[] = array(
                 'name' => 'お知らせ',
-                'url'  => home_url('/topics'),
+                'url'  => home_url('/topics/'),
             );
         } elseif ($post_type === 'post') {
             $categories = get_the_category();
@@ -66,7 +66,7 @@ function shinsei_kouki_get_breadcrumb_items() {
         $term = get_queried_object();
         $items[] = array(
             'name' => 'お知らせ',
-            'url'  => home_url('/topics'),
+            'url'  => home_url('/topics/'),
         );
         $items[] = array(
             'name' => $term && !is_wp_error($term) ? $term->name : 'お知らせカテゴリ',

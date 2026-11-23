@@ -213,6 +213,8 @@
 
 ● お問い合わせ種別：{inquiry_type}
 
+● その他の内容：{inquiry_other}
+
 ● お問い合わせ内容：
 {message}
 ```
@@ -266,6 +268,8 @@ delete_option( 'shinsei_kouki_inquiry_serial_number' );  // 連番リセット�
 以下、お問い合わせいただいた内容になります。
 -----------------------------------------------
 ● お問い合わせ種別：{inquiry_type}
+
+● その他の内容：{inquiry_other}
 
 ● お問い合わせ内容：
 {message}

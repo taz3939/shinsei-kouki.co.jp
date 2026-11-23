@@ -19,26 +19,21 @@
    ---------------------------------------- */
 /* privacyIntro setting
 ------------------------------------*/
-/* line 13, ../../_scss/privacy/privacy.scss */
 #privacyIntro {
   margin: 0 auto;
   width: 90%;
   max-width: 960px;
 }
-/* line 18, ../../_scss/privacy/privacy.scss */
 #privacyIntro .inner .pageTitle {
   margin: 0 0 25px -50px;
   width: 250px;
 }
-/* line 22, ../../_scss/privacy/privacy.scss */
 #privacyIntro .inner .pageTitle.pageTitle::after {
   left: 50px;
 }
-/* line 26, ../../_scss/privacy/privacy.scss */
 #privacyIntro .inner .pageTitle small {
   left: 240px;
 }
-/* line 30, ../../_scss/privacy/privacy.scss */
 #privacyIntro .inner p {
   margin: 0 0 60px;
   line-height: 1.8;
@@ -47,14 +42,12 @@
 
 /* privacy Content setting
 ------------------------------------*/
-/* line 44, ../../_scss/privacy/privacy.scss */
 #privacyContent {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   background: #333344 url(../../img/common/bg_common-pattern_pc.webp) center 0/100% auto no-repeat;
   width: 100%;
   padding: 70px 0 60px;
 }
-/* line 50, ../../_scss/privacy/privacy.scss */
 #privacyContent .inner {
   box-sizing: border-box;
   border-radius: 15px 0 15px 0;
@@ -64,59 +57,49 @@
   width: 90%;
   max-width: 1010px;
 }
-/* line 59, ../../_scss/privacy/privacy.scss */
 #privacyContent .inner ol {
   margin: 0 0 40px;
   padding: 0;
   list-style: none;
   counter-reset: privacy;
 }
-/* line 65, ../../_scss/privacy/privacy.scss */
 #privacyContent .inner ol > li {
   margin: 0 0 32px;
   padding: 0 0 24px;
   border-bottom: 1px solid #f0f0f0;
   counter-increment: privacy;
 }
-/* line 71, ../../_scss/privacy/privacy.scss */
 #privacyContent .inner ol > li:last-of-type {
   border-bottom: none;
 }
-/* line 76, ../../_scss/privacy/privacy.scss */
 #privacyContent .inner ol h2 {
   margin: 0 0 12px;
   font-size: 16px;
   font-weight: 700;
   color: #182227;
 }
-/* line 82, ../../_scss/privacy/privacy.scss */
 #privacyContent .inner ol h2::before {
   content: counter(privacy) ". ";
 }
-/* line 87, ../../_scss/privacy/privacy.scss */
 #privacyContent .inner ol p {
   margin: 0 0 12px;
   line-height: 1.8;
   letter-spacing: 0;
   font-size: 14px;
 }
-/* line 94, ../../_scss/privacy/privacy.scss */
 #privacyContent .inner ol ul {
   margin: 0 0 12px;
   padding: 0 0 0 2.5em;
   list-style: disc;
 }
-/* line 99, ../../_scss/privacy/privacy.scss */
 #privacyContent .inner ol ul li {
   margin: 0 0 4px;
   line-height: 1.8;
   font-size: 13px;
 }
-/* line 104, ../../_scss/privacy/privacy.scss */
 #privacyContent .inner ol ul li::marker {
   color: #0087ac;
 }
-/* line 111, ../../_scss/privacy/privacy.scss */
 #privacyContent .inner .privacyDate {
   line-height: 1.8;
   text-align: right;
@@ -132,25 +115,20 @@
 @media screen and (max-width: 768px) {
   /* privacyIntro setting
   ------------------------------------*/
-  /* line 136, ../../_scss/privacy/privacy.scss */
   #privacyIntro {
     width: 92vw;
   }
-  /* line 139, ../../_scss/privacy/privacy.scss */
   #privacyIntro .inner .pageTitle {
     margin: 0 0 6.6666667vw;
     width: 100%;
   }
-  /* line 143, ../../_scss/privacy/privacy.scss */
   #privacyIntro .inner .pageTitle.pageTitle::after {
     left: 50%;
   }
-  /* line 147, ../../_scss/privacy/privacy.scss */
   #privacyIntro .inner .pageTitle small {
     left: 0;
     font-size: 14vw;
   }
-  /* line 152, ../../_scss/privacy/privacy.scss */
   #privacyIntro .inner p {
     margin: 0 0 8vw;
     line-height: 1.85;
@@ -159,55 +137,45 @@
 
   /* privacy Content setting
   ------------------------------------*/
-  /* line 166, ../../_scss/privacy/privacy.scss */
   #privacyContent {
     box-shadow: 0 0.53333vw 2.13333vw rgba(0, 0, 0, 0.15);
     background: #333344 url(../../img/common/bg_common-pattern_sp.webp) center 0/100% auto no-repeat;
     padding: 8vw 0 12vw;
   }
-  /* line 171, ../../_scss/privacy/privacy.scss */
   #privacyContent .inner {
     border-radius: 4vw 0 4vw 0;
     margin: 0 auto 7.2vw;
     padding: 8vw 4vw;
     width: 92vw;
   }
-  /* line 177, ../../_scss/privacy/privacy.scss */
   #privacyContent .inner ol {
     margin: 0 0 40px;
   }
-  /* line 180, ../../_scss/privacy/privacy.scss */
   #privacyContent .inner ol > li {
     margin: 0 0 4vw;
     padding: 4vw 1.2vw;
     border-bottom: 1px solid #f0f0f0;
   }
-  /* line 186, ../../_scss/privacy/privacy.scss */
   #privacyContent .inner ol h2 {
     margin: 0 0 4vw;
     font-size: 4vw;
     color: #0087ac;
   }
-  /* line 191, ../../_scss/privacy/privacy.scss */
   #privacyContent .inner ol h2::before {
     content: counter(privacy) ". ";
   }
-  /* line 196, ../../_scss/privacy/privacy.scss */
   #privacyContent .inner ol p {
     margin: 0 0 2.4vw;
     line-height: 1.6;
     font-size: 3.733333vw;
   }
-  /* line 202, ../../_scss/privacy/privacy.scss */
   #privacyContent .inner ol ul {
     margin: 0 0 2.4vw;
   }
-  /* line 205, ../../_scss/privacy/privacy.scss */
   #privacyContent .inner ol ul li {
     margin: 0 0 1.2vw;
     font-size: 3.2vw;
   }
-  /* line 212, ../../_scss/privacy/privacy.scss */
   #privacyContent .inner .privacyDate {
     font-size: 2.666667vw;
   }

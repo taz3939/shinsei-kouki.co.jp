@@ -47,6 +47,14 @@
 					[mwform_error keys="inquiry_type"]
 				</dd>
 			</dl>
+			<dl class="formItem inquiryOther">
+				<dt class="required">その他の内容<span class="requiredMark">必須</span></dt>
+				<dd>
+					<p class="formHint">※「その他」を選んだ場合は、近いものを選んでください。</p>
+					[mwform_radio name="inquiry_other" children="分銅・ウエイトのレンタル,これまでのご依頼についての連絡（見積・請求・日程など）,校正・点検の相談,計量器の検査や制度についての質問,上記以外（営業・ご提案、取材、掲載など）" vertically="true" show_error="false"]
+					[mwform_error keys="inquiry_other"]
+				</dd>
+			</dl>
 			<dl class="formItem">
 				<dt class="required">お問い合わせ内容<span class="requiredMark">必須</span></dt>
 				<dd>
@@ -68,3 +76,4 @@
 		<span class="backBtnWrap">[mwform_backButton value="入力内容を修正する"]</span>
 		<span class="submitBtnWrap">[mwform_submitButton confirm_value="確認画面へ" submit_value="送信する"]</span>
 	</div>
+</section>

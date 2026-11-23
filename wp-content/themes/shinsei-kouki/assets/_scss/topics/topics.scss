@@ -224,7 +224,7 @@
 						position: relative;
 						margin: 0 50px 0 0;
 						padding: 0 0 0 15px;
-						color: $cWht;
+						white-space: nowrap;
 						
 						&:hover {
 							opacity: 0.8;
@@ -236,8 +236,8 @@
 							top: 50%;
 							left: 0;
 							transform: translateY(-50%) rotate(-135deg);
-							border-top: 1px solid $cWht;
-							border-right: 1px solid $cWht;
+							border-top: 1px solid $cBlu;
+							border-right: 1px solid $cBlu;
 							width: 6px;
 							height: 6px;
 						}
@@ -282,7 +282,6 @@
 						a, span {
 							background: transparent;
 							border: 1px solid $cWht;
-							color: $cWht;
 						}
 					}
 				}
@@ -292,7 +291,6 @@
 					span {
 						width: 40px;
 						height: 40px;
-						color: $cWht;
 					}
 				}
 			}
@@ -1158,7 +1156,7 @@
 			
 			.pagination {
 				ul {
-					gap: 2vw;
+					gap: 1vw;
 					flex-wrap: wrap;
 				}
 				
@@ -1170,25 +1168,32 @@
 					&.paginationPrev,
 					&.paginationNext {
 						a, span {
+							margin: 0 2vw 0 0;
 							padding: 0 2vw;
+						}
+					}
+					
+					&.paginationNext {
+						a, span {
+							margin: 0 0 0 2vw;
 						}
 					}
 					
 					&:not(.paginationPrev):not(.paginationNext):not(.paginationDots) {
 						a, span {
-							width: 8vw;
-							height: 8vw;
-							min-width: 8vw;
-							min-height: 8vw;
+							width: 6vw;
+							height: 6vw;
+							min-width: 6vw;
+							min-height: 6vw;
 						}
 					}
 					
 					&.paginationDots {
 						span {
-							width: 8vw;
-							height: 8vw;
-							min-width: 8vw;
-							min-height: 8vw;
+							width: 6vw;
+							height: 6vw;
+							min-width: 6vw;
+							min-height: 6vw;
 						}
 					}
 				}

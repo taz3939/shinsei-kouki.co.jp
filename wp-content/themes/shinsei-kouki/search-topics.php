@@ -53,7 +53,7 @@ get_header();
                 <p class="noResults">
                     検索キーワードに一致するお知らせが見つかりませんでした。<br>
                     別のキーワードでお探しになるか、<br>
-                    <a href="<?php echo esc_url(home_url('/topics')); ?>">お知らせ一覧</a>からお探しください。<br>
+                    <a href="<?php echo esc_url(home_url('/topics/')); ?>">お知らせ一覧</a>からお探しください。<br>
                 </p>
                 <?php endif; ?>
 

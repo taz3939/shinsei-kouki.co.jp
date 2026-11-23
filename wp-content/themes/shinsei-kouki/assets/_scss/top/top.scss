@@ -374,8 +374,8 @@ main {
 
   .inner {
     margin: 0 auto;
-    width: 90%;
-    max-width: 1200px;
+    width: 80%;
+    max-width: 1000px;
     text-align: center;
     
     h2 {
@@ -719,6 +719,10 @@ main {
         }
         
         .calendarLegend {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 8px 16px;
           
           .legendItem {
             display: inline-flex;
@@ -734,6 +738,10 @@ main {
             
             &.holiday {
               background: $cRed;
+            }
+
+            &.unavailable {
+              background: $cYellow;
             }
           }
         }
@@ -783,9 +791,15 @@ main {
               color: $cWht;
               font-weight: bold;
             }
+
+            &.unavailable {
+              background: $cYellow;
+              color: $cBk1;
+              font-weight: bold;
+            }
             
             &.today {
-              border: 4px solid $cYellow;
+              border: 4px solid $cBlu;
             }
           }
         }
@@ -1285,7 +1299,7 @@ main {
               height: 7.2vw;
 
               &.today {
-                border: 0.8vw solid $cYellow;
+                border: 0.8vw solid $cBlu;
               }
             }
           }

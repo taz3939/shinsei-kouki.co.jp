@@ -2,7 +2,7 @@
 /**
  * template-parts/parts_business-calendar.php
  * 営業カレンダー機能（サイト内で複数配置される可能性があるパーツ）
- * CPT登録・休業日設定メタボックス・Ajax・フロント表示
+ * CPT登録・休業日／作業対応不可メタボックス・Ajax・フロント表示
  * ※ functions.php から require で読み込み（get_template_part では読まない）
  */
 
@@ -109,7 +109,7 @@ add_action('wp_ajax_nopriv_shinsei_kouki_get_calendar', 'shinsei_kouki_ajax_get_
 function shinsei_kouki_add_calendar_metabox() {
     add_meta_box(
         'business_calendar_metabox',
-        '休業日設定',
+        '休業日・作業対応不可',
         'shinsei_kouki_calendar_metabox_callback',
         'business_calendar',
         'normal',
@@ -132,10 +132,15 @@ function shinsei_kouki_calendar_metabox_callback($post) {
         }
     }
     $holidays = array();
+    $unavailable = array();
     if ($post->ID > 0 && $post->post_status !== 'auto-draft') {
         $saved_holidays = get_post_meta($post->ID, '_calendar_holidays', true);
         if (is_array($saved_holidays) && !empty($saved_holidays)) {
             $holidays = $saved_holidays;
+        }
+        $saved_unavailable = get_post_meta($post->ID, '_calendar_unavailable', true);
+        if (is_array($saved_unavailable) && !empty($saved_unavailable)) {
+            $unavailable = $saved_unavailable;
         }
     }
     $days_in_month = date('t', strtotime($calendar_year . '-' . $calendar_month . '-01'));
@@ -147,6 +152,7 @@ function shinsei_kouki_calendar_metabox_callback($post) {
             <label>月：<input type="number" id="calendar_month_input" name="calendar_month" value="<?php echo esc_attr($calendar_month); ?>" min="1" max="12" required></label>
         </p>
         <p class="description">タイトルに「<span id="calendar_title_hint"><?php echo esc_html($calendar_year); ?>年<?php echo esc_html(intval($calendar_month)); ?>月</span>」と入力してください。</p>
+        <p class="description">各日で「休業日」または「作業対応不可」を選べます。未選択の日は通常営業です。日曜は未選択でも休業日として表示されます。</p>
         <div class="calendarGrid">
             <div class="calendarHeader">
                 <div class="calendarDayHeader">日</div>
@@ -164,21 +170,27 @@ function shinsei_kouki_calendar_metabox_callback($post) {
                 }
                 for ($day = 1; $day <= $days_in_month; $day++) {
                     $day_of_week = date('w', strtotime($calendar_year . '-' . $calendar_month . '-' . sprintf('%02d', $day)));
-                    $is_holiday = in_array($day, $holidays);
+                    $is_unavailable = in_array($day, $unavailable);
+                    $is_holiday = !$is_unavailable && in_array($day, $holidays);
                     $is_sunday = ($day_of_week == 0);
                     $is_saturday = ($day_of_week == 6);
                     $class = 'calendarDay';
                     if ($is_sunday || $is_saturday) {
                         $class .= ' weekend';
                     }
-                    if ($is_holiday) {
+                    if ($is_unavailable) {
+                        $class .= ' unavailable';
+                    } elseif ($is_holiday) {
                         $class .= ' holiday';
                     }
+                    $status = $is_unavailable ? 'unavailable' : ($is_holiday ? 'holiday' : '');
                     echo '<div class="' . esc_attr($class) . '">';
-                    echo '<label>';
-                    echo '<input type="checkbox" name="calendar_holidays[]" value="' . esc_attr($day) . '"' . ($is_holiday ? ' checked' : '') . '>';
-                    echo '<span>' . esc_html($day) . '</span>';
-                    echo '</label>';
+                    echo '<span class="dayNum">' . esc_html($day) . '</span>';
+                    echo '<select name="calendar_day_status[' . esc_attr($day) . ']">';
+                    echo '<option value=""' . selected($status, '', false) . '>通常</option>';
+                    echo '<option value="holiday"' . selected($status, 'holiday', false) . '>休業日</option>';
+                    echo '<option value="unavailable"' . selected($status, 'unavailable', false) . '>作業対応不可</option>';
+                    echo '</select>';
                     echo '</div>';
                 }
                 ?>
@@ -186,29 +198,30 @@ function shinsei_kouki_calendar_metabox_callback($post) {
         </div>
         <script>
         (function($) {
-            var savedHolidays = [];
+            var savedStatuses = {};
             var originalYear = parseInt($('#calendar_year_input').val());
             var originalMonth = parseInt($('#calendar_month_input').val());
-            $(document).ready(function() {
-                savedHolidays = [];
-                $('#calendar_body input[type="checkbox"]').each(function() {
-                    if ($(this).is(':checked')) {
-                        savedHolidays.push(parseInt($(this).val()));
+            function readStatusesFromDom() {
+                var statuses = {};
+                $('#calendar_body select[name^="calendar_day_status"]').each(function() {
+                    var match = $(this).attr('name').match(/\[(\d+)\]/);
+                    var status = $(this).val();
+                    if (match && status) {
+                        statuses[parseInt(match[1], 10)] = status;
                     }
                 });
+                return statuses;
+            }
+            $(document).ready(function() {
+                savedStatuses = readStatusesFromDom();
             });
-            function saveHolidayStates() {
+            function saveStatusStates() {
                 var currentYear = parseInt($('#calendar_year_input').val());
                 var currentMonth = parseInt($('#calendar_month_input').val());
                 if (currentYear === originalYear && currentMonth === originalMonth) {
-                    savedHolidays = [];
-                    $('#calendar_body input[type="checkbox"]').each(function() {
-                        if ($(this).is(':checked')) {
-                            savedHolidays.push(parseInt($(this).val()));
-                        }
-                    });
+                    savedStatuses = readStatusesFromDom();
                 } else {
-                    savedHolidays = [];
+                    savedStatuses = {};
                 }
             }
             function updateTitle() {
@@ -230,9 +243,9 @@ function shinsei_kouki_calendar_metabox_callback($post) {
                 $('#calendar_title_hint').text(year + '年' + month + '月');
                 updateTitle();
                 if (year !== originalYear || month !== originalMonth) {
-                    savedHolidays = [];
+                    savedStatuses = {};
                 } else {
-                    saveHolidayStates();
+                    saveStatusStates();
                 }
                 var daysInMonth = new Date(year, month, 0).getDate();
                 var firstDay = new Date(year, month - 1, 1).getDay();
@@ -246,15 +259,26 @@ function shinsei_kouki_calendar_metabox_callback($post) {
                     var dayOfWeek = date.getDay();
                     var isSunday = (dayOfWeek === 0);
                     var isSaturday = (dayOfWeek === 6);
-                    var isHoliday = savedHolidays.indexOf(day) !== -1;
+                    var status = savedStatuses[day] || '';
                     var classNames = 'calendarDay';
                     if (isSunday || isSaturday) classNames += ' weekend';
-                    if (isHoliday) classNames += ' holiday';
-                    var checked = isHoliday ? ' checked' : '';
-                    var html = '<div class="' + classNames + '"><label><input type="checkbox" name="calendar_holidays[]" value="' + day + '"' + checked + '><span>' + day + '</span></label></div>';
+                    if (status) classNames += ' ' + status;
+                    var html = '<div class="' + classNames + '"><span class="dayNum">' + day + '</span><select name="calendar_day_status[' + day + ']">'
+                        + '<option value=""' + (status === '' ? ' selected' : '') + '>通常</option>'
+                        + '<option value="holiday"' + (status === 'holiday' ? ' selected' : '') + '>休業日</option>'
+                        + '<option value="unavailable"' + (status === 'unavailable' ? ' selected' : '') + '>作業対応不可</option>'
+                        + '</select></div>';
                     $calendarBody.append(html);
                 }
             }
+            $('#calendar_body').on('change', 'select', function() {
+                var $cell = $(this).closest('.calendarDay');
+                $cell.removeClass('holiday unavailable');
+                var status = $(this).val();
+                if (status) {
+                    $cell.addClass(status);
+                }
+            });
             $('#calendar_year_input, #calendar_month_input').on('change', function() {
                 regenerateCalendar();
             });
@@ -269,12 +293,13 @@ function shinsei_kouki_calendar_metabox_callback($post) {
         .calendarAdmin .calendarHeader { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; margin-bottom: 2px; }
         .calendarAdmin .calendarDayHeader { background: #f0f0f0; padding: 8px; text-align: center; font-weight: bold; }
         .calendarAdmin .calendarBody { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
-        .calendarAdmin .calendarDay { background: #fff; border: 1px solid #ddd; padding: 8px; text-align: center; min-height: 40px; display: flex; align-items: center; justify-content: center; }
+        .calendarAdmin .calendarDay { background: #fff; border: 1px solid #ddd; padding: 6px 4px; text-align: center; min-height: 72px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
         .calendarAdmin .calendarDay.empty { background: #f9f9f9; border: none; }
         .calendarAdmin .calendarDay.weekend { background: #e8f4f8; }
         .calendarAdmin .calendarDay.holiday { background: #ffebee; }
-        .calendarAdmin .calendarDay label { display: flex; flex-direction: column; align-items: center; cursor: pointer; width: 100%; }
-        .calendarAdmin .calendarDay input[type="checkbox"] { margin-bottom: 4px; }
+        .calendarAdmin .calendarDay.unavailable { background: #ffd700; }
+        .calendarAdmin .calendarDay .dayNum { font-weight: bold; line-height: 1.2; }
+        .calendarAdmin .calendarDay select { width: 100%; max-width: 108px; font-size: 11px; }
         </style>
     </div>
     <?php
@@ -299,13 +324,28 @@ function shinsei_kouki_save_calendar_metabox($post_id) {
     if (isset($_POST['calendar_month'])) {
         update_post_meta($post_id, '_calendar_month', sprintf('%02d', intval($_POST['calendar_month'])));
     }
-    if (isset($_POST['calendar_holidays']) && is_array($_POST['calendar_holidays']) && !empty($_POST['calendar_holidays'])) {
-        $holidays = array_unique(array_map('intval', $_POST['calendar_holidays']));
-        sort($holidays);
-        update_post_meta($post_id, '_calendar_holidays', $holidays);
-    } else {
-        update_post_meta($post_id, '_calendar_holidays', array());
+    $holidays = array();
+    $unavailable = array();
+    if (isset($_POST['calendar_day_status']) && is_array($_POST['calendar_day_status'])) {
+        foreach ($_POST['calendar_day_status'] as $day => $status) {
+            $day = intval($day);
+            if ($day < 1 || $day > 31) {
+                continue;
+            }
+            $status = sanitize_text_field($status);
+            if ($status === 'holiday') {
+                $holidays[] = $day;
+            } elseif ($status === 'unavailable') {
+                $unavailable[] = $day;
+            }
+        }
     }
+    $holidays = array_values(array_unique($holidays));
+    $unavailable = array_values(array_unique($unavailable));
+    sort($holidays);
+    sort($unavailable);
+    update_post_meta($post_id, '_calendar_holidays', $holidays);
+    update_post_meta($post_id, '_calendar_unavailable', $unavailable);
 }
 add_action('save_post', 'shinsei_kouki_save_calendar_metabox');
 
@@ -370,10 +410,15 @@ function shinsei_kouki_display_calendar($year = null, $month = null) {
         'post_status' => 'publish',
     ));
     $holidays = array();
+    $unavailable = array();
     if (!empty($calendar_posts)) {
         $saved_holidays = get_post_meta($calendar_posts[0]->ID, '_calendar_holidays', true);
         if (is_array($saved_holidays)) {
             $holidays = $saved_holidays;
+        }
+        $saved_unavailable = get_post_meta($calendar_posts[0]->ID, '_calendar_unavailable', true);
+        if (is_array($saved_unavailable)) {
+            $unavailable = $saved_unavailable;
         }
     } else {
         $holidays = shinsei_kouki_get_default_holidays($year, $month);
@@ -402,6 +447,7 @@ function shinsei_kouki_display_calendar($year = null, $month = null) {
         <button type="button" class="btnNext" data-year="<?php echo esc_attr($next_year); ?>" data-month="<?php echo esc_attr($next_month); ?>"<?php echo $next_disabled ? ' disabled' : ''; ?>></button>
         <p class="calendarLegend">
             <span class="legendItem"><span class="legendColor holiday"></span>休業日</span>
+            <span class="legendItem"><span class="legendColor unavailable"></span>作業対応不可</span>
         </p>
         <table class="calendarTable">
             <thead>
@@ -426,12 +472,14 @@ function shinsei_kouki_display_calendar($year = null, $month = null) {
                         } else {
                             $is_sunday = ($dow == 0);
                             $is_saturday = ($dow == 6);
-                            $is_holiday = $is_sunday || in_array($day, $holidays);
+                            $is_unavailable = in_array($day, $unavailable);
+                            $is_holiday = !$is_unavailable && ($is_sunday || in_array($day, $holidays));
                             $is_today = ($year == date('Y') && $month == date('m') && $day == date('d'));
                             $class = '';
                             if ($is_sunday) $class .= ' sunday';
                             if ($is_saturday) $class .= ' saturday';
                             if ($is_holiday) $class .= ' holiday';
+                            if ($is_unavailable) $class .= ' unavailable';
                             if ($is_today) $class .= ' today';
                             echo '<td class="' . esc_attr(trim($class)) . '">';
                             echo $is_today ? '<em>' . esc_html($day) . '</em>' : esc_html($day);

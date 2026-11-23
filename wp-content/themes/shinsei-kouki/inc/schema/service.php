@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) {
  */
 function shinsei_kouki_get_service_schema() {
     $org_id = home_url('/') . '#organization';
-    $base   = home_url('/business');
+    $base   = home_url('/business/');
 
     $services = array(
         array(

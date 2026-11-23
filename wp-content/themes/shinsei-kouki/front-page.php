@@ -77,7 +77,7 @@ get_header();
                 <p>定期検査に代わる、計量士による法定検査（代検査）を実施。トラックスケールから電子天びんまで対応可能です。</p>
             </li>
         </ol>
-        <a href="<?php echo esc_url(home_url('/business')); ?>" class="btnPrimary">事業内容について詳しくはこちら</a>
+        <a href="<?php echo esc_url(home_url('/business/')); ?>" class="btnPrimary">事業内容について詳しくはこちら</a>
     </div>
 </section>
 
@@ -96,24 +96,27 @@ get_header();
         </p>
         <ul>
             <?php
-            // 取り扱いメーカーのロゴ画像を表示（name: alt・表示用、url: リンク先・空ならリンクなし）
+            // 取り扱いメーカー（50音順）。logo = 画像ファイル名のベース（拡張子なし）。ext がなければ .webp
             $brands = array(
-                '01' => array( 'name' => '株式会社石蔵商店', 'url' => 'https://www.ishikura-s.co.jp/' ),
-                '02' => array( 'name' => '株式会社イシダ', 'url' => 'https://www.ishida.co.jp/ww/jp/' ),
-                '03' => array( 'name' => '株式会社エー・アンド・デイ', 'url' => 'https://www.aandd.co.jp/' ),
-                '04' => array( 'name' => '近江度量衡株式会社', 'url' => 'https://www.omiscale.co.jp/' ),
-                '05' => array( 'name' => '株式会社協立商会', 'url' => 'https://www.krsdigi.co.jp/' ),
-                '06' => array( 'name' => '株式会社櫛田度器製作所', 'url' => 'http://www.kushidadoki.com/' ),
-                '07' => array( 'name' => '株式会社CAS', 'url' => 'https://cas-japan.com/' ),
-                '08' => array( 'name' => '株式会社クボタ計装', 'url' => 'https://www.kubota-keiso.co.jp/' ),
-                '09' => array( 'name' => 'JFEアドバンテック株式会社', 'url' => 'https://www.jfe-advantech.co.jp/' ),
-                '10' => array( 'name' => '株式会社守隨本店', 'url' => 'https://www.shuzui.jp/' ),
-                '11' => array( 'name' => '新光電子株式会社', 'url' => 'https://www.vibra.co.jp/' ),
-                '12' => array( 'name' => '株式会社田中衡機工業所', 'url' => 'https://www.tanaka-scale.co.jp/' ),
-                '13' => array( 'name' => 'ユニパルス株式会社', 'url' => 'https://www.unipulse.tokyo/' ),
+                array( 'name' => '株式会社石蔵商店', 'url' => 'https://www.ishikura-s.co.jp/', 'logo' => 'brand01' ),
+                array( 'name' => '株式会社イシダ', 'url' => 'https://www.ishida.co.jp/ww/jp/', 'logo' => 'brand02' ),
+                array( 'name' => '株式会社エー・アンド・デイ', 'url' => 'https://www.aandd.co.jp/', 'logo' => 'brand03' ),
+                array( 'name' => '近江度量衡株式会社', 'url' => 'https://www.omiscale.co.jp/', 'logo' => 'brand04' ),
+                array( 'name' => '株式会社協立商会', 'url' => 'https://www.krsdigi.co.jp/', 'logo' => 'brand05' ),
+                array( 'name' => '株式会社櫛田度器製作所', 'url' => 'http://www.kushidadoki.com/', 'logo' => 'brand06' ),
+                array( 'name' => '株式会社CAS', 'url' => 'https://cas-japan.com/', 'logo' => 'brand07' ),
+                array( 'name' => '株式会社クボタ計装', 'url' => 'https://www.kubota-keiso.co.jp/', 'logo' => 'brand08' ),
+                array( 'name' => 'JFEアドバンテック株式会社', 'url' => 'https://www.jfe-advantech.co.jp/', 'logo' => 'brand09' ),
+                array( 'name' => '株式会社守隨本店', 'url' => 'https://www.shuzui.jp/', 'logo' => 'brand10' ),
+                array( 'name' => '新光電子株式会社', 'url' => 'https://www.vibra.co.jp/', 'logo' => 'brand11' ),
+                array( 'name' => '株式会社宝計機製作所', 'url' => 'https://www.takara-scale.co.jp/', 'logo' => 'brand15', 'ext' => 'png' ),
+                array( 'name' => '株式会社田中衡機工業所', 'url' => 'https://www.tanaka-scale.co.jp/', 'logo' => 'brand12' ),
+                array( 'name' => '株式会社日本製衡所', 'url' => 'https://www.nikko-scale.co.jp/', 'logo' => 'brand14', 'ext' => 'png' ),
+                array( 'name' => 'ユニパルス株式会社', 'url' => 'https://www.unipulse.tokyo/', 'logo' => 'brand13' ),
             );
-            foreach ($brands as $num => $brand) {
-                $logo_path = get_template_directory_uri() . '/assets/img/top/img_logo-brand' . $num . '.webp';
+            foreach ( $brands as $brand ) {
+                $ext   = isset( $brand['ext'] ) ? $brand['ext'] : 'webp';
+                $logo_path = get_template_directory_uri() . '/assets/img/top/img_logo-' . $brand['logo'] . '.' . $ext;
                 $name = $brand['name'];
                 $url  = ! empty( $brand['url'] ) ? $brand['url'] : '';
                 echo '<li>';
@@ -172,7 +175,7 @@ get_header();
                 </li>
                 <?php endwhile; ?>
             </ul>
-            <a href="<?php echo esc_url(home_url('/topics')); ?>">お知らせ一覧</a>
+            <a href="<?php echo esc_url(home_url('/topics/')); ?>">お知らせ一覧</a>
         </div>
         <?php
         endif;

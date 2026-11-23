@@ -262,8 +262,8 @@ function shinsei_kouki_enqueue_scripts() {
         wp_enqueue_style('privacy-style', get_template_directory_uri() . '/assets/css/privacy/privacy.css', array('shinsei-kouki-style'), '1.0.0');
     }
     if (is_page('contact') || is_page_template('page-contact.php')) {
-        wp_enqueue_style('contact-style', get_template_directory_uri() . '/assets/css/contact/contact.css', array('shinsei-kouki-style'), '1.0.0');
-        wp_enqueue_script('contact-script', get_template_directory_uri() . '/assets/js/contact/contact.js', array('jquery'), '1.0.0', true);
+        wp_enqueue_style('contact-style', get_template_directory_uri() . '/assets/css/contact/contact.css', array('shinsei-kouki-style'), '1.1.2');
+        wp_enqueue_script('contact-script', get_template_directory_uri() . '/assets/js/contact/contact.js', array('jquery'), '1.1.0', true);
     }
     if (!is_front_page() && (is_post_type_archive('topics') || is_tax('topics_category') || (is_single() && get_post_type() === 'topics') || (is_search() && get_query_var('post_type') === 'topics'))) {
         wp_enqueue_style('topics-style', get_template_directory_uri() . '/assets/css/topics/topics.css', array('shinsei-kouki-style'), '1.0.0');

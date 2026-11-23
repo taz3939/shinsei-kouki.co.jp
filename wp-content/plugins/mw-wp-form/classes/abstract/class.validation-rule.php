@@ -25,9 +25,9 @@ abstract class MW_WP_Form_Abstract_Validation_Rule {
 	/**
 	 * Constructor.
 	 *
-	 * @param MW_WP_Form_Data $Data MW_WP_Form_Data object.
+	 * @param MW_WP_Form_Data|null $Data MW_WP_Form_Data object.
 	 */
-	public function __construct( MW_WP_Form_Data $Data = null ) {
+	public function __construct( ?MW_WP_Form_Data $Data = null ) {
 		if ( ! $this->get_name() ) {
 			exit( 'MW_WP_Form_Abstract_Validation_Rule::$name must override.' );
 		}

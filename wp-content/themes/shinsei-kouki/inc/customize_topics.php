@@ -197,6 +197,18 @@ function shinsei_kouki_topics_date_archive_query($query) {
 }
 add_action('pre_get_posts', 'shinsei_kouki_topics_date_archive_query');
 
+// ページャー確認用：お知らせ一覧を一時的に1ページ1件に（確認後このブロックを削除し、元の件数に戻す）
+//function shinsei_kouki_topics_archive_posts_per_page($query) {
+//    if (is_admin() || !$query->is_main_query()) {
+//        return;
+//    }
+//    $post_type = $query->get('post_type');
+//    if ($post_type === 'topics' && !$query->get('p')) {
+//        $query->set('posts_per_page', 1);
+//    }
+//}
+//add_action('pre_get_posts', 'shinsei_kouki_topics_archive_posts_per_page', 20);
+
 function shinsei_kouki_limit_search_to_topics($query) {
     if (!is_admin() && $query->is_main_query()) {
         if (isset($query->query_vars['s']) && !empty($query->query_vars['s'])) {
